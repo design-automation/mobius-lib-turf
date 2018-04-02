@@ -231,3 +231,12 @@ export function getPropertyTypes(data: any): any {
     // return data
     return properties;
 }
+
+/**
+ * Add a feature to the model.
+ * @param data The geojson data..
+ * @param feature The feature to add.
+ */
+export function addFeature(data: any, feature: any): any {
+    data.features.push(feature);
+}
