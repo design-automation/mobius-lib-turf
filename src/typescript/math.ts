@@ -159,3 +159,60 @@ export function randFloat(min: number, max: number): number {
     if (max === undefined) {throw new Error("Invalid arg: max must be defined.");}
     return (Math.random() * (max - min)) + min;
 }
+
+/**
+ * Returns exp of a number.
+ *
+ * @param num The number.
+ * @returns The result
+ */
+export function exp(num: number): number {
+    if (num === undefined) {throw new Error("Invalid arg: num must be defined.");}
+    return Math.exp(num);
+}
+
+/**
+ * Returns the number to the exponent power.
+ *
+ * @param num The number.
+ * @param exponent The exponent power.
+ * @returns The result
+ */
+export function pow(num: number, exponent: number): number {
+    if (num === undefined) {throw new Error("Invalid arg: num must be defined.");}
+    if (exponent === undefined) {throw new Error("Invalid arg: exponent must be defined.");}
+    return Math.pow(num, exponent);
+}
+
+/**
+ * Returns the sigmoid of the number: 1/(1+Math.pow(Math.E, -num))
+ *
+ * @param num The number.
+ * @returns The result
+ */
+export function sigmoid(num: number): number {
+    if (num === undefined) {throw new Error("Invalid arg: num must be defined.");}
+    return 1/(1+Math.pow(Math.E, -num));
+}
+
+/**
+ * Returns the gaussian2 of the number: 1/(1+Math.pow(-num, 2))
+ *
+ * @param num The number.
+ * @returns The result.
+ */
+export function gaussian2(num: number): number {
+    if (num === undefined) {throw new Error("Invalid arg: num must be defined.");}
+    return 1/(1+Math.pow(-num, 2));
+}
+
+/**
+ * Returns the gaussian3 of the number: 1/(1+Math.pow(-num, 3))
+ *
+ * @param num The number.
+ * @returns The result.
+ */
+export function gaussian3(num: number): number {
+    if (num === undefined) {throw new Error("Invalid arg: num must be defined.");}
+    return 1/(1+Math.pow(-num, 3));
+}
