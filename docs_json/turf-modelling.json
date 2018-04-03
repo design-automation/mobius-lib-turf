@@ -1,0 +1,2241 @@
+{
+	"id": 0,
+	"name": "turf-modelling",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 130,
+			"name": "\"_export\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/turf-modelling/src/typescript/_export.ts",
+			"sources": [
+				{
+					"fileName": "_export.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "\"libs/filesys/download\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/turf-modelling/src/typescript/libs/filesys/download.ts",
+			"children": [
+				{
+					"id": 2,
+					"name": "save",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 3,
+							"name": "save",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 4,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 5,
+									"name": "filename",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "libs/filesys/download.ts",
+							"line": 1,
+							"character": 20
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						2
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "libs/filesys/download.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "\"libs/filesys/filesys\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/turf-modelling/src/typescript/libs/filesys/filesys.ts",
+			"children": [
+				{
+					"id": 7,
+					"name": "readFromJSONFile",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 8,
+							"name": "readFromJSONFile",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Read a file."
+							},
+							"parameters": [
+								{
+									"id": 9,
+									"name": "filename",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "libs/filesys/filesys.ts",
+							"line": 6,
+							"character": 32
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						7
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "libs/filesys/filesys.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "\"libs/geojson/read\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/turf-modelling/src/typescript/libs/geojson/read.ts",
+			"children": [
+				{
+					"id": 11,
+					"name": "path",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "libs/geojson/read.ts",
+							"line": 51,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"defaultValue": "\"../turf-modelling/src/assets/geojson/\""
+				},
+				{
+					"id": 12,
+					"name": "geojson",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 13,
+							"name": "geojson",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Converts geojson to a gs model.",
+								"returns": "Model\n"
+							},
+							"parameters": [
+								{
+									"id": 14,
+									"name": "filename",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The path to the file that cntains the geojson data."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "libs/geojson/read.ts",
+							"line": 58,
+							"character": 23
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						11
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						12
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "libs/geojson/read.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 15,
+			"name": "\"math\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/turf-modelling/src/typescript/math.ts",
+			"comment": {
+				"shortText": "Math functions."
+			},
+			"children": [
+				{
+					"id": 25,
+					"name": "abs",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 26,
+							"name": "abs",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the absolute value of a number.",
+								"text": "Returns num if num is positive, -num if num is negative and 0 if num=0<br/>\n",
+								"returns": "A number representing the absolute value of the specified number.\n\n<h3>Example:</h3>\n<code>\nnum1 = Math.abs(-1.234)\nnum2 = Math.abs(2.345)<br/>\n</code><br/><br/>\nExpected value of num1 is 1.234, and of num2 is 2.345.\n"
+							},
+							"parameters": [
+								{
+									"id": 27,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 74,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 19,
+					"name": "ceiling",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 20,
+							"name": "ceiling",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Rounds a number up to the nearest integer.",
+								"returns": "A number representing the smallest integer more than or equal to the specified number.\n\n<h3>Example:</h3>\n<code>\nnum = Math.ceiling(4.3)</code><br/><br/>\nExpected value of num is 5.\n"
+							},
+							"parameters": [
+								{
+									"id": 21,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 38,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 44,
+					"name": "exp",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 45,
+							"name": "exp",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns exp of a number.",
+								"returns": "The result\n"
+							},
+							"parameters": [
+								{
+									"id": 46,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 169,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 22,
+					"name": "floor",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 23,
+							"name": "floor",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Rounds a number down to the nearest integer.",
+								"returns": "A number representing the largest integer less than or equal to the specified number.\n\n<h3>Example:</h3>\n<code>\nnum = Math.floor(4.3)</code><br/><br/>\nExpected value of num is 4.\n"
+							},
+							"parameters": [
+								{
+									"id": 24,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 54,
+							"character": 21
+						}
+					]
+				},
+				{
+					"id": 54,
+					"name": "gaussian2",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 55,
+							"name": "gaussian2",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the gaussian2 of the number: 1/(1+Math.pow(-num, 2))",
+								"returns": "The result.\n"
+							},
+							"parameters": [
+								{
+									"id": 56,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 204,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 57,
+					"name": "gaussian3",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 58,
+							"name": "gaussian3",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the gaussian3 of the number: 1/(1+Math.pow(-num, 3))",
+								"returns": "The result.\n"
+							},
+							"parameters": [
+								{
+									"id": 59,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 215,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 28,
+					"name": "max",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 29,
+							"name": "max",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the largest number in a list of numbers.",
+								"returns": "A number representing the largest number in specified list of numbers.\n\n<h3>Example:</h3>\n<code>\nlist = [8,9,6,1,3]<br/>\nnum = Math.max(list)</code><br/><br/>\nExpected value of num is 9.\n"
+							},
+							"parameters": [
+								{
+									"id": 30,
+									"name": "nums",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "List of numbers."
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 91,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 31,
+					"name": "min",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 32,
+							"name": "min",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the smallest number in a list of numbers.",
+								"returns": "A number representing the smallest number in specified list of numbers.\n\n<h3>Example:</h3>\n<code>\nlist = [8,9,6,1,3]<br/>\nnum = Math.max(list)</code><br/><br/>\nExpected value of num is 1.\n"
+							},
+							"parameters": [
+								{
+									"id": 33,
+									"name": "nums",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 114,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 47,
+					"name": "pow",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 48,
+							"name": "pow",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the number to the exponent power.",
+								"returns": "The result\n"
+							},
+							"parameters": [
+								{
+									"id": 49,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 50,
+									"name": "exponent",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The exponent power."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 181,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 34,
+					"name": "rand",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 35,
+							"name": "rand",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a pseudo-random number between 0 (inclusive) and 1 (exclusive).",
+								"returns": "A pseudo-random number.\n"
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 130,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 40,
+					"name": "randFloat",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 41,
+							"name": "randFloat",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a pseudo-random floating point number between two numbers.",
+								"returns": "A pseudo-random floating point number.\n"
+							},
+							"parameters": [
+								{
+									"id": 42,
+									"name": "min",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Lower bound of range."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 43,
+									"name": "max",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Upper bound of range."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 157,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 36,
+					"name": "randInt",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 37,
+							"name": "randInt",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns a pseudo-random integer number between two numbers.",
+								"text": "Lower bound number is inclusive and upper bound number is exclusive.",
+								"returns": "A pseudo-random integer number.\n"
+							},
+							"parameters": [
+								{
+									"id": 38,
+									"name": "min",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Lower bound of range."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 39,
+									"name": "max",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Upper bound of range."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 142,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 16,
+					"name": "round",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 17,
+							"name": "round",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Rounds a number to the nearest integer.",
+								"returns": "A number representing the smallest integer more than or equal to the specified number.\n\n<h3>Example:</h3>\n<code>\nnum = Math.ceiling(4.5)</code><br/><br/>\nExpected value of num is 4.\n"
+							},
+							"parameters": [
+								{
+									"id": 18,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 22,
+							"character": 21
+						}
+					]
+				},
+				{
+					"id": 51,
+					"name": "sigmoid",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 52,
+							"name": "sigmoid",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the sigmoid of the number: 1/(1+Math.pow(Math.E, -num))",
+								"returns": "The result\n"
+							},
+							"parameters": [
+								{
+									"id": 53,
+									"name": "num",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The number."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "math.ts",
+							"line": 193,
+							"character": 23
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						25,
+						19,
+						44,
+						22,
+						54,
+						57,
+						28,
+						31,
+						47,
+						34,
+						40,
+						36,
+						16,
+						51
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "math.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 60,
+			"name": "\"model\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/turf-modelling/src/typescript/model.ts",
+			"comment": {
+				"shortText": "Functions for working with geojson models."
+			},
+			"children": [
+				{
+					"id": 100,
+					"name": "addFeature",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 101,
+							"name": "addFeature",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Add a feature to the model."
+							},
+							"parameters": [
+								{
+									"id": 102,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 103,
+									"name": "feature",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The feature to add.\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 240,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 61,
+					"name": "create",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 62,
+							"name": "create",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Creates a new empty model.",
+								"returns": "New model empty.\n"
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 20,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 66,
+					"name": "getCRS",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 67,
+							"name": "getCRS",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get CRS from geojson data.",
+								"returns": "The CRS or null\n"
+							},
+							"parameters": [
+								{
+									"id": 68,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 48,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 76,
+					"name": "getLinestrings",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 77,
+							"name": "getLinestrings",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get Linestrings from geojson data.",
+								"returns": "An array of features\n"
+							},
+							"parameters": [
+								{
+									"id": 78,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 88,
+							"character": 30
+						}
+					]
+				},
+				{
+					"id": 88,
+					"name": "getMultiLinestrings",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 89,
+							"name": "getMultiLinestrings",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get MultiLinestrings from geojson data.",
+								"returns": "An array of features\n"
+							},
+							"parameters": [
+								{
+									"id": 90,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 158,
+							"character": 35
+						}
+					]
+				},
+				{
+					"id": 85,
+					"name": "getMultiPoints",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 86,
+							"name": "getMultiPoints",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get MultiPoints from geojson data.",
+								"returns": "An array of features\n"
+							},
+							"parameters": [
+								{
+									"id": 87,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 141,
+							"character": 30
+						}
+					]
+				},
+				{
+					"id": 91,
+					"name": "getMultiPolygons",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 92,
+							"name": "getMultiPolygons",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get MultiPolygons from geojson data.",
+								"returns": "An array of features\n"
+							},
+							"parameters": [
+								{
+									"id": 93,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 176,
+							"character": 32
+						}
+					]
+				},
+				{
+					"id": 94,
+					"name": "getMultiPolygonsHoles",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 95,
+							"name": "getMultiPolygonsHoles",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get MultiPolygons with holes from geojson data.",
+								"returns": "An array of features\n"
+							},
+							"parameters": [
+								{
+									"id": 96,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 193,
+							"character": 37
+						}
+					]
+				},
+				{
+					"id": 73,
+					"name": "getPoints",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 74,
+							"name": "getPoints",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get points from geojson data.",
+								"returns": "An array of features\n"
+							},
+							"parameters": [
+								{
+									"id": 75,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 71,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 79,
+					"name": "getPolygons",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 80,
+							"name": "getPolygons",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get Polygons from geojson data.",
+								"returns": "An array of features\n"
+							},
+							"parameters": [
+								{
+									"id": 81,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 105,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 82,
+					"name": "getPolygonsHoles",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 83,
+							"name": "getPolygonsHoles",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get Polygons with holes from geojson data.",
+								"returns": "An array of features\n"
+							},
+							"parameters": [
+								{
+									"id": 84,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 122,
+							"character": 32
+						}
+					]
+				},
+				{
+					"id": 97,
+					"name": "getPropertyTypes",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 98,
+							"name": "getPropertyTypes",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Get property names and types",
+								"returns": "A map of property names -> property types\n"
+							},
+							"parameters": [
+								{
+									"id": 99,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data.."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 216,
+							"character": 32
+						}
+					]
+				},
+				{
+					"id": 63,
+					"name": "read",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 64,
+							"name": "read",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Reads geojson data from a file. ONLY WORKS ON SERVER.",
+								"returns": "Model\n"
+							},
+							"parameters": [
+								{
+									"id": 65,
+									"name": "filename",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The path to the file that cntains the geojson data."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 38,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 69,
+					"name": "setCRS",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 70,
+							"name": "setCRS",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Set CRS from geojson data."
+							},
+							"parameters": [
+								{
+									"id": 71,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The geojson data..\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 72,
+									"name": "crs",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "model.ts",
+							"line": 59,
+							"character": 22
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						100,
+						61,
+						66,
+						76,
+						88,
+						85,
+						91,
+						94,
+						73,
+						79,
+						82,
+						97,
+						63,
+						69
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "model.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 104,
+			"name": "\"properties\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/turf-modelling/src/typescript/properties.ts",
+			"comment": {
+				"shortText": "Functions for working with geojson properties."
+			},
+			"children": [
+				{
+					"id": 105,
+					"name": "getProperties",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 106,
+							"name": "getProperties",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns an object of key-value pairs, the properties of this feature.",
+								"returns": "New model empty.\n"
+							},
+							"parameters": [
+								{
+									"id": 107,
+									"name": "feature",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The feature data."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "properties.ts",
+							"line": 19,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 118,
+					"name": "getProperty",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 119,
+							"name": "getProperty",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the property value for the property with the specified name.\nIf the property does not exist, returns undefined.",
+								"returns": "The property value\n"
+							},
+							"parameters": [
+								{
+									"id": 120,
+									"name": "feature",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The feature data."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 121,
+									"name": "name",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The name of the property, a string."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "properties.ts",
+							"line": 61,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 108,
+					"name": "getPropertyNames",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 109,
+							"name": "getPropertyNames",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns an object of key-value pairs, the properties of this feature.",
+								"returns": "An array of property names\n"
+							},
+							"parameters": [
+								{
+									"id": 110,
+									"name": "feature",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The feature data."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "properties.ts",
+							"line": 29,
+							"character": 32
+						}
+					]
+				},
+				{
+					"id": 114,
+					"name": "hasProperty",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 115,
+							"name": "hasProperty",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns true if the  feature contains a property with the specified name.",
+								"returns": "True if teh feature contains a property with the specified name.\n"
+							},
+							"parameters": [
+								{
+									"id": 116,
+									"name": "feature",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The feature data."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 117,
+									"name": "name",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "properties.ts",
+							"line": 49,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 111,
+					"name": "numProperties",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 112,
+							"name": "numProperties",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the number of properties in a feature.",
+								"returns": "The number of properties.\n"
+							},
+							"parameters": [
+								{
+									"id": 113,
+									"name": "feature",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The feature data."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "properties.ts",
+							"line": 39,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 122,
+					"name": "setProperty",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 123,
+							"name": "setProperty",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Returns the property value for the property with the specified name.\nIf the property does not exist, returns undefined."
+							},
+							"parameters": [
+								{
+									"id": 124,
+									"name": "feature",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The feature data."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 125,
+									"name": "name",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The name of the property, a string."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 126,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "The value of the property, any value.\n"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "properties.ts",
+							"line": 74,
+							"character": 27
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						105,
+						118,
+						108,
+						114,
+						111,
+						122
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "properties.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 127,
+			"name": "\"test_data\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/turf-modelling/src/typescript/test_data.ts",
+			"children": [
+				{
+					"id": 128,
+					"name": "testData1",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 129,
+							"name": "testData1",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Some test dara"
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "test_data.ts",
+							"line": 4,
+							"character": 25
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						128
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "test_data.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "External modules",
+			"kind": 1,
+			"children": [
+				130,
+				1,
+				6,
+				10,
+				15,
+				60,
+				104,
+				127
+			]
+		}
+	]
+}
