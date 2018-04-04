@@ -59,8 +59,8 @@ export function getCRS(data: any): string {
 export function setCRS(data: any, crs: string): void {
     data.crs = {
         type: "name",
-        properties: {"name": crs}
-    }
+        properties: {name: crs},
+    };
 }
 
 /**
@@ -164,9 +164,8 @@ export function getMultiLinestrings(data: any): any {
         }
     }
     // return data
-    return multilinestrings
+    return multilinestrings;
 }
-
 
 /**
  * Get MultiPolygons from geojson data.
@@ -237,6 +236,25 @@ export function getPropertyTypes(data: any): any {
  * @param data The geojson data..
  * @param feature The feature to add.
  */
-export function addFeature(data: any, feature: any): any {
+export function addFeature(data: any, feature: any): void {
     data.features.push(feature);
+}
+
+/**
+ * Del a feature in the model.
+ * @param data The geojson data..
+ * @param feature The feature to del.
+ * @returns Ture if the feature was deleted, false if the feature with that id was not found.
+ */
+export function delFeature(data: any, feature: any): boolean {
+    let counter: number = 0;
+    for (const feature2 of data.features) {
+        if (feature.id === feature2.id) {
+            data.features.splice(counter, 1);
+            // delete data.features[counter]; //TODO not sure which is better
+            return true;
+        }
+        counter++;
+    }
+    return false;
 }

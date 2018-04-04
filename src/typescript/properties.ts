@@ -47,12 +47,12 @@ export function numProperties(feature: any): number {
  * @returns True if teh feature contains a property with the specified name.
  */
 export function hasProperty(feature: any, name: string): any {
-    return feature.hasOwnProperty(name);
+    return feature.properties.hasOwnProperty(name);
 }
 
 /**
  * Returns the property value for the property with the specified name.
- * If the property does not exist, returns undefined.
+ * If the property does not exist, throws an error.
  *
  * @param feature The feature data.
  * @param name The name of the property, a string.
@@ -60,7 +60,9 @@ export function hasProperty(feature: any, name: string): any {
  */
 export function getProperty(feature: any, name: string): any {
     if(!feature.hasOwnProperty(name)) {return undefined};
-    return feature[name];
+    const result: any = feature.properties[name];
+    if (result === undefined) {throw new Error("Property " + name + " not found.");}
+    return result;
 }
 
 /**
