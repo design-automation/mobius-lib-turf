@@ -59,7 +59,6 @@ export function hasProperty(feature: any, name: string): any {
  * @returns The property value
  */
 export function getProperty(feature: any, name: string): any {
-    if(!feature.hasOwnProperty(name)) {return undefined};
     const result: any = feature.properties[name];
     if (result === undefined) {throw new Error("Property " + name + " not found.");}
     return result;

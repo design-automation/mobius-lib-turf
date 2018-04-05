@@ -45,30 +45,6 @@ export function testData1(): any {
                             103.71413070000006,
                             1.3129237150000677,
                         ],
-                        [
-                            103.71435015800006,
-                            1.3129190970000195,
-                        ],
-                        [
-                            103.71435028100007,
-                            1.3129686340000717,
-                        ],
-                        [
-                            103.71505793782032,
-                            1.31295236424893,
-                        ],
-                        [
-                            103.71529165550318,
-                            1.3129473648278815,
-                        ],
-                        [
-                            103.71529256800642,
-                            1.3129473446069151,
-                        ],
-                        [
-                            103.71529692200005,
-                            1.3132188960000235,
-                        ],
                     ],
                 ],
             },
@@ -77,8 +53,8 @@ export function testData1(): any {
                 objectid_1: "4",
                 LANDUSE: "BUSINESS 2",
                 LAND_TYPE: "SC_Generic",
-                PDT_OWNER: "CLB",
-                Status_Cat: "Clusters' softbooking / reservation",
+                PDT_OWNER: "Unknown",
+                Status_Cat: "Test Data",
                 DIST_EWL: 2927.46,
                 DIST_FEED: 3778.194,
                 DIST_TRUNK: 111.151,

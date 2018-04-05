@@ -23,7 +23,7 @@ export function create(): any {
         crs: {
             type: "name",
             properties: {
-                "name": "EPSG:4326",
+                name: "EPSG:4326",
             },
         },
         features: [],
