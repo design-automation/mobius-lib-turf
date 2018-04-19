@@ -4,3 +4,5 @@ import * as properties from "./properties";
 export {properties};
 import * as math from "./math";
 export {math};
+import * as measure from "./turf/measure";
+export {measure};

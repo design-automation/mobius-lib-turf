@@ -18,7 +18,7 @@ export function test_properties_getProperties(): boolean {
     const model: any = td.testData1();
     const polys: any = tm.model.getPolygons(model);
     const props: any = tm.properties.getProperties(polys[0]);
-    console.log(props);
+    //console.log(props);
     return true;
 }
 
@@ -37,6 +37,6 @@ export function test_properties_setProperty(): boolean {
     const polys: any = tm.model.getPolygons(model);
     tm.properties.setProperty(polys[0], "aaa", tm.math.max([1, 12, 32, 12345, 555]));
     const props: any = tm.properties.getProperties(polys[0]);
-    console.log(props);
+    //console.log(props);
     return true;
 }

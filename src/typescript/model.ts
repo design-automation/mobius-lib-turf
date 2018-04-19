@@ -220,7 +220,7 @@ export function getPropertyTypes(data: any): any {
         for (const key of Object.keys(propos)) {
             if (!properties.has(key)) {
                 if (isNaN(propos[key])) {
-                    properties.set(key, "string");
+                    properties.set(key, "string"); // TODO what about objs
                 } else {
                     properties.set(key, "number");
                 }
@@ -241,10 +241,10 @@ export function addFeature(data: any, feature: any): void {
 }
 
 /**
- * Del a feature in the model.
- * @param data The geojson data..
- * @param feature The feature to del.
- * @returns Ture if the feature was deleted, false if the feature with that id was not found.
+ * Delete a feature in the model.
+ * @param data The geojson data.
+ * @param feature The feature to delete.
+ * @returns Ture if the feature was deleted, false if the ID was not found.
  */
 export function delFeature(data: any, feature: any): boolean {
     let counter: number = 0;
