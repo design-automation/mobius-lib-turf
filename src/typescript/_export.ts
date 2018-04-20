@@ -1,5 +1,5 @@
-import * as model from "./model";
-export {model};
+import * as feature_coll from "./feature_coll";
+export {feature_coll};
 import * as properties from "./properties";
 export {properties};
 import * as math from "./math";

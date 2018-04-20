@@ -6,6 +6,8 @@
  * Features contain properties.
  */
 
+import * as turf from "@turf/turf";
+
 //  ===============================================================================================================
 //  Model Constructors ===========================================================================================
 //  ===============================================================================================================
@@ -16,7 +18,7 @@
  * @param feature The feature data.
  * @returns New model empty.
  */
-export function getProperties(feature: any): any {
+export function getProperties(feature: turf.Feature): turf.Properties {
     return feature.properties;
 }
 
@@ -26,7 +28,7 @@ export function getProperties(feature: any): any {
  * @param feature The feature data.
  * @returns An array of property names
  */
-export function getPropertyNames(feature: any): string[] {
+export function getPropertyNames(feature: turf.Feature): string[] {
     return feature.properties.keys();
 }
 
@@ -36,7 +38,7 @@ export function getPropertyNames(feature: any): string[] {
  * @param feature The feature data.
  * @returns The number of properties.
  */
-export function numProperties(feature: any): number {
+export function numProperties(feature: turf.Feature): number {
     return feature.properties.length;
 }
 
@@ -44,9 +46,9 @@ export function numProperties(feature: any): number {
  * Returns true if the  feature contains a property with the specified name.
  *
  * @param feature The feature data.
- * @returns True if teh feature contains a property with the specified name.
+ * @returns True if the feature contains a property with the specified name.
  */
-export function hasProperty(feature: any, name: string): any {
+export function hasProperty(feature: turf.Feature, name: string): boolean {
     return feature.properties.hasOwnProperty(name);
 }
 
@@ -58,7 +60,7 @@ export function hasProperty(feature: any, name: string): any {
  * @param name The name of the property, a string.
  * @returns The property value
  */
-export function getProperty(feature: any, name: string): any {
+export function getProperty(feature: turf.Feature, name: string): any {
     const result: any = feature.properties[name];
     if (result === undefined) {throw new Error("Property " + name + " not found.");}
     return result;
@@ -72,6 +74,6 @@ export function getProperty(feature: any, name: string): any {
  * @param name The name of the property, a string.
  * @param value The value of the property, any value.
  */
-export function setProperty(feature: any, name: string, value: any): void {
+export function setProperty(feature: turf.Feature, name: string, value: any): void {
     feature.properties[name] = value;
 }

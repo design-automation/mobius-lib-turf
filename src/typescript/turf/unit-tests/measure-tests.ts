@@ -1,5 +1,6 @@
 import * as tm from "../../_export";
 import * as td from "../../test_data";
+import * as turf from "@turf/turf";
 import {} from "jasmine";
 
 describe("Tests for Measure Module", () => {
@@ -9,8 +10,8 @@ describe("Tests for Measure Module", () => {
 });
 
 export function test_measure_centroid(): boolean {
-    const model: any = td.testData1();
-    const polys: any = tm.model.getPolygons(model);
+    const model: turf.FeatureCollection = td.testData1();
+    const polys: Array<turf.Feature<turf.Polygon>> = tm.feature_coll.getPolygons(model);
     for (const poly of polys) {
         const centroid: any = tm.measure.centroid(poly);
         //console.log(centroid);

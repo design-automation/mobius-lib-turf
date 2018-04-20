@@ -1,15 +1,17 @@
 /**
- * Some test dara
+ * Some test data
  */
-export function testData1(): any {
+ import * as turf from "@turf/turf";
+
+export function testData1(): turf.FeatureCollection {
     return {
         type: "FeatureCollection",
-        crs: {
-            type: "name",
-            properties: {
-                name: "EPSG:4326",
-            },
-        },
+        // crs: {
+        //     type: "name",
+        //     properties: {
+        //         name: "EPSG:4326",
+        //     },
+        // },
         features: [{
             type: "Feature",
             id: 0,

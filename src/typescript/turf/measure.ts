@@ -17,9 +17,9 @@ import * as turf from "@turf/turf";
  * var centroid = turf.centroid(polygon);
  *
  * @param geojson GeoJSON to be centered.
- * @param properties An Object that is used as the Feature 's properties.
+ * @param properties An Object that is used as the Feature's properties.
  * @returns Feature <Point> - the centroid of the input features.
  */
-export function centroid(polygon: any): any {
-    return turf.centroid(polygon);
+export function centroid(geojson: turf.AllGeoJSON, properties?: turf.Properties): turf.Feature<turf.Point> {
+    return turf.centroid(geojson, properties);
 }
