@@ -8,10 +8,7 @@
  */
 
 export {
-    along,
     area,
-    bbox,
-    bboxPolygon,
     bearing,
     center,
     centerOfMass,
@@ -19,14 +16,16 @@ export {
     destination,
     distance,
     envelope,
-    length,
+    greatCircle,
+    length as len,
     midpoint,
-    pointOnFeature,
-    polygonTangents,
+    nearestPoint,
+    nearestPointOnLine,
     pointToLineDistance,
+    polygonTangents,
     rhumbBearing,
     rhumbDestination,
     rhumbDistance,
-    square,
-    greatCircle
+    shortestPath,
+    voronoi
 } from "@turf/turf";

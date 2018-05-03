@@ -8,22 +8,7 @@
  */
 
 export {
-    bboxClip,
-    bezierSpline,
-    buffer,
-    circle,
-    clone,
-    concave,
-    convex,
-    difference,
-    dissolve,
-    intersect,
-    lineOffset,
-    simplify,
-    tesselate,
-    transformRotate,
-    transformTranslate,
-    transformScale,
-    union,
-    voronoi
+    transformRotate as rotate,
+    transformTranslate as transform,
+    transformScale as scale
 } from "@turf/turf";

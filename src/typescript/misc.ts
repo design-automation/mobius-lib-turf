@@ -9,17 +9,8 @@
 
 export {
     kinks,
-    lineArc,
-    lineChunk,
-    lineIntersect,
-    lineOverlap,
-    lineSegment,
-    lineSlice,
-    lineSliceAlong,
-    lineSplit,
     mask,
-    nearestPointOnLine,
-    sector,
-    shortestPath,
-    unkinkPolygon
+    unkinkPolygon,
+    sample,
+    booleanClockwise as isClockwise
 } from "@turf/turf";

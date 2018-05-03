@@ -1,14 +1,21 @@
-import * as aggregate from "./aggregate";
-export {aggregate};
 
 import * as assert from "./assert";
 export {assert};
 
+import * as bbox from "./bbox";
+export {bbox};
+
 import * as bool from "./bool";
 export {bool};
 
-import * as classify from "./classify";
-export {classify};
+import * as calc from "./calc";
+export {calc};
+
+import * as cluster from "./cluster";
+export {cluster};
+
+import * as compare from "./compare";
+export {compare};
 
 import * as convert from "./convert";
 export {convert};
@@ -19,8 +26,8 @@ export {coords};
 import * as create from "./create";
 export {create};
 
-import * as data from "./data";
-export {data};
+import * as feature from "./feature";
+export {feature};
 
 import * as grids from "./grids";
 export {grids};
@@ -31,17 +38,17 @@ export {ipolate};
 import * as joins from "./joins";
 export {joins};
 
-import * as measure from "./measure";
-export {measure};
-
-import * as meta from "./meta";
-export {meta};
+import * as line from "./line";
+export {line};
 
 import * as misc from "./misc";
 export {misc};
 
-import * as random from "./random";
-export {random};
+import * as prop from "./prop";
+export {prop};
+
+import * as rand from "./rand";
+export {rand};
 
 import * as units from "./units";
 export {units};

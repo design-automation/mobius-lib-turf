@@ -10,6 +10,9 @@
 export {
     cleanCoords,
     flip,
+    coordAll as getAll,
+    getCoord as getFromPoint,
+    getCoords as getFromFeature,
     rewind,
     round,
     truncate

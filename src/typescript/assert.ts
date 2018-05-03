@@ -10,6 +10,6 @@
 export {
     collectionOf,
     containsNumber,
-    geojsonType,
-    featureOf
+    featureOf,
+    geojsonType
 } from "@turf/turf";

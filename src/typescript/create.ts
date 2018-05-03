@@ -8,13 +8,17 @@
  */
 
 export {
-    featureCollection,
+    lineArc as arc,
+    bbox,
+    circle,
+    featureCollection as fColl,
     feature,
-    geometryCollection,
+    geometryCollection as gColl,
     lineString,
-    multiLineString,
-    multiPoint,
-    multiPolygon,
+    multiLineString as mLinestring,
+    multiPoint as mPoint,
+    multiPolygon as mPolygon,
     point,
-    polygon
+    polygon,
+    sector
 } from "@turf/turf";

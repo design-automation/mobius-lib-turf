@@ -1,5 +1,5 @@
 /**
- * Turf CLASSIFICATION functions.
+ * Turf property functions.
  * http://turfjs.org/docs/
  */
 
@@ -8,5 +8,5 @@
  */
 
 export {
-    nearestPoint
+    collect
 } from "@turf/turf";
