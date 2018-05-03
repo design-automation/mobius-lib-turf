@@ -9,6 +9,6 @@
 
 export {
     collect,
-    clustersDbscan,
+    clustersDbscan as dbscan,
     clustersKmeans
 } from "@turf/turf";
