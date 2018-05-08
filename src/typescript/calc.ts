@@ -22,8 +22,8 @@ import * as turf from "@turf/turf";
  * var addToMap = [polygon]
  * polygon.properties.area = area
  */
-export function area(geojson, area) {
-    return turf.area(geojson, area);
+export function area(geojson) {
+    return turf.area(geojson);
 }
 
 /**

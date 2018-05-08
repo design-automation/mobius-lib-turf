@@ -13,7 +13,7 @@ export function test_measure_centroid(): boolean {
     const model: turf.FeatureCollection = td.testData1();
     const polys: Array<turf.Feature<turf.Polygon>> = model.features as Array<turf.Feature<turf.Polygon>>;
     for (const poly of polys) {
-        const centroid: any = tm.calc.centroid(poly);
+        const centroid: any = tm.calc.centroid(poly,undefined);
         //console.log(centroid);
     }
     return true;

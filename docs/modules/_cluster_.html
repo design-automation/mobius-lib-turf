@@ -72,6 +72,188 @@
 					</div>
 				</div>
 			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_cluster_.html#dbscan" class="tsd-kind-icon">dbscan</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_cluster_.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_cluster_.html#kmeans" class="tsd-kind-icon">kmeans</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="dbscan" class="tsd-anchor"></a>
+					<h3>dbscan</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">dbscan<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, maxDistance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DbscanPoints</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/1e05ca5/src/typescript/cluster.ts#L33">cluster.ts:33</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a set of Point|points and partition them into clusters according to {@link DBSCAN&#39;s|<a href="https://en.wikipedia.org/wiki/DBSCAN}">https://en.wikipedia.org/wiki/DBSCAN}</a> data clustering algorithm.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>// create random points with random z-values in their properties
+											var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
+											var maxDistance = 100;
+										var clustered = turf.clustersDbscan(points, maxDistance);</p>
+										<p>//addToMap
+										var addToMap = [clustered];</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>points: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>to be clustered</p>
+									</div>
+								</li>
+								<li>
+									<h5>maxDistance: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Maximum Distance between any point of the cluster to generate the clusters (kilometers only)</p>
+									</div>
+								</li>
+								<li>
+									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">DbscanPoints</span></h4>
+							<p>Clustered Points with an additional two properties associated to each Feature:</p>
+							<ul>
+								<li>{number} cluster - the associated clusterId</li>
+								<li>{string} dbscan - type of point it has been classified as (&#39;core&#39;|&#39;edge&#39;|&#39;noise&#39;)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="get" class="tsd-anchor"></a>
+					<h3>get</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/1e05ca5/src/typescript/cluster.ts#L89">cluster.ts:89</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get Cluster</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>var geojson = turf.featureCollection([
+											turf.point([0, 0], {&#39;marker-symbol&#39;: &#39;circle&#39;}),
+											turf.point([2, 4], {&#39;marker-symbol&#39;: &#39;star&#39;}),
+											turf.point([3, 6], {&#39;marker-symbol&#39;: &#39;star&#39;}),
+											turf.point([5, 1], {&#39;marker-symbol&#39;: &#39;square&#39;}),
+											turf.point([4, 2], {&#39;marker-symbol&#39;: &#39;circle&#39;})
+										]);</p>
+										<p>// Create a cluster using K-Means (adds <code>cluster</code> to GeoJSON properties)
+										var clustered = turf.clustersKmeans(geojson);</p>
+										<p>// Retrieve first cluster (0)
+											var cluster = turf.getCluster(clustered, {cluster: 0});
+										//= cluster</p>
+										<p>// Retrieve cluster based on custom properties
+											turf.getCluster(clustered, {&#39;marker-symbol&#39;: &#39;circle&#39;}).length;
+											//= 2
+											turf.getCluster(clustered, {&#39;marker-symbol&#39;: &#39;square&#39;}).length;
+										//= 1</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>GeoJSON Features</p>
+									</div>
+								</li>
+								<li>
+									<h5>filter: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Filter used on GeoJSON properties to get Cluster</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Single Cluster filtered by GeoJSON Properties</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="kmeans" class="tsd-anchor"></a>
+					<h3>kmeans</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">kmeans<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KmeansPoints</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/1e05ca5/src/typescript/cluster.ts#L57">cluster.ts:57</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a set of Point|points and partition them into clusters using the k-mean .
+									It uses the <a href="https://en.wikipedia.org/wiki/K-means_clustering">k-means algorithm</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>// create random points with random z-values in their properties
+											var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
+											var options = {numberOfClusters: 7};
+										var clustered = turf.clustersKmeans(points, options);</p>
+										<p>//addToMap
+										var addToMap = [clustered];</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>points: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>to be clustered</p>
+									</div>
+								</li>
+								<li>
+									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">KmeansPoints</span></h4>
+							<p>Clustered Points with an additional two properties associated to each Feature:</p>
+							<ul>
+								<li>{number} cluster - the associated clusterId</li>
+								<li>{[number, number]} centroid - Centroid of the cluster [Longitude, Latitude]</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -146,6 +328,15 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_cluster_.html#dbscan" class="tsd-kind-icon">dbscan</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_cluster_.html#get" class="tsd-kind-icon">get</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_cluster_.html#kmeans" class="tsd-kind-icon">kmeans</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
