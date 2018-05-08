@@ -9,7 +9,7 @@
 import * as turf from "@turf/turf";
 
 /**
- * Finds the difference between two {@link Polygon|polygons} by clipping the second polygon from the first.
+ * Finds the difference between two polygons by clipping the second polygon from the first.
  *
  * @param {Feature<Polygon|MultiPolygon>} poly1 input Polygon feature
  * @param {Feature<Polygon|MultiPolygon>} poly2 Polygon feature to difference from polygon1
@@ -48,7 +48,7 @@ export function difference(poly1, poly2) {
  *
  * @param {Feature<Polygon>} poly1 the first polygon
  * @param {Feature<Polygon>} poly2 the second polygon
- * @returns {Feature|null} returns a feature representing the point(s) they share (in case of a Point  or MultiPoint), the borders they share (in case of a {@link LineString} or a {@link MultiLineString}), the area they share (in case of {@link Polygon} or {@link MultiPolygon}). If they do not share any point, returns `null`.
+ * @returns {Feature|null} returns a feature representing the point(s) they share (in case of a Point  or MultiPoint), the borders they share (in case of a LineString or a MultiLineString), the area they share (in case of Polygon or MultiPolygon). If they do not share any point, returns `null`.
  * @example
  * var poly1 = turf.polygon([[
  *   [-122.801742, 45.48565],
@@ -77,7 +77,7 @@ export function intersect(poly1, poly2) {
 }
 
 /**
- * Takes two or more Polygon and returns a combined polygon. If the input polygons are not contiguous, this function returns a {@link MultiPolygon} feature.
+ * Takes two or more Polygon and returns a combined polygon. If the input polygons are not contiguous, this function returns a MultiPolygon feature.
  *
  * @param {Feature<Polygon>[]} polys An array of polygons to combine
  * @returns {Feature<(Polygon|MultiPolygon)>} a combined Polygon or MultiPolygon feature
