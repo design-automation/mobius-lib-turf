@@ -1,7 +1,4 @@
 
-import * as assert from "./assert";
-export {assert};
-
 import * as bbox from "./bbox";
 export {bbox};
 
@@ -35,9 +32,6 @@ export {grids};
 import * as ipolate from "./ipolate";
 export {ipolate};
 
-import * as joins from "./joins";
-export {joins};
-
 import * as line from "./line";
 export {line};
 
@@ -49,9 +43,6 @@ export {prop};
 
 import * as rand from "./rand";
 export {rand};
-
-import * as units from "./units";
-export {units};
 
 import * as xform from "./xform";
 export {xform};
