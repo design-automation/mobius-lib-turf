@@ -1,0 +1,1126 @@
+{
+	"id": 0,
+	"name": "mobius-turf",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 59,
+			"name": "\"_export\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/_export.ts",
+			"sources": [
+				{
+					"fileName": "_export.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "\"assert\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/assert.ts",
+			"comment": {
+				"shortText": "Turf ASSERTIONS functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "assert.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "\"bbox\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/bbox.ts",
+			"comment": {
+				"shortText": "Turf bbox functions.\nhttp://turfjs.org/docs/"
+			},
+			"children": [
+				{
+					"id": 12,
+					"name": "clip",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 13,
+							"name": "clip",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Takes a Feature and a bbox and clips the feature to the bbox using [lineclip](https://github.com/mapbox/lineclip).\nMay result in degenerate edges when clipping Polygons.",
+								"returns": "clipped Feature",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\nvar bbox = [0, 0, 10, 10];\nvar poly = turf.polygon([[[2, 2], [8, 4], [12, 8], [3, 7], [2, 2]]]);\n\nvar clipped = turf.bboxClip(poly, bbox);\n\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 14,
+									"name": "feature",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "feature to clip to the bbox"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 15,
+									"name": "bbox",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "extent in [minX, minY, maxX, maxY] order"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Feature",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									},
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 16,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"indexSignature": [
+												{
+													"id": 17,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 18,
+															"name": "name",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "bbox.ts",
+							"line": 56,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 3,
+					"name": "polygon",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 4,
+							"name": "polygon",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Takes a bbox and returns an equivalent Polygon.",
+								"returns": "a Polygon representation of the bounding box",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\nvar bbox = [0, 0, 10, 10];\n\nvar poly = turf.bboxPolygon(bbox);\n\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 5,
+									"name": "bbox",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "extent in [minX, minY, maxX, maxY] order"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Feature",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "Polygon"
+									},
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 6,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"indexSignature": [
+												{
+													"id": 7,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 8,
+															"name": "name",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "bbox.ts",
+							"line": 22,
+							"character": 23
+						}
+					]
+				},
+				{
+					"id": 9,
+					"name": "square",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 10,
+							"name": "square",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Takes a bounding box and calculates the minimum square bounding box that\nwould contain the input.",
+								"returns": "a square surrounding `bbox`",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\nvar bbox = [-20, -20, -15, 0];\nvar squared = turf.square(bbox);\n\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 11,
+									"name": "bbox",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "extent in [west, south, east, north] order"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "Object"
+									},
+									{
+										"type": "intrinsic",
+										"name": "Object"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "bbox.ts",
+							"line": 38,
+							"character": 22
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						12,
+						3,
+						9
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "bbox.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 19,
+			"name": "\"bool\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/bool.ts",
+			"comment": {
+				"shortText": "Turf graphical boolean functions.\nhttp://turfjs.org/docs/"
+			},
+			"children": [
+				{
+					"id": 20,
+					"name": "difference",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 21,
+							"name": "difference",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Finds the difference between two {@link Polygon|polygons} by clipping the second polygon from the first.",
+								"returns": "a Polygon or MultiPolygon feature showing the area of `polygon1` excluding the area of `polygon2` (if empty returns `null`)",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\nvar polygon1 = turf.polygon([[\n  [128, -26],\n  [141, -26],\n  [141, -21],\n  [128, -21],\n  [128, -26]\n]], {\n  \"fill\": \"#F00\",\n  \"fill-opacity\": 0.1\n});\nvar polygon2 = turf.polygon([[\n  [126, -28],\n  [140, -28],\n  [140, -20],\n  [126, -20],\n  [126, -28]\n]], {\n  \"fill\": \"#00F\",\n  \"fill-opacity\": 0.1\n});\n\nvar difference = turf.difference(polygon1, polygon2);\n\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 22,
+									"name": "poly1",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "input Polygon feature"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 23,
+									"name": "poly2",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "Polygon feature to difference from polygon1"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Feature",
+								"typeArguments": [
+									{
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"name": "Polygon"
+											},
+											{
+												"type": "reference",
+												"name": "MultiPolygon"
+											}
+										]
+									},
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 24,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"indexSignature": [
+												{
+													"id": 25,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 26,
+															"name": "name",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "bool.ts",
+							"line": 42,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 27,
+					"name": "intersect",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 28,
+							"name": "intersect",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Takes two Polygon and finds their intersection. If they share a border, returns the border; if they don't intersect, returns undefined.",
+								"returns": "returns a feature representing the point(s) they share (in case of a Point  or MultiPoint), the borders they share (in case of a {@link LineString} or a {@link MultiLineString}), the area they share (in case of {@link Polygon} or {@link MultiPolygon}). If they do not share any point, returns `null`.",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\nvar poly1 = turf.polygon([[\n  [-122.801742, 45.48565],\n  [-122.801742, 45.60491],\n  [-122.584762, 45.60491],\n  [-122.584762, 45.48565],\n  [-122.801742, 45.48565]\n]]);\n\nvar poly2 = turf.polygon([[\n  [-122.520217, 45.535693],\n  [-122.64038, 45.553967],\n  [-122.720031, 45.526554],\n  [-122.669906, 45.507309],\n  [-122.723464, 45.446643],\n  [-122.532577, 45.408574],\n  [-122.487258, 45.477466],\n  [-122.520217, 45.535693]\n]]);\n\nvar intersection = turf.intersect(poly1, poly2);\n\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 29,
+									"name": "poly1",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "the first polygon"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 30,
+									"name": "poly2",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "the second polygon"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Feature",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									},
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 31,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"indexSignature": [
+												{
+													"id": 32,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 33,
+															"name": "name",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "bool.ts",
+							"line": 75,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 34,
+					"name": "union",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 35,
+							"name": "union",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Takes two or more Polygon and returns a combined polygon. If the input polygons are not contiguous, this function returns a {@link MultiPolygon} feature.",
+								"returns": "a combined Polygon or MultiPolygon feature",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\nvar poly1 = turf.polygon([[\n    [-82.574787, 35.594087],\n    [-82.574787, 35.615581],\n    [-82.545261, 35.615581],\n    [-82.545261, 35.594087],\n    [-82.574787, 35.594087]\n]], {\"fill\": \"#0f0\"});\nvar poly2 = turf.polygon([[\n    [-82.560024, 35.585153],\n    [-82.560024, 35.602602],\n    [-82.52964, 35.602602],\n    [-82.52964, 35.585153],\n    [-82.560024, 35.585153]\n]], {\"fill\": \"#00f\"});\n\nvar union = turf.union([poly1, poly2]);\n\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 36,
+									"name": "polys",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "An array of polygons to combine"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Feature",
+								"typeArguments": [
+									{
+										"type": "union",
+										"types": [
+											{
+												"type": "reference",
+												"name": "Polygon"
+											},
+											{
+												"type": "reference",
+												"name": "MultiPolygon"
+											}
+										]
+									},
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 37,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"indexSignature": [
+												{
+													"id": 38,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 39,
+															"name": "name",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "bool.ts",
+							"line": 103,
+							"character": 21
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						20,
+						27,
+						34
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "bool.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 40,
+			"name": "\"calc\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/calc.ts",
+			"comment": {
+				"shortText": "Turf measurement functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "calc.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 41,
+			"name": "\"cluster\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/cluster.ts",
+			"comment": {
+				"shortText": "Turf AGGREGATION functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "cluster.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 42,
+			"name": "\"compare\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/compare.ts",
+			"comment": {
+				"shortText": "Turf BOOLEANS functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "compare.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 43,
+			"name": "\"convert\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/convert.ts",
+			"comment": {
+				"shortText": "Turf FEATURE CONVERSION functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "convert.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 44,
+			"name": "\"coords\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/coords.ts",
+			"comment": {
+				"shortText": "Turf COORDINATE MUTATION functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "coords.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 45,
+			"name": "\"create\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/create.ts",
+			"comment": {
+				"shortText": "Turf HELPER functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "create.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 46,
+			"name": "\"feature\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/feature.ts",
+			"comment": {
+				"shortText": "Turf feature functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "feature.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 47,
+			"name": "\"grids\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/grids.ts",
+			"comment": {
+				"shortText": "Turf GRIDS functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "grids.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 48,
+			"name": "\"ipolate\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/ipolate.ts",
+			"comment": {
+				"shortText": "Turf INTERPOLATION functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "ipolate.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 49,
+			"name": "\"joins\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/joins.ts",
+			"comment": {
+				"shortText": "Turf JOINS functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "joins.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 50,
+			"name": "\"line\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/line.ts",
+			"comment": {
+				"shortText": "Turf line functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "line.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 51,
+			"name": "\"misc\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/misc.ts",
+			"comment": {
+				"shortText": "Turf MISC functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "misc.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 52,
+			"name": "\"prop\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/prop.ts",
+			"comment": {
+				"shortText": "Turf property functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "prop.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 53,
+			"name": "\"rand\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/rand.ts",
+			"comment": {
+				"shortText": "Turf RANDOM functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "rand.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 54,
+			"name": "\"test_data\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/test_data.ts",
+			"children": [
+				{
+					"id": 55,
+					"name": "testData1",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 56,
+							"name": "testData1",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "FeatureCollection"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "test_data.ts",
+							"line": 6,
+							"character": 25
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						55
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "test_data.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 57,
+			"name": "\"units\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/units.ts",
+			"comment": {
+				"shortText": "Turf UNIT CONVERSION functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "units.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 58,
+			"name": "\"xform\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/xform.ts",
+			"comment": {
+				"shortText": "Turf TRANSFORMATION functions.\nhttp://turfjs.org/docs/"
+			},
+			"sources": [
+				{
+					"fileName": "xform.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "External modules",
+			"kind": 1,
+			"children": [
+				59,
+				1,
+				2,
+				19,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46,
+				47,
+				48,
+				49,
+				50,
+				51,
+				52,
+				53,
+				54,
+				57,
+				58
+			]
+		}
+	]
+}
