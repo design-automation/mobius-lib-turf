@@ -41,9 +41,6 @@ export function cleanCoords(geojson, parameters) {
  * var serbia = turf.point([20.566406, 43.421008]);
  *
  * var saudiArabia = turf.flip(serbia);
- *
- * //addToMap
- * var addToMap = [serbia, saudiArabia];
  */
 export function flip(geojson, parameters) {
     return turf.flip(geojson, parameters);
@@ -98,7 +95,7 @@ export function getFromFeature(obj) {
 }
 
 /**
- * Rewind {@link LineString|(Multi)LineString} or {@link Polygon|(Multi)Polygon} outer ring counterclockwise and inner rings clockwise (Uses {@link http://en.wikipedia.org/wiki/Shoelace_formula|Shoelace Formula}).
+ * Rewind (Multi)LineString or (Multi)Polygon outer ring counterclockwise and inner rings clockwise (http://en.wikipedia.org/wiki/Shoelace_formula|Shoelace Formula).
  *
  * @param {GeoJSON} geojson input GeoJSON Polygon
  * @param {Object} [options={}] Optional parameters
@@ -109,9 +106,6 @@ export function getFromFeature(obj) {
  * var polygon = turf.polygon([[[121, -29], [138, -29], [138, -18], [121, -18], [121, -29]]]);
  *
  * var rewind = turf.rewind(polygon);
- *
- * //addToMap
- * var addToMap = [rewind];
  */
 export function rewind(geojson, parameters) {
     return turf.rewind(geojson, parameters);
@@ -130,8 +124,8 @@ export function rewind(geojson, parameters) {
  * turf.round(120.4321, 2)
  * //=120.43
  */
-export function round(num, Precision) {
-    return turf.round(num, Precision);
+export function round(num, precision) {
+    return turf.round(num, precision);
 }
 
 /**

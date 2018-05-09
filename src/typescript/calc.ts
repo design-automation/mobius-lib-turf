@@ -17,10 +17,6 @@ import * as turf from "@turf/turf";
  * var polygon = turf.polygon([[[125, -15], [113, -22], [154, -27], [144, -15], [125, -15]]]);
  *
  * var area = turf.area(polygon);
- *
- * //addToMap
- * var addToMap = [polygon]
- * polygon.properties.area = area
  */
 export function area(geojson) {
     return turf.area(geojson);
@@ -40,12 +36,6 @@ export function area(geojson) {
  * var point2 = turf.point([-75.534, 39.123]);
  *
  * var bearing = turf.bearing(point1, point2);
- *
- * //addToMap
- * var addToMap = [point1, point2]
- * point1.properties['marker-color'] = '#f00'
- * point2.properties['marker-color'] = '#0f0'
- * point1.properties.bearing = bearing
  */
 export function bearing(start, end, parameters) {
     return turf.bearing(start, end, parameters);
@@ -66,11 +56,6 @@ export function bearing(start, end, parameters) {
  * ]);
  *
  * var center = turf.center(features);
- *
- * //addToMap
- * var addToMap = [features, center]
- * center.properties['marker-size'] = 'large';
- * center.properties['marker-color'] = '#000';
  */
 export function center(geojson, parameters) {
     return turf.center(geojson, parameters);
@@ -86,9 +71,6 @@ export function center(geojson, parameters) {
  * var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
  *
  * var center = turf.centerOfMass(polygon);
- *
- * //addToMap
- * var addToMap = [polygon, center]
  */
 export function centerOfMass(geojson, parameters) {
     return turf.centerOfMass(geojson, parameters);
@@ -105,9 +87,6 @@ export function centerOfMass(geojson, parameters) {
  * var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
  *
  * var centroid = turf.centroid(polygon);
- *
- * //addToMap
- * var addToMap = [polygon, centroid]
  */
 export function centroid(geojson, parameters) {
     return turf.centroid(geojson, parameters);
@@ -117,8 +96,8 @@ export function centroid(geojson, parameters) {
  * Takes a Point and calculates the location of a destination point given a distance in degrees, radians, miles, or kilometers; and bearing in degrees. This uses the [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula) to account for global curvature.
  *
  * @param {Coord} origin starting point
- * @param {number} distance distance from the origin point
- * @param {number} bearing ranging from -180 to 180
+ * @param {number} dist distance from the origin point
+ * @param {number} angle bearing ranging from -180 to 180
  * @param {Object} [options={}] Optional parameters
  * @param {string} [options.units='kilometers'] miles, kilometers, degrees, or radians
  * @param {Object} [options.properties={}] Translate properties to Point
@@ -130,29 +109,31 @@ export function centroid(geojson, parameters) {
  * var options = {units: 'miles'};
  *
  * var destination = turf.destination(point, distance, bearing, options);
- *
- * //addToMap
- * var addToMap = [point, destination]
- * destination.properties['marker-color'] = '#f00';
- * point.properties['marker-color'] = '#0f0';
  */
-export function destination(origin, distance, bearing, parameters) {
-    return turf.destination(origin, distance, bearing, parameters);
+export function destination(origin, dist, angle, parameters) {
+    return turf.destination(origin, dist, angle, parameters);
 }
 
 /**
- * Returns the distance between a point P on a segment AB.
+ * Calculates the distance between two points in degrees, radians,
+ * miles, or kilometers. This uses the
+ * [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula)
+ * to account for global curvature.
  *
- * @param {Array<number>} point external point
- * @param {Array<number>} seg_point1 first segment point
- * @param {Array<number>} seg_point2 second segment point
+ * @param {Coord} from origin point
+ * @param {Coord} to destination point
  * @param {Object} [options={}] Optional parameters
  * @param {string} [options.units='kilometers'] can be degrees, radians, miles, or kilometers
- * @param {boolean} [options.mercator=false] if distance should be on Mercator or WGS84 projection
- * @returns {number} distance
+ * @returns {number} distance between the two points
+ * @example
+ * var from = turf.point([-75.343, 39.984]);
+ * var to = turf.point([-75.534, 39.123]);
+ * var options = {units: 'miles'};
+ *
+ * var distance = turf.distance(from, to, options);
  */
-export function distance(point, seg_point1, seg_point2) {
-    return turf.distance(point, seg_point1, seg_point2);
+export function distance(from, to, parameters) {
+    return turf.distance(from, to, parameters);
 }
 
 /**
@@ -168,9 +149,6 @@ export function distance(point, seg_point1, seg_point2) {
  * ]);
  *
  * var enveloped = turf.envelope(features);
- *
- * //addToMap
- * var addToMap = [features, enveloped];
  */
 export function envelope(geojson) {
     return turf.envelope(geojson);
@@ -192,9 +170,6 @@ export function envelope(geojson) {
  * var end = turf.point([-77, 39]);
  *
  * var greatCircle = turf.greatCircle(start, end, {'name': 'Seattle to DC'});
- *
- * //addToMap
- * var addToMap = [start, end, greatCircle]
  */
 export function greatCircle(start, end, parameters) {
     return turf.greatCircle(start, end, parameters);
@@ -210,17 +185,13 @@ export function greatCircle(start, end, parameters) {
  * @example
  * var line = turf.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);
  * var length = turf.length(line, {units: 'miles'});
- *
- * //addToMap
- * var addToMap = [line];
- * line.properties.distance = length;
  */
 export function len(geojson, parameters) {
     return turf.length(geojson, parameters);
 }
 
 /**
- * Takes two Point|points and returns a point midway between them.
+ * Takes two points and returns a point midway between them.
  * The midpoint is calculated geodesically, meaning the curvature of the earth is taken into account.
  *
  * @param {Coord} point1 first point
@@ -231,17 +202,13 @@ export function len(geojson, parameters) {
  * var point2 = turf.point([145.14244, -37.830937]);
  *
  * var midpoint = turf.midpoint(point1, point2);
- *
- * //addToMap
- * var addToMap = [point1, point2, midpoint];
- * midpoint.properties['marker-color'] = '#f00';
  */
 export function midpoint(point1, point2) {
     return turf.midpoint(point1, point2);
 }
 
 /**
- * Takes a reference Point|point and a FeatureCollection of Features
+ * Takes a reference point and a FeatureCollection of Features
  * with Point geometries and returns the
  * point from the FeatureCollection closest to the reference. This calculation
  * is geodesic.
@@ -258,10 +225,6 @@ export function midpoint(point1, point2) {
  * ]);
  *
  * var nearest = turf.nearestPoint(targetPoint, points);
- *
- * //addToMap
- * var addToMap = [targetPoint, points, nearest];
- * nearest.properties['marker-color'] = '#F00';
  */
 export function nearestPoint(targetPoint, points) {
     return turf.nearestPoint(targetPoint, points);
@@ -287,10 +250,6 @@ export function nearestPoint(targetPoint, points) {
  * var pt = turf.point([-77.037076, 38.884017]);
  *
  * var snapped = turf.nearestPointOnLine(line, pt, {units: 'miles'});
- *
- * //addToMap
- * var addToMap = [line, pt, snapped];
- * snapped.properties['marker-color'] = '#00f';
  */
 export function nearestPointOnLine(lines, point, parameters) {
     return turf.nearestPointOnLine(lines, point, parameters);
@@ -328,16 +287,13 @@ export function pointToLineDistance(point, line, parameters) {
  * var point = turf.point([61, 5]);
  *
  * var tangents = turf.polygonTangents(point, polygon)
- *
- * //addToMap
- * var addToMap = [tangents, point, polygon];
  */
 export function polygonTangents(point, polygon) {
     return turf.polygonTangents(point, polygon);
 }
 
 /**
- * Takes two Point|points and finds the bearing angle between them along a Rhumb line
+ * Takes two points and finds the bearing angle between them along a Rhumb line
  * i.e. the angle measured in degrees start the north line (0 degrees)
  *
  * @param {Coord} start starting Point
@@ -350,11 +306,6 @@ export function polygonTangents(point, polygon) {
  * var point2 = turf.point([-75.534, 39.123], {"marker-color": "#00F"});
  *
  * var bearing = turf.rhumbBearing(point1, point2);
- *
- * //addToMap
- * var addToMap = [point1, point2];
- * point1.properties.bearing = bearing;
- * point2.properties.bearing = bearing;
  */
 export function rhumbBearing(start, end, parameters) {
     return turf.rhumbBearing(start, end, parameters);
@@ -365,8 +316,8 @@ export function rhumbBearing(start, end, parameters) {
  * origin Point with the (varant) given bearing.
  *
  * @param {Coord} origin starting point
- * @param {number} distance distance from the starting point
- * @param {number} bearing varant bearing angle ranging from -180 to 180 degrees from north
+ * @param {number} dist distance from the starting point
+ * @param {number} angle varant bearing angle ranging from -180 to 180 degrees from north
  * @param {Object} [options={}] Optional parameters
  * @param {string} [options.units='kilometers'] can be degrees, radians, miles, or kilometers
  * @param {Object} [options.properties={}] translate properties to destination point
@@ -378,13 +329,9 @@ export function rhumbBearing(start, end, parameters) {
  * var options = {units: 'miles'};
  *
  * var destination = turf.rhumbDestination(pt, distance, bearing, options);
- *
- * //addToMap
- * var addToMap = [pt, destination]
- * destination.properties['marker-color'] = '#00F';
  */
-export function rhumbDestination(origin, distance, bearing, parameters) {
-    return turf.rhumbDestination(origin, distance, bearing, parameters);
+export function rhumbDestination(origin, dist, angle, parameters) {
+    return turf.rhumbDestination(origin, dist, angle, parameters);
 }
 
 /**
@@ -402,18 +349,13 @@ export function rhumbDestination(origin, distance, bearing, parameters) {
  * var options = {units: 'miles'};
  *
  * var distance = turf.rhumbDistance(from, to, options);
- *
- * //addToMap
- * var addToMap = [from, to];
- * from.properties.distance = distance;
- * to.properties.distance = distance;
  */
-export function rhumbDistance(origin, destination, parameters) {
-    return turf.rhumbDistance(origin, destination, parameters);
+export function rhumbDistance(from, to, parameters) {
+    return turf.rhumbDistance(from, to, parameters);
 }
 
 /**
- * Returns the shortest LineString|path from Point|start to Point|end without colliding with
+ * Returns the shortest LineString path from start point to end point without colliding with
  * any Feature in FeatureCollection<Polygon>| obstacles
  *
  * @param {Coord} start point
@@ -432,9 +374,6 @@ export function rhumbDistance(origin, destination, parameters) {
  * };
  *
  * var path = turf.shortestPath(start, end, options);
- *
- * //addToMap
- * var addToMap = [start, end, options.obstacles, path];
  */
 export function shortestPath(start, end, parameters) {
     return turf.shortestPath(start, end, parameters);
@@ -456,9 +395,6 @@ export function shortestPath(start, end, parameters) {
  * };
  * var points = turf.randomPoint(100, options);
  * var voronoiPolygons = turf.voronoi(points, options);
- *
- * //addToMap
- * var addToMap = [voronoiPolygons, points];
  */
 export function voronoi(points, parameters) {
     return turf.voronoi(points, parameters);

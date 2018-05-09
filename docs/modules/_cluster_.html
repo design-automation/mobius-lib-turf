@@ -99,12 +99,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/cluster.ts#L33">cluster.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/cluster.ts#L30">cluster.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes a set of Point|points and partition them into clusters according to {@link DBSCAN&#39;s|<a href="https://en.wikipedia.org/wiki/DBSCAN}">https://en.wikipedia.org/wiki/DBSCAN}</a> data clustering algorithm.</p>
+									<p>Takes a set of Point|points and partition them into clusters according to [DBSCAN&#39;s data clustering algorithm] (<a href="https://en.wikipedia.org/wiki/DBSCAN)">https://en.wikipedia.org/wiki/DBSCAN)</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
@@ -112,8 +112,6 @@
 											var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
 											var maxDistance = 100;
 										var clustered = turf.clustersDbscan(points, maxDistance);</p>
-										<p>//addToMap
-										var addToMap = [clustered];</p>
 									</dd>
 								</dl>
 							</div>
@@ -154,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/cluster.ts#L89">cluster.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/cluster.ts#L83">cluster.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/cluster.ts#L57">cluster.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/cluster.ts#L51">cluster.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,8 +225,6 @@
 											var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
 											var options = {numberOfClusters: 7};
 										var clustered = turf.clustersKmeans(points, options);</p>
-										<p>//addToMap
-										var addToMap = [clustered];</p>
 									</dd>
 								</dl>
 							</div>

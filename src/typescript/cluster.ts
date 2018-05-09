@@ -10,7 +10,7 @@
  import * as turf from "@turf/turf";
 
 /**
- * Takes a set of Point|points and partition them into clusters according to {@link DBSCAN's|https://en.wikipedia.org/wiki/DBSCAN} data clustering algorithm.
+ * Takes a set of Point|points and partition them into clusters according to [DBSCAN's data clustering algorithm] (https://en.wikipedia.org/wiki/DBSCAN).
  *
  * @param {FeatureCollection<Point>} points to be clustered
  * @param {number} maxDistance Maximum Distance between any point of the cluster to generate the clusters (kilometers only)
@@ -26,9 +26,6 @@
  * var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
  * var maxDistance = 100;
  * var clustered = turf.clustersDbscan(points, maxDistance);
- *
- * //addToMap
- * var addToMap = [clustered];
  */
 export function dbscan(points, maxDistance, parameters) {
     return turf.clustersDbscan(points, maxDistance, parameters);
@@ -50,9 +47,6 @@ export function dbscan(points, maxDistance, parameters) {
  * var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
  * var options = {numberOfClusters: 7};
  * var clustered = turf.clustersKmeans(points, options);
- *
- * //addToMap
- * var addToMap = [clustered];
  */
 export function kmeans(points, parameters) {
     return turf.clustersKmeans(points, parameters);

@@ -32,8 +32,8 @@ export function kinks(feature) {
 /**
  * Takes any type of polygon and an optional mask and returns a polygon exterior ring with holes.
  *
- * @param {FeatureCollection|Feature<Polygon|MultiPolygon>} polygon GeoJSON Polygon used as interior rings or holes.
- * @param {Feature<Polygon>} [mask] GeoJSON Polygon used as the exterior ring (if undefined, the world extent is used)
+ * @param {FeatureCollection|Feature<Polygon|MultiPolygon>} polygon1 GeoJSON Polygon used as interior rings or holes.
+ * @param {Feature<Polygon>} polygon2 GeoJSON Polygon used as the exterior ring (if undefined, the world extent is used)
  * @returns {Feature<Polygon>} Masked Polygon (exterior ring with holes).
  * @example
  * var polygon = turf.polygon([[[112, -21], [116, -36], [146, -39], [153, -24], [133, -10], [112, -21]]]);
@@ -41,8 +41,8 @@ export function kinks(feature) {
  *
  * var masked = turf.mask(polygon, mask);
  */
-export function mask(polygon,mask) {
-    return turf.mask(polygon,mask);
+export function mask(polygon1,polygon2) {
+    return turf.mask(polygon1,polygon2);
 }
 
 /**

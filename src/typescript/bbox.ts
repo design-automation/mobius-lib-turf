@@ -23,7 +23,6 @@ export function polygon(bbox) {
     return turf.bboxPolygon(bbox);
 }
 
-
 /**
  * Takes a bounding box and calculates the minimum square bounding box that
  * would contain the input.
@@ -40,7 +39,7 @@ export function square(bbox) {
 }
 
 /**
- * Takes a Feature and a bbox and clips the feature to the bbox using [lineclip](https://github.com/mapbox/lineclip).
+ * Takes a Feature and a bbox and clips the feature to the bbox using [lineclip] (https://github.com/mapbox/lineclip).
  * May result in degenerate edges when clipping Polygons.
  *
  * @param {Feature<LineString|MultiLineString|Polygon|MultiPolygon>} feature feature to clip to the bbox
@@ -56,4 +55,3 @@ export function square(bbox) {
 export function clip(feature, bbox) {
     return turf.bboxClip(feature, bbox);
 }
-

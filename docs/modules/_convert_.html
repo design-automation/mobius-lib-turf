@@ -102,7 +102,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/convert.ts#L30">convert.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/convert.ts#L26">convert.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -117,8 +117,6 @@
 											turf.point([19.074497, 47.509548])
 										]);</p>
 										<p>var combined = turf.combine(fc);</p>
-										<p>//addToMap
-										var addToMap = [combined]</p>
 									</dd>
 								</dl>
 							</div>
@@ -146,22 +144,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/convert.ts#L48">convert.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/convert.ts#L41">convert.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes a feature or set of features and returns all positions as Point|points.</p>
+									<p>Takes a feature or set of features and returns all positions as Point|points.
+									Throws an error if it encounters an unknown geometry type</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>{Error} if it encounters an unknown geometry type</p>
-									</dd>
 									<dt>example</dt>
 									<dd><p>var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);</p>
 										<p>var explode = turf.explode(polygon);</p>
-										<p>//addToMap
-										var addToMap = [polygon, explode]</p>
 									</dd>
 								</dl>
 							</div>
@@ -189,7 +183,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/convert.ts#L70">convert.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/convert.ts#L60">convert.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -204,8 +198,6 @@
 											[[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
 										]);</p>
 										<p>var flatten = turf.flatten(multiGeometry);</p>
-										<p>//addToMap
-										var addToMap = [flatten]</p>
 									</dd>
 								</dl>
 							</div>
@@ -233,7 +225,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/convert.ts#L91">convert.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/convert.ts#L78">convert.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,8 +236,6 @@
 									<dt>example</dt>
 									<dd><p>var line = turf.lineString([[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]);</p>
 										<p>var polygon = turf.lineToPolygon(line);</p>
-										<p>//addToMap
-										var addToMap = [polygon];</p>
 									</dd>
 								</dl>
 							</div>
@@ -276,7 +266,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/convert.ts#L131">convert.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/convert.ts#L116">convert.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -287,8 +277,6 @@
 									<dt>example</dt>
 									<dd><p>var poly = turf.polygon([[[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]]);</p>
 										<p>var line = turf.polygonToLine(poly);</p>
-										<p>//addToMap
-										var addToMap = [line];</p>
 									</dd>
 								</dl>
 							</div>
@@ -319,7 +307,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/160ba43/src/typescript/convert.ts#L112">convert.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/convert.ts#L100">convert.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,11 +322,7 @@
 									<li>Dangles: edges which have one or both ends which are not incident on another edge endpoint.</li>
 									<li>Cut Edges (bridges): edges that are connected at both ends but which do not form part of a polygon.</li>
 								</ul>
-								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>{Error} if geoJson is invalid.</p>
-									</dd>
-								</dl>
+								<p>Throws an error is geoJson is invalid.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">

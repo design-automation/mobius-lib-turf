@@ -9,7 +9,6 @@
 
  import * as turf from "@turf/turf";
 
-
 /**
  * Combines a FeatureCollection of Point, LineString, or Polygon features
  * into MultiPoint, MultiLineString, or MultiPolygon features.
@@ -23,9 +22,6 @@
  * ]);
  *
  * var combined = turf.combine(fc);
- *
- * //addToMap
- * var addToMap = [combined]
  */
 export function combine(fcoll) {
     return turf.combine(fcoll);
@@ -33,17 +29,14 @@ export function combine(fcoll) {
 
 /**
  * Takes a feature or set of features and returns all positions as Point|points.
+ * Throws an error if it encounters an unknown geometry type
  *
  * @param {GeoJSON} geojson input features
  * @returns {FeatureCollection<point>} points representing the exploded input features
- * @throws {Error} if it encounters an unknown geometry type
  * @example
  * var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
  *
  * var explode = turf.explode(polygon);
- *
- * //addToMap
- * var addToMap = [polygon, explode]
  */
 export function explode(geojson) {
     return turf.explode(geojson);
@@ -63,9 +56,6 @@ export function explode(geojson) {
  * ]);
  *
  * var flatten = turf.flatten(multiGeometry);
- *
- * //addToMap
- * var addToMap = [flatten]
  */
 export function flatten(geojson) {
     return turf.flatten(geojson);
@@ -84,9 +74,6 @@ export function flatten(geojson) {
  * var line = turf.lineString([[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]);
  *
  * var polygon = turf.lineToPolygon(line);
- *
- * //addToMap
- * var addToMap = [polygon];
  */
 export function lineToPolygon(lines, parameters) {
     return turf.lineToPolygon(lines, parameters);
@@ -105,9 +92,10 @@ export function lineToPolygon(lines, parameters) {
  * - Dangles: edges which have one or both ends which are not incident on another edge endpoint.
  * - Cut Edges (bridges): edges that are connected at both ends but which do not form part of a polygon.
  *
+ * Throws an error is geoJson is invalid.
+ *
  * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} geoJson Lines in order to polygonize
  * @returns {FeatureCollection<Polygon>} Polygons created
- * @throws {Error} if geoJson is invalid.
  */
 export function polygonize(geojson) {
     return turf.polygonize(geojson);
@@ -124,9 +112,6 @@ export function polygonize(geojson) {
  * var poly = turf.polygon([[[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]]);
  *
  * var line = turf.polygonToLine(poly);
- *
- * //addToMap
- * var addToMap = [line];
  */
 export function polygonToLine(polygon, parameters) {
     return turf.polygonToLine(polygon, parameters);

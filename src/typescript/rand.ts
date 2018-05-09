@@ -24,7 +24,7 @@ export function position(bbox) {
 /**
  * Returns a random point.
  *
- * @param {number} [count=1] how many geometries will be generated
+ * @param {number} num How many geometries will be generated (if undefined, default value is 1)
  * @param {Object} [options={}] Optional parameters
  * @param {Array<number>} [options.bbox=[-180, -90, 180, 90]] a bounding box inside of which geometries are placed.
  * @returns {FeatureCollection<Point>} GeoJSON FeatureCollection of points
@@ -32,14 +32,14 @@ export function position(bbox) {
  * var points = turf.randomPoint(25, {bbox: [-180, -90, 180, 90]})
  * //=points
  */
-export function point(number,parameters) {
-    return turf.randomPoint(number,parameters);
+export function point(num,parameters) {
+    return turf.randomPoint(num,parameters);
 }
 
 /**
  * Returns a random linestring.
  *
- * @param {number} [count=1] how many geometries will be generated
+ * @param {number} num How many geometries will be generated (if undefined, default value is 1)
  * @param {Object} [options={}] Optional parameters
  * @param {Array<number>} [options.bbox=[-180, -90, 180, 90]] a bounding box inside of which geometries are placed.
  * @param {number} [options.num_vertices=10] is how many coordinates each LineString will contain.
@@ -50,14 +50,14 @@ export function point(number,parameters) {
  * var lineStrings = turf.randomLineString(25, {bbox: [-180, -90, 180, 90]})
  * //=lineStrings
  */
-export function linestring(number,parameters) {
-    return turf.randomLineString(number,parameters);
+export function linestring(num,parameters) {
+    return turf.randomLineString(num,parameters);
 }
 
 /**
  * Returns a random polygon.
  *
- * @param {number} [count=1] how many geometries will be generated
+ * @param {number} num How many geometries will be generated (if undefined, default value is 1)
  * @param {Object} [options={}] Optional parameters
  * @param {Array<number>} [options.bbox=[-180, -90, 180, 90]] a bounding box inside of which geometries are placed.
  * @param {number} [options.num_vertices=10] is how many coordinates each LineString will contain.
@@ -67,6 +67,6 @@ export function linestring(number,parameters) {
  * var polygons = turf.randomPolygon(25, {bbox: [-180, -90, 180, 90]})
  * //=polygons
  */
-export function polygon(number,parameters) {
-    return turf.randomPolygon(number,parameters);
+export function polygon(num,parameters) {
+    return turf.randomPolygon(num,parameters);
 }

@@ -11,7 +11,7 @@ import * as turf from "@turf/turf";
 
 /**
  * Rotates any geojson Feature or Geometry of a specified angle, around its `centroid` or a given `pivot` point;
- * all rotations follow the right-hand rule: https://en.wikipedia.org/wiki/Right-hand_rule
+ * all rotations follow the [right-hand rule] (https://en.wikipedia.org/wiki/Right-hand_rule)
  *
  * @param {GeoJSON} geojson object to be rotated
  * @param {number} angle of rotation (along the vertical axis), from North in decimal degrees, negative clockwise

@@ -10,10 +10,10 @@
  import * as turf from "@turf/turf";
 
 /**
- * Boolean-contains returns True if the second geometry is completely contained by the first geometry.
+ * Returns True if the second geometry is completely contained by the first geometry.
  * The interiors of both geometries must intersect and, the interior and boundary of the secondary (geometry b)
  * must not intersect the exterior of the primary (geometry a).
- * Boolean-contains returns the exact opposite result of the `@turf/boolean-within`.
+ * (Opposite result of within.)
  *
  * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
@@ -30,11 +30,11 @@ export function contains(feature1, feature2) {
 }
 
 /**
- * Boolean-Crosses returns True if the intersection results in a geometry whose dimension is one less than
+ * Returns true if the intersection results in a geometry whose dimension is one less than
  * the maximum dimension of the two source geometries and the intersection set is interior to
  * both source geometries.
  *
- * Boolean-Crosses returns t (TRUE) for only multipoint/polygon, multipoint/linestring, linestring/linestring, linestring/polygon, and linestring/multipolygon comparisons.
+ * Returns true for only multipoint/polygon, multipoint/linestring, linestring/linestring, linestring/polygon, and linestring/multipolygon comparisons.
  *
  * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
@@ -51,7 +51,7 @@ export function crosses(feature1, feature2) {
 }
 
 /**
- * Boolean-disjoint returns (TRUE) if the intersection of the two geometries is an empty set.
+ * Returns true if the intersection of the two geometries is an empty set.
  *
  * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
@@ -115,7 +115,7 @@ export function pointInPolygon(point, polygon, parameters) {
 }
 
 /**
- * Boolean-Parallel returns True if each segment of `line1` is parallel to the correspondent segment of `line2`
+ * Returns True if each segment of `line1` is parallel to the correspondent segment of `line2`
  *
  * @param {Geometry|Feature<LineString>} line1 GeoJSON Feature or Geometry
  * @param {Geometry|Feature<LineString>} line2 GeoJSON Feature or Geometry
@@ -150,10 +150,10 @@ export function pointOnLine(point, line, parameters) {
 }
 
 /**
- * Boolean-within returns true if the first geometry is completely within the second geometry.
+ * Returns true if the first geometry is completely within the second geometry.
  * The interiors of both geometries must intersect and, the interior and boundary of the primary (geometry a)
  * must not intersect the exterior of the secondary (geometry b).
- * Boolean-within returns the exact opposite result of the `@turf/boolean-contains`.
+ * (Opposite result of the contains.)
  *
  * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry

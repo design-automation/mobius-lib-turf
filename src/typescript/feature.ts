@@ -49,7 +49,7 @@ export function clone(geojson) {
 
 /**
  * Takes a set of points and returns a concave hull Polygon or MultiPolygon.
- * Internally, this uses [turf-tin](https://github.com/Turfjs/turf-tin) to generate geometries.
+ * Internally, this uses [turf-tin] (https://github.com/Turfjs/turf-tin) to generate geometries.
  *
  * @param {FeatureCollection<Point>} points input points
  * @param {Object} [options={}] Optional parameters
@@ -77,8 +77,8 @@ export function concave(points,parameters) {
  * Takes a Feature or a FeatureCollection and returns a convex hull Polygon.
  *
  * Internally this uses
- * the [convex-hull](https://github.com/mikolalysenko/convex-hull) module that
- * implements a [monotone chain hull](http://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain).
+ * the [convex-hull] (https://github.com/mikolalysenko/convex-hull) module that
+ * implements a [monotone chain hull] (http://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain).
  *
  * @param {GeoJSON} features input Feature or FeatureCollection
  * @param {Object} [options={}] Optional parameters
@@ -185,7 +185,7 @@ export function pointOn(geojson) {
 
 /**
  * Takes a GeoJSON object and returns a simplified version. Internally uses
- * [simplify-js](http://mourner.github.io/simplify-js/) to perform simplification using the Ramer-Douglas-Peucker algorithm.
+ * [simplify-js] (http://mourner.github.io/simplify-js/) to perform simplification using the Ramer-Douglas-Peucker algorithm.
  *
  * @param {GeoJSON} geojson object to be simplified
  * @param {Object} [options={}] Optional parameters
@@ -225,7 +225,7 @@ export function simplify(geojson,parameters) {
 
 /**
  * Tesselates a Polygon into a FeatureCollection of triangular polygons
- * using [earcut](https://github.com/mapbox/earcut).
+ * using [earcut] (https://github.com/mapbox/earcut).
  *
  * @param {Feature<Polygon>} poly the polygon to tesselate
  * @returns {FeatureCollection<Polygon>} a geometrycollection feature

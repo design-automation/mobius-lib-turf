@@ -27,9 +27,6 @@
  * var bearing2 = 47;
  *
  * var arc = turf.lineArc(center, radius, bearing1, bearing2);
- *
- * //addToMap
- * var addToMap = [center, arc]
  */
 export function arc(center, radius, bearing1, bearing2, parameters) {
     return turf.lineArc(center, radius, bearing1, bearing2, parameters);
@@ -44,9 +41,6 @@ export function arc(center, radius, bearing1, bearing2, parameters) {
  * var line = turf.lineString([[-74, 40], [-78, 42], [-82, 35]]);
  * var bbox = turf.bbox(line);
  * var bboxPolygon = turf.bboxPolygon(bbox);
- *
- * //addToMap
- * var addToMap = [line, bboxPolygon]
  */
 export function bbox(geojson) {
     return turf.bbox(geojson);
@@ -67,9 +61,6 @@ export function bbox(geojson) {
  * var radius = 5;
  * var options = {steps: 10, units: 'kilometers', properties: {foo: 'bar'}};
  * var circle = turf.circle(center, radius, options);
- *
- * //addToMap
- * var addToMap = [turf.point(center), circle]
  */
 export function circle(center, radius, parameters) {
     return turf.circle(center, radius, parameters);
