@@ -18,7 +18,7 @@ import * as turf from "@turf/turf";
  *
  * var area = turf.area(polygon);
  */
-export function area(geojson) {
+export function area(geojson: turf.AllGeoJSON): number {
     return turf.area(geojson);
 }
 
@@ -28,25 +28,25 @@ export function area(geojson) {
  *
  * @param {Coord} start starting Point
  * @param {Coord} end ending Point
- * @param {Object} [options={}] Optional parameters
- * @param {boolean} [options.final=false] calculates the final bearing if true
- * @returns {number} bearing in decimal degrees, between -180 and 180 degrees (positive clockwise)
+ * @param {Object} options Optional parameters
+ * (final: Calculates the final bearing if true)
+ * @returns {number} angle in decimal degrees, between -180 and 180 degrees (positive clockwise)
  * @example
  * var point1 = turf.point([-75.343, 39.984]);
  * var point2 = turf.point([-75.534, 39.123]);
  *
  * var bearing = turf.bearing(point1, point2);
  */
-export function bearing(start, end, parameters) {
-    return turf.bearing(start, end, parameters);
+export function bearing(start: turf.Point, end: turf.Point, options: {final: boolean}): number {
+    return turf.bearing(start, end, options);
 }
 
 /**
  * Takes a Feature or FeatureCollection and returns the absolute center point of all features.
  *
  * @param {GeoJSON} geojson GeoJSON to be centered
- * @param {Object} [options={}] Optional parameters
- * @param {Object} [options.properties={}] an Object that is used as the Feature's properties
+ * @param {Object} options Optional parameters
+ * (properties: an Object that is used as the Feature's properties)
  * @returns {Feature<Point>} a Point feature at the absolute center point of all input features
  * @example
  * var features = turf.featureCollection([
@@ -57,23 +57,23 @@ export function bearing(start, end, parameters) {
  *
  * var center = turf.center(features);
  */
-export function center(geojson, parameters) {
-    return turf.center(geojson, parameters);
+export function center(geojson: turf.AllGeoJSON, options: {properties: object}): turf.Feature<turf.Point> {
+    return turf.center(geojson, options);
 }
 
 /**
  * Takes any Feature or a FeatureCollection and returns its [center of mass](https://en.wikipedia.org/wiki/Center_of_mass) using this formula: [Centroid of Polygon](https://en.wikipedia.org/wiki/Centroid#Centroid_of_polygon).
  *
  * @param {GeoJSON} geojson GeoJSON to be centered
- * @param {Object} [properties={}] an Object that is used as the Feature's properties
+ * @param {Object} properties Optional object to be used as the Feature's properties
  * @returns {Feature<Point>} the center of mass
  * @example
  * var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
  *
  * var center = turf.centerOfMass(polygon);
  */
-export function centerOfMass(geojson, parameters) {
-    return turf.centerOfMass(geojson, parameters);
+export function centerOfMass(geojson: turf.AllGeoJSON, properties: object): turf.Feature<turf.Point> {
+    return turf.centerOfMass(geojson, properties);
 }
 
 /**
@@ -81,15 +81,15 @@ export function centerOfMass(geojson, parameters) {
  * This lessens the effect of small islands and artifacts when calculating the centroid of a set of polygons.
  *
  * @param {GeoJSON} geojson GeoJSON to be centered
- * @param {Object} [properties={}] an Object that is used as the Feature's properties
+ * @param {Object} properties Optional object to be used as the Feature's properties
  * @returns {Feature<Point>} the centroid of the input features
  * @example
  * var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
  *
  * var centroid = turf.centroid(polygon);
  */
-export function centroid(geojson, parameters) {
-    return turf.centroid(geojson, parameters);
+export function centroid(geojson: turf.AllGeoJSON, properties: object): turf.Feature<turf.Point> {
+    return turf.centroid(geojson, properties);
 }
 
 /**
@@ -98,9 +98,9 @@ export function centroid(geojson, parameters) {
  * @param {Coord} origin starting point
  * @param {number} dist distance from the origin point
  * @param {number} angle bearing ranging from -180 to 180
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] miles, kilometers, degrees, or radians
- * @param {Object} [options.properties={}] Translate properties to Point
+ * @param {Object} options Optional parameters
+ * (units: "miles", "kilometers", "degrees", or "radians",
+ * properties: an Object that is used as the Feature's properties)
  * @returns {Feature<Point>} destination point
  * @example
  * var point = turf.point([-75.343, 39.984]);
@@ -110,8 +110,8 @@ export function centroid(geojson, parameters) {
  *
  * var destination = turf.destination(point, distance, bearing, options);
  */
-export function destination(origin, dist, angle, parameters) {
-    return turf.destination(origin, dist, angle, parameters);
+export function destination(origin: turf.Point, dist: number, angle: number, options: {units: turf.Units, properties: object}): turf.Feature<turf.Point> {
+    return turf.destination(origin, dist, angle, options);
 }
 
 /**
@@ -122,8 +122,8 @@ export function destination(origin, dist, angle, parameters) {
  *
  * @param {Coord} from origin point
  * @param {Coord} to destination point
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] can be degrees, radians, miles, or kilometers
+ * @param {Object} options Optional parameters
+ * (units: "miles", "kilometers", "degrees", or "radians")
  * @returns {number} distance between the two points
  * @example
  * var from = turf.point([-75.343, 39.984]);
@@ -132,8 +132,8 @@ export function destination(origin, dist, angle, parameters) {
  *
  * var distance = turf.distance(from, to, options);
  */
-export function distance(from, to, parameters) {
-    return turf.distance(from, to, parameters);
+export function distance(from: turf.Point, to: turf.Point, options: {units: turf.Units}): number {
+    return turf.distance(from, to, options);
 }
 
 /**
@@ -150,7 +150,7 @@ export function distance(from, to, parameters) {
  *
  * var enveloped = turf.envelope(features);
  */
-export function envelope(geojson) {
+export function envelope(geojson: turf.AllGeoJSON): turf.Feature<turf.Polygon> {
     return turf.envelope(geojson);
 }
 
@@ -159,11 +159,9 @@ export function envelope(geojson) {
  *
  * @param {Coord} start source point feature
  * @param {Coord} end destination point feature
- * @param {Object} [options={}] Optional parameters
- * @param {Object} [options.properties={}] line feature properties
- * @param {number} [options.npoints=100] number of points
- * @param {number} [options.offset=10] offset controls the likelyhood that lines will
- * be split which cross the dateline. The higher the number the more likely.
+ * @param {Object} options Optional parameters
+ * (properties: an Object that is used as the Feature's properties, npoints: number of points,
+ * offset: offset controls the likelyhood that lines will be split which cross the dateline. The higher the number the more likely.)
  * @returns {Feature<LineString>} great circle line feature
  * @example
  * var start = turf.point([-122, 48]);
@@ -171,23 +169,23 @@ export function envelope(geojson) {
  *
  * var greatCircle = turf.greatCircle(start, end, {'name': 'Seattle to DC'});
  */
-export function greatCircle(start, end, parameters) {
-    return turf.greatCircle(start, end, parameters);
+export function greatCircle(start: turf.Point, end: turf.Point, options: {properties: object, npoints: number, offset: number}): turf.Feature<turf.LineString> {
+    return turf.greatCircle(start, end, options);
 }
 
 /**
  * Takes a GeoJSON and measures its length in the specified units, (Multi)Point's distance are ignored.
  *
  * @param {GeoJSON} geojson GeoJSON to measure
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units=kilometers] can be degrees, radians, miles, or kilometers
+ * @param {Object} options Optional parameters
+ * (units: "miles", "kilometers", "degrees", or "radians")
  * @returns {number} length of GeoJSON
  * @example
  * var line = turf.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);
  * var length = turf.length(line, {units: 'miles'});
  */
-export function len(geojson, parameters) {
-    return turf.length(geojson, parameters);
+export function len(geojson: turf.AllGeoJSON, options: {units: turf.Units}): number {
+    return turf.length(geojson, options);
 }
 
 /**
@@ -203,7 +201,7 @@ export function len(geojson, parameters) {
  *
  * var midpoint = turf.midpoint(point1, point2);
  */
-export function midpoint(point1, point2) {
+export function midpoint(point1: turf.Point, point2: turf.Point): turf.Feature<turf.Point> {
     return turf.midpoint(point1, point2);
 }
 
@@ -226,7 +224,7 @@ export function midpoint(point1, point2) {
  *
  * var nearest = turf.nearestPoint(targetPoint, points);
  */
-export function nearestPoint(targetPoint, points) {
+export function nearestPoint(targetPoint: turf.Point, points: turf.FeatureCollection<turf.Point>): turf.Feature<turf.Point> {
     return turf.nearestPoint(targetPoint, points);
 }
 
@@ -235,8 +233,9 @@ export function nearestPoint(targetPoint, points) {
  *
  * @param {Geometry|Feature<LineString|MultiLineString>} lines lines to snap to
  * @param {Geometry|Feature<Point>|number[]} point point to snap from
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] can be degrees, radians, miles, or kilometers
+ * @param {Object}  options Optional parameters
+ * (units: "miles", "kilometers"
+ * "degrees", or "radians")
  * @returns {Feature<Point>} closest point on the `line` to `point`. The properties object will contain three values: `index`: closest point was found on nth line part, `dist`: distance between pt and the closest point, `location`: distance along the line between start and the closest point.
  * @example
  * var line = turf.lineString([
@@ -251,8 +250,8 @@ export function nearestPoint(targetPoint, points) {
  *
  * var snapped = turf.nearestPointOnLine(line, pt, {units: 'miles'});
  */
-export function nearestPointOnLine(lines, point, parameters) {
-    return turf.nearestPointOnLine(lines, point, parameters);
+export function nearestPointOnLine(lines: turf.LineString|turf.MultiLineString, point: turf.Point, options: {units: turf.Units}): turf.Feature<turf.Point> {
+    return turf.nearestPointOnLine(lines, point, options);
 }
 
 /**
@@ -261,9 +260,9 @@ export function nearestPointOnLine(lines, point, parameters) {
  *
  * @param {Coord} point Feature or Geometry
  * @param {Feature<LineString>} line GeoJSON Feature or Geometry
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] can be degrees, radians, miles, or kilometers
- * @param {boolean} [options.mercator=false] if distance should be on Mercator or WGS84 projection
+ * @param {Object} options Optional parameters
+ * (units: "miles", "kilometers", "degrees", or "radians"
+ * mercerator: distance on Mercator if true or WGS84 projection if false)
  * @returns {number} distance between point and line
  * @example
  * var pt = turf.point([0, 0]);
@@ -272,8 +271,8 @@ export function nearestPointOnLine(lines, point, parameters) {
  * var distance = turf.pointToLineDistance(pt, line, {units: 'miles'});
  * //=69.11854715938406
  */
-export function pointToLineDistance(point, line, parameters) {
-    return turf.pointToLineDistance(point, line, parameters);
+export function pointToLineDistance(point: turf.Point, line: turf.LineString, options: {units: turf.Units, mercator: boolean}): number {
+    return turf.pointToLineDistance(point, line, options);
 }
 
 /**
@@ -288,7 +287,7 @@ export function pointToLineDistance(point, line, parameters) {
  *
  * var tangents = turf.polygonTangents(point, polygon)
  */
-export function polygonTangents(point, polygon) {
+export function polygonTangents(point: turf.Point, polygon: turf.Polygon): turf.FeatureCollection<turf.Point> {
     return turf.polygonTangents(point, polygon);
 }
 
@@ -298,8 +297,8 @@ export function polygonTangents(point, polygon) {
  *
  * @param {Coord} start starting Point
  * @param {Coord} end ending Point
- * @param {Object} [options] Optional parameters
- * @param {boolean} [options.final=false] calculates the final bearing if true
+ * @param {Object} options Optional parameters
+ * (final: calculates the final bearing if true)
  * @returns {number} bearing from north in decimal degrees, between -180 and 180 degrees (positive clockwise)
  * @example
  * var point1 = turf.point([-75.343, 39.984], {"marker-color": "#F00"});
@@ -307,8 +306,8 @@ export function polygonTangents(point, polygon) {
  *
  * var bearing = turf.rhumbBearing(point1, point2);
  */
-export function rhumbBearing(start, end, parameters) {
-    return turf.rhumbBearing(start, end, parameters);
+export function rhumbBearing(start: turf.Point, end: turf.Point, options: {final: boolean}): number {
+    return turf.rhumbBearing(start, end, options);
 }
 
 /**
@@ -318,9 +317,9 @@ export function rhumbBearing(start, end, parameters) {
  * @param {Coord} origin starting point
  * @param {number} dist distance from the starting point
  * @param {number} angle varant bearing angle ranging from -180 to 180 degrees from north
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] can be degrees, radians, miles, or kilometers
- * @param {Object} [options.properties={}] translate properties to destination point
+ * @param {Object} options Optional parameters
+ * (units: "miles", "kilometers", "degrees", or "radians",
+ * properties: an Object that is used as the Feature's properties)
  * @returns {Feature<Point>} Destination point.
  * @example
  * var pt = turf.point([-75.343, 39.984], {"marker-color": "F00"});
@@ -330,8 +329,8 @@ export function rhumbBearing(start, end, parameters) {
  *
  * var destination = turf.rhumbDestination(pt, distance, bearing, options);
  */
-export function rhumbDestination(origin, dist, angle, parameters) {
-    return turf.rhumbDestination(origin, dist, angle, parameters);
+export function rhumbDestination(origin: turf.Point, dist: number, angle: number, options: {units: turf.Units, properties: object}): turf.Feature<turf.Point> {
+    return turf.rhumbDestination(origin, dist, angle, options);
 }
 
 /**
@@ -340,8 +339,8 @@ export function rhumbDestination(origin, dist, angle, parameters) {
  *
  * @param {Coord} from origin point
  * @param {Coord} to destination point
- * @param {Object} [options] Optional parameters
- * @param {string} [options.units="kilometers"] can be degrees, radians, miles, or kilometers
+ * @param {Object} options Optional parameters
+ * (units: "miles", "kilometers", "degrees", or "radians")
  * @returns {number} distance between the two points
  * @example
  * var from = turf.point([-75.343, 39.984]);
@@ -350,21 +349,21 @@ export function rhumbDestination(origin, dist, angle, parameters) {
  *
  * var distance = turf.rhumbDistance(from, to, options);
  */
-export function rhumbDistance(from, to, parameters) {
-    return turf.rhumbDistance(from, to, parameters);
+export function rhumbDistance(from: turf.Point, to: turf.Point, options: {units: turf.Units}): number {
+    return turf.rhumbDistance(from, to, options);
 }
 
 /**
  * Returns the shortest LineString path from start point to end point without colliding with
- * any Feature in FeatureCollection<Polygon>| obstacles
+ * any Feature in FeatureCollection<Polygon> obstacles
  *
  * @param {Coord} start point
  * @param {Coord} end point
- * @param {Object} [options={}] optional parameters
- * @param {Geometry|Feature|FeatureCollection<Polygon>} [options.obstacles] areas which path cannot travel
- * @param {number} [options.minDistance] minimum distance between shortest path and obstacles
- * @param {string} [options.units='kilometers'] unit in which resolution & minimum distance will be expressed in; it can be degrees, radians, miles, kilometers, ...
- * @param {number} [options.resolution=100] distance between matrix points on which the path will be calculated
+ * @param {Object} options Optional parameters 
+ * (obstacles: areas which path cannot travel, 
+ * minDistance: minimum distance between shortest path and obstacles, 
+ * units: "miles", "kilometers", "degrees", or "radians", 
+ * resolution: distance between matrix points on which the path will be calculated)
  * @returns {Feature<LineString>} shortest path between start and end
  * @example
  * var start = [-5, -6];
@@ -375,8 +374,8 @@ export function rhumbDistance(from, to, parameters) {
  *
  * var path = turf.shortestPath(start, end, options);
  */
-export function shortestPath(start, end, parameters) {
-    return turf.shortestPath(start, end, parameters);
+export function shortestPath(start: turf.Point, end: turf.Point, options: {obstacles: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number}): turf.Feature<turf.LineString> {
+    return turf.shortestPath(start, end, options);
 }
 
 /**
@@ -386,8 +385,7 @@ export function shortestPath(start, end, parameters) {
  * The Voronoi algorithim used comes from the d3-voronoi package.
  *
  * @param {FeatureCollection<Point>} points to find the Voronoi polygons around.
- * @param {Object} [options={}] Optional parameters
- * @param {number[]} [options.bbox=[-180, -85, 180, -85]] clipping rectangle, in [minX, minY, maxX, MaxY] order.
+ * @param {Object} bbox Optional clipping rectangle, in [minX, minY, maxX, MaxY] order.
  * @returns {FeatureCollection<Polygon>} a set of polygons, one per input point.
  * @example
  * var options = {
@@ -396,6 +394,6 @@ export function shortestPath(start, end, parameters) {
  * var points = turf.randomPoint(100, options);
  * var voronoiPolygons = turf.voronoi(points, options);
  */
-export function voronoi(points, parameters) {
-    return turf.voronoi(points, parameters);
+export function voronoi(points: turf.FeatureCollection<turf.Point>, bbox: turf.BBox): turf.FeatureCollection<turf.Polygon> {
+    return turf.voronoi(points, bbox);
 }

@@ -14,11 +14,11 @@ import * as turf from "@turf/turf";
  *
  * @param {FeatureCollection<Point>} points with known value
  * @param {number} cellSize the distance across each grid point
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.gridType='square'] defines the output format based on a Grid Type (options: 'square' | 'point' | 'hex' | 'triangle')
- * @param {string} [options.property='elevation'] the property name in `points` from which z-values will be pulled, zValue fallbacks to 3rd coordinate if no property exists.
- * @param {string} [options.units='kilometers'] used in calculating cellSize, can be degrees, radians, miles, or kilometers
- * @param {number} [options.weight=1] exponent regulating the distance-decay weighting
+ * @param {Object} options Optional parameters
+ * (gridType: defines the output format based on a Grid Type (options: 'square' | 'point' | 'hex' | 'triangle'),
+ * zProperty: the property name in `points` from which z-values will be pulled, zValue fallbacks to 3rd coordinate if no property exists,
+ * units: used in calculating cellSize, can be degrees, radians, miles, or kilometers,
+ * weight: exponent regulating the distance-decay weighting)
  * @returns {FeatureCollection<Point|Polygon>} grid of points or polygons with interpolated 'property'
  * @example
  * var points = turf.randomPoint(30, {bbox: [50, 30, 70, 50]});
@@ -30,8 +30,8 @@ import * as turf from "@turf/turf";
  * var options = {gridType: 'points', property: 'solRad', units: 'miles'};
  * var grid = turf.interpolate(points, 100, options);
  */
-export function interpolate(points,cellSize,parameters) {
-    return turf.interpolate(points,cellSize,parameters);
+export function interpolate(points: turf.FeatureCollection<turf.Point>,cellSize: number,options: {gridType: turf.Grid, zProperty: string, units: turf.Units, weight: number}): turf.FeatureCollection<turf.Point|turf.Polygon> {
+    return turf.interpolate(points,cellSize,options);
 }
 
 /**
@@ -40,14 +40,14 @@ export function interpolate(points,cellSize,parameters) {
  *
  * @param {FeatureCollection<Point>} pointGrid input points
  * @param {Array<number>} breaks where to draw contours
- * @param {Object} [options={}] options on output
- * @param {string} [options.zProperty='elevation'] the property name in `points` from which z-values will be pulled
- * @param {Object} [options.commonProperties={}] GeoJSON properties passed to ALL isobands
- * @param {Array<Object>} [options.breaksProperties=[]] GeoJSON properties passed, in order, to the correspondent isoband (order defined by breaks)
- * @returns {FeatureCollection<MultiPolygon>} a FeatureCollection of MultiPolygon features representing isobands
+ * @param {Object} options options on output
+ * (zProperty: the property name in `points` from which z-values will be pulled,
+ * commonProperties: GeoJSON properties passed to ALL isobands,
+ * breaksProperties: GeoJSON properties passed, in order, to the correspondent isoband (order defined by breaks))
+ * @returns {FeatureCollection<MultiPolygon>} a FeatureCollection of MultiPolygon features representing isobands.
  */
-export function isobands(pointGrid,breaks,parameters) {
-    return turf.isobands(pointGrid,breaks,parameters);
+export function isobands(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiPolygon> {
+    return turf.isobands(pointGrid,breaks,options);
 }
 
 /**
@@ -56,12 +56,11 @@ export function isobands(pointGrid,breaks,parameters) {
  *
  * @param {FeatureCollection<Point>} pointGrid input points
  * @param {Array<number>} breaks values of `zProperty` where to draw isolines
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.zProperty='elevation'] the property name in `points` from which z-values will be pulled
- * @param {Object} [options.commonProperties={}] GeoJSON properties passed to ALL isolines
- * @param {Array<Object>} [options.breaksProperties=[]] GeoJSON properties passed, in order, to the correspondent isoline;
- * the breaks array will define the order in which the isolines are created
- * @returns {FeatureCollection<MultiLineString>} a FeatureCollection of MultiLineString features representing isolines
+ * @param {Object} options options on output
+ * (zProperty: the property name in `points` from which z-values will be pulled,
+ * commonProperties: GeoJSON properties passed to ALL isobands,
+ * breaksProperties: GeoJSON properties passed, in order, to the correspondent isoband (order defined by breaks))
+ * @returns {FeatureCollection<MultiLineString>} a FeatureCollection of MultiLineString features representing isolines.
  * @example
  * // create a grid of points with random z-values in their properties
  * var extent = [0, 30, 20, 50];
@@ -75,8 +74,8 @@ export function isobands(pointGrid,breaks,parameters) {
  *
  * var lines = turf.isolines(pointGrid, breaks, {zProperty: 'temperature'});
  */
-export function isolines(pointGrid,breaks,parameters) {
-    return turf.isolines(pointGrid,breaks,parameters);
+export function isolines(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiLineString> {
+    return turf.isolines(pointGrid,breaks,options);
 }
 
 /**
@@ -107,7 +106,7 @@ export function isolines(pointGrid,breaks,parameters) {
  * var zValue = turf.planepoint(point, triangle);
  * point.properties.zValue = zValue;
  */
-export function planepoint(point,triangle) {
+export function planepoint(point: turf.Point,triangle: turf.Feature<turf.Polygon>): number {
     return turf.planepoint(point,triangle);
 }
 
@@ -142,6 +141,6 @@ export function planepoint(point,triangle) {
  *   properties.fill = '#' + properties.a + properties.b + properties.c;
  * }
  */
-export function tin(points,name) {
+export function tin(points: turf.FeatureCollection<turf.Point>,name: string): turf.FeatureCollection<turf.Polygon> {
     return turf.tin(points,name);
 }

@@ -15,17 +15,17 @@ import * as turf from "@turf/turf";
  *
  * @param {GeoJSON} geojson object to be rotated
  * @param {number} angle of rotation (along the vertical axis), from North in decimal degrees, negative clockwise
- * @param {Object} [options={}] Optional parameters
- * @param {Coord} [options.pivot='centroid'] point around which the rotation will be performed
- * @param {boolean} [options.mutate=false] allows GeoJSON input to be mutated (significant performance increase if true)
+ * @param {Object} options Optional parameters
+ * (pivot: point around which the rotation will be performed,
+ * mutate: allows GeoJSON input to be mutated (significant performance increase if true))
  * @returns {GeoJSON} the rotated GeoJSON feature
  * @example
  * var poly = turf.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var options = {pivot: [0, 25]};
  * var rotatedPoly = turf.transformRotate(poly, 10, options);
  */
-export function rotate(geojson,angle,parameters) {
-    return turf.transformRotate(geojson,angle,parameters);
+export function rotate(geojson: turf.AllGeoJSON,angle: number,options: {pivot: turf.Point, mutate: boolean}): turf.AllGeoJSON {
+    return turf.transformRotate(geojson,angle,options);
 }
 
 /**
@@ -35,17 +35,17 @@ export function rotate(geojson,angle,parameters) {
  * @param {GeoJSON} geojson object to be translated
  * @param {number} distance length of the motion; negative values determine motion in opposite direction
  * @param {number} direction of the motion; angle from North in decimal degrees, positive clockwise
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] in which `distance` will be express; miles, kilometers, degrees, or radians
- * @param {number} [options.zTranslation=0] length of the vertical motion, same unit of distance
- * @param {boolean} [options.mutate=false] allows GeoJSON input to be mutated (significant performance increase if true)
+ * @param {Object} options Optional parameters
+ * (units: in which `distance` will be express; miles, kilometers, degrees, or radians,
+ * zTranslation: length of the vertical motion, same unit of distance,
+ * mutate: allows GeoJSON input to be mutated (significant performance increase if true))
  * @returns {GeoJSON} the translated GeoJSON object
  * @example
  * var poly = turf.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var translatedPoly = turf.transformTranslate(poly, 100, 35);
  */
-export function translate(geojson,distance,direction,parameters) {
-    return turf.transformTranslate(geojson,distance,direction,parameters);
+export function translate(geojson: turf.AllGeoJSON,distance: number,direction: number,options: {units: turf.Units,zTranslation: number, mutate: boolean}): turf.AllGeoJSON {
+    return turf.transformTranslate(geojson,distance,direction,options);
 }
 
 /**
@@ -54,14 +54,14 @@ export function translate(geojson,distance,direction,parameters) {
  *
  * @param {GeoJSON} geojson GeoJSON to be scaled
  * @param {number} factor of scaling, positive or negative values greater than 0
- * @param {Object} [options={}] Optional parameters
- * @param {string|Coord} [options.origin='centroid'] Point from which the scaling will occur (string options: sw/se/nw/ne/center/centroid)
- * @param {boolean} [options.mutate=false] allows GeoJSON input to be mutated (significant performance increase if true)
+ * @param {Object} options Optional parameters
+ * (origin: Point from which the scaling will occur (string options: sw/se/nw/ne/center/centroid),
+ * mutate: allows GeoJSON input to be mutated (significant performance increase if true))
  * @returns {GeoJSON} scaled GeoJSON
  * @example
  * var poly = turf.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var scaledPoly = turf.transformScale(poly, 3);
  */
-export function scale(geojson,factor,parameters) {
-    return turf.transformScale(geojson,factor,parameters);
+export function scale(geojson: turf.AllGeoJSON,factor: number,options: {origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>, mutate: boolean}): turf.AllGeoJSON {
+    return turf.transformScale(geojson,factor,options);
 }

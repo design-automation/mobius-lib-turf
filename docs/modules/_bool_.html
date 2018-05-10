@@ -93,13 +93,13 @@
 					<a name="difference" class="tsd-anchor"></a>
 					<h3>difference</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">difference<span class="tsd-signature-symbol">(</span>poly1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, poly2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">difference<span class="tsd-signature-symbol">(</span>poly1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span>, poly2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/bool.ts#L42">bool.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/bool.ts#L42">bool.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -135,19 +135,22 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>poly1: <span class="tsd-signature-type">any</span></h5>
+									<h5>poly1: <span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input Polygon feature</p>
 									</div>
 								</li>
 								<li>
-									<h5>poly2: <span class="tsd-signature-type">any</span></h5>
+									<h5>poly2: <span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Polygon feature to difference from polygon1</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
 							<p>a Polygon or MultiPolygon feature showing the area of <code>polygon1</code> excluding the area of <code>polygon2</code> (if empty returns <code>null</code>)</p>
 						</li>
 					</ul>
@@ -156,13 +159,13 @@
 					<a name="intersect" class="tsd-anchor"></a>
 					<h3>intersect</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">intersect<span class="tsd-signature-symbol">(</span>poly1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, poly2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">intersect<span class="tsd-signature-symbol">(</span>poly1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Polygon</span>, poly2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/bool.ts#L75">bool.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/bool.ts#L75">bool.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -195,19 +198,22 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>poly1: <span class="tsd-signature-type">any</span></h5>
+									<h5>poly1: <span class="tsd-signature-type">Polygon</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>the first polygon</p>
 									</div>
 								</li>
 								<li>
-									<h5>poly2: <span class="tsd-signature-type">any</span></h5>
+									<h5>poly2: <span class="tsd-signature-type">Polygon</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>the second polygon</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
 							<p>returns a feature representing the point(s) they share (in case of a Point  or MultiPoint), the borders they share (in case of a LineString or a MultiLineString), the area they share (in case of Polygon or MultiPolygon). If they do not share any point, returns <code>null</code>.</p>
 						</li>
 					</ul>
@@ -216,13 +222,13 @@
 					<a name="union" class="tsd-anchor"></a>
 					<h3>union</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">union<span class="tsd-signature-symbol">(</span>polys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">union<span class="tsd-signature-symbol">(</span>polys<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/bool.ts#L103">bool.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/bool.ts#L103">bool.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,13 +258,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>polys: <span class="tsd-signature-type">any</span></h5>
+									<h5>polys: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>An array of polygons to combine</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>a combined Polygon or MultiPolygon feature</p>
 						</li>
 					</ul>

@@ -98,13 +98,13 @@
 					<a name="cleancoords" class="tsd-anchor"></a>
 					<h3>clean<wbr>Coords</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">clean<wbr>Coords<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">clean<wbr>Coords<span class="tsd-signature-symbol">(</span>feature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryObject</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryObject</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/coords.ts#L29">coords.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L29">coords.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -125,16 +125,28 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>feature: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryObject</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Feature or Geometry</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+										(mutate: allows GeoJSON input to be mutated if true)</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>mutate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">GeometryObject</span>
+							</h4>
 							<p>the cleaned input Feature/Geometry</p>
 						</li>
 					</ul>
@@ -143,13 +155,13 @@
 					<a name="flip" class="tsd-anchor"></a>
 					<h3>flip</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">flip<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">flip<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/coords.ts#L45">coords.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L45">coords.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -166,16 +178,25 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input features</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+										(mutate: allows GeoJSON input to be mutated if true (significant performance increase))</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>mutate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
 							<p>a feature or set of features of the same type as <code>input</code> with flipped coordinates</p>
 						</li>
 					</ul>
@@ -184,13 +205,13 @@
 					<a name="getall" class="tsd-anchor"></a>
 					<h3>get<wbr>All</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>All<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>All<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/coords.ts#L63">coords.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L63">coords.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -211,7 +232,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>any GeoJSON object</p>
 									</div>
@@ -226,13 +247,13 @@
 					<a name="getfromfeature" class="tsd-anchor"></a>
 					<h3>get<wbr>From<wbr>Feature</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>From<wbr>Feature<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>From<wbr>Feature<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/coords.ts#L93">coords.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L93">coords.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -250,13 +271,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<h5>obj: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Object</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>coordinates</p>
 						</li>
 					</ul>
@@ -265,13 +286,13 @@
 					<a name="getfrompoint" class="tsd-anchor"></a>
 					<h3>get<wbr>From<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>From<wbr>Point<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>From<wbr>Point<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/coords.ts#L78">coords.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L78">coords.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -289,7 +310,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>obj: <span class="tsd-signature-type">any</span></h5>
+									<h5>obj: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Point</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Object</p>
 									</div>
@@ -304,13 +325,13 @@
 					<a name="rewind" class="tsd-anchor"></a>
 					<h3>rewind</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">rewind<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">rewind<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/coords.ts#L110">coords.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L110">coords.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -327,16 +348,29 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input GeoJSON Polygon</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+											(reverse: enable reverse winding,
+										mutate: allows GeoJSON input to be mutated if true (significant performance increase))</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>mutate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>reverse<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
 							<p>rewind Polygon</p>
 						</li>
 					</ul>
@@ -345,13 +379,13 @@
 					<a name="round" class="tsd-anchor"></a>
 					<h3>round</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">round<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, precision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">round<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, precision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/coords.ts#L127">coords.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L127">coords.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -370,13 +404,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>num: <span class="tsd-signature-type">any</span></h5>
+									<h5>num: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Number</p>
 									</div>
 								</li>
 								<li>
-									<h5>precision: <span class="tsd-signature-type">any</span></h5>
+									<h5>precision: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -388,13 +422,13 @@
 					<a name="truncate" class="tsd-anchor"></a>
 					<h3>truncate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">truncate<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">truncate<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/coords.ts#L153">coords.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L153">coords.ts:153</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -419,16 +453,33 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>any GeoJSON Feature, FeatureCollection, Geometry or GeometryCollection.</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+											(precision: coordinate decimal precision,
+											coordinates: maximum number of coordinates (primarly used to remove z coordinates),
+										mutate: allows GeoJSON input to be mutated if true (significant performance increase))</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>max<wbr>Coords<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>mutate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>precision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
 							<p>layer with truncated geometry</p>
 						</li>
 					</ul>

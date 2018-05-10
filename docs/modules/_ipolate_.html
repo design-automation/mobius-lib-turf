@@ -95,13 +95,13 @@
 					<a name="interpolate" class="tsd-anchor"></a>
 					<h3>interpolate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">interpolate<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, cellSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">interpolate<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, cellSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/ipolate.ts#L33">ipolate.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/ipolate.ts#L33">ipolate.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -123,22 +123,43 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>points: <span class="tsd-signature-type">any</span></h5>
+									<h5>points: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>with known value</p>
 									</div>
 								</li>
 								<li>
-									<h5>cellSize: <span class="tsd-signature-type">any</span></h5>
+									<h5>cellSize: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>the distance across each grid point</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+											(gridType: defines the output format based on a Grid Type (options: &#39;square&#39; | &#39;point&#39; | &#39;hex&#39; | &#39;triangle&#39;),
+											zProperty: the property name in <code>points</code> from which z-values will be pulled, zValue fallbacks to 3rd coordinate if no property exists,
+											units: used in calculating cellSize, can be degrees, radians, miles, or kilometers,
+										weight: exponent regulating the distance-decay weighting)</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>grid<wbr>Type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Grid</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>weight<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>z<wbr>Property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>grid of points or polygons with interpolated &#39;property&#39;</p>
 						</li>
 					</ul>
@@ -147,13 +168,13 @@
 					<a name="isobands" class="tsd-anchor"></a>
 					<h3>isobands</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">isobands<span class="tsd-signature-symbol">(</span>pointGrid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, breaks<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">isobands<span class="tsd-signature-symbol">(</span>pointGrid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, breaks<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/ipolate.ts#L49">ipolate.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/ipolate.ts#L49">ipolate.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -165,23 +186,40 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>pointGrid: <span class="tsd-signature-type">any</span></h5>
+									<h5>pointGrid: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input points</p>
 									</div>
 								</li>
 								<li>
-									<h5>breaks: <span class="tsd-signature-type">any</span></h5>
+									<h5>breaks: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>where to draw contours</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>options on output
+											(zProperty: the property name in <code>points</code> from which z-values will be pulled,
+											commonProperties: GeoJSON properties passed to ALL isobands,
+										breaksProperties: GeoJSON properties passed, in order, to the correspondent isoband (order defined by breaks))</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>breaks<wbr>Properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>common<wbr>Properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>z<wbr>Property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>a FeatureCollection of MultiPolygon features representing isobands</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>a FeatureCollection of MultiPolygon features representing isobands.</p>
 						</li>
 					</ul>
 				</section>
@@ -189,13 +227,13 @@
 					<a name="isolines" class="tsd-anchor"></a>
 					<h3>isolines</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">isolines<span class="tsd-signature-symbol">(</span>pointGrid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, breaks<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">isolines<span class="tsd-signature-symbol">(</span>pointGrid<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, breaks<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/ipolate.ts#L78">ipolate.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/ipolate.ts#L77">ipolate.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -220,23 +258,40 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>pointGrid: <span class="tsd-signature-type">any</span></h5>
+									<h5>pointGrid: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input points</p>
 									</div>
 								</li>
 								<li>
-									<h5>breaks: <span class="tsd-signature-type">any</span></h5>
+									<h5>breaks: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>values of <code>zProperty</code> where to draw isolines</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>options on output
+											(zProperty: the property name in <code>points</code> from which z-values will be pulled,
+											commonProperties: GeoJSON properties passed to ALL isobands,
+										breaksProperties: GeoJSON properties passed, in order, to the correspondent isoband (order defined by breaks))</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>breaks<wbr>Properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>common<wbr>Properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>z<wbr>Property<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>a FeatureCollection of MultiLineString features representing isolines</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>a FeatureCollection of MultiLineString features representing isolines.</p>
 						</li>
 					</ul>
 				</section>
@@ -244,13 +299,13 @@
 					<a name="planepoint" class="tsd-anchor"></a>
 					<h3>planepoint</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">planepoint<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, triangle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">planepoint<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Point</span>, triangle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/ipolate.ts#L110">ipolate.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/ipolate.ts#L109">ipolate.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -284,13 +339,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>point: <span class="tsd-signature-type">any</span></h5>
+									<h5>point: <span class="tsd-signature-type">Point</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>the Point for which a z-value will be calculated</p>
 									</div>
 								</li>
 								<li>
-									<h5>triangle: <span class="tsd-signature-type">any</span></h5>
+									<h5>triangle: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>a Polygon feature with three vertices</p>
 									</div>
@@ -305,13 +360,13 @@
 					<a name="tin" class="tsd-anchor"></a>
 					<h3>tin</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">tin<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">tin<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/ipolate.ts#L145">ipolate.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/ipolate.ts#L144">ipolate.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -345,16 +400,16 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>points: <span class="tsd-signature-type">any</span></h5>
+									<h5>points: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input points</p>
 									</div>
 								</li>
 								<li>
-									<h5>name: <span class="tsd-signature-type">any</span></h5>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>TIN output</p>
 						</li>
 					</ul>

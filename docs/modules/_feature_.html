@@ -83,7 +83,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_feature_.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_feature_.html#concave" class="tsd-kind-icon">concave</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_feature_.html#convex" class="tsd-kind-icon">convex</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-is-private"><a href="_feature_.html#dissolve" class="tsd-kind-icon">dissolve</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_feature_.html#dissolve" class="tsd-kind-icon">dissolve</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_feature_.html#getgeom" class="tsd-kind-icon">get<wbr>Geom</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_feature_.html#gettype" class="tsd-kind-icon">get<wbr>Type</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_feature_.html#pointon" class="tsd-kind-icon">point<wbr>On</a></li>
@@ -100,13 +100,13 @@
 					<a name="buffer" class="tsd-anchor"></a>
 					<h3>buffer</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">buffer<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">buffer<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L31">feature.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L31">feature.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -128,22 +128,35 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>features: <span class="tsd-signature-type">any</span></h5>
+									<h5>features: <span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input to be buffered</p>
 									</div>
 								</li>
 								<li>
-									<h5>radius: <span class="tsd-signature-type">any</span></h5>
+									<h5>radius: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>distance to draw the buffer (negative values are allowed)</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+											(units: &quot;miles&quot;, &quot;nauticalmiles&quot;, &quot;degrees&quot;, &quot;radians&quot;, &quot;inches&quot;, &quot;yards&quot;, &quot;meters&quot;, &quot;kilometers&quot;,
+										steps: number of steps)</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>steps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span></h4>
 							<p>buffered features</p>
 						</li>
 					</ul>
@@ -152,13 +165,13 @@
 					<a name="clone" class="tsd-anchor"></a>
 					<h3>clone</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L46">feature.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L46">feature.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -176,13 +189,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>GeoJSON Object</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
 							<p>cloned GeoJSON Object</p>
 						</li>
 					</ul>
@@ -191,13 +204,13 @@
 					<a name="concave" class="tsd-anchor"></a>
 					<h3>concave</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">concave<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">concave<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L72">feature.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L72">feature.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,16 +236,32 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>points: <span class="tsd-signature-type">any</span></h5>
+									<h5>points: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input points</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+											(maxEdge: the length (in &#39;units&#39;) of an edge necessary for part of the hull to become concave.,
+										units: can be &quot;degrees&quot;, &quot;radians&quot;, &quot;miles&quot;, or &quot;kilometers&quot;)</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>max<wbr>Edge<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
 							<p>a concave hull (null value is returned if unable to compute hull)</p>
 						</li>
 					</ul>
@@ -241,13 +270,13 @@
 					<a name="convex" class="tsd-anchor"></a>
 					<h3>convex</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">convex<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">convex<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L99">feature.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L99">feature.ts:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -274,53 +303,78 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>features: <span class="tsd-signature-type">any</span></h5>
+									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>input Feature or FeatureCollection</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+										(concavity: 1 - thin shape. Infinity - convex hull.)</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>concavity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>a convex hull</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="dissolve" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> dissolve</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">dissolve<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<h3>dissolve</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">dissolve<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L113">feature.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L120">feature.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Transform function: attempts to dissolve geojson objects where possible
-									[GeoJSON] -&gt; GeoJSON geometry</p>
+									<p>Dissolves a FeatureCollection of polygon features, filtered by an optional property name:value.
+									Note that mulitpolygon features within the collection are not supported</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>var features = turf.featureCollection([
+											turf.polygon([[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]], {combine: &#39;yes&#39;}),
+											turf.polygon([[[0, -1], [0, 0], [1, 0], [1, -1], [0,-1]]], {combine: &#39;yes&#39;}),
+											turf.polygon([[[1,-1],[1, 0], [2, 0], [2, -1], [1, -1]]], {combine: &#39;no&#39;}),
+										]);</p>
+										<p>var dissolved = turf.dissolve(features, {propertyName: &#39;combine&#39;});</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>features: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Features to dissolved</p>
-									</div>
+									<h5>features: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+										(propertyName: features with equals &#39;propertyName&#39; in <code>properties</code> will be merged)</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>property<wbr>Name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Dissolved Features</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>a FeatureCollection containing the dissolved polygons</p>
 						</li>
 					</ul>
 				</section>
@@ -328,23 +382,21 @@
 					<a name="getgeom" class="tsd-anchor"></a>
 					<h3>get<wbr>Geom</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Geom<span class="tsd-signature-symbol">(</span>feature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Geom<span class="tsd-signature-symbol">(</span>feature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryCollection</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L135">feature.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L142">feature.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get Geometry from Feature or Geometry Object</p>
+									<p>Get Geometry from Feature or Geometry Object
+									Throws an error if geojson is not a Feature or Geometry Object.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>throws</dt>
-									<dd><p>{Error} if geojson is not a Feature or Geometry Object</p>
-									</dd>
 									<dt>example</dt>
 									<dd><p>var point = {
 											&quot;type&quot;: &quot;Feature&quot;,
@@ -362,13 +414,18 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>feature: <span class="tsd-signature-type">any</span></h5>
+									<h5>feature: <span class="tsd-signature-type">Feature</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>GeoJSON Feature or Geometry Object</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">GeometryObject</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">GeometryCollection</span>
+								<span class="tsd-signature-symbol"> | </span>
+								<span class="tsd-signature-type">null</span>
+							</h4>
 							<p>GeoJSON Geometry Object</p>
 						</li>
 					</ul>
@@ -377,13 +434,13 @@
 					<a name="gettype" class="tsd-anchor"></a>
 					<h3>get<wbr>Type</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Type<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Point"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"LineString"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Polygon"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MultiPoint"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MultiLineString"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MultiPolygon"</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Type<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L156">feature.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L163">feature.ts:163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -408,24 +465,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>GeoJSON object</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">"Point"</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">"LineString"</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">"Polygon"</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">"MultiPoint"</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">"MultiLineString"</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">"MultiPolygon"</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 							<p>GeoJSON type</p>
 						</li>
 					</ul>
@@ -434,13 +480,13 @@
 					<a name="pointon" class="tsd-anchor"></a>
 					<h3>point<wbr>On</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">point<wbr>On<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">point<wbr>On<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L182">feature.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L189">feature.ts:189</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -448,9 +494,9 @@
 									<p>Takes a Feature or FeatureCollection and returns a Point guaranteed to be on the surface of the feature.</p>
 								</div>
 								<ul>
-									<li>Given a {@link Polygon}, the point will be in the area of the polygon</li>
-									<li>Given a {@link LineString}, the point will be along the string</li>
-									<li>Given a {@link Point}, the point will the same as the input</li>
+									<li>Given a Polygon, the point will be in the area of the polygon</li>
+									<li>Given a LineString, the point will be along the string</li>
+									<li>Given a Point, the point will the same as the input</li>
 								</ul>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
@@ -470,13 +516,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>any Feature or FeatureCollection</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>a point on the surface of <code>input</code></p>
 						</li>
 					</ul>
@@ -485,13 +531,13 @@
 					<a name="simplify" class="tsd-anchor"></a>
 					<h3>simplify</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">simplify<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, parameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">simplify<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L222">feature.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L229">feature.ts:229</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -531,16 +577,33 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">any</span></h5>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>object to be simplified</p>
 									</div>
 								</li>
 								<li>
-									<h5>parameters: <span class="tsd-signature-type">any</span></h5>
+									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional parameters
+											(tolerance: simplification tolerance,
+											highQuality: whether or not to spend more time to create a higher-quality simplification with a different algorithm,
+										mutate: allows GeoJSON input to be mutated (significant performance increase if true))</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>high<wbr>Quality<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>mutate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>tolerance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
 							<p>a simplified GeoJSON</p>
 						</li>
 					</ul>
@@ -549,13 +612,13 @@
 					<a name="tesselate" class="tsd-anchor"></a>
 					<h3>tesselate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">tesselate<span class="tsd-signature-symbol">(</span>poly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">tesselate<span class="tsd-signature-symbol">(</span>poly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/34c9b77/src/typescript/feature.ts#L239">feature.ts:239</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/feature.ts#L246">feature.ts:246</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -575,13 +638,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>poly: <span class="tsd-signature-type">any</span></h5>
+									<h5>poly: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>the polygon to tesselate</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>a geometrycollection feature</p>
 						</li>
 					</ul>
@@ -673,7 +736,7 @@
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_feature_.html#convex" class="tsd-kind-icon">convex</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-private">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_feature_.html#dissolve" class="tsd-kind-icon">dissolve</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">

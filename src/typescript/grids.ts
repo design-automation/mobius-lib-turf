@@ -17,11 +17,11 @@ import * as turf from "@turf/turf";
  * @param {BBox} bbox extent in [minX, minY, maxX, maxY] order
  * @param {number} cellSide length of the side of the the hexagons or triangles, in units. It will also coincide with the
  * radius of the circumcircle of the hexagons.
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] used in calculating cell size, can be degrees, radians, miles, or kilometers
- * @param {Object} [options.properties={}] passed to each hexagon or triangle of the grid
- * @param {Feature<Polygon|MultiPolygon>} [options.mask] if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
- * @param {boolean} [options.triangles=false] whether to return as triangles instead of hexagons
+ * @param {Object} options Optional parameters
+ * (units: used in calculating cell size, can be "degrees", "radians", "miles", or "kilometers",
+ * properties: passed to each hexagon or triangle of the grid,
+ * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
+ * triangle: whether to return as triangles instead of hexagons)
  * @returns {FeatureCollection<Polygon>} a hexagonal grid
  * @example
  * var bbox = [-96,31,-84,40];
@@ -30,8 +30,8 @@ import * as turf from "@turf/turf";
  *
  * var hexgrid = turf.hexGrid(bbox, cellSide, options);
  */
-export function hexGrid(bbox,cellSide,parameters) {
-    return turf.hexGrid(bbox,cellSide,parameters);
+export function hexGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.Units, properties: object, maskpoly: turf.Feature<turf.Polygon|turf.MultiPolygon>, triangles: boolean}): turf.FeatureCollection<turf.Polygon> {
+    return turf.hexGrid(bbox,cellSide,options);
 }
 
 /**
@@ -40,10 +40,10 @@ export function hexGrid(bbox,cellSide,parameters) {
  * @name pointGrid
  * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
  * @param {number} cellSide the distance between points, in units
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] used in calculating cellSide, can be degrees, radians, miles, or kilometers
- * @param {Feature<Polygon|MultiPolygon>} [options.mask] if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
- * @param {Object} [options.properties={}] passed to each point of the grid
+ * @param {Object} options Optional parameters
+ * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
+ * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
+ * properties: passed to each point of the grid)
  * @returns {FeatureCollection<Point>} grid of points
  * @example
  * var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
@@ -52,8 +52,8 @@ export function hexGrid(bbox,cellSide,parameters) {
  *
  * var grid = turf.pointGrid(extent, cellSide, options);
  */
-export function pointGrid(bbox,cellSide,parameters) {
-    return turf.pointGrid(bbox,cellSide,parameters);
+export function pointGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.Units, maskpoly: turf.Feature<turf.Polygon|turf.MultiPolygon>, properties: object}): turf.FeatureCollection<turf.Point> {
+    return turf.pointGrid(bbox,cellSide,options);
 }
 
 /**
@@ -61,10 +61,10 @@ export function pointGrid(bbox,cellSide,parameters) {
  *
  * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
  * @param {number} cellSide of each cell, in units
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] used in calculating cellSide, can be degrees, radians, miles, or kilometers
- * @param {Feature<Polygon|MultiPolygon>} [options.mask] if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
- * @param {Object} [options.properties={}] passed to each point of the grid
+ * @param {Object} options Optional parameters
+ * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
+ * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
+ * properties: passed to each point of the grid)
  * @returns {FeatureCollection<Polygon>} grid a grid of polygons
  * @example
  * var bbox = [-95, 30 ,-85, 40];
@@ -73,8 +73,8 @@ export function pointGrid(bbox,cellSide,parameters) {
  *
  * var squareGrid = turf.squareGrid(bbox, cellSide, options);
  */
-export function squareGrid(bbox,cellSide,parameters) {
-    return turf.squareGrid(bbox,cellSide,parameters);
+export function squareGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.Units, maskpoly: turf.Feature<turf.Polygon|turf.MultiPolygon>, properties: object}): turf.FeatureCollection<turf.Polygon> {
+    return turf.squareGrid(bbox,cellSide,options);
 }
 
 /**
@@ -82,10 +82,10 @@ export function squareGrid(bbox,cellSide,parameters) {
  *
  * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
  * @param {number} cellSide dimension of each cell
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] used in calculating cellSide, can be degrees, radians, miles, or kilometers
- * @param {Feature<Polygon|MultiPolygon>} [options.mask] if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
- * @param {Object} [options.properties={}] passed to each point of the grid
+ * @param {Object}  options Optional parameters
+ * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
+ * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
+ * properties: passed to each point of the grid)
  * @returns {FeatureCollection<Polygon>} grid of polygons
  * @example
  * var bbox = [-95, 30 ,-85, 40];
@@ -94,6 +94,6 @@ export function squareGrid(bbox,cellSide,parameters) {
  *
  * var triangleGrid = turf.triangleGrid(bbox, cellSide, options);
  */
-export function triangleGrid(bbox,cellSide,parameters) {
-    return turf.triangleGrid(bbox,cellSide,parameters);
+export function triangleGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.Units, maskpoly: turf.Feature<turf.Polygon|turf.MultiPolygon>, properties: object}): turf.FeatureCollection<turf.Polygon> {
+    return turf.triangleGrid(bbox,cellSide,options);
 }

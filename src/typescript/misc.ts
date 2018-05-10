@@ -25,7 +25,7 @@ import * as turf from "@turf/turf";
  *
  * var kinks = turf.kinks(poly);
  */
-export function kinks(feature) {
+export function kinks(feature: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
     return turf.kinks(feature);
 }
 
@@ -41,7 +41,7 @@ export function kinks(feature) {
  *
  * var masked = turf.mask(polygon, mask);
  */
-export function mask(polygon1,polygon2) {
+export function mask(polygon1: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>,polygon2: turf.Feature<turf.Polygon>): turf.Feature<turf.Polygon> {
     return turf.mask(polygon1,polygon2);
 }
 
@@ -56,7 +56,7 @@ export function mask(polygon1,polygon2) {
  *
  * var result = turf.unkinkPolygon(poly);
  */
-export function unkinkPolygon(polygon) {
+export function unkinkPolygon(polygon: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.unkinkPolygon(polygon);
 }
 
@@ -72,7 +72,7 @@ export function unkinkPolygon(polygon) {
  *
  * var sample = turf.sample(points, 5);
  */
-export function sample(fcoll, num) {
+export function sample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
     return turf.sample(fcoll, num);
 }
 
@@ -90,6 +90,6 @@ export function sample(fcoll, num) {
  * turf.booleanClockwise(counterClockwiseRing)
  * //=false
  */
-export function isClockwise(line) {
+export function isClockwise(line: turf.Feature<turf.LineString>): boolean {
     return turf.booleanClockwise(line);
 }

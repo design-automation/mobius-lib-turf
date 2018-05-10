@@ -38,6 +38,6 @@ import * as turf from "@turf/turf";
  * //addToMap
  * var addToMap = [pointFC, collected]
  */
-export function collect(polygons,points,inProperty,outProperty) {
+export function collect(polygons: turf.FeatureCollection<turf.Polygon>,points: turf.FeatureCollection<turf.Point>,inProperty: string,outProperty: string): turf.FeatureCollection<turf.Polygon> {
     return turf.collect(polygons,points,inProperty,outProperty);
 }

@@ -14,8 +14,8 @@ import * as turf from "@turf/turf";
  *
  * @param {Feature<LineString>} line input line
  * @param {number} distance distance along the line
- * @param {Object} [options] Optional parameters
- * @param {string} [options.units="kilometers"] can be degrees, radians, miles, or kilometers
+ * @param {Object} options Optional parameters
+ * (units: can be degrees, radians, miles, or kilometers)
  * @returns {Feature<Point>} Point `distance` `units` along the line
  * @example
  * var line = turf.lineString([[-83, 30], [-84, 36], [-78, 41]]);
@@ -23,8 +23,8 @@ import * as turf from "@turf/turf";
  *
  * var along = turf.along(line, 200, options);
  */
-export function along(line,distance,parameters) {
-    return turf.along(line,distance,parameters);
+export function along(line: turf.LineString,distance: number,options: {units: turf.Units}): turf.Feature<turf.Point> {
+    return turf.along(line,distance,options);
 }
 
 /**
@@ -35,9 +35,9 @@ export function along(line,distance,parameters) {
  * The bezier spline implementation is by [Leszek Rybicki](http://leszek.rybicki.cc/).
  *
  * @param {Feature<LineString>} line input LineString
- * @param {Object} [options={}] Optional parameters
- * @param {number} [options.resolution=10000] time in milliseconds between points
- * @param {number} [options.sharpness=0.85] a measure of how curvy the path should be between splines
+ * @param {Object} options Optional parameters
+ * (resolution: time in milliseconds between points,
+ * sharpness: a measure of how curvy the path should be between splines)
  * @returns {Feature<LineString>} curved line
  * @example
  * var line = turf.lineString([
@@ -51,8 +51,8 @@ export function along(line,distance,parameters) {
  *
  * var curved = turf.bezierSpline(line);
  */
-export function bezierSpline(line,parameters) {
-    return turf.bezierSpline(line,parameters);
+export function bezierSpline(line: turf.LineString,options: {resolution: number, sharpness: number}): turf.Feature<turf.LineString> {
+    return turf.bezierSpline(line,options);
 }
 
 /**
@@ -61,31 +61,31 @@ export function bezierSpline(line,parameters) {
  *
  * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} lines the lines to split
  * @param {number} segmentLength how long to make each segment
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] units can be degrees, radians, miles, or kilometers
- * @param {boolean} [options.reverse=false] reverses coordinates to start the first chunked segment at the end
+ * @param {Object} options Optional parameters
+ * (units: units can be degrees, radians, miles, or kilometers,
+ * reverse: reverses coordinates to start the first chunked segment at the end)
  * @returns {FeatureCollection<LineString>} collection of line segments
  * @example
  * var line = turf.lineString([[-95, 40], [-93, 45], [-85, 50]]);
  *
  * var chunk = turf.lineChunk(line, 15, {units: 'miles'});
  */
-export function chunk(lines,segmentLength,parameters) {
-    return turf.lineChunk(lines,segmentLength,parameters);
+export function chunk(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>|turf.Feature<turf.LineString|turf.MultiLineString>,segmentLength: number,options: {units: turf.Units, reverse: boolean}): turf.FeatureCollection<turf.LineString> {
+    return turf.lineChunk(lines,segmentLength,options);
 }
 
 /**
- * Takes any LineString or Polygon GeoJSON and returns the intersecting point(s).
+ * Takes any LineString GeoJSON and returns the intersecting point(s).
  *
- * @param {Geometry|FeatureCollection|Feature<LineString|MultiLineString|Polygon|MultiPolygon>} line1 any LineString or Polygon
- * @param {Geometry|FeatureCollection|Feature<LineString|MultiLineString|Polygon|MultiPolygon>} line2 any LineString or Polygon
+ * @param {Geometry|FeatureCollection|Feature<LineString|MultiLineString|Polygon|MultiPolygon>} line1 any LineString
+ * @param {Geometry|FeatureCollection|Feature<LineString|MultiLineString|Polygon|MultiPolygon>} line2 any LineString
  * @returns {FeatureCollection<Point>} point(s) that intersect both
  * @example
  * var line1 = turf.lineString([[126, -11], [129, -21]]);
  * var line2 = turf.lineString([[123, -18], [131, -14]]);
  * var intersects = turf.lineIntersect(line1, line2);
  */
-export function intersect(line1,line2) {
+export function intersect(line1: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>,line2: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>): turf.FeatureCollection<turf.Point> {
     return turf.lineIntersect(line1,line2);
 }
 
@@ -94,16 +94,16 @@ export function intersect(line1,line2) {
  *
  * @param {Geometry|Feature<LineString|MultiLineString>} line input GeoJSON
  * @param {number} distance distance to offset the line (can be of negative value)
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] can be degrees, radians, miles, kilometers, inches, yards, meters
+ * @param {Object} options Optional parameters
+ * (units:] can be degrees, radians, miles, kilometers, inches, yards, meters)
  * @returns {Feature<LineString|MultiLineString>} Line offset from the input line
  * @example
  * var line = turf.lineString([[-83, 30], [-84, 36], [-78, 41]], { "stroke": "#F00" });
  *
  * var offsetLine = turf.lineOffset(line, 2, {units: 'miles'});
  */
-export function offset(line,distance,parameters) {
-    return turf.lineOffset(line,distance,parameters);
+export function offset(line: turf.Feature<turf.LineString|turf.MultiLineString>,distance: number,options: {units: turf.Units}): turf.Feature<turf.LineString|turf.MultiLineString> {
+    return turf.lineOffset(line,distance,options);
 }
 
 /**
@@ -111,8 +111,8 @@ export function offset(line,distance,parameters) {
  *
  * @param {Geometry|Feature<LineString|MultiLineString|Polygon|MultiPolygon>} line1 any LineString or Polygon
  * @param {Geometry|Feature<LineString|MultiLineString|Polygon|MultiPolygon>} line2 any LineString or Polygon
- * @param {Object} [options={}] Optional parameters
- * @param {number} [options.tolerance=0] Tolerance distance to match overlapping line segments (in kilometers)
+ * @param {Object} options Optional parameters
+ * (tolerance: Tolerance distance to match overlapping line segments (in kilometers))
  * @returns {FeatureCollection<LineString>} lines(s) that are overlapping between both features
  * @example
  * var line1 = turf.lineString([[115, -35], [125, -30], [135, -30], [145, -35]]);
@@ -120,8 +120,8 @@ export function offset(line,distance,parameters) {
  *
  * var overlapping = turf.lineOverlap(line1, line2);
  */
-export function overlap(line1,line2,parameters) {
-    return turf.lineOverlap(line1,line2,parameters);
+export function overlap(line1: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,line2: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,options: {tolerance: number}): turf.FeatureCollection<turf.LineString> {
+    return turf.lineOverlap(line1,line2,options);
 }
 
 /**
@@ -133,7 +133,7 @@ export function overlap(line1,line2,parameters) {
  * var polygon = turf.polygon([[[-50, 5], [-40, -10], [-50, -10], [-40, 5], [-50, 5]]]);
  * var segments = turf.lineSegment(polygon);
  */
-export function segment(feature) {
+export function segment(feature: turf.FeatureCollection<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
     return turf.lineSegment(feature);
 }
 
@@ -162,7 +162,7 @@ export function segment(feature) {
  *
  * var sliced = turf.lineSlice(start, stop, line);
  */
-export function slice(startPt,stopPt,line) {
+export function slice(startPt: turf.Point,stopPt: turf.Point,line: turf.Feature<turf.LineString>): turf.Feature<turf.LineString> {
     return turf.lineSlice(startPt,stopPt,line);
 }
 
@@ -176,8 +176,8 @@ export function slice(startPt,stopPt,line) {
  * @param {Feature<LineString>|LineString} line input line
  * @param {number} startDist distance along the line to starting point
  * @param {number} stopDist distance along the line to ending point
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units='kilometers'] can be degrees, radians, miles, or kilometers
+ * @param {Object} options Optional parameters
+ * (units: can be degrees, radians, miles, or kilometers)
  * @returns {Feature<LineString>} sliced line
  * @example
  * var line = turf.lineString([[7, 45], [9, 45], [14, 40], [14, 41]]);
@@ -185,8 +185,8 @@ export function slice(startPt,stopPt,line) {
  * var stop = 25;
  * var sliced = turf.lineSliceAlong(line, start, stop, {units: 'miles'});
  */
-export function sliceAlong(line,startDist,stopDist,parameters) {
-    return turf.lineSliceAlong(line,startDist,stopDist,parameters);
+export function sliceAlong(line: turf.Feature<turf.LineString>,startDist: number,stopDist: number,options: {units: turf.Units}): turf.Feature<turf.LineString> {
+    return turf.lineSliceAlong(line,startDist,stopDist,options);
 }
 
 /**
@@ -201,6 +201,6 @@ export function sliceAlong(line,startDist,stopDist,parameters) {
  *
  * var split = turf.lineSplit(line, splitter);
  */
-export function split(line,splitter) {
+export function split(line: turf.Feature<turf.LineString>,splitter: turf.Feature<turf.Point|turf.MultiPoint|turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
     return turf.lineSplit(line,splitter);
 }

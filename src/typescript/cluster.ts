@@ -14,10 +14,9 @@
  *
  * @param {FeatureCollection<Point>} points to be clustered
  * @param {number} maxDistance Maximum Distance between any point of the cluster to generate the clusters (kilometers only)
- * @param {Object} [options={}] Optional parameters
- * @param {string} [options.units=kilometers] in which `maxDistance` is expressed, can be degrees, radians, miles, or kilometers
- * @param {number} [options.minPoints=3] Minimum number of points to generate a single cluster,
- * points which do not meet this requirement will be classified as an 'edge' or 'noise'.
+ * @param {Object} options Optional parameters
+ * (units: "miles", "kilometers", "degrees", or "radians", 
+ * minPoints: Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'.)
  * @returns {FeatureCollection<Point>} Clustered Points with an additional two properties associated to each Feature:
  * - {number} cluster - the associated clusterId
  * - {string} dbscan - type of point it has been classified as ('core'|'edge'|'noise')
@@ -27,8 +26,8 @@
  * var maxDistance = 100;
  * var clustered = turf.clustersDbscan(points, maxDistance);
  */
-export function dbscan(points, maxDistance, parameters) {
-    return turf.clustersDbscan(points, maxDistance, parameters);
+export function dbscan(points: turf.FeatureCollection<turf.Point>, maxDistance: number, options: {units: turf.Units,minPoints: number}): turf.FeatureCollection<turf.Point> {
+    return turf.clustersDbscan(points, maxDistance, options);
 }
 
 /**
@@ -36,9 +35,9 @@ export function dbscan(points, maxDistance, parameters) {
  * It uses the [k-means algorithm](https://en.wikipedia.org/wiki/K-means_clustering)
  *
  * @param {FeatureCollection<Point>} points to be clustered
- * @param {Object} [options={}] Optional parameters
- * @param {number} [options.numberOfClusters=Math.sqrt(numberOfPoints/2)] numberOfClusters that will be generated
- * @param {boolean} [options.mutate=false] allows GeoJSON input to be mutated (significant performance increase if true)
+ * @param {Object} options Optional parameters
+ * (numberOfClusters: numberOfClusters that will be generated,
+ * mutate: allows GeoJSON input to be mutated if true (significant performance increase))
  * @returns {FeatureCollection<Point>} Clustered Points with an additional two properties associated to each Feature:
  * - {number} cluster - the associated clusterId
  * - {[number, number]} centroid - Centroid of the cluster [Longitude, Latitude]
@@ -48,8 +47,8 @@ export function dbscan(points, maxDistance, parameters) {
  * var options = {numberOfClusters: 7};
  * var clustered = turf.clustersKmeans(points, options);
  */
-export function kmeans(points, parameters) {
-    return turf.clustersKmeans(points, parameters);
+export function kmeans(points: turf.FeatureCollection<turf.Point>, options: {numberOfClusters: number, mutate: boolean}): turf.FeatureCollection<turf.Point> {
+    return turf.clustersKmeans(points, options);
 }
 
 /**
@@ -80,6 +79,6 @@ export function kmeans(points, parameters) {
  * turf.getCluster(clustered, {'marker-symbol': 'square'}).length;
  * //= 1
  */
-export function get(geojson, filter) {
-    return turf.getCluster(geojson, filter);
+export function get(fcoll: turf.FeatureCollection<turf.GeometryObject>, filter: any): turf.FeatureCollection<turf.GeometryObject> {
+    return turf.getCluster(fcoll, filter);
 }

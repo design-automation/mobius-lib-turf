@@ -14,7 +14,7 @@
  * into MultiPoint, MultiLineString, or MultiPolygon features.
  *
  * @param {FeatureCollection<Point|LineString|Polygon>} fcoll a FeatureCollection of any type
- * @returns {FeatureCollection<MultiPoint|MultiLineString|MultiPolygon>} a FeatureCollection of corresponding type to input
+ * @returns {FeatureCollection<MultiPoint|MultiLineString|MultiPolygon>} a Feature of corresponding type to input
  * @example
  * var fc = turf.featureCollection([
  *   turf.point([19.026432, 47.49134]),
@@ -23,7 +23,7 @@
  *
  * var combined = turf.combine(fc);
  */
-export function combine(fcoll) {
+export function combine(fcoll: turf.FeatureCollection<turf.Point|turf.LineString|turf.Polygon>): turf.Feature {
     return turf.combine(fcoll);
 }
 
@@ -38,7 +38,7 @@ export function combine(fcoll) {
  *
  * var explode = turf.explode(polygon);
  */
-export function explode(geojson) {
+export function explode(geojson: turf.AllGeoJSON): turf.FeatureCollection<turf.Point> {
     return turf.explode(geojson);
 }
 
@@ -57,7 +57,7 @@ export function explode(geojson) {
  *
  * var flatten = turf.flatten(multiGeometry);
  */
-export function flatten(geojson) {
+export function flatten(geojson: turf.AllGeoJSON): turf.FeatureCollection {
     return turf.flatten(geojson);
 }
 
@@ -75,12 +75,12 @@ export function flatten(geojson) {
  *
  * var polygon = turf.lineToPolygon(line);
  */
-export function lineToPolygon(lines, parameters) {
-    return turf.lineToPolygon(lines, parameters);
+export function lineToPolygon(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>, options: {properties: object, autoComplete: boolean, orderCoords: boolean}): turf.Feature<turf.Polygon|turf.MultiPolygon> {
+    return turf.lineToPolygon(lines, options);
 }
 
 /**
- * Polygonizes LineString|(Multi)LineString(s)} into Polygons.
+ * Polygonizes LineString or MultiLineString(s) into Polygons.
  *
  * Implementation of GEOSPolygonize function (`geos::operation::polygonize::Polygonizer`).
  *
@@ -94,25 +94,25 @@ export function lineToPolygon(lines, parameters) {
  *
  * Throws an error is geoJson is invalid.
  *
- * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} geoJson Lines in order to polygonize
+ * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} lines Lines in order to polygonize
  * @returns {FeatureCollection<Polygon>} Polygons created
  */
-export function polygonize(geojson) {
-    return turf.polygonize(geojson);
+export function polygonize(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>): turf.FeatureCollection<turf.Polygon> {
+    return turf.polygonize(lines);
 }
 
 /**
  * Converts a Polygon to LineString|(Multi)LineString or MultiPolygon to a FeatureCollection of LineString|(Multi)LineString.
  *
  * @param {Feature<Polygon|MultiPolygon>} polygon Feature to convert
- * @param {Object} [options={}] Optional parameters
- * @param {Object} [options.properties={}] translates GeoJSON properties to Feature
+ * @param {Object} options Optional parameters
+ * (properties: an Object that is used as the Feature's propertiese)
  * @returns {FeatureCollection|Feature<LineString|MultiLinestring>} converted (Multi)Polygon to (Multi)LineString
  * @example
  * var poly = turf.polygon([[[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]]);
  *
  * var line = turf.polygonToLine(poly);
  */
-export function polygonToLine(polygon, parameters) {
-    return turf.polygonToLine(polygon, parameters);
+export function polygonToLine(polygon: turf.Polygon|turf.MultiPolygon, options: {properties: object}): turf.FeatureCollection|turf.Feature<turf.LineString|turf.MultiLineString> {
+    return turf.polygonToLine(polygon, options);
 }

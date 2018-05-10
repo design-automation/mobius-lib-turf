@@ -19,7 +19,7 @@ import * as turf from "@turf/turf";
  * var poly = turf.bboxPolygon(bbox);
  *
  */
-export function polygon(bbox) {
+export function polygon(bbox: turf.BBox): turf.Feature {
     return turf.bboxPolygon(bbox);
 }
 
@@ -34,7 +34,7 @@ export function polygon(bbox) {
  * var squared = turf.square(bbox);
  *
  */
-export function square(bbox) {
+export function square(bbox: turf.BBox): turf.BBox {
     return turf.square(bbox);
 }
 
@@ -52,6 +52,6 @@ export function square(bbox) {
  * var clipped = turf.bboxClip(poly, bbox);
  *
  */
-export function clip(feature, bbox) {
+export function clip(feature: turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon, bbox: turf.BBox): turf.Feature {
     return turf.bboxClip(feature, bbox);
 }

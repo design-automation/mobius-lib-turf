@@ -25,7 +25,7 @@
  * turf.booleanContains(line, point);
  * //=true
  */
-export function contains(feature1, feature2) {
+export function contains(feature1: turf.Feature, feature2: turf.Feature): boolean {
     return turf.booleanContains(feature1, feature2);
 }
 
@@ -46,7 +46,7 @@ export function contains(feature1, feature2) {
  * var cross = turf.booleanCrosses(line1, line2);
  * //=true
  */
-export function crosses(feature1, feature2) {
+export function crosses(feature1: turf.Feature, feature2: turf.Feature): boolean {
     return turf.booleanCrosses(feature1, feature2);
 }
 
@@ -63,7 +63,7 @@ export function crosses(feature1, feature2) {
  * turf.booleanDisjoint(line, point);
  * //=true
  */
-export function disjoint(feature1, feature2) {
+export function disjoint(feature1: turf.Feature, feature2: turf.Feature): boolean {
     return turf.booleanDisjoint(feature1, feature2);
 }
 
@@ -84,7 +84,7 @@ export function disjoint(feature1, feature2) {
  * turf.booleanEqual(pt2, pt3);
  * //= false
  */
-export function equal(feature1, feature2) {
+export function equal(feature1: turf.Feature, feature2: turf.Feature): boolean {
     return turf.booleanEqual(feature1, feature2);
 }
 
@@ -94,8 +94,8 @@ export function equal(feature1, feature2) {
  *
  * @param {Coord} point input point
  * @param {Feature<Polygon|MultiPolygon>} polygon input polygon or multipolygon
- * @param {Object} [options={}] Optional parameters
- * @param {boolean} [options.ignoreBoundary=false] True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.
+ * @param {Object} options Optional parameters
+ * (ignoreBoundary: True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.)
  * @returns {boolean} `true` if the Point is inside the Polygon; `false` if the Point is not inside the Polygon
  * @example
  * var pt = turf.point([-77, 44]);
@@ -110,8 +110,8 @@ export function equal(feature1, feature2) {
  * turf.booleanPointInPolygon(pt, poly);
  * //= true
  */
-export function pointInPolygon(point, polygon, parameters) {
-    return turf.booleanPointInPolygon(point, polygon, parameters);
+export function pointInPolygon(point: turf.Point, polygon: turf.Polygon, options: {ignoreBoundary: boolean}): boolean {
+    return turf.booleanPointInPolygon(point, polygon, options);
 }
 
 /**
@@ -127,7 +127,7 @@ export function pointInPolygon(point, polygon, parameters) {
  * turf.booleanParallel(line1, line2);
  * //=true
  */
-export function parallel(line1, line2) {
+export function parallel(line1: turf.LineString, line2: turf.LineString): boolean {
     return turf.booleanParallel(line1, line2);
 }
 
@@ -136,8 +136,8 @@ export function parallel(line1, line2) {
  *
  * @param {Coord} point GeoJSON Point
  * @param {Feature<LineString>} line GeoJSON LineString
- * @param {Object} [options={}] Optional parameters
- * @param {boolean} [options.ignoreEndVertices=false] whether to ignore the start and end vertices.
+ * @param {Object} options Optional parameters
+ * (ignoreEndVertices: ignore the start and end vertices if true.)
  * @returns {boolean} true/false
  * @example
  * var pt = turf.point([0, 0]);
@@ -145,8 +145,8 @@ export function parallel(line1, line2) {
  * var isPointOnLine = turf.booleanPointOnLine(pt, line);
  * //=true
  */
-export function pointOnLine(point, line, parameters) {
-    return turf.booleanPointOnLine(point, line, parameters);
+export function pointOnLine(point: turf.Point, line: turf.LineString, options: {ignoreEndVertices: boolean}): boolean {
+    return turf.booleanPointOnLine(point, line, options);
 }
 
 /**
@@ -165,6 +165,6 @@ export function pointOnLine(point, line, parameters) {
  * turf.booleanWithin(point, line);
  * //=true
  */
-export function within(feature1, feature2) {
+export function within(feature1: turf.Feature, feature2: turf.Feature): boolean {
     return turf.booleanWithin(feature1, feature2);
 }
