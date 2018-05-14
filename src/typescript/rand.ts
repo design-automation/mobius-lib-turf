@@ -14,7 +14,7 @@ import * as turf from "@turf/turf";
  * @param {Array<number>} [bbox=[-180, -90, 180, 90]] a bounding box inside of which positions are placed.
  * @returns {Array<number>} Position [longitude, latitude]
  * @example
- * var position = turf.randomPosition([-180, -90, 180, 90])
+ * var position = geo.random.position([-180, -90, 180, 90])
  * //=position
  */
 export function position(bbox: turf.BBox): number[] {
@@ -29,7 +29,7 @@ export function position(bbox: turf.BBox): number[] {
  * (bbox: a bounding box inside of which geometries are placed.)
  * @returns {FeatureCollection<Point>} GeoJSON FeatureCollection of points
  * @example
- * var points = turf.randomPoint(25, {bbox: [-180, -90, 180, 90]})
+ * var points = geo.random.point(25, {bbox: [-180, -90, 180, 90]})
  * //=points
  */
 export function point(num: number,options: {bbox: turf.BBox}): turf.FeatureCollection<turf.Point> {
@@ -47,7 +47,7 @@ export function point(num: number,options: {bbox: turf.BBox}): turf.FeatureColle
  * max_rotation=Math: is the maximum number of radians that a line segment can turn from the previous segment.)
  * @returns {FeatureCollection<LineString>} GeoJSON FeatureCollection of LineString
  * @example
- * var lineStrings = turf.randomLineString(25, {bbox: [-180, -90, 180, 90]})
+ * var lineStrings = geo.random.linestring(25, {bbox: [-180, -90, 180, 90]})
  * //=lineStrings
  */
 export function linestring(num: number,options: {bbox: turf.BBox,num_vertices: number,max_length: number, max_rotation: number}): turf.FeatureCollection<turf.LineString> {
@@ -64,7 +64,7 @@ export function linestring(num: number,options: {bbox: turf.BBox,num_vertices: n
  * @param {number} [options.max_radial_length=10] is the maximum number of decimal degrees latitude or longitude that a vertex can reach out of the center of the Polygon.
  * @returns {FeatureCollection<LineString>} GeoJSON FeatureCollection of LineString
  * @example
- * var polygons = turf.randomPolygon(25, {bbox: [-180, -90, 180, 90]})
+ * var polygons = geo.random.polygon(25, {bbox: [-180, -90, 180, 90]})
  * //=polygons
  */
 export function polygon(num: number,options: {bbox: turf.BBox,num_vertices:number,max_radial_length:number}): turf.FeatureCollection<turf.LineString> {

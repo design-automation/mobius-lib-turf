@@ -19,10 +19,10 @@
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
  * @returns {boolean} true/false
  * @example
- * var line = turf.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
- * var point = turf.point([1, 2]);
+ * var line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
+ * var point = geo.create.point([1, 2]);
  *
- * turf.booleanContains(line, point);
+ * geo.compare.contains(line, point);
  * //=true
  */
 export function contains(feature1: turf.Feature, feature2: turf.Feature): boolean {
@@ -40,10 +40,10 @@ export function contains(feature1: turf.Feature, feature2: turf.Feature): boolea
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
  * @returns {boolean} true/false
  * @example
- * var line1 = turf.lineString([[-2, 2], [4, 2]]);
- * var line2 = turf.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
+ * var line1 = geo.create.lineString([[-2, 2], [4, 2]]);
+ * var line2 = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
  *
- * var cross = turf.booleanCrosses(line1, line2);
+ * var cross = geo.compare.crosses(line1, line2);
  * //=true
  */
 export function crosses(feature1: turf.Feature, feature2: turf.Feature): boolean {
@@ -57,10 +57,10 @@ export function crosses(feature1: turf.Feature, feature2: turf.Feature): boolean
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
  * @returns {boolean} true/false
  * @example
- * var point = turf.point([2, 2]);
- * var line = turf.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
+ * var point = geo.create.point([2, 2]);
+ * var line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
  *
- * turf.booleanDisjoint(line, point);
+ * geo.compare.disjoint(line, point);
  * //=true
  */
 export function disjoint(feature1: turf.Feature, feature2: turf.Feature): boolean {
@@ -75,13 +75,13 @@ export function disjoint(feature1: turf.Feature, feature2: turf.Feature): boolea
  * @param {Geometry|Feature} feature2 GeoJSON input
  * @returns {boolean} true if the objects are equal, false otherwise
  * @example
- * var pt1 = turf.point([0, 0]);
- * var pt2 = turf.point([0, 0]);
- * var pt3 = turf.point([1, 1]);
+ * var pt1 = geo.create.point([0, 0]);
+ * var pt2 = geo.create.point([0, 0]);
+ * var pt3 = geo.create.point([1, 1]);
  *
- * turf.booleanEqual(pt1, pt2);
+ * geo.compare.equal(pt1, pt2);
  * //= true
- * turf.booleanEqual(pt2, pt3);
+ * geo.compare.equal(pt2, pt3);
  * //= false
  */
 export function equal(feature1: turf.Feature, feature2: turf.Feature): boolean {
@@ -98,8 +98,8 @@ export function equal(feature1: turf.Feature, feature2: turf.Feature): boolean {
  * (ignoreBoundary: True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.)
  * @returns {boolean} `true` if the Point is inside the Polygon; `false` if the Point is not inside the Polygon
  * @example
- * var pt = turf.point([-77, 44]);
- * var poly = turf.polygon([[
+ * var pt = geo.create.point([-77, 44]);
+ * var poly = geo.create.polygon([[
  *   [-81, 41],
  *   [-81, 47],
  *   [-72, 47],
@@ -107,7 +107,7 @@ export function equal(feature1: turf.Feature, feature2: turf.Feature): boolean {
  *   [-81, 41]
  * ]]);
  *
- * turf.booleanPointInPolygon(pt, poly);
+ * geo.compare.pointInPolygon(pt, poly);
  * //= true
  */
 export function pointInPolygon(point: turf.Point, polygon: turf.Polygon, options: {ignoreBoundary: boolean}): boolean {
@@ -121,10 +121,10 @@ export function pointInPolygon(point: turf.Point, polygon: turf.Polygon, options
  * @param {Geometry|Feature<LineString>} line2 GeoJSON Feature or Geometry
  * @returns {boolean} true/false if the lines are parallel
  * @example
- * var line1 = turf.lineString([[0, 0], [0, 1]]);
- * var line2 = turf.lineString([[1, 0], [1, 1]]);
+ * var line1 = geo.create.lineString([[0, 0], [0, 1]]);
+ * var line2 = geo.create.lineString([[1, 0], [1, 1]]);
  *
- * turf.booleanParallel(line1, line2);
+ * geo.compare.parallel(line1, line2);
  * //=true
  */
 export function parallel(line1: turf.LineString, line2: turf.LineString): boolean {
@@ -140,9 +140,9 @@ export function parallel(line1: turf.LineString, line2: turf.LineString): boolea
  * (ignoreEndVertices: ignore the start and end vertices if true.)
  * @returns {boolean} true/false
  * @example
- * var pt = turf.point([0, 0]);
- * var line = turf.lineString([[-1, -1],[1, 1],[1.5, 2.2]]);
- * var isPointOnLine = turf.booleanPointOnLine(pt, line);
+ * var pt = geo.create.point([0, 0]);
+ * var line = geo.create.lineString([[-1, -1],[1, 1],[1.5, 2.2]]);
+ * var isPointOnLine = geo.compare.pointOnLine(pt, line);
  * //=true
  */
 export function pointOnLine(point: turf.Point, line: turf.LineString, options: {ignoreEndVertices: boolean}): boolean {
@@ -159,10 +159,10 @@ export function pointOnLine(point: turf.Point, line: turf.LineString, options: {
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
  * @returns {boolean} true/false
  * @example
- * var line = turf.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
- * var point = turf.point([1, 2]);
+ * var line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
+ * var point = geo.create.point([1, 2]);
  *
- * turf.booleanWithin(point, line);
+ * geo.compare.within(point, line);
  * //=true
  */
 export function within(feature1: turf.Feature, feature2: turf.Feature): boolean {

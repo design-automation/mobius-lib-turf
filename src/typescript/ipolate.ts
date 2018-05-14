@@ -21,14 +21,14 @@ import * as turf from "@turf/turf";
  * weight: exponent regulating the distance-decay weighting)
  * @returns {FeatureCollection<Point|Polygon>} grid of points or polygons with interpolated 'property'
  * @example
- * var points = turf.randomPoint(30, {bbox: [50, 30, 70, 50]});
+ * var points = geo.random.point(30, {bbox: [50, 30, 70, 50]});
  *
  * // add a random property to each point
- * turf.featureEach(points, function(point) {
+ * for each points in points {
  *     point.properties.solRad = Math.random() * 50;
  * });
  * var options = {gridType: 'points', property: 'solRad', units: 'miles'};
- * var grid = turf.interpolate(points, 100, options);
+ * var grid = geo.ipolate.interpolate(points, 100, options);
  */
 export function interpolate(points: turf.FeatureCollection<turf.Point>,cellSize: number,options: {gridType: turf.Grid, zProperty: string, units: turf.Units, weight: number}): turf.FeatureCollection<turf.Point|turf.Polygon> {
     return turf.interpolate(points,cellSize,options);
@@ -65,14 +65,14 @@ export function isobands(pointGrid: turf.FeatureCollection<turf.Point>,breaks: n
  * // create a grid of points with random z-values in their properties
  * var extent = [0, 30, 20, 50];
  * var cellWidth = 100;
- * var pointGrid = turf.pointGrid(extent, cellWidth, {units: 'miles'});
+ * var pointGrid = geo.grid.pointGrid(extent, cellWidth, {units: 'miles'});
  *
  * for (var i = 0; i < pointGrid.features.length; i++) {
  *     pointGrid.features[i].properties.temperature = Math.random() * 10;
  * }
  * var breaks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  *
- * var lines = turf.isolines(pointGrid, breaks, {zProperty: 'temperature'});
+ * var lines = geo.ipolate.isolines(pointGrid, breaks, {zProperty: 'temperature'});
  */
 export function isolines(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiLineString> {
     return turf.isolines(pointGrid,breaks,options);
@@ -90,9 +90,9 @@ export function isolines(pointGrid: turf.FeatureCollection<turf.Point>,breaks: n
  * @param {Feature<Polygon>} triangle a Polygon feature with three vertices
  * @returns {number} the z-value for `interpolatedPoint`
  * @example
- * var point = turf.point([-75.3221, 39.529]);
+ * var point = geo.create.point([-75.3221, 39.529]);
  * // "a", "b", and "c" values represent the values of the coordinates in order.
- * var triangle = turf.polygon([[
+ * var triangle = geo.create.polygon([[
  *   [-75.1221, 39.57],
  *   [-75.58, 39.18],
  *   [-75.97, 39.86],
@@ -103,7 +103,7 @@ export function isolines(pointGrid: turf.FeatureCollection<turf.Point>,breaks: n
  *   "c": 44
  * });
  *
- * var zValue = turf.planepoint(point, triangle);
+ * var zValue = geo.ipolate.planepoint(point, triangle);
  * point.properties.zValue = zValue;
  */
 export function planepoint(point: turf.Point,triangle: turf.Feature<turf.Polygon>): number {
@@ -126,20 +126,13 @@ export function planepoint(point: turf.Point,triangle: turf.Feature<turf.Polygon
  * @returns {FeatureCollection<Polygon>} TIN output
  * @example
  * // generate some random point data
- * var points = turf.randomPoint(30, {bbox: [50, 30, 70, 50]});
+ * var points = geo.random.point(30, {bbox: [50, 30, 70, 50]});
  *
  * // add a random property to each point between 0 and 9
  * for (var i = 0; i < points.features.length; i++) {
  *   points.features[i].properties.z = ~~(Math.random() * 9);
  * }
- * var tin = turf.tin(points, 'z');
- *
- * //addToMap
- * var addToMap = [tin, points]
- * for (var i = 0; i < tin.features.length; i++) {
- *   var properties  = tin.features[i].properties;
- *   properties.fill = '#' + properties.a + properties.b + properties.c;
- * }
+ * var tin = geo.ipolate.tin(points, 'z');
  */
 export function tin(points: turf.FeatureCollection<turf.Point>,name: string): turf.FeatureCollection<turf.Polygon> {
     return turf.tin(points,name);

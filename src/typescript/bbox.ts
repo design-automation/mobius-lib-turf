@@ -16,7 +16,7 @@ import * as turf from "@turf/turf";
  * @example
  * var bbox = [0, 0, 10, 10];
  *
- * var poly = turf.bboxPolygon(bbox);
+ * var poly = geo.bbox.polygon(bbox);
  *
  */
 export function polygon(bbox: turf.BBox): turf.Feature {
@@ -31,7 +31,7 @@ export function polygon(bbox: turf.BBox): turf.Feature {
  * @returns {BBox} a square surrounding `bbox`
  * @example
  * var bbox = [-20, -20, -15, 0];
- * var squared = turf.square(bbox);
+ * var squared = geo.bbox.square(bbox);
  *
  */
 export function square(bbox: turf.BBox): turf.BBox {
@@ -47,9 +47,9 @@ export function square(bbox: turf.BBox): turf.BBox {
  * @returns {Feature<LineString|MultiLineString|Polygon|MultiPolygon>} clipped Feature
  * @example
  * var bbox = [0, 0, 10, 10];
- * var poly = turf.polygon([[[2, 2], [8, 4], [12, 8], [3, 7], [2, 2]]]);
+ * var poly = geo.create.polygon([[[2, 2], [8, 4], [12, 8], [3, 7], [2, 2]]]);
  *
- * var clipped = turf.bboxClip(poly, bbox);
+ * var clipped = geo.bbox.clip(poly, bbox);
  *
  */
 export function clip(feature: turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon, bbox: turf.BBox): turf.Feature {

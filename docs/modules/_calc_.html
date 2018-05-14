@@ -116,7 +116,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L21">calc.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L21">calc.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -125,8 +125,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon = turf.polygon([[[125, -15], [113, -22], [154, -27], [144, -15], [125, -15]]]);</p>
-										<p>var area = turf.area(polygon);</p>
+									<dd><p>var polygon = geo.create.polygon([[[125, -15], [113, -22], [154, -27], [144, -15], [125, -15]]]);</p>
+										<p>var area = geo.calc.area(polygon);</p>
 									</dd>
 								</dl>
 							</div>
@@ -154,7 +154,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L40">calc.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L40">calc.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -164,9 +164,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var point1 = turf.point([-75.343, 39.984]);
-										var point2 = turf.point([-75.534, 39.123]);</p>
-										<p>var bearing = turf.bearing(point1, point2);</p>
+									<dd><p>var point1 = geo.create.point([-75.343, 39.984]);
+										var point2 = geo.create.point([-75.534, 39.123]);</p>
+										<p>var bearing = geo.calc.bearing(point1, point2);</p>
 									</dd>
 								</dl>
 							</div>
@@ -212,7 +212,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L60">calc.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L60">calc.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,12 +221,12 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var features = turf.featureCollection([
-											turf.point( [-97.522259, 35.4691]),
-											turf.point( [-97.502754, 35.463455]),
-											turf.point( [-97.508269, 35.463245])
+									<dd><p>var features = geo.create.featureCollection([
+											geo.create.point( [-97.522259, 35.4691]),
+											geo.create.point( [-97.502754, 35.463455]),
+											geo.create.point( [-97.508269, 35.463245])
 										]);</p>
-										<p>var center = turf.center(features);</p>
+										<p>var center = geo.calc.center(features);</p>
 									</dd>
 								</dl>
 							</div>
@@ -266,7 +266,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L75">calc.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L75">calc.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -275,8 +275,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);</p>
-										<p>var center = turf.centerOfMass(polygon);</p>
+									<dd><p>var polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);</p>
+										<p>var center = geo.calc.centerOfMass(polygon);</p>
 									</dd>
 								</dl>
 							</div>
@@ -310,7 +310,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L91">calc.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L91">calc.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -320,8 +320,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);</p>
-										<p>var centroid = turf.centroid(polygon);</p>
+									<dd><p>var polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);</p>
+										<p>var centroid = geo.calc.centroid(polygon);</p>
 									</dd>
 								</dl>
 							</div>
@@ -355,7 +355,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L113">calc.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L113">calc.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -364,11 +364,11 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var point = turf.point([-75.343, 39.984]);
+									<dd><p>var point = geo.create.point([-75.343, 39.984]);
 											var distance = 50;
 											var bearing = 90;
 										var options = {units: &#39;miles&#39;};</p>
-										<p>var destination = turf.destination(point, distance, bearing, options);</p>
+										<p>var destination = geo.calc.destination(point, distance, bearing, options);</p>
 									</dd>
 								</dl>
 							</div>
@@ -424,7 +424,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L135">calc.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L135">calc.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -436,10 +436,10 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var from = turf.point([-75.343, 39.984]);
-											var to = turf.point([-75.534, 39.123]);
+									<dd><p>var from = geo.create.point([-75.343, 39.984]);
+											var to = geo.create.point([-75.534, 39.123]);
 										var options = {units: &#39;miles&#39;};</p>
-										<p>var distance = turf.distance(from, to, options);</p>
+										<p>var distance = geo.calc.distance(from, to, options);</p>
 									</dd>
 								</dl>
 							</div>
@@ -485,7 +485,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L153">calc.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L153">calc.ts:153</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,12 +494,12 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var features = turf.featureCollection([
-											turf.point([-75.343, 39.984], {&quot;name&quot;: &quot;Location A&quot;}),
-											turf.point([-75.833, 39.284], {&quot;name&quot;: &quot;Location B&quot;}),
-											turf.point([-75.534, 39.123], {&quot;name&quot;: &quot;Location C&quot;})
+									<dd><p>var features = geo.create.featureCollection([
+											geo.create.point([-75.343, 39.984], {&quot;name&quot;: &quot;Location A&quot;}),
+											geo.create.point([-75.833, 39.284], {&quot;name&quot;: &quot;Location B&quot;}),
+											geo.create.point([-75.534, 39.123], {&quot;name&quot;: &quot;Location C&quot;})
 										]);</p>
-										<p>var enveloped = turf.envelope(features);</p>
+										<p>var enveloped = geo.calc.envelope(features);</p>
 									</dd>
 								</dl>
 							</div>
@@ -527,7 +527,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L172">calc.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L172">calc.ts:172</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -536,9 +536,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var start = turf.point([-122, 48]);
-										var end = turf.point([-77, 39]);</p>
-										<p>var greatCircle = turf.greatCircle(start, end, {&#39;name&#39;: &#39;Seattle to DC&#39;});</p>
+									<dd><p>var start = geo.create.point([-122, 48]);
+										var end = geo.create.point([-77, 39]);</p>
+										<p>var greatCircle = geo.calc.greatCircle(start, end, {&#39;name&#39;: &#39;Seattle to DC&#39;});</p>
 									</dd>
 								</dl>
 							</div>
@@ -591,7 +591,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L187">calc.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L187">calc.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -600,8 +600,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);
-										var length = turf.length(line, {units: &#39;miles&#39;});</p>
+									<dd><p>var line = geo.create.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);
+										var length = geo.calc.length(line, {units: &#39;miles&#39;});</p>
 									</dd>
 								</dl>
 							</div>
@@ -641,7 +641,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L204">calc.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L204">calc.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -651,9 +651,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var point1 = turf.point([144.834823, -37.771257]);
-										var point2 = turf.point([145.14244, -37.830937]);</p>
-										<p>var midpoint = turf.midpoint(point1, point2);</p>
+									<dd><p>var point1 = geo.create.point([144.834823, -37.771257]);
+										var point2 = geo.create.point([145.14244, -37.830937]);</p>
+										<p>var midpoint = geo.calc.midpoint(point1, point2);</p>
 									</dd>
 								</dl>
 							</div>
@@ -687,7 +687,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L227">calc.ts:227</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L227">calc.ts:227</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -699,13 +699,13 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var targetPoint = turf.point([28.965797, 41.010086], {&quot;marker-color&quot;: &quot;#0F0&quot;});
-											var points = turf.featureCollection([
-											turf.point([28.973865, 41.011122]),
-											turf.point([28.948459, 41.024204]),
-											turf.point([28.938674, 41.013324])
+									<dd><p>var targetPoint = geo.create.point([28.965797, 41.010086], {&quot;marker-color&quot;: &quot;#0F0&quot;});
+											var points = geo.create.featureCollection([
+											geo.create.point([28.973865, 41.011122]),
+											geo.create.point([28.948459, 41.024204]),
+											geo.create.point([28.938674, 41.013324])
 										]);</p>
-										<p>var nearest = turf.nearestPoint(targetPoint, points);</p>
+										<p>var nearest = geo.calc.nearestPoint(targetPoint, points);</p>
 									</dd>
 								</dl>
 							</div>
@@ -739,7 +739,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L253">calc.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L253">calc.ts:253</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -748,7 +748,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([
+									<dd><p>var line = geo.create.lineString([
 											[-77.031669, 38.878605],
 											[-77.029609, 38.881946],
 											[-77.020339, 38.884084],
@@ -756,8 +756,8 @@
 											[-77.021884, 38.889563],
 											[-77.019824, 38.892368]
 											]);
-										var pt = turf.point([-77.037076, 38.884017]);</p>
-										<p>var snapped = turf.nearestPointOnLine(line, pt, {units: &#39;miles&#39;});</p>
+										var pt = geo.create.point([-77.037076, 38.884017]);</p>
+										<p>var snapped = geo.calc.nearestPointOnLine(line, pt, {units: &#39;miles&#39;});</p>
 									</dd>
 								</dl>
 							</div>
@@ -804,7 +804,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L274">calc.ts:274</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L274">calc.ts:274</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -814,9 +814,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var pt = turf.point([0, 0]);
-										var line = turf.lineString([[1, 1],[-1, 1]]);</p>
-										<p>var distance = turf.pointToLineDistance(pt, line, {units: &#39;miles&#39;});
+									<dd><p>var pt = geo.create.point([0, 0]);
+										var line = geo.create.lineString([[1, 1],[-1, 1]]);</p>
+										<p>var distance = geo.calc.pointToLineDistance(pt, line, {units: &#39;miles&#39;});
 										//=69.11854715938406</p>
 									</dd>
 								</dl>
@@ -867,7 +867,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L290">calc.ts:290</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L290">calc.ts:290</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -876,9 +876,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon = turf.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
-										var point = turf.point([61, 5]);</p>
-										<p>var tangents = turf.polygonTangents(point, polygon)</p>
+									<dd><p>var polygon = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
+										var point = geo.create.point([61, 5]);</p>
+										<p>var tangents = geo.calc.polygonTangents(point, polygon)</p>
 									</dd>
 								</dl>
 							</div>
@@ -912,7 +912,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L309">calc.ts:309</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L309">calc.ts:309</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -922,9 +922,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var point1 = turf.point([-75.343, 39.984], {&quot;marker-color&quot;: &quot;#F00&quot;});
-										var point2 = turf.point([-75.534, 39.123], {&quot;marker-color&quot;: &quot;#00F&quot;});</p>
-										<p>var bearing = turf.rhumbBearing(point1, point2);</p>
+									<dd><p>var point1 = geo.create.point([-75.343, 39.984], {&quot;marker-color&quot;: &quot;#F00&quot;});
+										var point2 = geo.create.point([-75.534, 39.123], {&quot;marker-color&quot;: &quot;#00F&quot;});</p>
+										<p>var bearing = geo.calc.rhumbBearing(point1, point2);</p>
 									</dd>
 								</dl>
 							</div>
@@ -970,7 +970,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L332">calc.ts:332</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L332">calc.ts:332</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -980,11 +980,11 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var pt = turf.point([-75.343, 39.984], {&quot;marker-color&quot;: &quot;F00&quot;});
+									<dd><p>var pt = geo.create.point([-75.343, 39.984], {&quot;marker-color&quot;: &quot;F00&quot;});
 											var distance = 50;
 											var bearing = 90;
 										var options = {units: &#39;miles&#39;};</p>
-										<p>var destination = turf.rhumbDestination(pt, distance, bearing, options);</p>
+										<p>var destination = geo.calc.rhumbDestination(pt, distance, bearing, options);</p>
 									</dd>
 								</dl>
 							</div>
@@ -1040,7 +1040,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L352">calc.ts:352</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L352">calc.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1050,10 +1050,10 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var from = turf.point([-75.343, 39.984]);
-											var to = turf.point([-75.534, 39.123]);
+									<dd><p>var from = geo.create.point([-75.343, 39.984]);
+											var to = geo.create.point([-75.534, 39.123]);
 										var options = {units: &#39;miles&#39;};</p>
-										<p>var distance = turf.rhumbDistance(from, to, options);</p>
+										<p>var distance = geo.calc.rhumbDistance(from, to, options);</p>
 									</dd>
 								</dl>
 							</div>
@@ -1099,7 +1099,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L377">calc.ts:377</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L377">calc.ts:377</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1112,9 +1112,9 @@
 									<dd><p>var start = [-5, -6];
 											var end = [9, -6];
 											var options = {
-											obstacles: turf.polygon([[[0, -7], [5, -7], [5, -3], [0, -3], [0, -7]]])
+											obstacles: geo.create.polygon([[[0, -7], [5, -7], [5, -3], [0, -3], [0, -7]]])
 										};</p>
-										<p>var path = turf.shortestPath(start, end, options);</p>
+										<p>var path = geo.calc.shortestPath(start, end, options);</p>
 									</dd>
 								</dl>
 							</div>
@@ -1172,7 +1172,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/calc.ts#L397">calc.ts:397</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/calc.ts#L397">calc.ts:397</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1186,8 +1186,8 @@
 									<dd><p>var options = {
 											bbox: [-70, 40, -60, 60]
 											};
-											var points = turf.randomPoint(100, options);
-										var voronoiPolygons = turf.voronoi(points, options);</p>
+											var points = geo.random.point(100, options);
+										var voronoiPolygons = geo.calc.voronoi(points, options);</p>
 									</dd>
 								</dl>
 							</div>

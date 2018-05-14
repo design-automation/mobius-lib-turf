@@ -21,12 +21,12 @@
  * units: "miles", "kilometers", "degrees", or "radians")
  * @returns {Feature<LineString>} line arc
  * @example
- * var center = turf.point([-75, 40]);
+ * var center = geo.create.point([-75, 40]);
  * var radius = 5;
  * var bearing1 = 25;
  * var bearing2 = 47;
  *
- * var arc = turf.lineArc(center, radius, bearing1, bearing2);
+ * var arc = geo.create.arc(center, radius, bearing1, bearing2);
  */
 export function arc(center: turf.Point, radius: number, bearing1: number, bearing2: number, options: {steps: number,units: turf.Units}): turf.Feature<turf.LineString> {
     return turf.lineArc(center, radius, bearing1, bearing2, options);
@@ -38,9 +38,9 @@ export function arc(center: turf.Point, radius: number, bearing1: number, bearin
  * @param {GeoJSON} geojson any GeoJSON object
  * @returns {BBox} bbox extent in [minX, minY, maxX, maxY] order
  * @example
- * var line = turf.lineString([[-74, 40], [-78, 42], [-82, 35]]);
- * var bbox = turf.bbox(line);
- * var bboxPolygon = turf.bboxPolygon(bbox);
+ * var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]]);
+ * var bbox = geo.create.bbox(line);
+ * var bboxPolygon = geo.bbox.polygon(bbox);
  */
 export function bbox(geojson: turf.AllGeoJSON): turf.BBox {
     return turf.bbox(geojson);
@@ -60,7 +60,7 @@ export function bbox(geojson: turf.AllGeoJSON): turf.BBox {
  * var center = [-75.343, 39.984];
  * var radius = 5;
  * var options = {steps: 10, units: 'kilometers', properties: {foo: 'bar'}};
- * var circle = turf.circle(center, radius, options);
+ * var circle = geo.create.circle(center, radius, options);
  */
 export function circle(center: turf.Point, radius: number, options: {steps: number,units: turf.Units,properties: object}): turf.Feature<turf.Polygon> {
     return turf.circle(center, radius, options);
@@ -75,11 +75,11 @@ export function circle(center: turf.Point, radius: number, options: {steps: numb
  * id: Identifier associated with the Feature)
  * @returns {FeatureCollection} FeatureCollection of Features
  * @example
- * var locationA = turf.point([-75.343, 39.984], {name: 'Location A'});
- * var locationB = turf.point([-75.833, 39.284], {name: 'Location B'});
- * var locationC = turf.point([-75.534, 39.123], {name: 'Location C'});
+ * var locationA = geo.create.point([-75.343, 39.984], {name: 'Location A'});
+ * var locationB = geo.create.point([-75.833, 39.284], {name: 'Location B'});
+ * var locationC = geo.create.point([-75.534, 39.123], {name: 'Location C'});
  *
- * var collection = turf.featureCollection([
+ * var collection = geo.create.featureCollection([
  *   locationA,
  *   locationB,
  *   locationC
@@ -106,7 +106,7 @@ export function fColl(features: Array<turf.Feature>, options: {bbox: turf.BBox,i
  *   "coordinates": [110, 50]
  * };
  *
- * var feature = turf.feature(geometry);
+ * var feature = geo.create.feature(geometry);
  *
  * //=feature
  */
@@ -133,7 +133,7 @@ export function feature(geometry: turf.Geometry, properties: object, options: {b
  *     "type": "LineString",
  *     "coordinates": [ [101, 0], [102, 1] ]
  *   };
- * var collection = turf.geometryCollection([pt, line]);
+ * var collection = geo.create.geometryCollection([pt, line]);
  *
  * //=collection
  */
@@ -151,8 +151,8 @@ export function gColl(geometries: Array<turf.Geometries>, properties: object, op
  * id: Identifier associated with the Feature)
  * @returns {Feature<LineString>} LineString Feature
  * @example
- * var linestring1 = turf.lineString([[-24, 63], [-23, 60], [-25, 65], [-20, 69]], {name: 'line 1'});
- * var linestring2 = turf.lineString([[-14, 43], [-13, 40], [-15, 45], [-10, 49]], {name: 'line 2'});
+ * var linestring1 = geo.create.lineString([[-24, 63], [-23, 60], [-25, 65], [-20, 69]], {name: 'line 1'});
+ * var linestring2 = geo.create.lineString([[-14, 43], [-13, 40], [-15, 45], [-10, 49]], {name: 'line 2'});
  *
  * //=linestring1
  * //=linestring2
@@ -173,7 +173,7 @@ export function lineString(coordinates: Array<Array<number>>, properties: object
  * id: Identifier associated with the Feature)
  * @returns {Feature<MultiLineString>} a MultiLineString feature
  * @example
- * var multiLine = turf.multiLineString([[[0,0],[10,10]]]);
+ * var multiLine = geo.create.mLineString([[[0,0],[10,10]]]);
  *
  * //=multiLine
  */
@@ -193,7 +193,7 @@ export function mLinestring(coordinates: Array<Array<Array<number>>>, properties
  * id: Identifier associated with the Feature)
  * @returns {Feature<MultiPoint>} a MultiPoint feature
  * @example
- * var multiPt = turf.multiPoint([[0,0],[10,10]]);
+ * var multiPt = geo.create.mPoint([[0,0],[10,10]]);
  *
  * //=multiPt
  */
@@ -213,7 +213,7 @@ export function mPoint(coordinates: Array<Array<number>>, properties: object, op
  * id: Identifier associated with the Feature)
  * @returns {Feature<MultiPolygon>} a multipolygon feature
  * @example
- * var multiPoly = turf.multiPolygon([[[[0,0],[0,10],[10,10],[10,0],[0,0]]]]);
+ * var multiPoly = geo.create.mPolygon([[[[0,0],[0,10],[10,10],[10,0],[0,0]]]]);
  *
  * //=multiPoly
  *
@@ -232,7 +232,7 @@ export function mPolygon(coordinates: Array<Array<Array<Array<number>>>>, proper
  * id: Identifier associated with the Feature)
  * @returns {Feature<Point>} a Point feature
  * @example
- * var point = turf.point([-75.343, 39.984]);
+ * var point = geo.create.point([-75.343, 39.984]);
  *
  * //=point
  */
@@ -250,7 +250,7 @@ export function point(coordinates: Array<number>, properties: object, options: {
  * id: Identifier associated with the Feature)
  * @returns {Feature<Polygon>} Polygon Feature
  * @example
- * var polygon = turf.polygon([[[-5, 52], [-4, 56], [-2, 51], [-7, 54], [-5, 52]]], { name: 'poly1' });
+ * var polygon = geo.create.polygon([[[-5, 52], [-4, 56], [-2, 51], [-7, 54], [-5, 52]]], { name: 'poly1' });
  *
  * //=polygon
  */
@@ -271,12 +271,12 @@ export function polygon(coordinates: Array<Array<Array<number>>>, properties: ob
  * steps: number of steps)
  * @returns {Feature<Polygon>} sector polygon
  * @example
- * var center = turf.point([-75, 40]);
+ * var center = geo.create.point([-75, 40]);
  * var radius = 5;
  * var bearing1 = 25;
  * var bearing2 = 45;
  *
- * var sector = turf.sector(center, radius, bearing1, bearing2);
+ * var sector = geo.create.sector(center, radius, bearing1, bearing2);
  *
  * //addToMap
  * var addToMap = [center, sector];

@@ -99,7 +99,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/cluster.ts#L29">cluster.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/cluster.ts#L29">cluster.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -109,9 +109,9 @@
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><p>// create random points with random z-values in their properties
-											var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
+											var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
 											var maxDistance = 100;
-										var clustered = turf.clustersDbscan(points, maxDistance);</p>
+										var clustered = geo.cluster.dbscan(points, maxDistance);</p>
 									</dd>
 								</dl>
 							</div>
@@ -165,7 +165,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/cluster.ts#L82">cluster.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/cluster.ts#L82">cluster.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -174,7 +174,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var geojson = turf.featureCollection([
+									<dd><p>var geojson = geo.create.featureCollection([
 											turf.point([0, 0], {&#39;marker-symbol&#39;: &#39;circle&#39;}),
 											turf.point([2, 4], {&#39;marker-symbol&#39;: &#39;star&#39;}),
 											turf.point([3, 6], {&#39;marker-symbol&#39;: &#39;star&#39;}),
@@ -182,14 +182,14 @@
 											turf.point([4, 2], {&#39;marker-symbol&#39;: &#39;circle&#39;})
 										]);</p>
 										<p>// Create a cluster using K-Means (adds <code>cluster</code> to GeoJSON properties)
-										var clustered = turf.clustersKmeans(geojson);</p>
+										var clustered = geo.cluster.kmeans(geojson);</p>
 										<p>// Retrieve first cluster (0)
-											var cluster = turf.getCluster(clustered, {cluster: 0});
+											var cluster = geo.cluster.get(clustered, {cluster: 0});
 										//= cluster</p>
 										<p>// Retrieve cluster based on custom properties
-											turf.getCluster(clustered, {&#39;marker-symbol&#39;: &#39;circle&#39;}).length;
+											geo.cluster.get(clustered, {&#39;marker-symbol&#39;: &#39;circle&#39;}).length;
 											//= 2
-											turf.getCluster(clustered, {&#39;marker-symbol&#39;: &#39;square&#39;}).length;
+											geo.cluster.get(clustered, {&#39;marker-symbol&#39;: &#39;square&#39;}).length;
 										//= 1</p>
 									</dd>
 								</dl>
@@ -221,7 +221,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/cluster.ts#L50">cluster.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/cluster.ts#L50">cluster.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -232,9 +232,9 @@
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><p>// create random points with random z-values in their properties
-											var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
+											var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
 											var options = {numberOfClusters: 7};
-										var clustered = turf.clustersKmeans(points, options);</p>
+										var clustered = geo.cluster.kmeans(points, options);</p>
 									</dd>
 								</dl>
 							</div>

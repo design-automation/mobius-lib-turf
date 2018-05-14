@@ -99,7 +99,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/bool.ts#L42">bool.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/bool.ts#L42">bool.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -108,7 +108,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon1 = turf.polygon([[
+									<dd><p>var polygon1 = geo.create.polygon([[
 											[128, -26],
 											[141, -26],
 											[141, -21],
@@ -118,7 +118,7 @@
 											&quot;fill&quot;: &quot;#F00&quot;,
 											&quot;fill-opacity&quot;: 0.1
 											});
-											var polygon2 = turf.polygon([[
+											var polygon2 = geo.create.polygon([[
 											[126, -28],
 											[140, -28],
 											[140, -20],
@@ -128,7 +128,7 @@
 											&quot;fill&quot;: &quot;#00F&quot;,
 											&quot;fill-opacity&quot;: 0.1
 										});</p>
-										<p>var difference = turf.difference(polygon1, polygon2);</p>
+										<p>var difference = geo.bool.difference(polygon1, polygon2);</p>
 									</dd>
 								</dl>
 							</div>
@@ -165,7 +165,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/bool.ts#L75">bool.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/bool.ts#L75">bool.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -174,14 +174,14 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly1 = turf.polygon([[
+									<dd><p>var poly1 = geo.create.polygon([[
 											[-122.801742, 45.48565],
 											[-122.801742, 45.60491],
 											[-122.584762, 45.60491],
 											[-122.584762, 45.48565],
 											[-122.801742, 45.48565]
 										]]);</p>
-										<p>var poly2 = turf.polygon([[
+										<p>var poly2 = geo.create.polygon([[
 											[-122.520217, 45.535693],
 											[-122.64038, 45.553967],
 											[-122.720031, 45.526554],
@@ -191,7 +191,7 @@
 											[-122.487258, 45.477466],
 											[-122.520217, 45.535693]
 										]]);</p>
-										<p>var intersection = turf.intersect(poly1, poly2);</p>
+										<p>var intersection = geo.bool.intersect(poly1, poly2);</p>
 									</dd>
 								</dl>
 							</div>
@@ -228,7 +228,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/bool.ts#L103">bool.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/bool.ts#L103">bool.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -237,21 +237,21 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly1 = turf.polygon([[
+									<dd><p>var poly1 = geo.create.polygon([[
 											[-82.574787, 35.594087],
 											[-82.574787, 35.615581],
 											[-82.545261, 35.615581],
 											[-82.545261, 35.594087],
 											[-82.574787, 35.594087]
 											]], {&quot;fill&quot;: &quot;#0f0&quot;});
-											var poly2 = turf.polygon([[
+											var poly2 = geo.create.polygon([[
 											[-82.560024, 35.585153],
 											[-82.560024, 35.602602],
 											[-82.52964, 35.602602],
 											[-82.52964, 35.585153],
 											[-82.560024, 35.585153]
 										]], {&quot;fill&quot;: &quot;#00f&quot;});</p>
-										<p>var union = turf.union([poly1, poly2]);</p>
+										<p>var union = geo.bool.union([poly1, poly2]);</p>
 									</dd>
 								</dl>
 							</div>

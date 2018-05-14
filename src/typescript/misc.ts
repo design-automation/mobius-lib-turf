@@ -15,7 +15,7 @@ import * as turf from "@turf/turf";
  * @param {Feature<LineString|MultiLineString|MultiPolygon|Polygon>} feature input feature
  * @returns {FeatureCollection<Point>} self-intersections
  * @example
- * var poly = turf.polygon([[
+ * var poly = geo.create.polygon([[
  *   [-12.034835, 8.901183],
  *   [-12.060413, 8.899826],
  *   [-12.03638, 8.873199],
@@ -23,7 +23,7 @@ import * as turf from "@turf/turf";
  *   [-12.034835, 8.901183]
  * ]]);
  *
- * var kinks = turf.kinks(poly);
+ * var kinks = geo.misc.kinks(poly);
  */
 export function kinks(feature: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
     return turf.kinks(feature);
@@ -36,10 +36,10 @@ export function kinks(feature: turf.Feature<turf.LineString|turf.MultiLineString
  * @param {Feature<Polygon>} polygon2 GeoJSON Polygon used as the exterior ring (if undefined, the world extent is used)
  * @returns {Feature<Polygon>} Masked Polygon (exterior ring with holes).
  * @example
- * var polygon = turf.polygon([[[112, -21], [116, -36], [146, -39], [153, -24], [133, -10], [112, -21]]]);
- * var mask = turf.polygon([[[90, -55], [170, -55], [170, 10], [90, 10], [90, -55]]]);
+ * var polygon = geo.create.polygon([[[112, -21], [116, -36], [146, -39], [153, -24], [133, -10], [112, -21]]]);
+ * var mask = geo.create.polygon([[[90, -55], [170, -55], [170, 10], [90, 10], [90, -55]]]);
  *
- * var masked = turf.mask(polygon, mask);
+ * var masked = geo.misc.mask(polygon, mask);
  */
 export function mask(polygon1: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>,polygon2: turf.Feature<turf.Polygon>): turf.Feature<turf.Polygon> {
     return turf.mask(polygon1,polygon2);
@@ -52,9 +52,9 @@ export function mask(polygon1: turf.FeatureCollection<turf.Polygon|turf.MultiPol
  * @param {FeatureCollection|Feature<Polygon|MultiPolygon>} polygon GeoJSON Polygon or MultiPolygon
  * @returns {FeatureCollection<Polygon>} Unkinked polygons
  * @example
- * var poly = turf.polygon([[[0, 0], [2, 0], [0, 2], [2, 2], [0, 0]]]);
+ * var poly = geo.create.polygon([[[0, 0], [2, 0], [0, 2], [2, 2], [0, 0]]]);
  *
- * var result = turf.unkinkPolygon(poly);
+ * var result = geo.misc.unkinkPolygon(poly);
  */
 export function unkinkPolygon(polygon: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.unkinkPolygon(polygon);
@@ -68,9 +68,9 @@ export function unkinkPolygon(polygon: turf.FeatureCollection<turf.Polygon|turf.
  * @param {number} num number of features to select
  * @returns {FeatureCollection} a FeatureCollection with `n` features
  * @example
- * var points = turf.randomPoint(100, {bbox: [-80, 30, -60, 60]});
+ * var points = geo.random.point(100, {bbox: [-80, 30, -60, 60]});
  *
- * var sample = turf.sample(points, 5);
+ * var sample = geo.misc.sample(points, 5);
  */
 export function sample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
     return turf.sample(fcoll, num);
@@ -82,12 +82,12 @@ export function sample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: 
  * @param {Feature<LineString>} line to be evaluated
  * @returns {boolean} true/false
  * @example
- * var clockwiseRing = turf.lineString([[0,0],[1,1],[1,0],[0,0]]);
- * var counterClockwiseRing = turf.lineString([[0,0],[1,0],[1,1],[0,0]]);
+ * var clockwiseRing = geo.create.lineString([[0,0],[1,1],[1,0],[0,0]]);
+ * var counterClockwiseRing = geo.create.lineString([[0,0],[1,0],[1,1],[0,0]]);
  *
- * turf.booleanClockwise(clockwiseRing)
+ * geo.misc.isClockwise(clockwiseRing)
  * //=true
- * turf.booleanClockwise(counterClockwiseRing)
+ * geo.misc.isClockwise(counterClockwiseRing)
  * //=false
  */
 export function isClockwise(line: turf.Feature<turf.LineString>): boolean {

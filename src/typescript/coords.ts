@@ -17,13 +17,13 @@
  * (mutate: allows GeoJSON input to be mutated if true)
  * @returns {Geometry|Feature} the cleaned input Feature/Geometry
  * @example
- * var line = turf.lineString([[0, 0], [0, 2], [0, 5], [0, 8], [0, 8], [0, 10]]);
- * var multiPoint = turf.multiPoint([[0, 0], [0, 0], [2, 2]]);
+ * var line = geo.create.lineString([[0, 0], [0, 2], [0, 5], [0, 8], [0, 8], [0, 10]]);
+ * var multiPoint = geo.create.multiPoint([[0, 0], [0, 0], [2, 2]]);
  *
- * turf.cleanCoords(line).geometry.coordinates;
+ * geo.coords.cleanCoords(line).geometry.coordinates;
  * //= [[0, 0], [0, 10]]
  *
- * turf.cleanCoords(multiPoint).geometry.coordinates;
+ * geo.coords.cleanCoords(multiPoint).geometry.coordinates;
  * //= [[0, 0], [2, 2]]
  */
 export function cleanCoords(feature: turf.Feature|turf.GeometryObject, options: {mutate: boolean}): turf.Feature|turf.GeometryObject {
@@ -38,9 +38,9 @@ export function cleanCoords(feature: turf.Feature|turf.GeometryObject, options: 
  *(mutate: allows GeoJSON input to be mutated if true (significant performance increase))
  * @returns {GeoJSON} a feature or set of features of the same type as `input` with flipped coordinates
  * @example
- * var serbia = turf.point([20.566406, 43.421008]);
+ * var serbia = geo.create.point([20.566406, 43.421008]);
  *
- * var saudiArabia = turf.flip(serbia);
+ * var saudiArabia = geo.coords.flip(serbia);
  */
 export function flip(geojson: turf.AllGeoJSON, options: {mutate: boolean}): turf.AllGeoJSON {
     return turf.flip(geojson, options);
@@ -52,12 +52,12 @@ export function flip(geojson: turf.AllGeoJSON, options: {mutate: boolean}): turf
  * @param {FeatureCollection|Feature|Geometry} geojson any GeoJSON object
  * @returns {Array<Array<number>>} coordinate position array
  * @example
- * var features = turf.featureCollection([
- *   turf.point([26, 37], {foo: 'bar'}),
- *   turf.point([36, 53], {hello: 'world'})
+ * var features = geo.create.featureCollection([
+ *   geo.create.point([26, 37], {foo: 'bar'}),
+ *   geo.create.point([36, 53], {hello: 'world'})
  * ]);
  *
- * var coords = turf.coordAll(features);
+ * var coords = geo.coords.getAll(features);
  * //= [[26, 37], [36, 53]]
  */
 export function getAll(geojson: turf.AllGeoJSON): number[][] {
@@ -70,9 +70,9 @@ export function getAll(geojson: turf.AllGeoJSON): number[][] {
  * @param {Array<number>|Geometry<Point>|Feature<Point>} obj Object
  * @returns {Array<number>} coordinates
  * @example
- * var pt = turf.point([10, 10]);
+ * var pt = geo.create.point([10, 10]);
  *
- * var coord = turf.getCoord(pt);
+ * var coord = geo.coords.getFromPoint(pt);
  * //= [10, 10]
  */
 export function getFromPoint(obj: number[]|turf.Point): number[] {
@@ -85,9 +85,9 @@ export function getFromPoint(obj: number[]|turf.Point): number[] {
  * @param {Array<number>|Geometry|Feature} obj Object
  * @returns {Array<number>} coordinates
  * @example
- * var poly = turf.polygon([[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]);
+ * var poly = geo.create.polygon([[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]);
  *
- * var coord = turf.getCoords(poly);
+ * var coord = geo.coords.getFromFeature(poly);
  * //= [[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]
  */
 export function getFromFeature(obj: number[]|turf.GeometryObject|turf.Feature): Array<number> {
@@ -103,9 +103,9 @@ export function getFromFeature(obj: number[]|turf.GeometryObject|turf.Feature): 
  * mutate: allows GeoJSON input to be mutated if true (significant performance increase))
  * @returns {GeoJSON} rewind Polygon
  * @example
- * var polygon = turf.polygon([[[121, -29], [138, -29], [138, -18], [121, -18], [121, -29]]]);
+ * var polygon = geo.create.polygon([[[121, -29], [138, -29], [138, -18], [121, -18], [121, -29]]]);
  *
- * var rewind = turf.rewind(polygon);
+ * var rewind = geo.coords.rewind(polygon);
  */
 export function rewind(geojson: turf.AllGeoJSON, options: {reverse: boolean, mutate: boolean}): turf.AllGeoJSON {
     return turf.rewind(geojson, options);
@@ -118,10 +118,10 @@ export function rewind(geojson: turf.AllGeoJSON, options: {reverse: boolean, mut
  * @param {number} [precision=0] Precision
  * @returns {number} rounded number
  * @example
- * turf.round(120.4321)
+ * geo.coords.round(120.4321)
  * //=120
  *
- * turf.round(120.4321, 2)
+ * geo.coords.round(120.4321, 2)
  * //=120.43
  */
 export function round(num: number, precision: number): number {
@@ -138,17 +138,14 @@ export function round(num: number, precision: number): number {
  * mutate: allows GeoJSON input to be mutated if true (significant performance increase))
  * @returns {GeoJSON} layer with truncated geometry
  * @example
- * var point = turf.point([
+ * var point = geo.create.point([
  *     70.46923055566859,
  *     58.11088890802906,
  *     1508
  * ]);
  * var options = {precision: 3, coordinates: 2};
- * var truncated = turf.truncate(point, options);
+ * var truncated = geo.coords.truncate(point, options);
  * //=truncated.geometry.coordinates => [70.469, 58.111]
- *
- * //addToMap
- * var addToMap = [truncated];
  */
 export function truncate(geojson: turf.AllGeoJSON, options: {precision: number, maxCoords: number, mutate: boolean}): turf.AllGeoJSON {
     return turf.truncate(geojson, options);

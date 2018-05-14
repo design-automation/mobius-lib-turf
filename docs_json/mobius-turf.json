@@ -75,7 +75,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar bbox = [0, 0, 10, 10];\nvar poly = turf.polygon([[[2, 2], [8, 4], [12, 8], [3, 7], [2, 2]]]);\n\nvar clipped = turf.bboxClip(poly, bbox);\n\n"
+										"text": "\nvar bbox = [0, 0, 10, 10];\nvar poly = geo.create.polygon([[[2, 2], [8, 4], [12, 8], [3, 7], [2, 2]]]);\n\nvar clipped = geo.bbox.clip(poly, bbox);\n\n"
 									}
 								]
 							},
@@ -161,7 +161,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar bbox = [0, 0, 10, 10];\n\nvar poly = turf.bboxPolygon(bbox);\n\n"
+										"text": "\nvar bbox = [0, 0, 10, 10];\n\nvar poly = geo.bbox.polygon(bbox);\n\n"
 									}
 								]
 							},
@@ -216,7 +216,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar bbox = [-20, -20, -15, 0];\nvar squared = turf.square(bbox);\n\n"
+										"text": "\nvar bbox = [-20, -20, -15, 0];\nvar squared = geo.bbox.square(bbox);\n\n"
 									}
 								]
 							},
@@ -304,7 +304,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon1 = turf.polygon([[\n  [128, -26],\n  [141, -26],\n  [141, -21],\n  [128, -21],\n  [128, -26]\n]], {\n  \"fill\": \"#F00\",\n  \"fill-opacity\": 0.1\n});\nvar polygon2 = turf.polygon([[\n  [126, -28],\n  [140, -28],\n  [140, -20],\n  [126, -20],\n  [126, -28]\n]], {\n  \"fill\": \"#00F\",\n  \"fill-opacity\": 0.1\n});\n\nvar difference = turf.difference(polygon1, polygon2);\n\n"
+										"text": "\nvar polygon1 = geo.create.polygon([[\n  [128, -26],\n  [141, -26],\n  [141, -21],\n  [128, -21],\n  [128, -26]\n]], {\n  \"fill\": \"#F00\",\n  \"fill-opacity\": 0.1\n});\nvar polygon2 = geo.create.polygon([[\n  [126, -28],\n  [140, -28],\n  [140, -20],\n  [126, -20],\n  [126, -28]\n]], {\n  \"fill\": \"#00F\",\n  \"fill-opacity\": 0.1\n});\n\nvar difference = geo.bool.difference(polygon1, polygon2);\n\n"
 									}
 								]
 							},
@@ -400,7 +400,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly1 = turf.polygon([[\n  [-122.801742, 45.48565],\n  [-122.801742, 45.60491],\n  [-122.584762, 45.60491],\n  [-122.584762, 45.48565],\n  [-122.801742, 45.48565]\n]]);\n\nvar poly2 = turf.polygon([[\n  [-122.520217, 45.535693],\n  [-122.64038, 45.553967],\n  [-122.720031, 45.526554],\n  [-122.669906, 45.507309],\n  [-122.723464, 45.446643],\n  [-122.532577, 45.408574],\n  [-122.487258, 45.477466],\n  [-122.520217, 45.535693]\n]]);\n\nvar intersection = turf.intersect(poly1, poly2);\n\n"
+										"text": "\nvar poly1 = geo.create.polygon([[\n  [-122.801742, 45.48565],\n  [-122.801742, 45.60491],\n  [-122.584762, 45.60491],\n  [-122.584762, 45.48565],\n  [-122.801742, 45.48565]\n]]);\n\nvar poly2 = geo.create.polygon([[\n  [-122.520217, 45.535693],\n  [-122.64038, 45.553967],\n  [-122.720031, 45.526554],\n  [-122.669906, 45.507309],\n  [-122.723464, 45.446643],\n  [-122.532577, 45.408574],\n  [-122.487258, 45.477466],\n  [-122.520217, 45.535693]\n]]);\n\nvar intersection = geo.bool.intersect(poly1, poly2);\n\n"
 									}
 								]
 							},
@@ -478,7 +478,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly1 = turf.polygon([[\n    [-82.574787, 35.594087],\n    [-82.574787, 35.615581],\n    [-82.545261, 35.615581],\n    [-82.545261, 35.594087],\n    [-82.574787, 35.594087]\n]], {\"fill\": \"#0f0\"});\nvar poly2 = turf.polygon([[\n    [-82.560024, 35.585153],\n    [-82.560024, 35.602602],\n    [-82.52964, 35.602602],\n    [-82.52964, 35.585153],\n    [-82.560024, 35.585153]\n]], {\"fill\": \"#00f\"});\n\nvar union = turf.union([poly1, poly2]);\n\n"
+										"text": "\nvar poly1 = geo.create.polygon([[\n    [-82.574787, 35.594087],\n    [-82.574787, 35.615581],\n    [-82.545261, 35.615581],\n    [-82.545261, 35.594087],\n    [-82.574787, 35.594087]\n]], {\"fill\": \"#0f0\"});\nvar poly2 = geo.create.polygon([[\n    [-82.560024, 35.585153],\n    [-82.560024, 35.602602],\n    [-82.52964, 35.602602],\n    [-82.52964, 35.585153],\n    [-82.560024, 35.585153]\n]], {\"fill\": \"#00f\"});\n\nvar union = geo.bool.union([poly1, poly2]);\n\n"
 									}
 								]
 							},
@@ -593,7 +593,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[125, -15], [113, -22], [154, -27], [144, -15], [125, -15]]]);\n\nvar area = turf.area(polygon);\n"
+										"text": "\nvar polygon = geo.create.polygon([[[125, -15], [113, -22], [154, -27], [144, -15], [125, -15]]]);\n\nvar area = geo.calc.area(polygon);\n"
 									}
 								]
 							},
@@ -648,7 +648,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point1 = turf.point([-75.343, 39.984]);\nvar point2 = turf.point([-75.534, 39.123]);\n\nvar bearing = turf.bearing(point1, point2);\n"
+										"text": "\nvar point1 = geo.create.point([-75.343, 39.984]);\nvar point2 = geo.create.point([-75.534, 39.123]);\n\nvar bearing = geo.calc.bearing(point1, point2);\n"
 									}
 								]
 							},
@@ -773,7 +773,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar features = turf.featureCollection([\n  turf.point( [-97.522259, 35.4691]),\n  turf.point( [-97.502754, 35.463455]),\n  turf.point( [-97.508269, 35.463245])\n]);\n\nvar center = turf.center(features);\n"
+										"text": "\nvar features = geo.create.featureCollection([\n  geo.create.point( [-97.522259, 35.4691]),\n  geo.create.point( [-97.502754, 35.463455]),\n  geo.create.point( [-97.508269, 35.463245])\n]);\n\nvar center = geo.calc.center(features);\n"
 									}
 								]
 							},
@@ -890,7 +890,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);\n\nvar center = turf.centerOfMass(polygon);\n"
+										"text": "\nvar polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);\n\nvar center = geo.calc.centerOfMass(polygon);\n"
 									}
 								]
 							},
@@ -965,7 +965,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);\n\nvar centroid = turf.centroid(polygon);\n"
+										"text": "\nvar polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);\n\nvar centroid = geo.calc.centroid(polygon);\n"
 									}
 								]
 							},
@@ -1040,7 +1040,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point = turf.point([-75.343, 39.984]);\nvar distance = 50;\nvar bearing = 90;\nvar options = {units: 'miles'};\n\nvar destination = turf.destination(point, distance, bearing, options);\n"
+										"text": "\nvar point = geo.create.point([-75.343, 39.984]);\nvar distance = 50;\nvar bearing = 90;\nvar options = {units: 'miles'};\n\nvar destination = geo.calc.destination(point, distance, bearing, options);\n"
 									}
 								]
 							},
@@ -1204,7 +1204,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar from = turf.point([-75.343, 39.984]);\nvar to = turf.point([-75.534, 39.123]);\nvar options = {units: 'miles'};\n\nvar distance = turf.distance(from, to, options);\n"
+										"text": "\nvar from = geo.create.point([-75.343, 39.984]);\nvar to = geo.create.point([-75.534, 39.123]);\nvar options = {units: 'miles'};\n\nvar distance = geo.calc.distance(from, to, options);\n"
 									}
 								]
 							},
@@ -1329,7 +1329,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar features = turf.featureCollection([\n  turf.point([-75.343, 39.984], {\"name\": \"Location A\"}),\n  turf.point([-75.833, 39.284], {\"name\": \"Location B\"}),\n  turf.point([-75.534, 39.123], {\"name\": \"Location C\"})\n]);\n\nvar enveloped = turf.envelope(features);\n"
+										"text": "\nvar features = geo.create.featureCollection([\n  geo.create.point([-75.343, 39.984], {\"name\": \"Location A\"}),\n  geo.create.point([-75.833, 39.284], {\"name\": \"Location B\"}),\n  geo.create.point([-75.534, 39.123], {\"name\": \"Location C\"})\n]);\n\nvar enveloped = geo.calc.envelope(features);\n"
 									}
 								]
 							},
@@ -1390,7 +1390,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar start = turf.point([-122, 48]);\nvar end = turf.point([-77, 39]);\n\nvar greatCircle = turf.greatCircle(start, end, {'name': 'Seattle to DC'});\n"
+										"text": "\nvar start = geo.create.point([-122, 48]);\nvar end = geo.create.point([-77, 39]);\n\nvar greatCircle = geo.calc.greatCircle(start, end, {'name': 'Seattle to DC'});\n"
 									}
 								]
 							},
@@ -1559,7 +1559,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);\nvar length = turf.length(line, {units: 'miles'});\n"
+										"text": "\nvar line = geo.create.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);\nvar length = geo.calc.length(line, {units: 'miles'});\n"
 									}
 								]
 							},
@@ -1670,7 +1670,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point1 = turf.point([144.834823, -37.771257]);\nvar point2 = turf.point([145.14244, -37.830937]);\n\nvar midpoint = turf.midpoint(point1, point2);\n"
+										"text": "\nvar point1 = geo.create.point([144.834823, -37.771257]);\nvar point2 = geo.create.point([145.14244, -37.830937]);\n\nvar midpoint = geo.calc.midpoint(point1, point2);\n"
 									}
 								]
 							},
@@ -1745,7 +1745,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar targetPoint = turf.point([28.965797, 41.010086], {\"marker-color\": \"#0F0\"});\nvar points = turf.featureCollection([\n    turf.point([28.973865, 41.011122]),\n    turf.point([28.948459, 41.024204]),\n    turf.point([28.938674, 41.013324])\n]);\n\nvar nearest = turf.nearestPoint(targetPoint, points);\n"
+										"text": "\nvar targetPoint = geo.create.point([28.965797, 41.010086], {\"marker-color\": \"#0F0\"});\nvar points = geo.create.featureCollection([\n    geo.create.point([28.973865, 41.011122]),\n    geo.create.point([28.948459, 41.024204]),\n    geo.create.point([28.938674, 41.013324])\n]);\n\nvar nearest = geo.calc.nearestPoint(targetPoint, points);\n"
 									}
 								]
 							},
@@ -1826,7 +1826,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([\n    [-77.031669, 38.878605],\n    [-77.029609, 38.881946],\n    [-77.020339, 38.884084],\n    [-77.025661, 38.885821],\n    [-77.021884, 38.889563],\n    [-77.019824, 38.892368]\n]);\nvar pt = turf.point([-77.037076, 38.884017]);\n\nvar snapped = turf.nearestPointOnLine(line, pt, {units: 'miles'});\n"
+										"text": "\nvar line = geo.create.lineString([\n    [-77.031669, 38.878605],\n    [-77.029609, 38.881946],\n    [-77.020339, 38.884084],\n    [-77.025661, 38.885821],\n    [-77.021884, 38.889563],\n    [-77.019824, 38.892368]\n]);\nvar pt = geo.create.point([-77.037076, 38.884017]);\n\nvar snapped = geo.calc.nearestPointOnLine(line, pt, {units: 'miles'});\n"
 									}
 								]
 							},
@@ -1966,7 +1966,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar pt = turf.point([0, 0]);\nvar line = turf.lineString([[1, 1],[-1, 1]]);\n\nvar distance = turf.pointToLineDistance(pt, line, {units: 'miles'});\n//=69.11854715938406\n"
+										"text": "\nvar pt = geo.create.point([0, 0]);\nvar line = geo.create.lineString([[1, 1],[-1, 1]]);\n\nvar distance = geo.calc.pointToLineDistance(pt, line, {units: 'miles'});\n//=69.11854715938406\n"
 									}
 								]
 							},
@@ -2110,7 +2110,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);\nvar point = turf.point([61, 5]);\n\nvar tangents = turf.polygonTangents(point, polygon)\n"
+										"text": "\nvar polygon = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);\nvar point = geo.create.point([61, 5]);\n\nvar tangents = geo.calc.polygonTangents(point, polygon)\n"
 									}
 								]
 							},
@@ -2185,7 +2185,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point1 = turf.point([-75.343, 39.984], {\"marker-color\": \"#F00\"});\nvar point2 = turf.point([-75.534, 39.123], {\"marker-color\": \"#00F\"});\n\nvar bearing = turf.rhumbBearing(point1, point2);\n"
+										"text": "\nvar point1 = geo.create.point([-75.343, 39.984], {\"marker-color\": \"#F00\"});\nvar point2 = geo.create.point([-75.534, 39.123], {\"marker-color\": \"#00F\"});\n\nvar bearing = geo.calc.rhumbBearing(point1, point2);\n"
 									}
 								]
 							},
@@ -2310,7 +2310,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar pt = turf.point([-75.343, 39.984], {\"marker-color\": \"F00\"});\nvar distance = 50;\nvar bearing = 90;\nvar options = {units: 'miles'};\n\nvar destination = turf.rhumbDestination(pt, distance, bearing, options);\n"
+										"text": "\nvar pt = geo.create.point([-75.343, 39.984], {\"marker-color\": \"F00\"});\nvar distance = 50;\nvar bearing = 90;\nvar options = {units: 'miles'};\n\nvar destination = geo.calc.rhumbDestination(pt, distance, bearing, options);\n"
 									}
 								]
 							},
@@ -2474,7 +2474,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar from = turf.point([-75.343, 39.984]);\nvar to = turf.point([-75.534, 39.123]);\nvar options = {units: 'miles'};\n\nvar distance = turf.rhumbDistance(from, to, options);\n"
+										"text": "\nvar from = geo.create.point([-75.343, 39.984]);\nvar to = geo.create.point([-75.534, 39.123]);\nvar options = {units: 'miles'};\n\nvar distance = geo.calc.rhumbDistance(from, to, options);\n"
 									}
 								]
 							},
@@ -2599,7 +2599,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar start = [-5, -6];\nvar end = [9, -6];\nvar options = {\n  obstacles: turf.polygon([[[0, -7], [5, -7], [5, -3], [0, -3], [0, -7]]])\n};\n\nvar path = turf.shortestPath(start, end, options);\n"
+										"text": "\nvar start = [-5, -6];\nvar end = [9, -6];\nvar options = {\n  obstacles: geo.create.polygon([[[0, -7], [5, -7], [5, -3], [0, -3], [0, -7]]])\n};\n\nvar path = geo.calc.shortestPath(start, end, options);\n"
 									}
 								]
 							},
@@ -2794,7 +2794,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar options = {\n  bbox: [-70, 40, -60, 60]\n};\nvar points = turf.randomPoint(100, options);\nvar voronoiPolygons = turf.voronoi(points, options);\n"
+										"text": "\nvar options = {\n  bbox: [-70, 40, -60, 60]\n};\nvar points = geo.random.point(100, options);\nvar voronoiPolygons = geo.calc.voronoi(points, options);\n"
 									}
 								]
 							},
@@ -2925,7 +2925,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\n// create random points with random z-values in their properties\nvar points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});\nvar maxDistance = 100;\nvar clustered = turf.clustersDbscan(points, maxDistance);\n"
+										"text": "\n// create random points with random z-values in their properties\nvar points = geo.random.point(100, {bbox: [0, 30, 20, 50]});\nvar maxDistance = 100;\nvar clustered = geo.cluster.dbscan(points, maxDistance);\n"
 									}
 								]
 							},
@@ -3081,7 +3081,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar geojson = turf.featureCollection([\n    turf.point([0, 0], {'marker-symbol': 'circle'}),\n    turf.point([2, 4], {'marker-symbol': 'star'}),\n    turf.point([3, 6], {'marker-symbol': 'star'}),\n    turf.point([5, 1], {'marker-symbol': 'square'}),\n    turf.point([4, 2], {'marker-symbol': 'circle'})\n]);\n\n// Create a cluster using K-Means (adds `cluster` to GeoJSON properties)\nvar clustered = turf.clustersKmeans(geojson);\n\n// Retrieve first cluster (0)\nvar cluster = turf.getCluster(clustered, {cluster: 0});\n//= cluster\n\n// Retrieve cluster based on custom properties\nturf.getCluster(clustered, {'marker-symbol': 'circle'}).length;\n//= 2\nturf.getCluster(clustered, {'marker-symbol': 'square'}).length;\n//= 1\n"
+										"text": "\nvar geojson = geo.create.featureCollection([\n    turf.point([0, 0], {'marker-symbol': 'circle'}),\n    turf.point([2, 4], {'marker-symbol': 'star'}),\n    turf.point([3, 6], {'marker-symbol': 'star'}),\n    turf.point([5, 1], {'marker-symbol': 'square'}),\n    turf.point([4, 2], {'marker-symbol': 'circle'})\n]);\n\n// Create a cluster using K-Means (adds `cluster` to GeoJSON properties)\nvar clustered = geo.cluster.kmeans(geojson);\n\n// Retrieve first cluster (0)\nvar cluster = geo.cluster.get(clustered, {cluster: 0});\n//= cluster\n\n// Retrieve cluster based on custom properties\ngeo.cluster.get(clustered, {'marker-symbol': 'circle'}).length;\n//= 2\ngeo.cluster.get(clustered, {'marker-symbol': 'square'}).length;\n//= 1\n"
 									}
 								]
 							},
@@ -3159,7 +3159,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\n// create random points with random z-values in their properties\nvar points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});\nvar options = {numberOfClusters: 7};\nvar clustered = turf.clustersKmeans(points, options);\n"
+										"text": "\n// create random points with random z-values in their properties\nvar points = geo.random.point(100, {bbox: [0, 30, 20, 50]});\nvar options = {numberOfClusters: 7};\nvar clustered = geo.cluster.kmeans(points, options);\n"
 									}
 								]
 							},
@@ -3334,7 +3334,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);\nvar point = turf.point([1, 2]);\n\nturf.booleanContains(line, point);\n//=true\n"
+										"text": "\nvar line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);\nvar point = geo.create.point([1, 2]);\n\ngeo.compare.contains(line, point);\n//=true\n"
 									}
 								]
 							},
@@ -3404,7 +3404,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line1 = turf.lineString([[-2, 2], [4, 2]]);\nvar line2 = turf.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);\n\nvar cross = turf.booleanCrosses(line1, line2);\n//=true\n"
+										"text": "\nvar line1 = geo.create.lineString([[-2, 2], [4, 2]]);\nvar line2 = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);\n\nvar cross = geo.compare.crosses(line1, line2);\n//=true\n"
 									}
 								]
 							},
@@ -3473,7 +3473,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point = turf.point([2, 2]);\nvar line = turf.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);\n\nturf.booleanDisjoint(line, point);\n//=true\n"
+										"text": "\nvar point = geo.create.point([2, 2]);\nvar line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);\n\ngeo.compare.disjoint(line, point);\n//=true\n"
 									}
 								]
 							},
@@ -3542,7 +3542,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar pt1 = turf.point([0, 0]);\nvar pt2 = turf.point([0, 0]);\nvar pt3 = turf.point([1, 1]);\n\nturf.booleanEqual(pt1, pt2);\n//= true\nturf.booleanEqual(pt2, pt3);\n//= false\n"
+										"text": "\nvar pt1 = geo.create.point([0, 0]);\nvar pt2 = geo.create.point([0, 0]);\nvar pt3 = geo.create.point([1, 1]);\n\ngeo.compare.equal(pt1, pt2);\n//= true\ngeo.compare.equal(pt2, pt3);\n//= false\n"
 									}
 								]
 							},
@@ -3611,7 +3611,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line1 = turf.lineString([[0, 0], [0, 1]]);\nvar line2 = turf.lineString([[1, 0], [1, 1]]);\n\nturf.booleanParallel(line1, line2);\n//=true\n"
+										"text": "\nvar line1 = geo.create.lineString([[0, 0], [0, 1]]);\nvar line2 = geo.create.lineString([[1, 0], [1, 1]]);\n\ngeo.compare.parallel(line1, line2);\n//=true\n"
 									}
 								]
 							},
@@ -3680,7 +3680,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar pt = turf.point([-77, 44]);\nvar poly = turf.polygon([[\n  [-81, 41],\n  [-81, 47],\n  [-72, 47],\n  [-72, 41],\n  [-81, 41]\n]]);\n\nturf.booleanPointInPolygon(pt, poly);\n//= true\n"
+										"text": "\nvar pt = geo.create.point([-77, 44]);\nvar poly = geo.create.polygon([[\n  [-81, 41],\n  [-81, 47],\n  [-72, 47],\n  [-72, 41],\n  [-81, 41]\n]]);\n\ngeo.compare.pointInPolygon(pt, poly);\n//= true\n"
 									}
 								]
 							},
@@ -3805,7 +3805,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar pt = turf.point([0, 0]);\nvar line = turf.lineString([[-1, -1],[1, 1],[1.5, 2.2]]);\nvar isPointOnLine = turf.booleanPointOnLine(pt, line);\n//=true\n"
+										"text": "\nvar pt = geo.create.point([0, 0]);\nvar line = geo.create.lineString([[-1, -1],[1, 1],[1.5, 2.2]]);\nvar isPointOnLine = geo.compare.pointOnLine(pt, line);\n//=true\n"
 									}
 								]
 							},
@@ -3930,7 +3930,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);\nvar point = turf.point([1, 2]);\n\nturf.booleanWithin(point, line);\n//=true\n"
+										"text": "\nvar line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);\nvar point = geo.create.point([1, 2]);\n\ngeo.compare.within(point, line);\n//=true\n"
 									}
 								]
 							},
@@ -4037,7 +4037,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar fc = turf.featureCollection([\n  turf.point([19.026432, 47.49134]),\n  turf.point([19.074497, 47.509548])\n]);\n\nvar combined = turf.combine(fc);\n"
+										"text": "\nvar fc = geo.create.featureCollection([\n  geo.create.point([19.026432, 47.49134]),\n  geo.create.point([19.074497, 47.509548])\n]);\n\nvar combined = geo.convert.combine(fc);\n"
 									}
 								]
 							},
@@ -4111,7 +4111,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);\n\nvar explode = turf.explode(polygon);\n"
+										"text": "\nvar polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);\n\nvar explode = geo.convert.explode(polygon);\n"
 									}
 								]
 							},
@@ -4172,7 +4172,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar multiGeometry = turf.multiPolygon([\n  [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n  [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n  [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n]);\n\nvar flatten = turf.flatten(multiGeometry);\n"
+										"text": "\nvar multiGeometry = geo.create.multiPolygon([\n  [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n  [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n  [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n]);\n\nvar flatten = geo.convert.flatten(multiGeometry);\n"
 									}
 								]
 							},
@@ -4227,7 +4227,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]);\n\nvar polygon = turf.lineToPolygon(line);\n"
+										"text": "\nvar line = geo.create.lineString([[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]);\n\nvar polygon = geo.convert.lineToPolygon(line);\n"
 									}
 								]
 							},
@@ -4403,7 +4403,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly = turf.polygon([[[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]]);\n\nvar line = turf.polygonToLine(poly);\n"
+										"text": "\nvar poly = geo.create.polygon([[[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]]);\n\nvar line = geo.convert.polygonToLine(poly);\n"
 									}
 								]
 							},
@@ -4654,7 +4654,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[0, 0], [0, 2], [0, 5], [0, 8], [0, 8], [0, 10]]);\nvar multiPoint = turf.multiPoint([[0, 0], [0, 0], [2, 2]]);\n\nturf.cleanCoords(line).geometry.coordinates;\n//= [[0, 0], [0, 10]]\n\nturf.cleanCoords(multiPoint).geometry.coordinates;\n//= [[0, 0], [2, 2]]\n"
+										"text": "\nvar line = geo.create.lineString([[0, 0], [0, 2], [0, 5], [0, 8], [0, 8], [0, 10]]);\nvar multiPoint = geo.create.multiPoint([[0, 0], [0, 0], [2, 2]]);\n\ngeo.coords.cleanCoords(line).geometry.coordinates;\n//= [[0, 0], [0, 10]]\n\ngeo.coords.cleanCoords(multiPoint).geometry.coordinates;\n//= [[0, 0], [2, 2]]\n"
 									}
 								]
 							},
@@ -4783,7 +4783,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar serbia = turf.point([20.566406, 43.421008]);\n\nvar saudiArabia = turf.flip(serbia);\n"
+										"text": "\nvar serbia = geo.create.point([20.566406, 43.421008]);\n\nvar saudiArabia = geo.coords.flip(serbia);\n"
 									}
 								]
 							},
@@ -4894,7 +4894,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar features = turf.featureCollection([\n  turf.point([26, 37], {foo: 'bar'}),\n  turf.point([36, 53], {hello: 'world'})\n]);\n\nvar coords = turf.coordAll(features);\n//= [[26, 37], [36, 53]]\n"
+										"text": "\nvar features = geo.create.featureCollection([\n  geo.create.point([26, 37], {foo: 'bar'}),\n  geo.create.point([36, 53], {hello: 'world'})\n]);\n\nvar coords = geo.coords.getAll(features);\n//= [[26, 37], [36, 53]]\n"
 									}
 								]
 							},
@@ -4955,7 +4955,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly = turf.polygon([[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]);\n\nvar coord = turf.getCoords(poly);\n//= [[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]\n"
+										"text": "\nvar poly = geo.create.polygon([[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]);\n\nvar coord = geo.coords.getFromFeature(poly);\n//= [[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]\n"
 									}
 								]
 							},
@@ -5032,7 +5032,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar pt = turf.point([10, 10]);\n\nvar coord = turf.getCoord(pt);\n//= [10, 10]\n"
+										"text": "\nvar pt = geo.create.point([10, 10]);\n\nvar coord = geo.coords.getFromPoint(pt);\n//= [10, 10]\n"
 									}
 								]
 							},
@@ -5102,7 +5102,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[121, -29], [138, -29], [138, -18], [121, -18], [121, -29]]]);\n\nvar rewind = turf.rewind(polygon);\n"
+										"text": "\nvar polygon = geo.create.polygon([[[121, -29], [138, -29], [138, -18], [121, -18], [121, -29]]]);\n\nvar rewind = geo.coords.rewind(polygon);\n"
 									}
 								]
 							},
@@ -5232,7 +5232,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nturf.round(120.4321)\n//=120\n\nturf.round(120.4321, 2)\n//=120.43\n"
+										"text": "\ngeo.coords.round(120.4321)\n//=120\n\ngeo.coords.round(120.4321, 2)\n//=120.43\n"
 									}
 								]
 							},
@@ -5298,7 +5298,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point = turf.point([\n    70.46923055566859,\n    58.11088890802906,\n    1508\n]);\nvar options = {precision: 3, coordinates: 2};\nvar truncated = turf.truncate(point, options);\n//=truncated.geometry.coordinates => [70.469, 58.111]\n\n//addToMap\nvar addToMap = [truncated];\n"
+										"text": "\nvar point = geo.create.point([\n    70.46923055566859,\n    58.11088890802906,\n    1508\n]);\nvar options = {precision: 3, coordinates: 2};\nvar truncated = geo.coords.truncate(point, options);\n//=truncated.geometry.coordinates => [70.469, 58.111]\n"
 									}
 								]
 							},
@@ -5344,7 +5344,7 @@
 													"sources": [
 														{
 															"fileName": "coords.ts",
-															"line": 153,
+															"line": 150,
 															"character": 89
 														}
 													],
@@ -5362,7 +5362,7 @@
 													"sources": [
 														{
 															"fileName": "coords.ts",
-															"line": 153,
+															"line": 150,
 															"character": 105
 														}
 													],
@@ -5380,7 +5380,7 @@
 													"sources": [
 														{
 															"fileName": "coords.ts",
-															"line": 153,
+															"line": 150,
 															"character": 70
 														}
 													],
@@ -5404,7 +5404,7 @@
 											"sources": [
 												{
 													"fileName": "coords.ts",
-													"line": 153,
+													"line": 150,
 													"character": 59
 												}
 											]
@@ -5421,7 +5421,7 @@
 					"sources": [
 						{
 							"fileName": "coords.ts",
-							"line": 153,
+							"line": 150,
 							"character": 24
 						}
 					]
@@ -5485,7 +5485,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar center = turf.point([-75, 40]);\nvar radius = 5;\nvar bearing1 = 25;\nvar bearing2 = 47;\n\nvar arc = turf.lineArc(center, radius, bearing1, bearing2);\n"
+										"text": "\nvar center = geo.create.point([-75, 40]);\nvar radius = 5;\nvar bearing1 = 25;\nvar bearing2 = 47;\n\nvar arc = geo.create.arc(center, radius, bearing1, bearing2);\n"
 									}
 								]
 							},
@@ -5663,7 +5663,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[-74, 40], [-78, 42], [-82, 35]]);\nvar bbox = turf.bbox(line);\nvar bboxPolygon = turf.bboxPolygon(bbox);\n"
+										"text": "\nvar line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]]);\nvar bbox = geo.create.bbox(line);\nvar bboxPolygon = geo.bbox.polygon(bbox);\n"
 									}
 								]
 							},
@@ -5718,7 +5718,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar center = [-75.343, 39.984];\nvar radius = 5;\nvar options = {steps: 10, units: 'kilometers', properties: {foo: 'bar'}};\nvar circle = turf.circle(center, radius, options);\n"
+										"text": "\nvar center = [-75.343, 39.984];\nvar radius = 5;\nvar options = {steps: 10, units: 'kilometers', properties: {foo: 'bar'}};\nvar circle = geo.create.circle(center, radius, options);\n"
 									}
 								]
 							},
@@ -5887,7 +5887,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar locationA = turf.point([-75.343, 39.984], {name: 'Location A'});\nvar locationB = turf.point([-75.833, 39.284], {name: 'Location B'});\nvar locationC = turf.point([-75.534, 39.123], {name: 'Location C'});\n\nvar collection = turf.featureCollection([\n  locationA,\n  locationB,\n  locationC\n]);\n\n//=collection\n"
+										"text": "\nvar locationA = geo.create.point([-75.343, 39.984], {name: 'Location A'});\nvar locationB = geo.create.point([-75.833, 39.284], {name: 'Location B'});\nvar locationC = geo.create.point([-75.534, 39.123], {name: 'Location C'});\n\nvar collection = geo.create.featureCollection([\n  locationA,\n  locationB,\n  locationC\n]);\n\n//=collection\n"
 									}
 								]
 							},
@@ -6032,7 +6032,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar geometry = {\n  \"type\": \"Point\",\n  \"coordinates\": [110, 50]\n};\n\nvar feature = turf.feature(geometry);\n\n//=feature\n"
+										"text": "\nvar geometry = {\n  \"type\": \"Point\",\n  \"coordinates\": [110, 50]\n};\n\nvar feature = geo.create.feature(geometry);\n\n//=feature\n"
 									}
 								]
 							},
@@ -6185,7 +6185,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar pt = {\n    \"type\": \"Point\",\n      \"coordinates\": [100, 0]\n    };\nvar line = {\n    \"type\": \"LineString\",\n    \"coordinates\": [ [101, 0], [102, 1] ]\n  };\nvar collection = turf.geometryCollection([pt, line]);\n\n//=collection\n"
+										"text": "\nvar pt = {\n    \"type\": \"Point\",\n      \"coordinates\": [100, 0]\n    };\nvar line = {\n    \"type\": \"LineString\",\n    \"coordinates\": [ [101, 0], [102, 1] ]\n  };\nvar collection = geo.create.geometryCollection([pt, line]);\n\n//=collection\n"
 									}
 								]
 							},
@@ -6350,7 +6350,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar linestring1 = turf.lineString([[-24, 63], [-23, 60], [-25, 65], [-20, 69]], {name: 'line 1'});\nvar linestring2 = turf.lineString([[-14, 43], [-13, 40], [-15, 45], [-10, 49]], {name: 'line 2'});\n\n//=linestring1\n//=linestring2\n"
+										"text": "\nvar linestring1 = geo.create.lineString([[-24, 63], [-23, 60], [-25, 65], [-20, 69]], {name: 'line 1'});\nvar linestring2 = geo.create.lineString([[-14, 43], [-13, 40], [-15, 45], [-10, 49]], {name: 'line 2'});\n\n//=linestring1\n//=linestring2\n"
 									}
 								]
 							},
@@ -6521,7 +6521,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar multiLine = turf.multiLineString([[[0,0],[10,10]]]);\n\n//=multiLine\n"
+										"text": "\nvar multiLine = geo.create.mLineString([[[0,0],[10,10]]]);\n\n//=multiLine\n"
 									}
 								]
 							},
@@ -6698,7 +6698,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar multiPt = turf.multiPoint([[0,0],[10,10]]);\n\n//=multiPt\n"
+										"text": "\nvar multiPt = geo.create.mPoint([[0,0],[10,10]]);\n\n//=multiPt\n"
 									}
 								]
 							},
@@ -6869,7 +6869,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar multiPoly = turf.multiPolygon([[[[0,0],[0,10],[10,10],[10,0],[0,0]]]]);\n\n//=multiPoly\n\n"
+										"text": "\nvar multiPoly = geo.create.mPolygon([[[[0,0],[0,10],[10,10],[10,0],[0,0]]]]);\n\n//=multiPoly\n\n"
 									}
 								]
 							},
@@ -7052,7 +7052,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point = turf.point([-75.343, 39.984]);\n\n//=point\n"
+										"text": "\nvar point = geo.create.point([-75.343, 39.984]);\n\n//=point\n"
 									}
 								]
 							},
@@ -7217,7 +7217,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[-5, 52], [-4, 56], [-2, 51], [-7, 54], [-5, 52]]], { name: 'poly1' });\n\n//=polygon\n"
+										"text": "\nvar polygon = geo.create.polygon([[[-5, 52], [-4, 56], [-2, 51], [-7, 54], [-5, 52]]], { name: 'poly1' });\n\n//=polygon\n"
 									}
 								]
 							},
@@ -7394,7 +7394,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar center = turf.point([-75, 40]);\nvar radius = 5;\nvar bearing1 = 25;\nvar bearing2 = 45;\n\nvar sector = turf.sector(center, radius, bearing1, bearing2);\n\n//addToMap\nvar addToMap = [center, sector];\n"
+										"text": "\nvar center = geo.create.point([-75, 40]);\nvar radius = 5;\nvar bearing1 = 25;\nvar bearing2 = 45;\n\nvar sector = geo.create.sector(center, radius, bearing1, bearing2);\n\n//addToMap\nvar addToMap = [center, sector];\n"
 									}
 								]
 							},
@@ -7616,7 +7616,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point = turf.point([-90.548630, 14.616599]);\nvar buffered = turf.buffer(point, 500, {units: 'miles'});\n"
+										"text": "\nvar point = geo.create.point([-90.548630, 14.616599]);\nvar buffered = geo.feature.buffer(point, 500, {units: 'miles'});\n"
 									}
 								]
 							},
@@ -7769,7 +7769,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[-74, 40], [-78, 42], [-82, 35]], {color: 'red'});\n\nvar lineCloned = turf.clone(line);\n"
+										"text": "\nvar line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]], {color: 'red'});\n\nvar lineCloned = geo.feature.clone(line);\n"
 									}
 								]
 							},
@@ -7824,7 +7824,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar points = turf.featureCollection([\n  turf.point([-63.601226, 44.642643]),\n  turf.point([-63.591442, 44.651436]),\n  turf.point([-63.580799, 44.648749]),\n  turf.point([-63.573589, 44.641788]),\n  turf.point([-63.587665, 44.64533]),\n  turf.point([-63.595218, 44.64765])\n]);\nvar options = {units: 'miles', maxEdge: 1};\n\nvar hull = turf.concave(points, options);\n"
+										"text": "\nvar points = geo.create.featureCollection([\n  geo.create.point([-63.601226, 44.642643]),\n  geo.create.point([-63.591442, 44.651436]),\n  geo.create.point([-63.580799, 44.648749]),\n  geo.create.point([-63.573589, 44.641788]),\n  geo.create.point([-63.587665, 44.64533]),\n  geo.create.point([-63.595218, 44.64765])\n]);\nvar options = {units: 'miles', maxEdge: 1};\n\nvar hull = geo.feature.concave(points, options);\n"
 									}
 								]
 							},
@@ -7985,7 +7985,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar points = turf.featureCollection([\n  turf.point([10.195312, 43.755225]),\n  turf.point([10.404052, 43.8424511]),\n  turf.point([10.579833, 43.659924]),\n  turf.point([10.360107, 43.516688]),\n  turf.point([10.14038, 43.588348]),\n  turf.point([10.195312, 43.755225])\n]);\n\nvar hull = turf.convex(points);\n"
+										"text": "\nvar points = geo.create.featureCollection([\n  geo.create.point([10.195312, 43.755225]),\n  geo.create.point([10.404052, 43.8424511]),\n  geo.create.point([10.579833, 43.659924]),\n  geo.create.point([10.360107, 43.516688]),\n  geo.create.point([10.14038, 43.588348]),\n  geo.create.point([10.195312, 43.755225])\n]);\n\nvar hull = geo.feature.convex(points);\n"
 									}
 								]
 							},
@@ -8102,7 +8102,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar features = turf.featureCollection([\n  turf.polygon([[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]], {combine: 'yes'}),\n  turf.polygon([[[0, -1], [0, 0], [1, 0], [1, -1], [0,-1]]], {combine: 'yes'}),\n  turf.polygon([[[1,-1],[1, 0], [2, 0], [2, -1], [1, -1]]], {combine: 'no'}),\n]);\n\nvar dissolved = turf.dissolve(features, {propertyName: 'combine'});\n"
+										"text": "\nvar features = geo.create.featureCollection([\n  geo.create.polygon([[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]], {combine: 'yes'}),\n  geo.create.polygon([[[0, -1], [0, 0], [1, 0], [1, -1], [0,-1]]], {combine: 'yes'}),\n  geo.create.polygon([[[1,-1],[1, 0], [2, 0], [2, -1], [1, -1]]], {combine: 'no'}),\n]);\n\nvar dissolved = geo.feature.dissolve(features, {propertyName: 'combine'});\n"
 									}
 								]
 							},
@@ -8222,7 +8222,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point = {\n  \"type\": \"Feature\",\n  \"properties\": {},\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [110, 40]\n  }\n}\nvar geom = turf.getGeom(point)\n//={\"type\": \"Point\", \"coordinates\": [110, 40]}\n"
+										"text": "\nvar point = {\n  \"type\": \"Feature\",\n  \"properties\": {},\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [110, 40]\n  }\n}\nvar geom = geo.feature.getGeom(point)\n//={\"type\": \"Point\", \"coordinates\": [110, 40]}\n"
 									}
 								]
 							},
@@ -8290,7 +8290,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point = {\n  \"type\": \"Feature\",\n  \"properties\": {},\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [110, 40]\n  }\n}\nvar geom = turf.getType(point)\n//=\"Point\"\n"
+										"text": "\nvar point = {\n  \"type\": \"Feature\",\n  \"properties\": {},\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [110, 40]\n  }\n}\nvar geom = geo.feature.getType(point)\n//=\"Point\"\n"
 									}
 								]
 							},
@@ -8346,7 +8346,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[\n  [116, -36],\n  [131, -32],\n  [146, -43],\n  [155, -25],\n  [133, -9],\n  [111, -22],\n  [116, -36]\n]]);\n\nvar pointOnPolygon = turf.pointOnFeature(polygon);\n"
+										"text": "\nvar polygon = geo.create.polygon([[\n  [116, -36],\n  [131, -32],\n  [146, -43],\n  [155, -25],\n  [133, -9],\n  [111, -22],\n  [116, -36]\n]]);\n\nvar pointOnPolygon = geo.feature.pointOn(polygon);\n"
 									}
 								]
 							},
@@ -8407,7 +8407,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar geojson = turf.polygon([[\n  [-70.603637, -33.399918],\n  [-70.614624, -33.395332],\n  [-70.639343, -33.392466],\n  [-70.659942, -33.394759],\n  [-70.683975, -33.404504],\n  [-70.697021, -33.419406],\n  [-70.701141, -33.434306],\n  [-70.700454, -33.446339],\n  [-70.694274, -33.458369],\n  [-70.682601, -33.465816],\n  [-70.668869, -33.472117],\n  [-70.646209, -33.473835],\n  [-70.624923, -33.472117],\n  [-70.609817, -33.468107],\n  [-70.595397, -33.458369],\n  [-70.587158, -33.442901],\n  [-70.587158, -33.426283],\n  [-70.590591, -33.414248],\n  [-70.594711, -33.406224],\n  [-70.603637, -33.399918]\n]]);\nvar options = {tolerance: 0.01, highQuality: false};\nvar simplified = turf.simplify(geojson, options);\n"
+										"text": "\nvar geojson = geo.create.polygon([[\n  [-70.603637, -33.399918],\n  [-70.614624, -33.395332],\n  [-70.639343, -33.392466],\n  [-70.659942, -33.394759],\n  [-70.683975, -33.404504],\n  [-70.697021, -33.419406],\n  [-70.701141, -33.434306],\n  [-70.700454, -33.446339],\n  [-70.694274, -33.458369],\n  [-70.682601, -33.465816],\n  [-70.668869, -33.472117],\n  [-70.646209, -33.473835],\n  [-70.624923, -33.472117],\n  [-70.609817, -33.468107],\n  [-70.595397, -33.458369],\n  [-70.587158, -33.442901],\n  [-70.587158, -33.426283],\n  [-70.590591, -33.414248],\n  [-70.594711, -33.406224],\n  [-70.603637, -33.399918]\n]]);\nvar options = {tolerance: 0.01, highQuality: false};\nvar simplified = geo.feature.simplify(geojson, options);\n"
 									}
 								]
 							},
@@ -8556,7 +8556,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly = turf.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);\nvar triangles = turf.tesselate(poly);\n\n//addToMap\nvar addToMap = [poly, triangles]\n"
+										"text": "\nvar poly = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);\nvar triangles = geo.feature.tesselate(poly);\n"
 									}
 								]
 							},
@@ -8597,7 +8597,7 @@
 					"sources": [
 						{
 							"fileName": "feature.ts",
-							"line": 246,
+							"line": 243,
 							"character": 25
 						}
 					]
@@ -8663,7 +8663,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar bbox = [-96,31,-84,40];\nvar cellSide = 50;\nvar options = {units: 'miles'};\n\nvar hexgrid = turf.hexGrid(bbox, cellSide, options);\n"
+										"text": "\nvar bbox = [-96,31,-84,40];\nvar cellSide = 50;\nvar options = {units: 'miles'};\n\nvar hexgrid = geo.grid.hexGrid(bbox, cellSide, options);\n"
 									}
 								]
 							},
@@ -8870,7 +8870,7 @@
 									},
 									{
 										"tag": "example",
-										"text": "\nvar extent = [-70.823364, -33.553984, -70.473175, -33.302986];\nvar cellSide = 3;\nvar options = {units: 'miles'};\n\nvar grid = turf.pointGrid(extent, cellSide, options);\n"
+										"text": "\nvar extent = [-70.823364, -33.553984, -70.473175, -33.302986];\nvar cellSide = 3;\nvar options = {units: 'miles'};\n\nvar grid = geo.grid.pointGrid(extent, cellSide, options);\n"
 									}
 								]
 							},
@@ -9054,7 +9054,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar bbox = [-95, 30 ,-85, 40];\nvar cellSide = 50;\nvar options = {units: 'miles'};\n\nvar squareGrid = turf.squareGrid(bbox, cellSide, options);\n"
+										"text": "\nvar bbox = [-95, 30 ,-85, 40];\nvar cellSide = 50;\nvar options = {units: 'miles'};\n\nvar squareGrid = geo.grid.squareGrid(bbox, cellSide, options);\n"
 									}
 								]
 							},
@@ -9238,7 +9238,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar bbox = [-95, 30 ,-85, 40];\nvar cellSide = 50;\nvar options = {units: 'miles'};\n\nvar triangleGrid = turf.triangleGrid(bbox, cellSide, options);\n"
+										"text": "\nvar bbox = [-95, 30 ,-85, 40];\nvar cellSide = 50;\nvar options = {units: 'miles'};\n\nvar triangleGrid = geo.grid.triangleGrid(bbox, cellSide, options);\n"
 									}
 								]
 							},
@@ -9456,7 +9456,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar points = turf.randomPoint(30, {bbox: [50, 30, 70, 50]});\n\n// add a random property to each point\nturf.featureEach(points, function(point) {\n    point.properties.solRad = Math.random() * 50;\n});\nvar options = {gridType: 'points', property: 'solRad', units: 'miles'};\nvar grid = turf.interpolate(points, 100, options);\n"
+										"text": "\nvar points = geo.random.point(30, {bbox: [50, 30, 70, 50]});\n\n// add a random property to each point\nfor each points in points {\n    point.properties.solRad = Math.random() * 50;\n});\nvar options = {gridType: 'points', property: 'solRad', units: 'miles'};\nvar grid = geo.ipolate.interpolate(points, 100, options);\n"
 									}
 								]
 							},
@@ -9834,7 +9834,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\n// create a grid of points with random z-values in their properties\nvar extent = [0, 30, 20, 50];\nvar cellWidth = 100;\nvar pointGrid = turf.pointGrid(extent, cellWidth, {units: 'miles'});\n\nfor (var i = 0; i < pointGrid.features.length; i++) {\n    pointGrid.features[i].properties.temperature = Math.random() * 10;\n}\nvar breaks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\n\nvar lines = turf.isolines(pointGrid, breaks, {zProperty: 'temperature'});\n"
+										"text": "\n// create a grid of points with random z-values in their properties\nvar extent = [0, 30, 20, 50];\nvar cellWidth = 100;\nvar pointGrid = geo.grid.pointGrid(extent, cellWidth, {units: 'miles'});\n\nfor (var i = 0; i < pointGrid.features.length; i++) {\n    pointGrid.features[i].properties.temperature = Math.random() * 10;\n}\nvar breaks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];\n\nvar lines = geo.ipolate.isolines(pointGrid, breaks, {zProperty: 'temperature'});\n"
 									}
 								]
 							},
@@ -10015,7 +10015,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar point = turf.point([-75.3221, 39.529]);\n// \"a\", \"b\", and \"c\" values represent the values of the coordinates in order.\nvar triangle = turf.polygon([[\n  [-75.1221, 39.57],\n  [-75.58, 39.18],\n  [-75.97, 39.86],\n  [-75.1221, 39.57]\n]], {\n  \"a\": 11,\n  \"b\": 122,\n  \"c\": 44\n});\n\nvar zValue = turf.planepoint(point, triangle);\npoint.properties.zValue = zValue;\n"
+										"text": "\nvar point = geo.create.point([-75.3221, 39.529]);\n// \"a\", \"b\", and \"c\" values represent the values of the coordinates in order.\nvar triangle = geo.create.polygon([[\n  [-75.1221, 39.57],\n  [-75.58, 39.18],\n  [-75.97, 39.86],\n  [-75.1221, 39.57]\n]], {\n  \"a\": 11,\n  \"b\": 122,\n  \"c\": 44\n});\n\nvar zValue = geo.ipolate.planepoint(point, triangle);\npoint.properties.zValue = zValue;\n"
 									}
 								]
 							},
@@ -10091,7 +10091,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\n// generate some random point data\nvar points = turf.randomPoint(30, {bbox: [50, 30, 70, 50]});\n\n// add a random property to each point between 0 and 9\nfor (var i = 0; i < points.features.length; i++) {\n  points.features[i].properties.z = ~~(Math.random() * 9);\n}\nvar tin = turf.tin(points, 'z');\n\n//addToMap\nvar addToMap = [tin, points]\nfor (var i = 0; i < tin.features.length; i++) {\n  var properties  = tin.features[i].properties;\n  properties.fill = '#' + properties.a + properties.b + properties.c;\n}\n"
+										"text": "\n// generate some random point data\nvar points = geo.random.point(30, {bbox: [50, 30, 70, 50]});\n\n// add a random property to each point between 0 and 9\nfor (var i = 0; i < points.features.length; i++) {\n  points.features[i].properties.z = ~~(Math.random() * 9);\n}\nvar tin = geo.ipolate.tin(points, 'z');\n"
 									}
 								]
 							},
@@ -10143,7 +10143,7 @@
 					"sources": [
 						{
 							"fileName": "ipolate.ts",
-							"line": 144,
+							"line": 137,
 							"character": 19
 						}
 					]
@@ -10224,7 +10224,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[-83, 30], [-84, 36], [-78, 41]]);\nvar options = {units: 'miles'};\n\nvar along = turf.along(line, 200, options);\n"
+										"text": "\nvar line = geo.create.lineString([[-83, 30], [-84, 36], [-78, 41]]);\nvar options = {units: 'miles'};\n\nvar along = geo.line.along(line, 200, options);\n"
 									}
 								]
 							},
@@ -10356,7 +10356,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([\n  [-76.091308, 18.427501],\n  [-76.695556, 18.729501],\n  [-76.552734, 19.40443],\n  [-74.61914, 19.134789],\n  [-73.652343, 20.07657],\n  [-73.157958, 20.210656]\n]);\n\nvar curved = turf.bezierSpline(line);\n"
+										"text": "\nvar line = geo.create.lineString([\n  [-76.091308, 18.427501],\n  [-76.695556, 18.729501],\n  [-76.552734, 19.40443],\n  [-74.61914, 19.134789],\n  [-73.652343, 20.07657],\n  [-73.157958, 20.210656]\n]);\n\nvar curved = geo.line.bezierSpline(line);\n"
 									}
 								]
 							},
@@ -10492,7 +10492,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[-95, 40], [-93, 45], [-85, 50]]);\n\nvar chunk = turf.lineChunk(line, 15, {units: 'miles'});\n"
+										"text": "\nvar line = geo.create.lineString([[-95, 40], [-93, 45], [-85, 50]]);\n\nvar chunk = geo.line.chunk(line, 15, {units: 'miles'});\n"
 									}
 								]
 							},
@@ -10681,7 +10681,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line1 = turf.lineString([[126, -11], [129, -21]]);\nvar line2 = turf.lineString([[123, -18], [131, -14]]);\nvar intersects = turf.lineIntersect(line1, line2);\n"
+										"text": "\nvar line1 = geo.create.lineString([[126, -11], [129, -21]]);\nvar line2 = geo.create.lineString([[123, -18], [131, -14]]);\nvar intersects = geo.line.intersect(line1, line2);\n"
 									}
 								]
 							},
@@ -10798,7 +10798,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[-83, 30], [-84, 36], [-78, 41]], { \"stroke\": \"#F00\" });\n\nvar offsetLine = turf.lineOffset(line, 2, {units: 'miles'});\n"
+										"text": "\nvar line = geo.create.lineString([[-83, 30], [-84, 36], [-78, 41]], { \"stroke\": \"#F00\" });\n\nvar offsetLine = geo.line.offset(line, 2, {units: 'miles'});\n"
 									}
 								]
 							},
@@ -10953,7 +10953,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line1 = turf.lineString([[115, -35], [125, -30], [135, -30], [145, -35]]);\nvar line2 = turf.lineString([[115, -25], [125, -30], [135, -30], [145, -25]]);\n\nvar overlapping = turf.lineOverlap(line1, line2);\n"
+										"text": "\nvar line1 = geo.create.lineString([[115, -35], [125, -30], [135, -30], [145, -35]]);\nvar line2 = geo.create.lineString([[115, -25], [125, -30], [135, -30], [145, -25]]);\n\nvar overlapping = geo.line.overlap(line1, line2);\n"
 									}
 								]
 							},
@@ -11130,7 +11130,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[-50, 5], [-40, -10], [-50, -10], [-40, 5], [-50, 5]]]);\nvar segments = turf.lineSegment(polygon);\n"
+										"text": "\nvar polygon = geo.create.polygon([[[-50, 5], [-40, -10], [-50, -10], [-40, 5], [-50, 5]]]);\nvar segments = geo.line.segment(polygon);\n"
 									}
 								]
 							},
@@ -11247,7 +11247,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([\n    [-77.031669, 38.878605],\n    [-77.029609, 38.881946],\n    [-77.020339, 38.884084],\n    [-77.025661, 38.885821],\n    [-77.021884, 38.889563],\n    [-77.019824, 38.892368]\n]);\nvar start = turf.point([-77.029609, 38.881946]);\nvar stop = turf.point([-77.021884, 38.889563]);\n\nvar sliced = turf.lineSlice(start, stop, line);\n"
+										"text": "\nvar line = geo.create.lineString([\n    [-77.031669, 38.878605],\n    [-77.029609, 38.881946],\n    [-77.020339, 38.884084],\n    [-77.025661, 38.885821],\n    [-77.021884, 38.889563],\n    [-77.019824, 38.892368]\n]);\nvar start = geo.create.point([-77.029609, 38.881946]);\nvar stop = geo.create.point([-77.021884, 38.889563]);\n\nvar sliced = geo.line.slice(start, stop, line);\n"
 									}
 								]
 							},
@@ -11343,7 +11343,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[7, 45], [9, 45], [14, 40], [14, 41]]);\nvar start = 12.5;\nvar stop = 25;\nvar sliced = turf.lineSliceAlong(line, start, stop, {units: 'miles'});\n"
+										"text": "\nvar line = geo.create.lineString([[7, 45], [9, 45], [14, 40], [14, 41]]);\nvar start = 12.5;\nvar stop = 25;\nvar sliced = geo.line.sliceAlong(line, start, stop, {units: 'miles'});\n"
 									}
 								]
 							},
@@ -11494,7 +11494,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar line = turf.lineString([[120, -25], [145, -25]]);\nvar splitter = turf.lineString([[130, -15], [130, -35]]);\n\nvar split = turf.lineSplit(line, splitter);\n"
+										"text": "\nvar line = geo.create.lineString([[120, -25], [145, -25]]);\nvar splitter = geo.create.lineString([[130, -15], [130, -35]]);\n\nvar split = geo.line.split(line, splitter);\n"
 									}
 								]
 							},
@@ -11646,7 +11646,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar clockwiseRing = turf.lineString([[0,0],[1,1],[1,0],[0,0]]);\nvar counterClockwiseRing = turf.lineString([[0,0],[1,0],[1,1],[0,0]]);\n\nturf.booleanClockwise(clockwiseRing)\n//=true\nturf.booleanClockwise(counterClockwiseRing)\n//=false\n"
+										"text": "\nvar clockwiseRing = geo.create.lineString([[0,0],[1,1],[1,0],[0,0]]);\nvar counterClockwiseRing = geo.create.lineString([[0,0],[1,0],[1,1],[0,0]]);\n\ngeo.misc.isClockwise(clockwiseRing)\n//=true\ngeo.misc.isClockwise(counterClockwiseRing)\n//=false\n"
 									}
 								]
 							},
@@ -11707,7 +11707,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly = turf.polygon([[\n  [-12.034835, 8.901183],\n  [-12.060413, 8.899826],\n  [-12.03638, 8.873199],\n  [-12.059383, 8.871418],\n  [-12.034835, 8.901183]\n]]);\n\nvar kinks = turf.kinks(poly);\n"
+										"text": "\nvar poly = geo.create.polygon([[\n  [-12.034835, 8.901183],\n  [-12.060413, 8.899826],\n  [-12.03638, 8.873199],\n  [-12.059383, 8.871418],\n  [-12.034835, 8.901183]\n]]);\n\nvar kinks = geo.misc.kinks(poly);\n"
 									}
 								]
 							},
@@ -11791,7 +11791,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygon = turf.polygon([[[112, -21], [116, -36], [146, -39], [153, -24], [133, -10], [112, -21]]]);\nvar mask = turf.polygon([[[90, -55], [170, -55], [170, 10], [90, 10], [90, -55]]]);\n\nvar masked = turf.mask(polygon, mask);\n"
+										"text": "\nvar polygon = geo.create.polygon([[[112, -21], [116, -36], [146, -39], [153, -24], [133, -10], [112, -21]]]);\nvar mask = geo.create.polygon([[[90, -55], [170, -55], [170, 10], [90, 10], [90, -55]]]);\n\nvar masked = geo.misc.mask(polygon, mask);\n"
 									}
 								]
 							},
@@ -11911,7 +11911,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar points = turf.randomPoint(100, {bbox: [-80, 30, -60, 60]});\n\nvar sample = turf.sample(points, 5);\n"
+										"text": "\nvar points = geo.random.point(100, {bbox: [-80, 30, -60, 60]});\n\nvar sample = geo.misc.sample(points, 5);\n"
 									}
 								]
 							},
@@ -11992,7 +11992,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly = turf.polygon([[[0, 0], [2, 0], [0, 2], [2, 2], [0, 0]]]);\n\nvar result = turf.unkinkPolygon(poly);\n"
+										"text": "\nvar poly = geo.create.polygon([[[0, 0], [2, 0], [0, 2], [2, 2], [0, 0]]]);\n\nvar result = geo.misc.unkinkPolygon(poly);\n"
 									}
 								]
 							},
@@ -12127,7 +12127,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly1 = turf.polygon([[[0,0],[10,0],[10,10],[0,10],[0,0]]]);\nvar poly2 = turf.polygon([[[10,0],[20,10],[20,20],[20,0],[10,0]]]);\nvar polyFC = turf.featureCollection([poly1, poly2]);\nvar pt1 = turf.point([5,5], {population: 200});\nvar pt2 = turf.point([1,3], {population: 600});\nvar pt3 = turf.point([14,2], {population: 100});\nvar pt4 = turf.point([13,1], {population: 200});\nvar pt5 = turf.point([19,7], {population: 300});\nvar pointFC = turf.featureCollection([pt1, pt2, pt3, pt4, pt5]);\nvar collected = turf.collect(polyFC, pointFC, 'population', 'values');\nvar values = collected.features[0].properties.values\n//=values => [200, 600]\n\n//addToMap\nvar addToMap = [pointFC, collected]\n"
+										"text": "\nvar poly1 = geo.create.polygon([[[0,0],[10,0],[10,10],[0,10],[0,0]]]);\nvar poly2 = geo.create.polygon([[[10,0],[20,10],[20,20],[20,0],[10,0]]]);\nvar polyFC = geo.create.featureCollection([poly1, poly2]);\nvar pt1 = geo.create.point([5,5], {population: 200});\nvar pt2 = geo.create.point([1,3], {population: 600});\nvar pt3 = geo.create.point([14,2], {population: 100});\nvar pt4 = geo.create.point([13,1], {population: 200});\nvar pt5 = geo.create.point([19,7], {population: 300});\nvar pointFC = geo.create.featureCollection([pt1, pt2, pt3, pt4, pt5]);\nvar collected = geo.prop.collect(polyFC, pointFC, 'population', 'values');\nvar values = collected.features[0].properties.values\n//=values => [200, 600]\n"
 									}
 								]
 							},
@@ -12216,7 +12216,7 @@
 					"sources": [
 						{
 							"fileName": "prop.ts",
-							"line": 41,
+							"line": 38,
 							"character": 23
 						}
 					]
@@ -12273,7 +12273,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar lineStrings = turf.randomLineString(25, {bbox: [-180, -90, 180, 90]})\n//=lineStrings\n"
+										"text": "\nvar lineStrings = geo.random.linestring(25, {bbox: [-180, -90, 180, 90]})\n//=lineStrings\n"
 									}
 								]
 							},
@@ -12447,7 +12447,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar points = turf.randomPoint(25, {bbox: [-180, -90, 180, 90]})\n//=points\n"
+										"text": "\nvar points = geo.random.point(25, {bbox: [-180, -90, 180, 90]})\n//=points\n"
 									}
 								]
 							},
@@ -12564,7 +12564,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar polygons = turf.randomPolygon(25, {bbox: [-180, -90, 180, 90]})\n//=polygons\n"
+										"text": "\nvar polygons = geo.random.polygon(25, {bbox: [-180, -90, 180, 90]})\n//=polygons\n"
 									}
 								]
 							},
@@ -12719,7 +12719,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar position = turf.randomPosition([-180, -90, 180, 90])\n//=position\n"
+										"text": "\nvar position = geo.random.position([-180, -90, 180, 90])\n//=position\n"
 									}
 								]
 							},
@@ -12885,7 +12885,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly = turf.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);\nvar options = {pivot: [0, 25]};\nvar rotatedPoly = turf.transformRotate(poly, 10, options);\n"
+										"text": "\nvar poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);\nvar options = {pivot: [0, 25]};\nvar rotatedPoly = geo.xform.transformRotate(poly, 10, options);\n"
 									}
 								]
 							},
@@ -13029,7 +13029,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly = turf.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);\nvar scaledPoly = turf.transformScale(poly, 3);\n"
+										"text": "\nvar poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);\nvar scaledPoly = geo.xform.scale(poly, 3);\n"
 									}
 								]
 							},
@@ -13208,7 +13208,7 @@
 								"tags": [
 									{
 										"tag": "example",
-										"text": "\nvar poly = turf.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);\nvar translatedPoly = turf.transformTranslate(poly, 100, 35);\n"
+										"text": "\nvar poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);\nvar translatedPoly = geo.xform.translate(poly, 100, 35);\n"
 									}
 								]
 							},

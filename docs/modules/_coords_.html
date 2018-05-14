@@ -104,7 +104,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L29">coords.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/coords.ts#L29">coords.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -113,11 +113,11 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([[0, 0], [0, 2], [0, 5], [0, 8], [0, 8], [0, 10]]);
-										var multiPoint = turf.multiPoint([[0, 0], [0, 0], [2, 2]]);</p>
-										<p>turf.cleanCoords(line).geometry.coordinates;
+									<dd><p>var line = geo.create.lineString([[0, 0], [0, 2], [0, 5], [0, 8], [0, 8], [0, 10]]);
+										var multiPoint = geo.create.multiPoint([[0, 0], [0, 0], [2, 2]]);</p>
+										<p>geo.coords.cleanCoords(line).geometry.coordinates;
 										//= [[0, 0], [0, 10]]</p>
-										<p>turf.cleanCoords(multiPoint).geometry.coordinates;
+										<p>geo.coords.cleanCoords(multiPoint).geometry.coordinates;
 										//= [[0, 0], [2, 2]]</p>
 									</dd>
 								</dl>
@@ -161,7 +161,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L45">coords.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/coords.ts#L45">coords.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -170,8 +170,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var serbia = turf.point([20.566406, 43.421008]);</p>
-										<p>var saudiArabia = turf.flip(serbia);</p>
+									<dd><p>var serbia = geo.create.point([20.566406, 43.421008]);</p>
+										<p>var saudiArabia = geo.coords.flip(serbia);</p>
 									</dd>
 								</dl>
 							</div>
@@ -211,7 +211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L63">coords.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/coords.ts#L63">coords.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -220,11 +220,11 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var features = turf.featureCollection([
-											turf.point([26, 37], {foo: &#39;bar&#39;}),
-											turf.point([36, 53], {hello: &#39;world&#39;})
+									<dd><p>var features = geo.create.featureCollection([
+											geo.create.point([26, 37], {foo: &#39;bar&#39;}),
+											geo.create.point([36, 53], {hello: &#39;world&#39;})
 										]);</p>
-										<p>var coords = turf.coordAll(features);
+										<p>var coords = geo.coords.getAll(features);
 										//= [[26, 37], [36, 53]]</p>
 									</dd>
 								</dl>
@@ -253,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L93">coords.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/coords.ts#L93">coords.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -262,8 +262,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly = turf.polygon([[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]);</p>
-										<p>var coord = turf.getCoords(poly);
+									<dd><p>var poly = geo.create.polygon([[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]);</p>
+										<p>var coord = geo.coords.getFromFeature(poly);
 										//= [[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]</p>
 									</dd>
 								</dl>
@@ -292,7 +292,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L78">coords.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/coords.ts#L78">coords.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -301,8 +301,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var pt = turf.point([10, 10]);</p>
-										<p>var coord = turf.getCoord(pt);
+									<dd><p>var pt = geo.create.point([10, 10]);</p>
+										<p>var coord = geo.coords.getFromPoint(pt);
 										//= [10, 10]</p>
 									</dd>
 								</dl>
@@ -331,7 +331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L110">coords.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/coords.ts#L110">coords.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -340,8 +340,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon = turf.polygon([[[121, -29], [138, -29], [138, -18], [121, -18], [121, -29]]]);</p>
-										<p>var rewind = turf.rewind(polygon);</p>
+									<dd><p>var polygon = geo.create.polygon([[[121, -29], [138, -29], [138, -18], [121, -18], [121, -29]]]);</p>
+										<p>var rewind = geo.coords.rewind(polygon);</p>
 									</dd>
 								</dl>
 							</div>
@@ -385,7 +385,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L127">coords.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/coords.ts#L127">coords.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -394,9 +394,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>turf.round(120.4321)
+									<dd><p>geo.coords.round(120.4321)
 										//=120</p>
-										<p>turf.round(120.4321, 2)
+										<p>geo.coords.round(120.4321, 2)
 										//=120.43</p>
 									</dd>
 								</dl>
@@ -428,7 +428,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/coords.ts#L153">coords.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/coords.ts#L150">coords.ts:150</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -437,16 +437,14 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var point = turf.point([
+									<dd><p>var point = geo.create.point([
 											70.46923055566859,
 											58.11088890802906,
 											1508
 											]);
 											var options = {precision: 3, coordinates: 2};
-											var truncated = turf.truncate(point, options);
+											var truncated = geo.coords.truncate(point, options);
 										//=truncated.geometry.coordinates =&gt; [70.469, 58.111]</p>
-										<p>//addToMap
-										var addToMap = [truncated];</p>
 									</dd>
 								</dl>
 							</div>

@@ -22,9 +22,9 @@
  * - {string} dbscan - type of point it has been classified as ('core'|'edge'|'noise')
  * @example
  * // create random points with random z-values in their properties
- * var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
+ * var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
  * var maxDistance = 100;
- * var clustered = turf.clustersDbscan(points, maxDistance);
+ * var clustered = geo.cluster.dbscan(points, maxDistance);
  */
 export function dbscan(points: turf.FeatureCollection<turf.Point>, maxDistance: number, options: {units: turf.Units,minPoints: number}): turf.FeatureCollection<turf.Point> {
     return turf.clustersDbscan(points, maxDistance, options);
@@ -43,9 +43,9 @@ export function dbscan(points: turf.FeatureCollection<turf.Point>, maxDistance: 
  * - {[number, number]} centroid - Centroid of the cluster [Longitude, Latitude]
  * @example
  * // create random points with random z-values in their properties
- * var points = turf.randomPoint(100, {bbox: [0, 30, 20, 50]});
+ * var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
  * var options = {numberOfClusters: 7};
- * var clustered = turf.clustersKmeans(points, options);
+ * var clustered = geo.cluster.kmeans(points, options);
  */
 export function kmeans(points: turf.FeatureCollection<turf.Point>, options: {numberOfClusters: number, mutate: boolean}): turf.FeatureCollection<turf.Point> {
     return turf.clustersKmeans(points, options);
@@ -58,7 +58,7 @@ export function kmeans(points: turf.FeatureCollection<turf.Point>, options: {num
  * @param {*} filter Filter used on GeoJSON properties to get Cluster
  * @returns {FeatureCollection} Single Cluster filtered by GeoJSON Properties
  * @example
- * var geojson = turf.featureCollection([
+ * var geojson = geo.create.featureCollection([
  *     turf.point([0, 0], {'marker-symbol': 'circle'}),
  *     turf.point([2, 4], {'marker-symbol': 'star'}),
  *     turf.point([3, 6], {'marker-symbol': 'star'}),
@@ -67,16 +67,16 @@ export function kmeans(points: turf.FeatureCollection<turf.Point>, options: {num
  * ]);
  *
  * // Create a cluster using K-Means (adds `cluster` to GeoJSON properties)
- * var clustered = turf.clustersKmeans(geojson);
+ * var clustered = geo.cluster.kmeans(geojson);
  *
  * // Retrieve first cluster (0)
- * var cluster = turf.getCluster(clustered, {cluster: 0});
+ * var cluster = geo.cluster.get(clustered, {cluster: 0});
  * //= cluster
  *
  * // Retrieve cluster based on custom properties
- * turf.getCluster(clustered, {'marker-symbol': 'circle'}).length;
+ * geo.cluster.get(clustered, {'marker-symbol': 'circle'}).length;
  * //= 2
- * turf.getCluster(clustered, {'marker-symbol': 'square'}).length;
+ * geo.cluster.get(clustered, {'marker-symbol': 'square'}).length;
  * //= 1
  */
 export function get(fcoll: turf.FeatureCollection<turf.GeometryObject>, filter: any): turf.FeatureCollection<turf.GeometryObject> {

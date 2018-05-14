@@ -106,7 +106,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L26">line.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L26">line.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -115,9 +115,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([[-83, 30], [-84, 36], [-78, 41]]);
+									<dd><p>var line = geo.create.lineString([[-83, 30], [-84, 36], [-78, 41]]);
 										var options = {units: &#39;miles&#39;};</p>
-										<p>var along = turf.along(line, 200, options);</p>
+										<p>var along = geo.line.along(line, 200, options);</p>
 									</dd>
 								</dl>
 							</div>
@@ -163,7 +163,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L54">line.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L54">line.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -175,7 +175,7 @@
 								<p>The bezier spline implementation is by <a href="http://leszek.rybicki.cc/">Leszek Rybicki</a>.</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([
+									<dd><p>var line = geo.create.lineString([
 											[-76.091308, 18.427501],
 											[-76.695556, 18.729501],
 											[-76.552734, 19.40443],
@@ -183,7 +183,7 @@
 											[-73.652343, 20.07657],
 											[-73.157958, 20.210656]
 										]);</p>
-										<p>var curved = turf.bezierSpline(line);</p>
+										<p>var curved = geo.line.bezierSpline(line);</p>
 									</dd>
 								</dl>
 							</div>
@@ -227,7 +227,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L73">line.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L73">line.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -237,8 +237,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([[-95, 40], [-93, 45], [-85, 50]]);</p>
-										<p>var chunk = turf.lineChunk(line, 15, {units: &#39;miles&#39;});</p>
+									<dd><p>var line = geo.create.lineString([[-95, 40], [-93, 45], [-85, 50]]);</p>
+										<p>var chunk = geo.line.chunk(line, 15, {units: &#39;miles&#39;});</p>
 									</dd>
 								</dl>
 							</div>
@@ -288,7 +288,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L88">line.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L88">line.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -297,9 +297,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line1 = turf.lineString([[126, -11], [129, -21]]);
-											var line2 = turf.lineString([[123, -18], [131, -14]]);
-										var intersects = turf.lineIntersect(line1, line2);</p>
+									<dd><p>var line1 = geo.create.lineString([[126, -11], [129, -21]]);
+											var line2 = geo.create.lineString([[123, -18], [131, -14]]);
+										var intersects = geo.line.intersect(line1, line2);</p>
 									</dd>
 								</dl>
 							</div>
@@ -333,7 +333,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L105">line.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L105">line.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -342,8 +342,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([[-83, 30], [-84, 36], [-78, 41]], { &quot;stroke&quot;: &quot;#F00&quot; });</p>
-										<p>var offsetLine = turf.lineOffset(line, 2, {units: &#39;miles&#39;});</p>
+									<dd><p>var line = geo.create.lineString([[-83, 30], [-84, 36], [-78, 41]], { &quot;stroke&quot;: &quot;#F00&quot; });</p>
+										<p>var offsetLine = geo.line.offset(line, 2, {units: &#39;miles&#39;});</p>
 									</dd>
 								</dl>
 							</div>
@@ -389,7 +389,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L123">line.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L123">line.ts:123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -398,9 +398,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line1 = turf.lineString([[115, -35], [125, -30], [135, -30], [145, -35]]);
-										var line2 = turf.lineString([[115, -25], [125, -30], [135, -30], [145, -25]]);</p>
-										<p>var overlapping = turf.lineOverlap(line1, line2);</p>
+									<dd><p>var line1 = geo.create.lineString([[115, -35], [125, -30], [135, -30], [145, -35]]);
+										var line2 = geo.create.lineString([[115, -25], [125, -30], [135, -30], [145, -25]]);</p>
+										<p>var overlapping = geo.line.overlap(line1, line2);</p>
 									</dd>
 								</dl>
 							</div>
@@ -446,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L136">line.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L136">line.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -455,8 +455,8 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon = turf.polygon([[[-50, 5], [-40, -10], [-50, -10], [-40, 5], [-50, 5]]]);
-										var segments = turf.lineSegment(polygon);</p>
+									<dd><p>var polygon = geo.create.polygon([[[-50, 5], [-40, -10], [-50, -10], [-40, 5], [-50, 5]]]);
+										var segments = geo.line.segment(polygon);</p>
 									</dd>
 								</dl>
 							</div>
@@ -484,7 +484,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L165">line.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L165">line.ts:165</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -496,7 +496,7 @@
 								<p>This can be useful for extracting only the part of a route between waypoints.</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([
+									<dd><p>var line = geo.create.lineString([
 											[-77.031669, 38.878605],
 											[-77.029609, 38.881946],
 											[-77.020339, 38.884084],
@@ -504,9 +504,9 @@
 											[-77.021884, 38.889563],
 											[-77.019824, 38.892368]
 											]);
-											var start = turf.point([-77.029609, 38.881946]);
-										var stop = turf.point([-77.021884, 38.889563]);</p>
-										<p>var sliced = turf.lineSlice(start, stop, line);</p>
+											var start = geo.create.point([-77.029609, 38.881946]);
+										var stop = geo.create.point([-77.021884, 38.889563]);</p>
+										<p>var sliced = geo.line.slice(start, stop, line);</p>
 									</dd>
 								</dl>
 							</div>
@@ -546,7 +546,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L188">line.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L188">line.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -558,10 +558,10 @@
 								<p>This can be useful for extracting only the part of a route between two distances.</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([[7, 45], [9, 45], [14, 40], [14, 41]]);
+									<dd><p>var line = geo.create.lineString([[7, 45], [9, 45], [14, 40], [14, 41]]);
 											var start = 12.5;
 											var stop = 25;
-										var sliced = turf.lineSliceAlong(line, start, stop, {units: &#39;miles&#39;});</p>
+										var sliced = geo.line.sliceAlong(line, start, stop, {units: &#39;miles&#39;});</p>
 									</dd>
 								</dl>
 							</div>
@@ -613,7 +613,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/ccca8e7/src/typescript/line.ts#L204">line.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/line.ts#L204">line.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -622,9 +622,9 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = turf.lineString([[120, -25], [145, -25]]);
-										var splitter = turf.lineString([[130, -15], [130, -35]]);</p>
-										<p>var split = turf.lineSplit(line, splitter);</p>
+									<dd><p>var line = geo.create.lineString([[120, -25], [145, -25]]);
+										var splitter = geo.create.lineString([[130, -15], [130, -35]]);</p>
+										<p>var split = geo.line.split(line, splitter);</p>
 									</dd>
 								</dl>
 							</div>

@@ -22,21 +22,18 @@ import * as turf from "@turf/turf";
  * @param {string} outProperty property to be nested into
  * @returns {FeatureCollection<Polygon>} polygons with properties listed based on `outField`
  * @example
- * var poly1 = turf.polygon([[[0,0],[10,0],[10,10],[0,10],[0,0]]]);
- * var poly2 = turf.polygon([[[10,0],[20,10],[20,20],[20,0],[10,0]]]);
- * var polyFC = turf.featureCollection([poly1, poly2]);
- * var pt1 = turf.point([5,5], {population: 200});
- * var pt2 = turf.point([1,3], {population: 600});
- * var pt3 = turf.point([14,2], {population: 100});
- * var pt4 = turf.point([13,1], {population: 200});
- * var pt5 = turf.point([19,7], {population: 300});
- * var pointFC = turf.featureCollection([pt1, pt2, pt3, pt4, pt5]);
- * var collected = turf.collect(polyFC, pointFC, 'population', 'values');
+ * var poly1 = geo.create.polygon([[[0,0],[10,0],[10,10],[0,10],[0,0]]]);
+ * var poly2 = geo.create.polygon([[[10,0],[20,10],[20,20],[20,0],[10,0]]]);
+ * var polyFC = geo.create.featureCollection([poly1, poly2]);
+ * var pt1 = geo.create.point([5,5], {population: 200});
+ * var pt2 = geo.create.point([1,3], {population: 600});
+ * var pt3 = geo.create.point([14,2], {population: 100});
+ * var pt4 = geo.create.point([13,1], {population: 200});
+ * var pt5 = geo.create.point([19,7], {population: 300});
+ * var pointFC = geo.create.featureCollection([pt1, pt2, pt3, pt4, pt5]);
+ * var collected = geo.prop.collect(polyFC, pointFC, 'population', 'values');
  * var values = collected.features[0].properties.values
  * //=values => [200, 600]
- *
- * //addToMap
- * var addToMap = [pointFC, collected]
  */
 export function collect(polygons: turf.FeatureCollection<turf.Polygon>,points: turf.FeatureCollection<turf.Point>,inProperty: string,outProperty: string): turf.FeatureCollection<turf.Polygon> {
     return turf.collect(polygons,points,inProperty,outProperty);

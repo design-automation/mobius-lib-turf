@@ -28,7 +28,7 @@ import * as turf from "@turf/turf";
  * var cellSide = 50;
  * var options = {units: 'miles'};
  *
- * var hexgrid = turf.hexGrid(bbox, cellSide, options);
+ * var hexgrid = geo.grid.hexGrid(bbox, cellSide, options);
  */
 export function hexGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.Units, properties: object, maskpoly: turf.Feature<turf.Polygon|turf.MultiPolygon>, triangles: boolean}): turf.FeatureCollection<turf.Polygon> {
     return turf.hexGrid(bbox,cellSide,options);
@@ -50,7 +50,7 @@ export function hexGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.U
  * var cellSide = 3;
  * var options = {units: 'miles'};
  *
- * var grid = turf.pointGrid(extent, cellSide, options);
+ * var grid = geo.grid.pointGrid(extent, cellSide, options);
  */
 export function pointGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.Units, maskpoly: turf.Feature<turf.Polygon|turf.MultiPolygon>, properties: object}): turf.FeatureCollection<turf.Point> {
     return turf.pointGrid(bbox,cellSide,options);
@@ -71,7 +71,7 @@ export function pointGrid(bbox: turf.BBox,cellSide: number,options: {units: turf
  * var cellSide = 50;
  * var options = {units: 'miles'};
  *
- * var squareGrid = turf.squareGrid(bbox, cellSide, options);
+ * var squareGrid = geo.grid.squareGrid(bbox, cellSide, options);
  */
 export function squareGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.Units, maskpoly: turf.Feature<turf.Polygon|turf.MultiPolygon>, properties: object}): turf.FeatureCollection<turf.Polygon> {
     return turf.squareGrid(bbox,cellSide,options);
@@ -92,7 +92,7 @@ export function squareGrid(bbox: turf.BBox,cellSide: number,options: {units: tur
  * var cellSide = 50;
  * var options = {units: 'miles'};
  *
- * var triangleGrid = turf.triangleGrid(bbox, cellSide, options);
+ * var triangleGrid = geo.grid.triangleGrid(bbox, cellSide, options);
  */
 export function triangleGrid(bbox: turf.BBox,cellSide: number,options: {units: turf.Units, maskpoly: turf.Feature<turf.Polygon|turf.MultiPolygon>, properties: object}): turf.FeatureCollection<turf.Polygon> {
     return turf.triangleGrid(bbox,cellSide,options);

@@ -25,8 +25,8 @@ import * as turf from "@turf/turf";
  * steps: number of steps)
  * @returns {FeatureCollection|Feature<Polygon|MultiPolygon>|undefined} buffered features
  * @example
- * var point = turf.point([-90.548630, 14.616599]);
- * var buffered = turf.buffer(point, 500, {units: 'miles'});
+ * var point = geo.create.point([-90.548630, 14.616599]);
+ * var buffered = geo.feature.buffer(point, 500, {units: 'miles'});
  */
 export function buffer(features: turf.GeometryObject|turf.Feature,radius: number,options: {units: turf.Units,steps: number}): turf.Feature {
     return turf.buffer(features,radius,options);
@@ -39,9 +39,9 @@ export function buffer(features: turf.GeometryObject|turf.Feature,radius: number
  * @param {GeoJSON} geojson GeoJSON Object
  * @returns {GeoJSON} cloned GeoJSON Object
  * @example
- * var line = turf.lineString([[-74, 40], [-78, 42], [-82, 35]], {color: 'red'});
+ * var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]], {color: 'red'});
  *
- * var lineCloned = turf.clone(line);
+ * var lineCloned = geo.feature.clone(line);
  */
 export function clone(geojson: turf.AllGeoJSON): turf.AllGeoJSON {
     return turf.clone(geojson);
@@ -57,17 +57,17 @@ export function clone(geojson: turf.AllGeoJSON): turf.AllGeoJSON {
  * units: can be "degrees", "radians", "miles", or "kilometers")
  * @returns {Feature<(Polygon|MultiPolygon)>|null} a concave hull (null value is returned if unable to compute hull)
  * @example
- * var points = turf.featureCollection([
- *   turf.point([-63.601226, 44.642643]),
- *   turf.point([-63.591442, 44.651436]),
- *   turf.point([-63.580799, 44.648749]),
- *   turf.point([-63.573589, 44.641788]),
- *   turf.point([-63.587665, 44.64533]),
- *   turf.point([-63.595218, 44.64765])
+ * var points = geo.create.featureCollection([
+ *   geo.create.point([-63.601226, 44.642643]),
+ *   geo.create.point([-63.591442, 44.651436]),
+ *   geo.create.point([-63.580799, 44.648749]),
+ *   geo.create.point([-63.573589, 44.641788]),
+ *   geo.create.point([-63.587665, 44.64533]),
+ *   geo.create.point([-63.595218, 44.64765])
  * ]);
  * var options = {units: 'miles', maxEdge: 1};
  *
- * var hull = turf.concave(points, options);
+ * var hull = geo.feature.concave(points, options);
  */
 export function concave(points: turf.FeatureCollection<turf.Point>,options: {maxEdge: number, units: turf.Units}): turf.Feature<turf.Polygon|turf.MultiPolygon>|null {
     return turf.concave(points,options);
@@ -85,16 +85,16 @@ export function concave(points: turf.FeatureCollection<turf.Point>,options: {max
  * (concavity: 1 - thin shape. Infinity - convex hull.)
  * @returns {Feature<Polygon>} a convex hull
  * @example
- * var points = turf.featureCollection([
- *   turf.point([10.195312, 43.755225]),
- *   turf.point([10.404052, 43.8424511]),
- *   turf.point([10.579833, 43.659924]),
- *   turf.point([10.360107, 43.516688]),
- *   turf.point([10.14038, 43.588348]),
- *   turf.point([10.195312, 43.755225])
+ * var points = geo.create.featureCollection([
+ *   geo.create.point([10.195312, 43.755225]),
+ *   geo.create.point([10.404052, 43.8424511]),
+ *   geo.create.point([10.579833, 43.659924]),
+ *   geo.create.point([10.360107, 43.516688]),
+ *   geo.create.point([10.14038, 43.588348]),
+ *   geo.create.point([10.195312, 43.755225])
  * ]);
  *
- * var hull = turf.convex(points);
+ * var hull = geo.feature.convex(points);
  */
 export function convex(features: turf.AllGeoJSON,options: {concavity: number}): turf.Feature<turf.Polygon> {
     return turf.convex(features,options);
@@ -109,13 +109,13 @@ export function convex(features: turf.AllGeoJSON,options: {concavity: number}): 
  * (propertyName: features with equals 'propertyName' in `properties` will be merged)
  * @returns {FeatureCollection<Polygon>} a FeatureCollection containing the dissolved polygons
  * @example
- * var features = turf.featureCollection([
- *   turf.polygon([[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]], {combine: 'yes'}),
- *   turf.polygon([[[0, -1], [0, 0], [1, 0], [1, -1], [0,-1]]], {combine: 'yes'}),
- *   turf.polygon([[[1,-1],[1, 0], [2, 0], [2, -1], [1, -1]]], {combine: 'no'}),
+ * var features = geo.create.featureCollection([
+ *   geo.create.polygon([[[0, 0], [0, 1], [1, 1], [1, 0], [0, 0]]], {combine: 'yes'}),
+ *   geo.create.polygon([[[0, -1], [0, 0], [1, 0], [1, -1], [0,-1]]], {combine: 'yes'}),
+ *   geo.create.polygon([[[1,-1],[1, 0], [2, 0], [2, -1], [1, -1]]], {combine: 'no'}),
  * ]);
  *
- * var dissolved = turf.dissolve(features, {propertyName: 'combine'});
+ * var dissolved = geo.feature.dissolve(features, {propertyName: 'combine'});
  */
 export function dissolve(features: turf.FeatureCollection<turf.Polygon>,options: {propertyName: string}): turf.FeatureCollection<turf.Polygon> {
     return turf.dissolve(features,options);
@@ -136,7 +136,7 @@ export function dissolve(features: turf.FeatureCollection<turf.Polygon>,options:
  *     "coordinates": [110, 40]
  *   }
  * }
- * var geom = turf.getGeom(point)
+ * var geom = geo.feature.getGeom(point)
  * //={"type": "Point", "coordinates": [110, 40]}
  */
 export function getGeom(feature: turf.Feature): turf.GeometryObject|turf.GeometryCollection|null {
@@ -157,7 +157,7 @@ export function getGeom(feature: turf.Feature): turf.GeometryObject|turf.Geometr
  *     "coordinates": [110, 40]
  *   }
  * }
- * var geom = turf.getType(point)
+ * var geom = geo.feature.getType(point)
  * //="Point"
  */
 export function getType(geojson: turf.AllGeoJSON): string {
@@ -174,7 +174,7 @@ export function getType(geojson: turf.AllGeoJSON): string {
  * @param {GeoJSON} geojson any Feature or FeatureCollection
  * @returns {Feature<Point>} a point on the surface of `input`
  * @example
- * var polygon = turf.polygon([[
+ * var polygon = geo.create.polygon([[
  *   [116, -36],
  *   [131, -32],
  *   [146, -43],
@@ -184,7 +184,7 @@ export function getType(geojson: turf.AllGeoJSON): string {
  *   [116, -36]
  * ]]);
  *
- * var pointOnPolygon = turf.pointOnFeature(polygon);
+ * var pointOnPolygon = geo.feature.pointOn(polygon);
  */
 export function pointOn(geojson: turf.AllGeoJSON): turf.Feature<turf.Point> {
     return turf.pointOnFeature(geojson);
@@ -201,7 +201,7 @@ export function pointOn(geojson: turf.AllGeoJSON): turf.Feature<turf.Point> {
  * mutate: allows GeoJSON input to be mutated (significant performance increase if true))
  * @returns {GeoJSON} a simplified GeoJSON
  * @example
- * var geojson = turf.polygon([[
+ * var geojson = geo.create.polygon([[
  *   [-70.603637, -33.399918],
  *   [-70.614624, -33.395332],
  *   [-70.639343, -33.392466],
@@ -224,7 +224,7 @@ export function pointOn(geojson: turf.AllGeoJSON): turf.Feature<turf.Point> {
  *   [-70.603637, -33.399918]
  * ]]);
  * var options = {tolerance: 0.01, highQuality: false};
- * var simplified = turf.simplify(geojson, options);
+ * var simplified = geo.feature.simplify(geojson, options);
  */
 export function simplify(geojson: turf.AllGeoJSON,options: {tolerance: number,highQuality: boolean,mutate: boolean}): turf.AllGeoJSON {
     return turf.simplify(geojson,options);
@@ -237,11 +237,8 @@ export function simplify(geojson: turf.AllGeoJSON,options: {tolerance: number,hi
  * @param {Feature<Polygon>} poly the polygon to tesselate
  * @returns {FeatureCollection<Polygon>} a geometrycollection feature
  * @example
- * var poly = turf.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
- * var triangles = turf.tesselate(poly);
- *
- * //addToMap
- * var addToMap = [poly, triangles]
+ * var poly = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
+ * var triangles = geo.feature.tesselate(poly);
  */
 export function tesselate(poly: turf.Feature<turf.Polygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.tesselate(poly);
