@@ -64,35 +64,35 @@ export function getAll(geojson: turf.AllGeoJSON): number[][] {
     return turf.coordAll(geojson);
 }
 
-/**
- * Unwrap a coordinate from a Point Feature, Geometry or a single coordinate.
- *
- * @param {Array<number>|Geometry<Point>|Feature<Point>} obj Object
- * @returns {Array<number>} coordinates
- * @example
- * var pt = geo.create.point([10, 10]);
- *
- * var coord = geo.coords.getFromPoint(pt);
- * //= [10, 10]
- */
-export function getFromPoint(obj: number[]|turf.Point): number[] {
-    return turf.getCoord(obj);
-}
+// /**
+//  * Unwrap a coordinate from a Point Feature, Geometry or a single coordinate.
+//  *
+//  * @param {Array<number>|Geometry<Point>|Feature<Point>} obj Object
+//  * @returns {Array<number>} coordinates
+//  * @example
+//  * var pt = geo.create.point([10, 10]);
+//  *
+//  * var coord = geo.coords.getFromPoint(pt);
+//  * //= [10, 10]
+//  */
+// export function getFromPoint(obj: number[]|turf.Point): number[] {
+//     return turf.getCoord(obj);
+// }
 
-/**
- * Unwrap coordinates from a Feature, Geometry Object or an Array of numbers
- *
- * @param {Array<number>|Geometry|Feature} obj Object
- * @returns {Array<number>} coordinates
- * @example
- * var poly = geo.create.polygon([[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]);
- *
- * var coord = geo.coords.getFromFeature(poly);
- * //= [[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]
- */
-export function getFromFeature(obj: number[]|turf.GeometryObject|turf.Feature): Array<number> {
-    return turf.getCoords(obj);
-}
+// *
+//  * Unwrap coordinates from a Feature, Geometry Object or an Array of numbers
+//  *
+//  * @param {Array<number>|Geometry|Feature} obj Object
+//  * @returns {Array<number>} coordinates
+//  * @example
+//  * var poly = geo.create.polygon([[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]);
+//  *
+//  * var coord = geo.coords.getFromFeature(poly);
+//  * //= [[[119.32, -8.7], [119.55, -8.69], [119.51, -8.54], [119.32, -8.7]]]
+ 
+// export function getFromFeature(obj: number[]|turf.GeometryObject|turf.Feature): Array<number> {
+//     return turf.getCoords(obj);
+// }
 
 /**
  * Rewind (Multi)LineString or (Multi)Polygon outer ring counterclockwise and inner rings clockwise (http://en.wikipedia.org/wiki/Shoelace_formula|Shoelace Formula).

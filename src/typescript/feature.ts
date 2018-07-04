@@ -121,48 +121,48 @@ export function dissolve(features: turf.FeatureCollection<turf.Polygon>,options:
     return turf.dissolve(features,options);
 }
 
-/**
- * Get Geometry from Feature or Geometry Object
- * Throws an error if geojson is not a Feature or Geometry Object.
- *
- * @param {Feature|Geometry} feature GeoJSON Feature or Geometry Object
- * @returns {Geometry|null} GeoJSON Geometry Object
- * @example
- * var point = {
- *   "type": "Feature",
- *   "properties": {},
- *   "geometry": {
- *     "type": "Point",
- *     "coordinates": [110, 40]
- *   }
- * }
- * var geom = geo.feature.getGeom(point)
- * //={"type": "Point", "coordinates": [110, 40]}
- */
-export function getGeom(feature: turf.Feature): turf.GeometryObject|turf.GeometryCollection|null {
-    return turf.getGeom(feature);
-}
+// /**
+//  * Get Geometry from Feature or Geometry Object
+//  * Throws an error if geojson is not a Feature or Geometry Object.
+//  *
+//  * @param {Feature|Geometry} feature GeoJSON Feature or Geometry Object
+//  * @returns {Geometry|null} GeoJSON Geometry Object
+//  * @example
+//  * var point = {
+//  *   "type": "Feature",
+//  *   "properties": {},
+//  *   "geometry": {
+//  *     "type": "Point",
+//  *     "coordinates": [110, 40]
+//  *   }
+//  * }
+//  * var geom = geo.feature.getGeom(point)
+//  * //={"type": "Point", "coordinates": [110, 40]}
+//  */
+// export function getGeom(feature: turf.Feature): turf.GeometryObject|turf.GeometryCollection|null {
+//     return turf.getGeom(feature);
+// }
 
-/**
- * Get GeoJSON object's type, Geometry type is prioritize.
- *
- * @param {GeoJSON} geojson GeoJSON object
- * @returns {string} GeoJSON type
- * @example
- * var point = {
- *   "type": "Feature",
- *   "properties": {},
- *   "geometry": {
- *     "type": "Point",
- *     "coordinates": [110, 40]
- *   }
- * }
- * var geom = geo.feature.getType(point)
- * //="Point"
- */
-export function getType(geojson: turf.AllGeoJSON): string {
-    return turf.getType(geojson);
-}
+// /**
+//  * Get GeoJSON object's type, Geometry type is prioritize.
+//  *
+//  * @param {GeoJSON} geojson GeoJSON object
+//  * @returns {string} GeoJSON type
+//  * @example
+//  * var point = {
+//  *   "type": "Feature",
+//  *   "properties": {},
+//  *   "geometry": {
+//  *     "type": "Point",
+//  *     "coordinates": [110, 40]
+//  *   }
+//  * }
+//  * var geom = geo.feature.getType(point)
+//  * //="Point"
+//  */
+// export function getType(geojson: turf.AllGeoJSON): string {
+//     return turf.getType(geojson);
+// }
 
 /**
  * Takes a Feature or FeatureCollection and returns a Point guaranteed to be on the surface of the feature.

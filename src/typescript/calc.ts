@@ -291,67 +291,67 @@ export function polygonTangents(point: turf.Point, polygon: turf.Polygon): turf.
     return turf.polygonTangents(point, polygon);
 }
 
-/**
- * Takes two points and finds the bearing angle between them along a Rhumb line
- * i.e. the angle measured in degrees start the north line (0 degrees)
- *
- * @param {Coord} start starting Point
- * @param {Coord} end ending Point
- * @param {Object} options Optional parameters
- * (final: calculates the final bearing if true)
- * @returns {number} bearing from north in decimal degrees, between -180 and 180 degrees (positive clockwise)
- * @example
- * var point1 = geo.create.point([-75.343, 39.984], {"marker-color": "#F00"});
- * var point2 = geo.create.point([-75.534, 39.123], {"marker-color": "#00F"});
- *
- * var bearing = geo.calc.rhumbBearing(point1, point2);
- */
-export function rhumbBearing(start: turf.Point, end: turf.Point, options: {final: boolean}): number {
-    return turf.rhumbBearing(start, end, options);
-}
+// /**
+//  * Takes two points and finds the bearing angle between them along a Rhumb line
+//  * i.e. the angle measured in degrees start the north line (0 degrees)
+//  *
+//  * @param {Coord} start starting Point
+//  * @param {Coord} end ending Point
+//  * @param {Object} options Optional parameters
+//  * (final: calculates the final bearing if true)
+//  * @returns {number} bearing from north in decimal degrees, between -180 and 180 degrees (positive clockwise)
+//  * @example
+//  * var point1 = geo.create.point([-75.343, 39.984], {"marker-color": "#F00"});
+//  * var point2 = geo.create.point([-75.534, 39.123], {"marker-color": "#00F"});
+//  *
+//  * var bearing = geo.calc.rhumbBearing(point1, point2);
+//  */
+// export function rhumbBearing(start: turf.Point, end: turf.Point, options: {final: boolean}): number {
+//     return turf.rhumbBearing(start, end, options);
+// }
 
-/**
- * Returns the destination Point having travelled the given distance along a Rhumb line from the
- * origin Point with the (varant) given bearing.
- *
- * @param {Coord} origin starting point
- * @param {number} dist distance from the starting point
- * @param {number} angle varant bearing angle ranging from -180 to 180 degrees from north
- * @param {Object} options Optional parameters
- * (units: "miles", "kilometers", "degrees", or "radians",
- * properties: an Object that is used as the Feature's properties)
- * @returns {Feature<Point>} Destination point.
- * @example
- * var pt = geo.create.point([-75.343, 39.984], {"marker-color": "F00"});
- * var distance = 50;
- * var bearing = 90;
- * var options = {units: 'miles'};
- *
- * var destination = geo.calc.rhumbDestination(pt, distance, bearing, options);
- */
-export function rhumbDestination(origin: turf.Point, dist: number, angle: number, options: {units: turf.Units, properties: object}): turf.Feature<turf.Point> {
-    return turf.rhumbDestination(origin, dist, angle, options);
-}
+// *
+//  * Returns the destination Point having travelled the given distance along a Rhumb line from the
+//  * origin Point with the (varant) given bearing.
+//  *
+//  * @param {Coord} origin starting point
+//  * @param {number} dist distance from the starting point
+//  * @param {number} angle varant bearing angle ranging from -180 to 180 degrees from north
+//  * @param {Object} options Optional parameters
+//  * (units: "miles", "kilometers", "degrees", or "radians",
+//  * properties: an Object that is used as the Feature's properties)
+//  * @returns {Feature<Point>} Destination point.
+//  * @example
+//  * var pt = geo.create.point([-75.343, 39.984], {"marker-color": "F00"});
+//  * var distance = 50;
+//  * var bearing = 90;
+//  * var options = {units: 'miles'};
+//  *
+//  * var destination = geo.calc.rhumbDestination(pt, distance, bearing, options);
+ 
+// export function rhumbDestination(origin: turf.Point, dist: number, angle: number, options: {units: turf.Units, properties: object}): turf.Feature<turf.Point> {
+//     return turf.rhumbDestination(origin, dist, angle, options);
+// }
 
-/**
- * Calculates the distance along a rhumb line between two Point|points in degrees, radians,
- * miles, or kilometers.
- *
- * @param {Coord} from origin point
- * @param {Coord} to destination point
- * @param {Object} options Optional parameters
- * (units: "miles", "kilometers", "degrees", or "radians")
- * @returns {number} distance between the two points
- * @example
- * var from = geo.create.point([-75.343, 39.984]);
- * var to = geo.create.point([-75.534, 39.123]);
- * var options = {units: 'miles'};
- *
- * var distance = geo.calc.rhumbDistance(from, to, options);
- */
-export function rhumbDistance(from: turf.Point, to: turf.Point, options: {units: turf.Units}): number {
-    return turf.rhumbDistance(from, to, options);
-}
+// /**
+//  * Calculates the distance along a rhumb line between two Point|points in degrees, radians,
+//  * miles, or kilometers.
+//  *
+//  * @param {Coord} from origin point
+//  * @param {Coord} to destination point
+//  * @param {Object} options Optional parameters
+//  * (units: "miles", "kilometers", "degrees", or "radians")
+//  * @returns {number} distance between the two points
+//  * @example
+//  * var from = geo.create.point([-75.343, 39.984]);
+//  * var to = geo.create.point([-75.534, 39.123]);
+//  * var options = {units: 'miles'};
+//  *
+//  * var distance = geo.calc.rhumbDistance(from, to, options);
+//  */
+// export function rhumbDistance(from: turf.Point, to: turf.Point, options: {units: turf.Units}): number {
+//     return turf.rhumbDistance(from, to, options);
+// }
 
 /**
  * Returns the shortest LineString path from start point to end point without colliding with
