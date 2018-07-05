@@ -70,3 +70,19 @@ export function linestring(num: number,options: {bbox: turf.BBox,num_vertices: n
 export function polygon(num: number,options: {bbox: turf.BBox,num_vertices:number,max_radial_length:number}): turf.FeatureCollection<turf.LineString> {
     return turf.randomPolygon(num,options);
 }
+
+// http://stackoverflow.com/questions/11935175/sampling-a-random-subset-from-an-array
+/**
+ * Takes a FeatureCollection and returns a FeatureCollection with given number of features at random.
+ *
+ * @param {FeatureCollection} fcoll FeatureCollection of input features
+ * @param {number} num number of features to select
+ * @returns {FeatureCollection} a FeatureCollection with `n` features
+ * @example
+ * var points = geo.random.point(100, {bbox: [-80, 30, -60, 60]});
+ *
+ * var sample = geo.misc.sample(points, 5);
+ */
+export function sample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
+    return turf.sample(fcoll, num);
+}

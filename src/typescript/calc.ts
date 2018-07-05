@@ -11,23 +11,23 @@ import * as turf from "@turf/turf";
 /**
  * Takes one or more features and returns their area in square meters.
  *
- * @param {GeoJSON} geojson input GeoJSON feature(s)
+ * @param {GeoJSON} features input GeoJSON feature(s)
  * @returns {number} area in square meters
  * @example
  * var polygon = geo.create.polygon([[[125, -15], [113, -22], [154, -27], [144, -15], [125, -15]]]);
  *
  * var area = geo.calc.area(polygon);
  */
-export function area(geojson: turf.AllGeoJSON): number {
-    return turf.area(geojson);
+export function area(features: turf.AllGeoJSON): number {
+    return turf.area(features);
 }
 
 /**
  * Takes two Point|points and finds the geographic bearing between them,
  * i.e. the angle measured in degrees from the north line (0 degrees)
  *
- * @param {Coord} start starting Point
- * @param {Coord} end ending Point
+ * @param {Coord} point1 starting Point
+ * @param {Coord} point2 ending Point
  * @param {Object} options Optional parameters
  * (final: Calculates the final bearing if true)
  * @returns {number} angle in decimal degrees, between -180 and 180 degrees (positive clockwise)
@@ -37,14 +37,14 @@ export function area(geojson: turf.AllGeoJSON): number {
  *
  * var bearing = geo.calc.bearing(point1, point2);
  */
-export function bearing(start: turf.Point, end: turf.Point, options: {final: boolean}): number {
-    return turf.bearing(start, end, options);
+export function bearing(point1: turf.Point, point2: turf.Point, options: {final: boolean}): number {
+    return turf.bearing(point1, point2, options);
 }
 
 /**
  * Takes a Feature or FeatureCollection and returns the absolute center point of all features.
  *
- * @param {GeoJSON} geojson GeoJSON to be centered
+ * @param {GeoJSON} features GeoJSON to be centered
  * @param {Object} options Optional parameters
  * (properties: an Object that is used as the Feature's properties)
  * @returns {Feature<Point>} a Point feature at the absolute center point of all input features
@@ -57,46 +57,45 @@ export function bearing(start: turf.Point, end: turf.Point, options: {final: boo
  *
  * var center = geo.calc.center(features);
  */
-export function center(geojson: turf.AllGeoJSON, options: {properties: object}): turf.Feature<turf.Point> {
-    return turf.center(geojson, options);
+export function center(features: turf.AllGeoJSON, options: {properties: object}): turf.Feature<turf.Point> {
+    return turf.center(features, options);
 }
 
 /**
  * Takes any Feature or a FeatureCollection and returns its [center of mass](https://en.wikipedia.org/wiki/Center_of_mass) using this formula: [Centroid of Polygon](https://en.wikipedia.org/wiki/Centroid#Centroid_of_polygon).
  *
- * @param {GeoJSON} geojson GeoJSON to be centered
- * @param {Object} properties Optional object to be used as the Feature's properties
+ * @param {GeoJSON} features GeoJSON to be centered
+ * @param {Object} options Optional object to be used as the Feature's properties
  * @returns {Feature<Point>} the center of mass
  * @example
  * var polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
  *
  * var center = geo.calc.centerOfMass(polygon);
  */
-export function centerOfMass(geojson: turf.AllGeoJSON, properties: object): turf.Feature<turf.Point> {
-    return turf.centerOfMass(geojson, properties);
+export function centerOfMass(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
+    return turf.centerOfMass(features, options);
 }
 
 /**
  * Takes one or more features and calculates the centroid using the mean of all vertices.
  * This lessens the effect of small islands and artifacts when calculating the centroid of a set of polygons.
  *
- * @param {GeoJSON} geojson GeoJSON to be centered
- * @param {Object} properties Optional object to be used as the Feature's properties
+ * @param {GeoJSON} features GeoJSON to be centered
+ * @param {Object} options Optional object to be used as the Feature's properties
  * @returns {Feature<Point>} the centroid of the input features
  * @example
  * var polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
  *
  * var centroid = geo.calc.centroid(polygon);
  */
-export function centroid(geojson: turf.AllGeoJSON, properties: object): turf.Feature<turf.Point> {
-    return turf.centroid(geojson, properties);
-}
+export function centroid(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
+    return turf.centroid(features, options);
 
 /**
  * Takes a Point and calculates the location of a destination point given a distance in degrees, radians, miles, or kilometers; and bearing in degrees. This uses the [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula) to account for global curvature.
  *
- * @param {Coord} origin starting point
- * @param {number} dist distance from the origin point
+ * @param {Coord} originPoint starting point
+ * @param {number} distance distance from the origin point
  * @param {number} angle bearing ranging from -180 to 180
  * @param {Object} options Optional parameters
  * (units: "miles", "kilometers", "degrees", or "radians",
@@ -110,8 +109,8 @@ export function centroid(geojson: turf.AllGeoJSON, properties: object): turf.Fea
  *
  * var destination = geo.calc.destination(point, distance, bearing, options);
  */
-export function destination(origin: turf.Point, dist: number, angle: number, options: {units: turf.Units, properties: object}): turf.Feature<turf.Point> {
-    return turf.destination(origin, dist, angle, options);
+export function destination(originPoint: turf.Point, distance: number, angle: number, options: {units: turf.Units, properties: object}): turf.Feature<turf.Point> {
+    return turf.destination(originPoint, distance, angle, options);
 }
 
 /**
@@ -120,8 +119,8 @@ export function destination(origin: turf.Point, dist: number, angle: number, opt
  * [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula)
  * to account for global curvature.
  *
- * @param {Coord} from origin point
- * @param {Coord} to destination point
+ * @param {Coord} point1 origin point
+ * @param {Coord} point2 destination point
  * @param {Object} options Optional parameters
  * (units: "miles", "kilometers", "degrees", or "radians")
  * @returns {number} distance between the two points
@@ -132,14 +131,14 @@ export function destination(origin: turf.Point, dist: number, angle: number, opt
  *
  * var distance = geo.calc.distance(from, to, options);
  */
-export function distance(from: turf.Point, to: turf.Point, options: {units: turf.Units}): number {
-    return turf.distance(from, to, options);
+export function distance(point1: turf.Point, point2: turf.Point, options: {units: turf.Units}): number {
+    return turf.distance(point1, point2, options);
 }
 
 /**
  * Takes any number of features and returns a rectangular Polygon that encompasses all vertices.
  *
- * @param {GeoJSON} geojson input features
+ * @param {GeoJSON} features input features
  * @returns {Feature<Polygon>} a rectangular Polygon feature that encompasses all vertices
  * @example
  * var features = geo.create.featureCollection([
@@ -150,15 +149,15 @@ export function distance(from: turf.Point, to: turf.Point, options: {units: turf
  *
  * var enveloped = geo.calc.envelope(features);
  */
-export function envelope(geojson: turf.AllGeoJSON): turf.Feature<turf.Polygon> {
-    return turf.envelope(geojson);
+export function envelope(features: turf.AllGeoJSON): turf.Feature<turf.Polygon> {
+    return turf.envelope(features);
 }
 
 /**
  * Calculate great circles routes as LineString
  *
- * @param {Coord} start source point feature
- * @param {Coord} end destination point feature
+ * @param {Coord} point1 source point feature
+ * @param {Coord} point2 destination point feature
  * @param {Object} options Optional parameters
  * (properties: an Object that is used as the Feature's properties, npoints: number of points,
  * offset: offset controls the likelyhood that lines will be split which cross the dateline. The higher the number the more likely.)
@@ -169,14 +168,14 @@ export function envelope(geojson: turf.AllGeoJSON): turf.Feature<turf.Polygon> {
  *
  * var greatCircle = geo.calc.greatCircle(start, end, {'name': 'Seattle to DC'});
  */
-export function greatCircle(start: turf.Point, end: turf.Point, options: {properties: object, npoints: number, offset: number}): turf.Feature<turf.LineString> {
-    return turf.greatCircle(start, end, options);
+export function greatCircle(point1: turf.Point, point2: turf.Point, options: {properties: object, npoints: number, offset: number}): turf.Feature<turf.LineString> {
+    return turf.greatCircle(point1, point2, options);
 }
 
 /**
  * Takes a GeoJSON and measures its length in the specified units, (Multi)Point's distance are ignored.
  *
- * @param {GeoJSON} geojson GeoJSON to measure
+ * @param {GeoJSON} features GeoJSON to measure
  * @param {Object} options Optional parameters
  * (units: "miles", "kilometers", "degrees", or "radians")
  * @returns {number} length of GeoJSON
@@ -184,8 +183,8 @@ export function greatCircle(start: turf.Point, end: turf.Point, options: {proper
  * var line = geo.create.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);
  * var length = geo.calc.length(line, {units: 'miles'});
  */
-export function len(geojson: turf.AllGeoJSON, options: {units: turf.Units}): number {
-    return turf.length(geojson, options);
+export function len(features: turf.AllGeoJSON, options: {units: turf.Units}): number {
+    return turf.length(features, options);
 }
 
 /**
@@ -357,8 +356,8 @@ export function polygonTangents(point: turf.Point, polygon: turf.Polygon): turf.
  * Returns the shortest LineString path from start point to end point without colliding with
  * any Feature in FeatureCollection<Polygon> obstacles
  *
- * @param {Coord} start point
- * @param {Coord} end point
+ * @param {Coord} point1 point
+ * @param {Coord} point2 point
  * @param {Object} options Optional parameters 
  * (obstacles: areas which path cannot travel, 
  * minDistance: minimum distance between shortest path and obstacles, 
@@ -374,8 +373,8 @@ export function polygonTangents(point: turf.Point, polygon: turf.Polygon): turf.
  *
  * var path = geo.calc.shortestPath(start, end, options);
  */
-export function shortestPath(start: turf.Point, end: turf.Point, options: {obstacles: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number}): turf.Feature<turf.LineString> {
-    return turf.shortestPath(start, end, options);
+export function shortestPath(point1: turf.Point, point2: turf.Point, options: {obstacles: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number}): turf.Feature<turf.LineString> {
+    return turf.shortestPath(point1, point2, options);
 }
 
 /**

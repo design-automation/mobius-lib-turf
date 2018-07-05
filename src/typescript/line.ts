@@ -144,8 +144,8 @@ export function segment(feature: turf.FeatureCollection<turf.LineString|turf.Mul
  *
  * This can be useful for extracting only the part of a route between waypoints.
  *
- * @param {Coord} startPt starting point
- * @param {Coord} stopPt stopping point
+ * @param {Coord} point1 starting point
+ * @param {Coord} point2 stopping point
  * @param {Feature<LineString>|LineString} line line to slice
  * @returns {Feature<LineString>} sliced line
  * @example
@@ -162,8 +162,8 @@ export function segment(feature: turf.FeatureCollection<turf.LineString|turf.Mul
  *
  * var sliced = geo.line.slice(start, stop, line);
  */
-export function slice(startPt: turf.Point,stopPt: turf.Point,line: turf.Feature<turf.LineString>): turf.Feature<turf.LineString> {
-    return turf.lineSlice(startPt,stopPt,line);
+export function slice(point1: turf.Point,point2: turf.Point,line: turf.Feature<turf.LineString>): turf.Feature<turf.LineString> {
+    return turf.lineSlice(point1,point2,line);
 }
 
 /**

@@ -36,15 +36,15 @@ export function buffer(features: turf.GeometryObject|turf.Feature,radius: number
  * Returns a cloned copy of the passed GeoJSON Object, including possible 'Foreign Members'.
  * ~3-5x faster than the common JSON.parse + JSON.stringify combo method.
  *
- * @param {GeoJSON} geojson GeoJSON Object
+ * @param {GeoJSON} features GeoJSON Object
  * @returns {GeoJSON} cloned GeoJSON Object
  * @example
  * var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]], {color: 'red'});
  *
  * var lineCloned = geo.feature.clone(line);
  */
-export function clone(geojson: turf.AllGeoJSON): turf.AllGeoJSON {
-    return turf.clone(geojson);
+export function clone(features: turf.AllGeoJSON): turf.AllGeoJSON {
+    return turf.clone(features);
 }
 
 /**
@@ -171,7 +171,7 @@ export function dissolve(features: turf.FeatureCollection<turf.Polygon>,options:
  * * Given a LineString, the point will be along the string
  * * Given a Point, the point will the same as the input
  *
- * @param {GeoJSON} geojson any Feature or FeatureCollection
+ * @param {GeoJSON} features any Feature or FeatureCollection
  * @returns {Feature<Point>} a point on the surface of `input`
  * @example
  * var polygon = geo.create.polygon([[
@@ -186,15 +186,15 @@ export function dissolve(features: turf.FeatureCollection<turf.Polygon>,options:
  *
  * var pointOnPolygon = geo.feature.pointOn(polygon);
  */
-export function pointOn(geojson: turf.AllGeoJSON): turf.Feature<turf.Point> {
-    return turf.pointOnFeature(geojson);
+export function pointOn(features: turf.AllGeoJSON): turf.Feature<turf.Point> {
+    return turf.pointOnFeature(features);
 }
 
 /**
  * Takes a GeoJSON object and returns a simplified version. Internally uses
  * [simplify-js] (http://mourner.github.io/simplify-js/) to perform simplification using the Ramer-Douglas-Peucker algorithm.
  *
- * @param {GeoJSON} geojson object to be simplified
+ * @param {GeoJSON} features object to be simplified
  * @param {Object} options Optional parameters
  * (tolerance: simplification tolerance,
  * highQuality: whether or not to spend more time to create a higher-quality simplification with a different algorithm,
@@ -226,20 +226,37 @@ export function pointOn(geojson: turf.AllGeoJSON): turf.Feature<turf.Point> {
  * var options = {tolerance: 0.01, highQuality: false};
  * var simplified = geo.feature.simplify(geojson, options);
  */
-export function simplify(geojson: turf.AllGeoJSON,options: {tolerance: number,highQuality: boolean,mutate: boolean}): turf.AllGeoJSON {
-    return turf.simplify(geojson,options);
+export function simplify(features: turf.AllGeoJSON,options: {tolerance: number,highQuality: boolean,mutate: boolean}): turf.AllGeoJSON {
+    return turf.simplify(features,options);
 }
 
+// /**
+//  * Tesselates a Polygon into a FeatureCollection of triangular polygons
+//  * using [earcut] (https://github.com/mapbox/earcut).
+//  *
+//  * @param {Feature<Polygon>} poly the polygon to tesselate
+//  * @returns {FeatureCollection<Polygon>} a geometrycollection feature
+//  * @example
+//  * var poly = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
+//  * var triangles = geo.feature.tesselate(poly);
+//  */
+// export function tesselate(poly: turf.Feature<turf.Polygon>): turf.FeatureCollection<turf.Polygon> {
+//     return turf.tesselate(poly);
+// }
+
 /**
- * Tesselates a Polygon into a FeatureCollection of triangular polygons
- * using [earcut] (https://github.com/mapbox/earcut).
+ * Get all coordinates from any GeoJSON object.
  *
- * @param {Feature<Polygon>} poly the polygon to tesselate
- * @returns {FeatureCollection<Polygon>} a geometrycollection feature
+ * @param {FeatureCollection|Feature|Geometry} features any GeoJSON object
+ * @returns {Array<Array<number>>} coordinate position array
  * @example
- * var poly = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
- * var triangles = geo.feature.tesselate(poly);
+ * var features = geo.create.featureCollection([
+ *   geo.create.point([26, 37], {foo: 'bar'}),
+ *   geo.create.point([36, 53], {hello: 'world'})
+ * ]);
+ *
+ * var coords = geo.coords.getCoords(features);
+ * //= [[26, 37], [36, 53]]
  */
-export function tesselate(poly: turf.Feature<turf.Polygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.tesselate(poly);
-}
+export function getCoords(features: turf.AllGeoJSON): number[][] {
+    return turf.coordAll(features);

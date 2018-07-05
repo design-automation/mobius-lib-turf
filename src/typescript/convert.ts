@@ -31,15 +31,15 @@ export function combine(fcoll: turf.FeatureCollection<turf.Point|turf.LineString
  * Takes a feature or set of features and returns all positions as Point|points.
  * Throws an error if it encounters an unknown geometry type
  *
- * @param {GeoJSON} geojson input features
+ * @param {GeoJSON} features input features
  * @returns {FeatureCollection<point>} points representing the exploded input features
  * @example
  * var polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
  *
  * var explode = geo.convert.explode(polygon);
  */
-export function explode(geojson: turf.AllGeoJSON): turf.FeatureCollection<turf.Point> {
-    return turf.explode(geojson);
+export function explode(features: turf.AllGeoJSON): turf.FeatureCollection<turf.Point> {
+    return turf.explode(features);
 }
 
 

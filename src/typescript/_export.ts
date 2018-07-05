@@ -38,8 +38,11 @@ export {line};
 import * as misc from "./misc";
 export {misc};
 
-import * as prop from "./prop";
-export {prop};
+import * as polygon from "./polygon";
+export {polygon};
+
+// import * as prop from "./prop";
+// export {prop};
 
 import * as rand from "./rand";
 export {rand};

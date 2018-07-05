@@ -59,13 +59,13 @@ export function clip(feature: turf.LineString|turf.MultiLineString|turf.Polygon|
 /**
  * Takes a set of features, calculates the bbox of all input features, and returns a bounding box.
  *
- * @param {GeoJSON} geojson any GeoJSON object
+ * @param {GeoJSON} features any GeoJSON object
  * @returns {BBox} bbox extent in [minX, minY, maxX, maxY] order
  * @example
  * var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]]);
  * var bbox = geo.create.bbox(line);
  * var bboxPolygon = geo.bbox.polygon(bbox);
  */
-export function bbox(geojson: turf.AllGeoJSON): turf.BBox {
-    return turf.bbox(geojson);
+export function bbox(features: turf.AllGeoJSON): turf.BBox {
+    return turf.bbox(features);
 }

@@ -60,21 +60,21 @@ export function unkinkPolygon(polygon: turf.FeatureCollection<turf.Polygon|turf.
     return turf.unkinkPolygon(polygon);
 }
 
-// http://stackoverflow.com/questions/11935175/sampling-a-random-subset-from-an-array
-/**
- * Takes a FeatureCollection and returns a FeatureCollection with given number of features at random.
- *
- * @param {FeatureCollection} fcoll FeatureCollection of input features
- * @param {number} num number of features to select
- * @returns {FeatureCollection} a FeatureCollection with `n` features
- * @example
- * var points = geo.random.point(100, {bbox: [-80, 30, -60, 60]});
- *
- * var sample = geo.misc.sample(points, 5);
- */
-export function sample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
-    return turf.sample(fcoll, num);
-}
+// // http://stackoverflow.com/questions/11935175/sampling-a-random-subset-from-an-array
+// /**
+//  * Takes a FeatureCollection and returns a FeatureCollection with given number of features at random.
+//  *
+//  * @param {FeatureCollection} fcoll FeatureCollection of input features
+//  * @param {number} num number of features to select
+//  * @returns {FeatureCollection} a FeatureCollection with `n` features
+//  * @example
+//  * var points = geo.random.point(100, {bbox: [-80, 30, -60, 60]});
+//  *
+//  * var sample = geo.misc.sample(points, 5);
+//  */
+// export function sample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
+//     return turf.sample(fcoll, num);
+// }
 
 /**
  * Takes a ring and return true or false whether or not the ring is clockwise or counter-clockwise.

@@ -33,7 +33,7 @@ export function cleanCoords(feature: turf.Feature|turf.GeometryObject, options: 
 /**
  * Takes input features and flips all of their coordinates from `[x, y]` to `[y, x]`.
  *
- * @param {GeoJSON} geojson input features
+ * @param {GeoJSON} features input features
  * @param {Object} options Optional parameters
  *(mutate: allows GeoJSON input to be mutated if true (significant performance increase))
  * @returns {GeoJSON} a feature or set of features of the same type as `input` with flipped coordinates
@@ -42,27 +42,27 @@ export function cleanCoords(feature: turf.Feature|turf.GeometryObject, options: 
  *
  * var saudiArabia = geo.coords.flip(serbia);
  */
-export function flip(geojson: turf.AllGeoJSON, options: {mutate: boolean}): turf.AllGeoJSON {
-    return turf.flip(geojson, options);
+export function flip(features: turf.AllGeoJSON, options: {mutate: boolean}): turf.AllGeoJSON {
+    return turf.flip(features, options);
 }
 
-/**
- * Get all coordinates from any GeoJSON object.
- *
- * @param {FeatureCollection|Feature|Geometry} geojson any GeoJSON object
- * @returns {Array<Array<number>>} coordinate position array
- * @example
- * var features = geo.create.featureCollection([
- *   geo.create.point([26, 37], {foo: 'bar'}),
- *   geo.create.point([36, 53], {hello: 'world'})
- * ]);
- *
- * var coords = geo.coords.getAll(features);
- * //= [[26, 37], [36, 53]]
- */
-export function getAll(geojson: turf.AllGeoJSON): number[][] {
-    return turf.coordAll(geojson);
-}
+// /**
+//  * Get all coordinates from any GeoJSON object.
+//  *
+//  * @param {FeatureCollection|Feature|Geometry} geojson any GeoJSON object
+//  * @returns {Array<Array<number>>} coordinate position array
+//  * @example
+//  * var features = geo.create.featureCollection([
+//  *   geo.create.point([26, 37], {foo: 'bar'}),
+//  *   geo.create.point([36, 53], {hello: 'world'})
+//  * ]);
+//  *
+//  * var coords = geo.coords.getAll(features);
+//  * //= [[26, 37], [36, 53]]
+//  */
+// export function getAll(geojson: turf.AllGeoJSON): number[][] {
+//     return turf.coordAll(geojson);
+// }
 
 // /**
 //  * Unwrap a coordinate from a Point Feature, Geometry or a single coordinate.
@@ -97,7 +97,7 @@ export function getAll(geojson: turf.AllGeoJSON): number[][] {
 /**
  * Rewind (Multi)LineString or (Multi)Polygon outer ring counterclockwise and inner rings clockwise (http://en.wikipedia.org/wiki/Shoelace_formula|Shoelace Formula).
  *
- * @param {GeoJSON} geojson input GeoJSON Polygon
+ * @param {GeoJSON} features input GeoJSON Polygon
  * @param {Object} options Optional parameters
  * (reverse: enable reverse winding,
  * mutate: allows GeoJSON input to be mutated if true (significant performance increase))
@@ -107,8 +107,8 @@ export function getAll(geojson: turf.AllGeoJSON): number[][] {
  *
  * var rewind = geo.coords.rewind(polygon);
  */
-export function rewind(geojson: turf.AllGeoJSON, options: {reverse: boolean, mutate: boolean}): turf.AllGeoJSON {
-    return turf.rewind(geojson, options);
+export function rewind(features: turf.AllGeoJSON, options: {reverse: boolean, mutate: boolean}): turf.AllGeoJSON {
+    return turf.rewind(features, options);
 }
 
 /**
@@ -131,7 +131,7 @@ export function round(num: number, precision: number): number {
 /**
  * Takes a GeoJSON Feature or FeatureCollection and truncates the precision of the geometry.
  *
- * @param {GeoJSON} geojson any GeoJSON Feature, FeatureCollection, Geometry or GeometryCollection.
+ * @param {GeoJSON} features any GeoJSON Feature, FeatureCollection, Geometry or GeometryCollection.
  * @param {Object} options Optional parameters
  * (precision: coordinate decimal precision,
  * coordinates: maximum number of coordinates (primarly used to remove z coordinates),
@@ -147,6 +147,6 @@ export function round(num: number, precision: number): number {
  * var truncated = geo.coords.truncate(point, options);
  * //=truncated.geometry.coordinates => [70.469, 58.111]
  */
-export function truncate(geojson: turf.AllGeoJSON, options: {precision: number, maxCoords: number, mutate: boolean}): turf.AllGeoJSON {
-    return turf.truncate(geojson, options);
+export function truncate(features: turf.AllGeoJSON, options: {precision: number, maxCoords: number, mutate: boolean}): turf.AllGeoJSON {
+    return turf.truncate(features, options);
 }
