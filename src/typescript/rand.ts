@@ -28,12 +28,13 @@ export function position(bbox: turf.BBox): number[] {
  * @param {Object} options Optional parameters
  * (bbox: a bounding box inside of which geometries are placed.)
  * @returns {FeatureCollection<Point>} GeoJSON FeatureCollection of points
+ * @param {BBox} bbox a bounding box inside of which geometries are placed
  * @example
  * var points = geo.random.point(25, {bbox: [-180, -90, 180, 90]})
  * //=points
  */
-export function point(num: number,options: {bbox: turf.BBox}): turf.FeatureCollection<turf.Point> {
-    return turf.randomPoint(num,options);
+export function point(num: number,bbox: turf.BBox): turf.FeatureCollection<turf.Point> {
+    return turf.randomPoint(num,{bbox:bbox});
 }
 
 /**
@@ -45,13 +46,18 @@ export function point(num: number,options: {bbox: turf.BBox}): turf.FeatureColle
  * num_vertices: is how many coordinates each LineString will contain,
  * max_length: is the maximum number of decimal degrees that a vertex can be from its predecessor,
  * max_rotation=Math: is the maximum number of radians that a line segment can turn from the previous segment.)
+ * @param {BBox} bbox a bounding box inside of which geometries are placed
+ * @param {number} num_vertices is how many coordinates each LineString will contain
+ * @param {number} max_length is the maximum number of decimal degrees that a vertex can be from its predecessor
+ * @param {number} max_rotation is the maximum angle that a line segment can turn from the previous segment (in degrees)
  * @returns {FeatureCollection<LineString>} GeoJSON FeatureCollection of LineString
  * @example
  * var lineStrings = geo.random.linestring(25, {bbox: [-180, -90, 180, 90]})
  * //=lineStrings
  */
-export function linestring(num: number,options: {bbox: turf.BBox,num_vertices: number,max_length: number, max_rotation: number}): turf.FeatureCollection<turf.LineString> {
-    return turf.randomLineString(num,options);
+export function linestring(num: number,bbox: turf.BBox,num_vertices: number,max_length: number, max_rotation: number): turf.FeatureCollection<turf.LineString> {
+    max_rotation = max_rotation/180*Math.PI;
+    return turf.randomLineString(num,{bbox:bbox,num_vertices:num_vertices,max_length:max_length,max_rotation:max_rotation});
 }
 
 /**
@@ -62,13 +68,16 @@ export function linestring(num: number,options: {bbox: turf.BBox,num_vertices: n
  * @param {Array<number>} [options.bbox=[-180, -90, 180, 90]] a bounding box inside of which geometries are placed.
  * @param {number} [options.num_vertices=10] is how many coordinates each LineString will contain.
  * @param {number} [options.max_radial_length=10] is the maximum number of decimal degrees latitude or longitude that a vertex can reach out of the center of the Polygon.
+ * @param {BBox} bbox a bounding box inside of which geometries are placed.
+ * @param {number} num_vertices is how many coordinates each LineString will contain.
+ * @param {number} max_radial_length is the maximum number of decimal degrees latitude or longitude that a vertex can reach out of the center of the Polygon.
  * @returns {FeatureCollection<LineString>} GeoJSON FeatureCollection of LineString
  * @example
  * var polygons = geo.random.polygon(25, {bbox: [-180, -90, 180, 90]})
  * //=polygons
  */
-export function polygon(num: number,options: {bbox: turf.BBox,num_vertices:number,max_radial_length:number}): turf.FeatureCollection<turf.LineString> {
-    return turf.randomPolygon(num,options);
+export function polygon(num: number,bbox: turf.BBox,num_vertices:number,max_radial_length:number): turf.FeatureCollection<turf.LineString> {
+    return turf.randomPolygon(num,{bbox:bbox,num_vertices:num_vertices,max_radial_length:max_radial_length});
 }
 
 // http://stackoverflow.com/questions/11935175/sampling-a-random-subset-from-an-array

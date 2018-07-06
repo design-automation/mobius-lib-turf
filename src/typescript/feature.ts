@@ -23,13 +23,14 @@ import * as turf from "@turf/turf";
  * @param {Object} options Optional parameters
  * (units: "miles", "nauticalmiles", "degrees", "radians", "inches", "yards", "meters", "kilometers",
  * steps: number of steps)
+ * @param {number} steps number of steps
  * @returns {FeatureCollection|Feature<Polygon|MultiPolygon>|undefined} buffered features
  * @example
  * var point = geo.create.point([-90.548630, 14.616599]);
  * var buffered = geo.feature.buffer(point, 500, {units: 'miles'});
  */
-export function buffer(features: turf.GeometryObject|turf.Feature,radius: number,options: {units: turf.Units,steps: number}): turf.Feature {
-    return turf.buffer(features,radius,options);
+export function buffer(features: turf.GeometryObject|turf.Feature,radius: number,steps: number): turf.Feature {
+    return turf.buffer(features,radius,{steps: steps});
 }
 
 /**
@@ -107,6 +108,7 @@ export function convex(features: turf.AllGeoJSON,options: {concavity: number}): 
  * @param {FeatureCollection<Polygon>} featureCollection input feature collection to be dissolved
  * @param {Object} options Optional parameters
  * (propertyName: features with equals 'propertyName' in `properties` will be merged)
+ * @param {string} propertyName features with equals 'propertyName' in `properties` will be merged
  * @returns {FeatureCollection<Polygon>} a FeatureCollection containing the dissolved polygons
  * @example
  * var features = geo.create.featureCollection([
@@ -117,8 +119,8 @@ export function convex(features: turf.AllGeoJSON,options: {concavity: number}): 
  *
  * var dissolved = geo.feature.dissolve(features, {propertyName: 'combine'});
  */
-export function dissolve(features: turf.FeatureCollection<turf.Polygon>,options: {propertyName: string}): turf.FeatureCollection<turf.Polygon> {
-    return turf.dissolve(features,options);
+export function dissolve(features: turf.FeatureCollection<turf.Polygon>,propertyName: string): turf.FeatureCollection<turf.Polygon> {
+    return turf.dissolve(features,{propertyName: propertyName});
 }
 
 // /**
@@ -260,3 +262,4 @@ export function simplify(features: turf.AllGeoJSON,options: {tolerance: number,h
  */
 export function getCoords(features: turf.AllGeoJSON): number[][] {
     return turf.coordAll(features);
+}

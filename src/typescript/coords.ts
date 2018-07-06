@@ -26,8 +26,8 @@
  * geo.coords.cleanCoords(multiPoint).geometry.coordinates;
  * //= [[0, 0], [2, 2]]
  */
-export function cleanCoords(feature: turf.Feature|turf.GeometryObject, options: {mutate: boolean}): turf.Feature|turf.GeometryObject {
-    return turf.cleanCoords(feature, options);
+export function cleanCoords(feature: turf.Feature|turf.GeometryObject/*, options: {mutate: boolean}*/): turf.Feature|turf.GeometryObject {
+    return turf.cleanCoords(feature, {mutate: true});
 }
 
 /**
@@ -42,8 +42,8 @@ export function cleanCoords(feature: turf.Feature|turf.GeometryObject, options: 
  *
  * var saudiArabia = geo.coords.flip(serbia);
  */
-export function flip(features: turf.AllGeoJSON, options: {mutate: boolean}): turf.AllGeoJSON {
-    return turf.flip(features, options);
+export function flip(features: turf.AllGeoJSON/*, options: {mutate: boolean}*/): turf.AllGeoJSON {
+    return turf.flip(features, {mutate: true});
 }
 
 // /**
@@ -107,8 +107,8 @@ export function flip(features: turf.AllGeoJSON, options: {mutate: boolean}): tur
  *
  * var rewind = geo.coords.rewind(polygon);
  */
-export function rewind(features: turf.AllGeoJSON, options: {reverse: boolean, mutate: boolean}): turf.AllGeoJSON {
-    return turf.rewind(features, options);
+export function rewind(features: turf.AllGeoJSON/*, options: {reverse: boolean, mutate: boolean}*/): turf.AllGeoJSON {
+    return turf.rewind(features, {mutate: true});
 }
 
 /**
@@ -136,6 +136,7 @@ export function round(num: number, precision: number): number {
  * (precision: coordinate decimal precision,
  * coordinates: maximum number of coordinates (primarly used to remove z coordinates),
  * mutate: allows GeoJSON input to be mutated if true (significant performance increase))
+ * @param {number} precision coordinate decimal precision
  * @returns {GeoJSON} layer with truncated geometry
  * @example
  * var point = geo.create.point([
@@ -147,6 +148,6 @@ export function round(num: number, precision: number): number {
  * var truncated = geo.coords.truncate(point, options);
  * //=truncated.geometry.coordinates => [70.469, 58.111]
  */
-export function truncate(features: turf.AllGeoJSON, options: {precision: number, maxCoords: number, mutate: boolean}): turf.AllGeoJSON {
-    return turf.truncate(features, options);
+export function truncate(features: turf.AllGeoJSON, precision: number): turf.AllGeoJSON {
+    return turf.truncate(features, {precision: precision, mutate: true});
 }

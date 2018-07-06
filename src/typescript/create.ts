@@ -19,6 +19,7 @@
  * @param {Object} options Optional parameters
  * (steps: number of steps,
  * units: "miles", "kilometers", "degrees", or "radians")
+ * @param {number} steps number of steps
  * @returns {Feature<LineString>} line arc
  * @example
  * var center = geo.create.point([-75, 40]);
@@ -28,8 +29,8 @@
  *
  * var arc = geo.create.arc(center, radius, bearing1, bearing2);
  */
-export function arc(center: turf.Point, radius: number, bearing1: number, bearing2: number, options: {steps: number,units: turf.Units}): turf.Feature<turf.LineString> {
-    return turf.lineArc(center, radius, bearing1, bearing2, options);
+export function arc(center: turf.Point, radius: number, bearing1: number, bearing2: number, steps: number): turf.Feature<turf.LineString> {
+    return turf.lineArc(center, radius, bearing1, bearing2, {steps: steps});
 }
 
 // /**
@@ -47,14 +48,44 @@ export function arc(center: turf.Point, radius: number, bearing1: number, bearin
 // }
 
 /**
+ * Takes a LineString and returns a curved version
+ * by applying a [Bezier spline](http://en.wikipedia.org/wiki/B%C3%A9zier_spline)
+ * algorithm.
+ *
+ * The bezier spline implementation is by [Leszek Rybicki](http://leszek.rybicki.cc/).
+ *
+ * @param {Feature<LineString>} line input LineString
+ * @param {Object} options Optional parameters
+ * (resolution: time in milliseconds between points,
+ * sharpness: a measure of how curvy the path should be between splines)
+ * @param {number} resolution time in milliseconds between points
+ * @param {number} sharpness a measure of how curvy the path should be between splines
+ * @returns {Feature<LineString>} curved line
+ * @example
+ * var line = geo.create.lineString([
+ *   [-76.091308, 18.427501],
+ *   [-76.695556, 18.729501],
+ *   [-76.552734, 19.40443],
+ *   [-74.61914, 19.134789],
+ *   [-73.652343, 20.07657],
+ *   [-73.157958, 20.210656]
+ * ]);
+ *
+ * var curved = geo.line.bezierSpline(line);
+ */
+export function bezierSpline(line: turf.LineString,resolution: number,sharpness: number): turf.Feature<turf.LineString> {
+    return turf.bezierSpline(line,{resolution:resolution, sharpness:sharpness});
+}
+
+/**
  * Takes a Point and calculates the circle polygon given a radius in degrees, radians, miles, or kilometers; and steps for precision.
  *
  * @param {Feature<Point>|number[]} center center point
  * @param {number} radius radius of the circle
  * @param {Object} options Optional parameters
  * (steps: number of steps,
- * units: "miles", "kilometers", "degrees", or "radians",
- * properties: an object to use as feature's properties)
+ * units: "miles", "kilometers", "degrees", or "radians")
+ * @param {number} steps number of steps
  * @returns {Feature<Polygon>} circle polygon
  * @example
  * var center = [-75.343, 39.984];
@@ -62,8 +93,8 @@ export function arc(center: turf.Point, radius: number, bearing1: number, bearin
  * var options = {steps: 10, units: 'kilometers', properties: {foo: 'bar'}};
  * var circle = geo.create.circle(center, radius, options);
  */
-export function circle(center: turf.Point, radius: number, options: {steps: number,units: turf.Units,properties: object}): turf.Feature<turf.Polygon> {
-    return turf.circle(center, radius, options);
+export function circle(center: turf.Point, radius: number, steps: number): turf.Feature<turf.Polygon> {
+    return turf.circle(center, radius, {steps: steps});
 }
 
 // /**
@@ -157,8 +188,8 @@ export function circle(center: turf.Point, radius: number, options: {steps: numb
  * //=linestring1
  * //=linestring2
  */
-export function lineString(coordinates: Array<Array<number>>, properties: object, options: {bbox: turf.BBox,id: string|number}): turf.Feature<turf.LineString> {
-    return turf.lineString(coordinates, properties, options);
+export function lineString(coordinates: Array<Array<number>>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.LineString> {
+    return turf.lineString(coordinates/*, properties, options*/);
 }
 
 // /**
@@ -236,8 +267,8 @@ export function lineString(coordinates: Array<Array<number>>, properties: object
  *
  * //=point
  */
-export function point(coordinates: Array<number>, properties: object, options: {bbox: turf.BBox,id: string|number}): turf.Feature<turf.Point> {
-    return turf.point(coordinates, properties, options);
+export function point(coordinates: Array<number>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.Point> {
+    return turf.point(coordinates/*, properties, options*/);
 }
 
 /**
@@ -254,8 +285,8 @@ export function point(coordinates: Array<number>, properties: object, options: {
  *
  * //=polygon
  */
-export function polygon(coordinates: Array<Array<Array<number>>>, properties: object, options: {bbox: turf.BBox,id: string|number}): turf.Feature<turf.Polygon> {
-    return turf.polygon(coordinates, properties, options);
+export function polygon(coordinates: Array<Array<Array<number>>>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.Polygon> {
+    return turf.polygon(coordinates/*, properties, options*/);
 }
 
 // *

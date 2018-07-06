@@ -27,51 +27,52 @@ export function along(line: turf.LineString,distance: number,options: {units: tu
     return turf.along(line,distance,options);
 }
 
-/**
- * Takes a LineString and returns a curved version
- * by applying a [Bezier spline](http://en.wikipedia.org/wiki/B%C3%A9zier_spline)
- * algorithm.
- *
- * The bezier spline implementation is by [Leszek Rybicki](http://leszek.rybicki.cc/).
- *
- * @param {Feature<LineString>} line input LineString
- * @param {Object} options Optional parameters
- * (resolution: time in milliseconds between points,
- * sharpness: a measure of how curvy the path should be between splines)
- * @returns {Feature<LineString>} curved line
- * @example
- * var line = geo.create.lineString([
- *   [-76.091308, 18.427501],
- *   [-76.695556, 18.729501],
- *   [-76.552734, 19.40443],
- *   [-74.61914, 19.134789],
- *   [-73.652343, 20.07657],
- *   [-73.157958, 20.210656]
- * ]);
- *
- * var curved = geo.line.bezierSpline(line);
- */
-export function bezierSpline(line: turf.LineString,options: {resolution: number, sharpness: number}): turf.Feature<turf.LineString> {
-    return turf.bezierSpline(line,options);
-}
+// /**
+//  * Takes a LineString and returns a curved version
+//  * by applying a [Bezier spline](http://en.wikipedia.org/wiki/B%C3%A9zier_spline)
+//  * algorithm.
+//  *
+//  * The bezier spline implementation is by [Leszek Rybicki](http://leszek.rybicki.cc/).
+//  *
+//  * @param {Feature<LineString>} line input LineString
+//  * @param {Object} options Optional parameters
+//  * (resolution: time in milliseconds between points,
+//  * sharpness: a measure of how curvy the path should be between splines)
+//  * @returns {Feature<LineString>} curved line
+//  * @example
+//  * var line = geo.create.lineString([
+//  *   [-76.091308, 18.427501],
+//  *   [-76.695556, 18.729501],
+//  *   [-76.552734, 19.40443],
+//  *   [-74.61914, 19.134789],
+//  *   [-73.652343, 20.07657],
+//  *   [-73.157958, 20.210656]
+//  * ]);
+//  *
+//  * var curved = geo.line.bezierSpline(line);
+//  */
+// export function bezierSpline(line: turf.LineString,options: {resolution: number, sharpness: number}): turf.Feature<turf.LineString> {
+//     return turf.bezierSpline(line,options);
+// }
 
 /**
  * Divides a LineString into chunks of a specified length.
  * If the line is shorter than the segment length then the original line is returned.
  *
  * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} lines the lines to split
- * @param {number} segmentLength how long to make each segment
+ * @param {number} length how long to make each segment
  * @param {Object} options Optional parameters
  * (units: units can be degrees, radians, miles, or kilometers,
  * reverse: reverses coordinates to start the first chunked segment at the end)
+ * @param {boolean} reverse  reverses coordinates to start the first chunked segment at the end
  * @returns {FeatureCollection<LineString>} collection of line segments
  * @example
  * var line = geo.create.lineString([[-95, 40], [-93, 45], [-85, 50]]);
  *
  * var chunk = geo.line.chunk(line, 15, {units: 'miles'});
  */
-export function chunk(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>|turf.Feature<turf.LineString|turf.MultiLineString>,segmentLength: number,options: {units: turf.Units, reverse: boolean}): turf.FeatureCollection<turf.LineString> {
-    return turf.lineChunk(lines,segmentLength,options);
+export function chunk(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>|turf.Feature<turf.LineString|turf.MultiLineString>,length: number,reverse: boolean): turf.FeatureCollection<turf.LineString> {
+    return turf.lineChunk(lines,length,{reverse:reverse});
 }
 
 /**
@@ -102,8 +103,8 @@ export function intersect(line1: turf.FeatureCollection<turf.LineString>|turf.Fe
  *
  * var offsetLine = geo.line.offset(line, 2, {units: 'miles'});
  */
-export function offset(line: turf.Feature<turf.LineString|turf.MultiLineString>,distance: number,options: {units: turf.Units}): turf.Feature<turf.LineString|turf.MultiLineString> {
-    return turf.lineOffset(line,distance,options);
+export function offset(line: turf.Feature<turf.LineString|turf.MultiLineString>,distance: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString|turf.MultiLineString> {
+    return turf.lineOffset(line,distance/*,options*/);
 }
 
 /**
@@ -113,6 +114,7 @@ export function offset(line: turf.Feature<turf.LineString|turf.MultiLineString>,
  * @param {Geometry|Feature<LineString|MultiLineString|Polygon|MultiPolygon>} line2 any LineString or Polygon
  * @param {Object} options Optional parameters
  * (tolerance: Tolerance distance to match overlapping line segments (in kilometers))
+ * @param {number} tolerance Tolerance distance to match overlapping line segments (in kilometers)
  * @returns {FeatureCollection<LineString>} lines(s) that are overlapping between both features
  * @example
  * var line1 = geo.create.lineString([[115, -35], [125, -30], [135, -30], [145, -35]]);
@@ -120,8 +122,8 @@ export function offset(line: turf.Feature<turf.LineString|turf.MultiLineString>,
  *
  * var overlapping = geo.line.overlap(line1, line2);
  */
-export function overlap(line1: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,line2: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,options: {tolerance: number}): turf.FeatureCollection<turf.LineString> {
-    return turf.lineOverlap(line1,line2,options);
+export function overlap(line1: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,line2: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,tolerance: number): turf.FeatureCollection<turf.LineString> {
+    return turf.lineOverlap(line1,line2,{tolerance:tolerance});
 }
 
 /**
@@ -185,8 +187,8 @@ export function slice(point1: turf.Point,point2: turf.Point,line: turf.Feature<t
  * var stop = 25;
  * var sliced = geo.line.sliceAlong(line, start, stop, {units: 'miles'});
  */
-export function sliceAlong(line: turf.Feature<turf.LineString>,startDist: number,stopDist: number,options: {units: turf.Units}): turf.Feature<turf.LineString> {
-    return turf.lineSliceAlong(line,startDist,stopDist,options);
+export function sliceAlong(line: turf.Feature<turf.LineString>,startDist: number,stopDist: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString> {
+    return turf.lineSliceAlong(line,startDist,stopDist/*,options*/);
 }
 
 /**

@@ -18,14 +18,15 @@ import * as turf from "@turf/turf";
  * @param {Object} options Optional parameters
  * (pivot: point around which the rotation will be performed,
  * mutate: allows GeoJSON input to be mutated (significant performance increase if true))
+ * @param {Feature} pivot point around which the rotation will be performed
  * @returns {GeoJSON} the rotated GeoJSON feature
  * @example
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var options = {pivot: [0, 25]};
  * var rotatedPoly = geo.xform.transformRotate(poly, 10, options);
  */
-export function rotate(features: turf.AllGeoJSON,angle: number,options: {pivot: turf.Point, mutate: boolean}): turf.AllGeoJSON {
-    return turf.transformRotate(features,angle,options);
+export function rotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point): turf.AllGeoJSON {
+    return turf.transformRotate(features,angle,{pivot:pivot,mutate:true});
 }
 
 /**
@@ -44,8 +45,8 @@ export function rotate(features: turf.AllGeoJSON,angle: number,options: {pivot: 
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var translatedPoly = geo.xform.translate(poly, 100, 35);
  */
-export function translate(features: turf.AllGeoJSON,distance: number,direction: number,options: {units: turf.Units,zTranslation: number, mutate: boolean}): turf.AllGeoJSON {
-    return turf.transformTranslate(features,distance,direction,options);
+export function translate(features: turf.AllGeoJSON,distance: number,direction: number/*,options: {units: turf.Units,zTranslation: number, mutate: boolean}*/): turf.AllGeoJSON {
+    return turf.transformTranslate(features,distance,direction/*,options*/);
 }
 
 /**
@@ -62,6 +63,6 @@ export function translate(features: turf.AllGeoJSON,distance: number,direction: 
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var scaledPoly = geo.xform.scale(poly, 3);
  */
-export function scale(features: turf.AllGeoJSON,factor: number,options: {origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>, mutate: boolean}): turf.AllGeoJSON {
-    return turf.transformScale(features,factor,options);
+export function scale(features: turf.AllGeoJSON,factor: number, origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>): turf.AllGeoJSON {
+    return turf.transformScale(features,factor,{origin:origin,mutate:true});
 }

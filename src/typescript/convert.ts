@@ -75,8 +75,8 @@ export function flatten(geojson: turf.AllGeoJSON): turf.FeatureCollection {
  *
  * var polygon = geo.convert.lineToPolygon(line);
  */
-export function lineToPolygon(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>, options: {properties: object, autoComplete: boolean, orderCoords: boolean}): turf.Feature<turf.Polygon|turf.MultiPolygon> {
-    return turf.lineToPolygon(lines, options);
+export function lineToPolygon(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>/*, options: {properties: object, autoComplete: boolean, orderCoords: boolean}*/): turf.Feature<turf.Polygon|turf.MultiPolygon> {
+    return turf.lineToPolygon(lines/*, options*/);
 }
 
 /**
@@ -113,6 +113,6 @@ export function polygonize(lines: turf.FeatureCollection<turf.LineString|turf.Mu
  *
  * var line = geo.convert.polygonToLine(poly);
  */
-export function polygonToLine(polygon: turf.Polygon|turf.MultiPolygon, options: {properties: object}): turf.FeatureCollection|turf.Feature<turf.LineString|turf.MultiLineString> {
-    return turf.polygonToLine(polygon, options);
+export function polygonToLine(polygon: turf.Polygon|turf.MultiPolygon/*, options: {properties: object}*/): turf.FeatureCollection|turf.Feature<turf.LineString|turf.MultiLineString> {
+    return turf.polygonToLine(polygon/*, options*/);
 }

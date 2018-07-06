@@ -131,8 +131,8 @@ export function destination(originPoint: turf.Point, distance: number, angle: nu
  *
  * var distance = geo.calc.distance(from, to, options);
  */
-export function distance(point1: turf.Point, point2: turf.Point, options: {units: turf.Units}): number {
-    return turf.distance(point1, point2, options);
+export function distance(point1: turf.Point, point2: turf.Point/*, options: {units: turf.Units}*/): number {
+    return turf.distance(point1, point2/*, options*/);
 }
 
 /**
@@ -183,8 +183,8 @@ export function greatCircle(point1: turf.Point, point2: turf.Point, options: {pr
  * var line = geo.create.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);
  * var length = geo.calc.length(line, {units: 'miles'});
  */
-export function len(features: turf.AllGeoJSON, options: {units: turf.Units}): number {
-    return turf.length(features, options);
+export function len(features: turf.AllGeoJSON/*, options: {units: turf.Units}*/): number {
+    return turf.length(features/*, options*/);
 }
 
 /**
@@ -249,8 +249,8 @@ export function nearestPoint(targetPoint: turf.Point, points: turf.FeatureCollec
  *
  * var snapped = geo.calc.nearestPointOnLine(line, pt, {units: 'miles'});
  */
-export function nearestPointOnLine(lines: turf.LineString|turf.MultiLineString, point: turf.Point, options: {units: turf.Units}): turf.Feature<turf.Point> {
-    return turf.nearestPointOnLine(lines, point, options);
+export function nearestPointOnLine(lines: turf.LineString|turf.MultiLineString, point: turf.Point/*, options: {units: turf.Units}*/): turf.Feature<turf.Point> {
+    return turf.nearestPointOnLine(lines, point/*, options*/);
 }
 
 /**
@@ -270,8 +270,8 @@ export function nearestPointOnLine(lines: turf.LineString|turf.MultiLineString, 
  * var distance = geo.calc.pointToLineDistance(pt, line, {units: 'miles'});
  * //=69.11854715938406
  */
-export function pointToLineDistance(point: turf.Point, line: turf.LineString, options: {units: turf.Units, mercator: boolean}): number {
-    return turf.pointToLineDistance(point, line, options);
+export function pointToLineDistance(point: turf.Point, line: turf.LineString/*, options: {units: turf.Units, mercator: boolean}*/): number {
+    return turf.pointToLineDistance(point, line/*, options*/);
 }
 
 /**
