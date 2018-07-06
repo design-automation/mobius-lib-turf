@@ -46,7 +46,7 @@ export function rotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point
  * var translatedPoly = geo.xform.translate(poly, 100, 35);
  */
 export function translate(features: turf.AllGeoJSON,distance: number,direction: number/*,options: {units: turf.Units,zTranslation: number, mutate: boolean}*/): turf.AllGeoJSON {
-    return turf.transformTranslate(features,distance,direction/*,options*/);
+    return turf.transformTranslate(features,distance,direction,{mutate:true});
 }
 
 /**
