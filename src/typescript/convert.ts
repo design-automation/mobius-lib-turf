@@ -9,23 +9,23 @@
 
  import * as turf from "@turf/turf";
 
-/**
- * Combines a FeatureCollection of Point, LineString, or Polygon features
- * into MultiPoint, MultiLineString, or MultiPolygon features.
- *
- * @param {FeatureCollection<Point|LineString|Polygon>} fcoll a FeatureCollection of any type
- * @returns {FeatureCollection<MultiPoint|MultiLineString|MultiPolygon>} a Feature of corresponding type to input
- * @example
- * var fc = geo.create.featureCollection([
- *   geo.create.point([19.026432, 47.49134]),
- *   geo.create.point([19.074497, 47.509548])
- * ]);
- *
- * var combined = geo.convert.combine(fc);
- */
-export function combine(fcoll: turf.FeatureCollection<turf.Point|turf.LineString|turf.Polygon>): turf.Feature {
-    return turf.combine(fcoll);
-}
+// *
+//  * Combines a FeatureCollection of Point, LineString, or Polygon features
+//  * into MultiPoint, MultiLineString, or MultiPolygon features.
+//  *
+//  * @param {FeatureCollection<Point|LineString|Polygon>} fcoll a FeatureCollection of any type
+//  * @returns {FeatureCollection<MultiPoint|MultiLineString|MultiPolygon>} a Feature of corresponding type to input
+//  * @example
+//  * var fc = geo.create.featureCollection([
+//  *   geo.create.point([19.026432, 47.49134]),
+//  *   geo.create.point([19.074497, 47.509548])
+//  * ]);
+//  *
+//  * var combined = geo.convert.combine(fc);
+ 
+// export function combine(fcoll: turf.FeatureCollection<turf.Point|turf.LineString|turf.Polygon>): turf.Feature {
+//     return turf.combine(fcoll);
+// }
 
 /**
  * Takes a feature or set of features and returns all positions as Point|points.

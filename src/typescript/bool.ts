@@ -39,7 +39,7 @@ import * as turf from "@turf/turf";
  * var difference = geo.bool.difference(polygon1, polygon2);
  *
  */
-export function difference(poly1: turf.Polygon|turf.MultiPolygon, poly2: turf.Polygon|turf.MultiPolygon): turf.Feature|null {
+export function boolDifference(poly1: turf.Polygon|turf.MultiPolygon, poly2: turf.Polygon|turf.MultiPolygon): turf.Feature|null {
     return turf.difference(poly1, poly2);
 }
 
@@ -72,7 +72,7 @@ export function difference(poly1: turf.Polygon|turf.MultiPolygon, poly2: turf.Po
  * var intersection = geo.bool.intersect(poly1, poly2);
  *
  */
-export function intersect(poly1: turf.Polygon, poly2: turf.Polygon): turf.Feature|null {
+export function boolIntersect(poly1: turf.Polygon, poly2: turf.Polygon): turf.Feature|null {
     return turf.intersect(poly1, poly2);
 }
 
@@ -100,6 +100,6 @@ export function intersect(poly1: turf.Polygon, poly2: turf.Polygon): turf.Featur
  * var union = geo.bool.union([poly1, poly2]);
  *
  */
-export function union(polys: Array<turf.Feature<turf.Polygon>>): turf.Feature<turf.Polygon|turf.MultiPolygon> {
+export function boolUnion(polys: Array<turf.Feature<turf.Polygon>>): turf.Feature<turf.Polygon|turf.MultiPolygon> {
     return turf.union(...polys);
 }

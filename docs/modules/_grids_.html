@@ -82,6 +82,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_grids_.html#hexgrid" class="tsd-kind-icon">hex<wbr>Grid</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_grids_.html#pointgrid" class="tsd-kind-icon">point<wbr>Grid</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_grids_.html#squaregrid" class="tsd-kind-icon">square<wbr>Grid</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_grids_.html#trihexgrid" class="tsd-kind-icon">tri<wbr>Hex<wbr>Grid</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_grids_.html#trianglegrid" class="tsd-kind-icon">triangle<wbr>Grid</a></li>
 							</ul>
 						</section>
@@ -94,13 +95,13 @@
 					<a name="hexgrid" class="tsd-anchor"></a>
 					<h3>hex<wbr>Grid</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">hex<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">hex<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, mask<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/grids.ts#L33">grids.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/grids.ts#L34">grids.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -134,28 +135,10 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>mask: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-											(units: used in calculating cell size, can be &quot;degrees&quot;, &quot;radians&quot;, &quot;miles&quot;, or &quot;kilometers&quot;,
-											properties: passed to each hexagon or triangle of the grid,
-											maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
-										triangle: whether to return as triangles instead of hexagons)</p>
+										<p>if passed a Polygon or MultiPolygon, the grid Points will be created only inside it</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>maskpoly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>triangles<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
-										</li>
-									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -167,13 +150,13 @@
 					<a name="pointgrid" class="tsd-anchor"></a>
 					<h3>point<wbr>Grid</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">point<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">point<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, mask<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/grids.ts#L55">grids.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/grids.ts#L83">grids.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -207,24 +190,10 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>mask: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-											(units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
-											maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
-										properties: passed to each point of the grid)</p>
+										<p>if passed a Polygon or MultiPolygon, the grid Points will be created only inside it</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>maskpoly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
-										</li>
-									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -236,13 +205,13 @@
 					<a name="squaregrid" class="tsd-anchor"></a>
 					<h3>square<wbr>Grid</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">square<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">square<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, mask<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/grids.ts#L76">grids.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/grids.ts#L105">grids.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,24 +242,10 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>mask: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-											(units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
-											maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
-										properties: passed to each point of the grid)</p>
+										<p>if passed a Polygon or MultiPolygon, the grid Points will be created only inside it</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>maskpoly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
-										</li>
-									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -299,16 +254,71 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="trianglegrid" class="tsd-anchor"></a>
-					<h3>triangle<wbr>Grid</h3>
+					<a name="trihexgrid" class="tsd-anchor"></a>
+					<h3>tri<wbr>Hex<wbr>Grid</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">triangle<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">tri<wbr>Hex<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, mask<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/grids.ts#L97">grids.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/grids.ts#L60">grids.ts:60</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a bounding box and the diameter of the cell and returns a FeatureCollection of flat-topped
+										hexagons or triangles (Polygon features) aligned in an &quot;odd-q&quot; vertical grid as
+									described in <a href="http://www.redblobgames.com/grids/hexagons/">Hexagonal Grids</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>var bbox = [-96,31,-84,40];
+											var cellSide = 50;
+										var options = {units: &#39;miles&#39;};</p>
+										<p>var hexgrid = geo.grid.hexGrid(bbox, cellSide, options);</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>extent in [minX, minY, maxX, maxY] order</p>
+									</div>
+								</li>
+								<li>
+									<h5>cellSide: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>length of the side of the the hexagons or triangles, in units. It will also coincide with the
+										radius of the circumcircle of the hexagons.</p>
+									</div>
+								</li>
+								<li>
+									<h5>mask: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>if passed a Polygon or MultiPolygon, the grid Points will be created only inside it</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>a hexagonal grid</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="trianglegrid" class="tsd-anchor"></a>
+					<h3>triangle<wbr>Grid</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">triangle<wbr>Grid<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, cellSide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, mask<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/grids.ts#L127">grids.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -339,24 +349,10 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>mask: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-											(units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
-											maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
-										properties: passed to each point of the grid)</p>
+										<p>if passed a Polygon or MultiPolygon, the grid Points will be created only inside it</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>maskpoly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
-										</li>
-									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -421,6 +417,9 @@
 						<a href="_misc_.html">"misc"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_polygon_.html">"polygon"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_prop_.html">"prop"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -447,6 +446,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_grids_.html#squaregrid" class="tsd-kind-icon">square<wbr>Grid</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_grids_.html#trihexgrid" class="tsd-kind-icon">tri<wbr>Hex<wbr>Grid</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_grids_.html#trianglegrid" class="tsd-kind-icon">triangle<wbr>Grid</a>

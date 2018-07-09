@@ -80,18 +80,11 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#arc" class="tsd-kind-icon">arc</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#bbox" class="tsd-kind-icon">bbox</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#bezierspline" class="tsd-kind-icon">bezier<wbr>Spline</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#circle" class="tsd-kind-icon">circle</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#fcoll" class="tsd-kind-icon">f<wbr>Coll</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#feature" class="tsd-kind-icon">feature</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#gcoll" class="tsd-kind-icon">g<wbr>Coll</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#linestring" class="tsd-kind-icon">line<wbr>String</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#mlinestring" class="tsd-kind-icon">m<wbr>Linestring</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#mpoint" class="tsd-kind-icon">m<wbr>Point</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#mpolygon" class="tsd-kind-icon">m<wbr>Polygon</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#point" class="tsd-kind-icon">point</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#polygon" class="tsd-kind-icon">polygon</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#sector" class="tsd-kind-icon">sector</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,13 +96,13 @@
 					<a name="arc" class="tsd-anchor"></a>
 					<h3>arc</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">arc<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Point</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bearing1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bearing2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">arc<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Point</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bearing1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bearing2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, steps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L31">create.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/create.ts#L32">create.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -154,20 +147,10 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>steps: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-											(steps: number of steps,
-										units: &quot;miles&quot;, &quot;kilometers&quot;, &quot;degrees&quot;, or &quot;radians&quot;)</p>
+										<p>number of steps</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>steps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
-										</li>
-									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -176,41 +159,62 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="bbox" class="tsd-anchor"></a>
-					<h3>bbox</h3>
+					<a name="bezierspline" class="tsd-anchor"></a>
+					<h3>bezier<wbr>Spline</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">bbox<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></li>
+						<li class="tsd-signature tsd-kind-icon">bezier<wbr>Spline<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">LineString</span>, resolution<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sharpness<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L45">create.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/create.ts#L76">create.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes a set of features, calculates the bbox of all input features, and returns a bounding box.</p>
+									<p>Takes a LineString and returns a curved version
+										by applying a <a href="http://en.wikipedia.org/wiki/B%C3%A9zier_spline">Bezier spline</a>
+									algorithm.</p>
 								</div>
+								<p>The bezier spline implementation is by <a href="http://leszek.rybicki.cc/">Leszek Rybicki</a>.</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]]);
-											var bbox = geo.create.bbox(line);
-										var bboxPolygon = geo.bbox.polygon(bbox);</p>
+									<dd><p>var line = geo.create.lineString([
+											[-76.091308, 18.427501],
+											[-76.695556, 18.729501],
+											[-76.552734, 19.40443],
+											[-74.61914, 19.134789],
+											[-73.652343, 20.07657],
+											[-73.157958, 20.210656]
+										]);</p>
+										<p>var curved = geo.line.bezierSpline(line);</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
+									<h5>line: <span class="tsd-signature-type">LineString</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>any GeoJSON object</p>
+										<p>input LineString</p>
+									</div>
+								</li>
+								<li>
+									<h5>resolution: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>time in milliseconds between points</p>
+									</div>
+								</li>
+								<li>
+									<h5>sharpness: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a measure of how curvy the path should be between splines</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.BBox</span></h4>
-							<p>bbox extent in [minX, minY, maxX, maxY] order</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>curved line</p>
 						</li>
 					</ul>
 				</section>
@@ -218,13 +222,13 @@
 					<a name="circle" class="tsd-anchor"></a>
 					<h3>circle</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">circle<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Point</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">circle<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Point</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, steps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L65">create.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/create.ts#L96">create.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -255,24 +259,10 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>steps: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-											(steps: number of steps,
-											units: &quot;miles&quot;, &quot;kilometers&quot;, &quot;degrees&quot;, or &quot;radians&quot;,
-										properties: an object to use as feature&#39;s properties)</p>
+										<p>number of steps</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>steps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
-										</li>
-									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -281,210 +271,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="fcoll" class="tsd-anchor"></a>
-					<h3>f<wbr>Coll</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">f<wbr>Coll<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&gt;</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L90">create.ts:90</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Takes one or more Feature|Features and creates a FeatureCollection.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var locationA = geo.create.point([-75.343, 39.984], {name: &#39;Location A&#39;});
-											var locationB = geo.create.point([-75.833, 39.284], {name: &#39;Location B&#39;});
-										var locationC = geo.create.point([-75.534, 39.123], {name: &#39;Location C&#39;});</p>
-										<p>var collection = geo.create.featureCollection([
-											locationA,
-											locationB,
-											locationC
-										]);</p>
-										<p>//=collection</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>features: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>input features</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span></h4>
-							<p>FeatureCollection of Features</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="feature" class="tsd-anchor"></a>
-					<h3>feature</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">feature<span class="tsd-signature-symbol">(</span>geometry<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Geometry</span>, properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L113">create.ts:113</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Wraps a GeoJSON Geometry in a GeoJSON Feature.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var geometry = {
-											&quot;type&quot;: &quot;Point&quot;,
-											&quot;coordinates&quot;: [110, 50]
-										};</p>
-										<p>var feature = geo.create.feature(geometry);</p>
-										<p>//=feature</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>geometry: <span class="tsd-signature-type">Geometry</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>input geometry</p>
-									</div>
-								</li>
-								<li>
-									<h5>properties: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional object of key-value pairs to add as properties</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span></h4>
-							<p>a GeoJSON Feature</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="gcoll" class="tsd-anchor"></a>
-					<h3>g<wbr>Coll</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">g<wbr>Coll<span class="tsd-signature-symbol">(</span>geometries<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">turf.Geometries</span><span class="tsd-signature-symbol">&gt;</span>, properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryCollection</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L140">create.ts:140</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a Feature<GeometryCollection> based on a
-									coordinate array. Properties can be added optionally.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var pt = {
-											&quot;type&quot;: &quot;Point&quot;,
-											&quot;coordinates&quot;: [100, 0]
-											};
-											var line = {
-											&quot;type&quot;: &quot;LineString&quot;,
-											&quot;coordinates&quot;: [ [101, 0], [102, 1] ]
-											};
-										var collection = geo.create.geometryCollection([pt, line]);</p>
-										<p>//=collection</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>geometries: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">turf.Geometries</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>an array of GeoJSON Geometries</p>
-									</div>
-								</li>
-								<li>
-									<h5>properties: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional object of key-value pairs to add as properties</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryCollection</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>a GeoJSON GeometryCollection Feature</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="linestring" class="tsd-anchor"></a>
 					<h3>line<wbr>String</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">line<wbr>String<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">line<wbr>String<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L160">create.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/create.ts#L191">create.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -508,28 +304,6 @@
 										<p>an array of Positions</p>
 									</div>
 								</li>
-								<li>
-									<h5>properties: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional object of key-value pairs to add as properties</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>LineString Feature</p>
@@ -537,202 +311,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="mlinestring" class="tsd-anchor"></a>
-					<h3>m<wbr>Linestring</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">m<wbr>Linestring<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L180">create.ts:180</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a Feature<MultiLineString> based on a
-											coordinate array. Properties can be added optionally.
-									Throws an error if no coordinates are passed.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var multiLine = geo.create.mLineString([[[0,0],[10,10]]]);</p>
-										<p>//=multiLine</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>coordinates: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>an array of LineStrings</p>
-									</div>
-								</li>
-								<li>
-									<h5>properties: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional object of key-value pairs to add as properties</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>a MultiLineString feature</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="mpoint" class="tsd-anchor"></a>
-					<h3>m<wbr>Point</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">m<wbr>Point<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiPoint</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L200">create.ts:200</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a Feature<MultiPoint> based on a
-											coordinate array. Properties can be added optionally.
-									Throws an error if no coordinates are passed.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var multiPt = geo.create.mPoint([[0,0],[10,10]]);</p>
-										<p>//=multiPt</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>coordinates: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>an array of Positions</p>
-									</div>
-								</li>
-								<li>
-									<h5>properties: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional object of key-value pairs to add as properties</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiPoint</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>a MultiPoint feature</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="mpolygon" class="tsd-anchor"></a>
-					<h3>m<wbr>Polygon</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">m<wbr>Polygon<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L221">create.ts:221</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a Feature<MultiPolygon> based on a
-											coordinate array. Properties can be added optionally.
-									Throws an error if no coordinates are passed.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var multiPoly = geo.create.mPolygon([[[[0,0],[0,10],[10,10],[10,0],[0,0]]]]);</p>
-										<p>//=multiPoly</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>coordinates: <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>an array of Polygons</p>
-									</div>
-								</li>
-								<li>
-									<h5>properties: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional object of key-value pairs to add as properties</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>a multipolygon feature</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="point" class="tsd-anchor"></a>
 					<h3>point</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">point<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>, properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">point<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L239">create.ts:239</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/create.ts#L270">create.ts:270</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -754,28 +342,6 @@
 										<p>longitude, latitude position (each in decimal degrees)</p>
 									</div>
 								</li>
-								<li>
-									<h5>properties: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional object of key-value pairs to add as properties</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>a Point feature</p>
@@ -786,13 +352,13 @@
 					<a name="polygon" class="tsd-anchor"></a>
 					<h3>polygon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, properties<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span>coordinates<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L257">create.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/create.ts#L288">create.ts:288</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -814,109 +380,9 @@
 										<p>an array of LinearRings</p>
 									</div>
 								</li>
-								<li>
-									<h5>properties: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional object of key-value pairs to add as properties</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional Parameters
-											(bbox: Bounding Box Array [west, south, east, north] associated with the Feature,
-										id: Identifier associated with the Feature)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Polygon Feature</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="sector" class="tsd-anchor"></a>
-					<h3>sector</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">sector<span class="tsd-signature-symbol">(</span>center<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Point</span>, radius<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bearing1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bearing2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/create.ts#L284">create.ts:284</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates a circular sector of a circle of given radius and center Point,
-									between (clockwise) bearing1 and bearing2; 0 bearing is North of center point, positive clockwise.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var center = geo.create.point([-75, 40]);
-											var radius = 5;
-											var bearing1 = 25;
-										var bearing2 = 45;</p>
-										<p>var sector = geo.create.sector(center, radius, bearing1, bearing2);</p>
-										<p>//addToMap
-										var addToMap = [center, sector];</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>center: <span class="tsd-signature-type">Point</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>center point</p>
-									</div>
-								</li>
-								<li>
-									<h5>radius: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>radius of the circle</p>
-									</div>
-								</li>
-								<li>
-									<h5>bearing1: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>angle, in decimal degrees, of the first radius of the sector</p>
-									</div>
-								</li>
-								<li>
-									<h5>bearing2: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>angle, in decimal degrees, of the second radius of the sector</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-											(units: &quot;miles&quot;, &quot;kilometers&quot;, &quot;degrees&quot;, or &quot;radians&quot;,
-										steps: number of steps)</p>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>steps<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>units<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.Units</span></h5>
-										</li>
-									</ul>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>sector polygon</p>
 						</li>
 					</ul>
 				</section>
@@ -977,6 +443,9 @@
 						<a href="_misc_.html">"misc"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_polygon_.html">"polygon"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_prop_.html">"prop"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -999,40 +468,19 @@
 						<a href="_create_.html#arc" class="tsd-kind-icon">arc</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#bbox" class="tsd-kind-icon">bbox</a>
+						<a href="_create_.html#bezierspline" class="tsd-kind-icon">bezier<wbr>Spline</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_create_.html#circle" class="tsd-kind-icon">circle</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#fcoll" class="tsd-kind-icon">f<wbr>Coll</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#feature" class="tsd-kind-icon">feature</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#gcoll" class="tsd-kind-icon">g<wbr>Coll</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_create_.html#linestring" class="tsd-kind-icon">line<wbr>String</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#mlinestring" class="tsd-kind-icon">m<wbr>Linestring</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#mpoint" class="tsd-kind-icon">m<wbr>Point</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#mpolygon" class="tsd-kind-icon">m<wbr>Polygon</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_create_.html#point" class="tsd-kind-icon">point</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_create_.html#polygon" class="tsd-kind-icon">polygon</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#sector" class="tsd-kind-icon">sector</a>
 					</li>
 				</ul>
 			</nav>

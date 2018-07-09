@@ -17,6 +17,7 @@
  * @param {Object} options Optional parameters
  * (units: "miles", "kilometers", "degrees", or "radians", 
  * minPoints: Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'.)
+ * @param {number} minPoints Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'
  * @returns {FeatureCollection<Point>} Clustered Points with an additional two properties associated to each Feature:
  * - {number} cluster - the associated clusterId
  * - {string} dbscan - type of point it has been classified as ('core'|'edge'|'noise')
@@ -26,8 +27,8 @@
  * var maxDistance = 100;
  * var clustered = geo.cluster.dbscan(points, maxDistance);
  */
-export function dbscan(points: turf.FeatureCollection<turf.Point>, maxDistance: number, options: {units: turf.Units,minPoints: number}): turf.FeatureCollection<turf.Point> {
-    return turf.clustersDbscan(points, maxDistance, options);
+export function dbscan(points: turf.FeatureCollection<turf.Point>, maxDistance: number, minPoints: number): turf.FeatureCollection<turf.Point> {
+    return turf.clustersDbscan(points, maxDistance/1000, {minPoints: minPoints});
 }
 
 /**
@@ -38,6 +39,7 @@ export function dbscan(points: turf.FeatureCollection<turf.Point>, maxDistance: 
  * @param {Object} options Optional parameters
  * (numberOfClusters: numberOfClusters that will be generated,
  * mutate: allows GeoJSON input to be mutated if true (significant performance increase))
+ * @param {number} num number of clusters that will be generated
  * @returns {FeatureCollection<Point>} Clustered Points with an additional two properties associated to each Feature:
  * - {number} cluster - the associated clusterId
  * - {[number, number]} centroid - Centroid of the cluster [Longitude, Latitude]
@@ -47,8 +49,8 @@ export function dbscan(points: turf.FeatureCollection<turf.Point>, maxDistance: 
  * var options = {numberOfClusters: 7};
  * var clustered = geo.cluster.kmeans(points, options);
  */
-export function kmeans(points: turf.FeatureCollection<turf.Point>, options: {numberOfClusters: number, mutate: boolean}): turf.FeatureCollection<turf.Point> {
-    return turf.clustersKmeans(points, options);
+export function kmeans(points: turf.FeatureCollection<turf.Point>, num: number): turf.FeatureCollection<turf.Point> {
+    return turf.clustersKmeans(points, {numberOfClusters:num, mutate:true});
 }
 
 /**

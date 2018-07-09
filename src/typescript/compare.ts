@@ -96,7 +96,7 @@ export function equal(feature1: turf.Feature, feature2: turf.Feature): boolean {
  * @param {Feature<Polygon|MultiPolygon>} polygon input polygon or multipolygon
  * @param {Object} options Optional parameters
  * (ignoreBoundary: True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.)
- * @param {boolean} ignoreBoundary (Type:Boolean) True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.
+ * @param {boolean} ignoreBoundary True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.
  * @returns {boolean} `true` if the Point is inside the Polygon; `false` if the Point is not inside the Polygon
  * @example
  * var pt = geo.create.point([-77, 44]);
@@ -137,7 +137,7 @@ export function parallel(line1: turf.LineString, line2: turf.LineString): boolea
  *
  * @param {Coord} point GeoJSON Point
  * @param {Feature<LineString>} line GeoJSON LineString
- * @param {boolean} ignoreEndVertices (Type:Boolean) ignore the start and end vertices if true.
+ * @param {boolean} ignoreEndVertices ignore the start and end vertices if true.
  * @param {Object} options Optional parameters
  * (ignoreEndVertices: ignore the start and end vertices if true.)
  * @returns {boolean} true/false

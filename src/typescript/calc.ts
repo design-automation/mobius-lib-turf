@@ -90,12 +90,13 @@ export function centerOfMass(features: turf.AllGeoJSON, options: object): turf.F
  */
 export function centroid(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
     return turf.centroid(features, options);
+}
 
 /**
  * Takes a Point and calculates the location of a destination point given a distance in degrees, radians, miles, or kilometers; and bearing in degrees. This uses the [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula) to account for global curvature.
  *
  * @param {Coord} originPoint starting point
- * @param {number} distance distance from the origin point
+ * @param {number} distance distance from the origin point in meters
  * @param {number} angle bearing ranging from -180 to 180
  * @param {Object} options Optional parameters
  * (units: "miles", "kilometers", "degrees", or "radians",
@@ -109,8 +110,8 @@ export function centroid(features: turf.AllGeoJSON, options: object): turf.Featu
  *
  * var destination = geo.calc.destination(point, distance, bearing, options);
  */
-export function destination(originPoint: turf.Point, distance: number, angle: number, options: {units: turf.Units, properties: object}): turf.Feature<turf.Point> {
-    return turf.destination(originPoint, distance, angle, options);
+export function destination(originPoint: turf.Point, distance: number, angle: number/*, options: {units: turf.Units, properties: object}*/): turf.Feature<turf.Point> {
+    return turf.destination(originPoint, distance/1000, angle);
 }
 
 /**
@@ -132,7 +133,7 @@ export function destination(originPoint: turf.Point, distance: number, angle: nu
  * var distance = geo.calc.distance(from, to, options);
  */
 export function distance(point1: turf.Point, point2: turf.Point/*, options: {units: turf.Units}*/): number {
-    return turf.distance(point1, point2/*, options*/);
+    return (turf.distance(point1, point2/*, options*/))*1000;
 }
 
 /**
@@ -184,7 +185,7 @@ export function greatCircle(point1: turf.Point, point2: turf.Point, options: {pr
  * var length = geo.calc.length(line, {units: 'miles'});
  */
 export function len(features: turf.AllGeoJSON/*, options: {units: turf.Units}*/): number {
-    return turf.length(features/*, options*/);
+    return (turf.length(features/*, options*/))*1000;
 }
 
 /**
@@ -250,7 +251,9 @@ export function nearestPoint(targetPoint: turf.Point, points: turf.FeatureCollec
  * var snapped = geo.calc.nearestPointOnLine(line, pt, {units: 'miles'});
  */
 export function nearestPointOnLine(lines: turf.LineString|turf.MultiLineString, point: turf.Point/*, options: {units: turf.Units}*/): turf.Feature<turf.Point> {
-    return turf.nearestPointOnLine(lines, point/*, options*/);
+    let pt: turf.Feature<turf.Point> =  turf.nearestPointOnLine(lines, point/*, options*/);
+    pt.properties.dist = pt.properties.dist * 1000;
+    return pt;
 }
 
 /**
@@ -271,7 +274,7 @@ export function nearestPointOnLine(lines: turf.LineString|turf.MultiLineString, 
  * //=69.11854715938406
  */
 export function pointToLineDistance(point: turf.Point, line: turf.LineString/*, options: {units: turf.Units, mercator: boolean}*/): number {
-    return turf.pointToLineDistance(point, line/*, options*/);
+    return (turf.pointToLineDistance(point, line/*, options*/))*1000;
 }
 
 /**
@@ -363,6 +366,9 @@ export function polygonTangents(point: turf.Point, polygon: turf.Polygon): turf.
  * minDistance: minimum distance between shortest path and obstacles, 
  * units: "miles", "kilometers", "degrees", or "radians", 
  * resolution: distance between matrix points on which the path will be calculated)
+ * @param {FeatureCollection<Polygon>} fcoll areas which path cannot travel
+ * @param {number} minDistance minimum distance between shortest path and obstacles
+ * @param {number} resolution distance between matrix points on which the path will be calculated
  * @returns {Feature<LineString>} shortest path between start and end
  * @example
  * var start = [-5, -6];
@@ -373,8 +379,8 @@ export function polygonTangents(point: turf.Point, polygon: turf.Polygon): turf.
  *
  * var path = geo.calc.shortestPath(start, end, options);
  */
-export function shortestPath(point1: turf.Point, point2: turf.Point, options: {obstacles: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number}): turf.Feature<turf.LineString> {
-    return turf.shortestPath(point1, point2, options);
+export function shortestPath(point1: turf.Point, point2: turf.Point, fcoll: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number): turf.Feature<turf.LineString> {
+    return turf.shortestPath(point1, point2, {obstacles: fcoll, minDistance: minDistance/1000, resolution: resolution});
 }
 
 /**

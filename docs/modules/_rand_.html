@@ -83,6 +83,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_rand_.html#point" class="tsd-kind-icon">point</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_rand_.html#polygon" class="tsd-kind-icon">polygon</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_rand_.html#position" class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_rand_.html#sample" class="tsd-kind-icon">sample</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,13 +95,13 @@
 					<a name="linestring" class="tsd-anchor"></a>
 					<h3>linestring</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">linestring<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">linestring<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, num_vertices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max_length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max_rotation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/rand.ts#L53">rand.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/rand.ts#L58">rand.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -123,28 +124,28 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-											(bbox: a bounding box inside of which geometries are placed,
-											num_vertices: is how many coordinates each LineString will contain,
-											max_length: is the maximum number of decimal degrees that a vertex can be from its predecessor,
-										max_rotation=Math: is the maximum number of radians that a line segment can turn from the previous segment.)</p>
+										<p>a bounding box inside of which geometries are placed</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>max_<wbr>length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>max_<wbr>rotation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>num_<wbr>vertices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
+								</li>
+								<li>
+									<h5>num_vertices: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is how many coordinates each LineString will contain</p>
+									</div>
+								</li>
+								<li>
+									<h5>max_length: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is the maximum number of decimal degrees that a vertex can be from its predecessor</p>
+									</div>
+								</li>
+								<li>
+									<h5>max_rotation: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is the maximum angle that a line segment can turn from the previous segment (in degrees)</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -156,13 +157,13 @@
 					<a name="point" class="tsd-anchor"></a>
 					<h3>point</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">point<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">point<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/rand.ts#L35">rand.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/rand.ts#L36">rand.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -185,16 +186,10 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters
-										(bbox: a bounding box inside of which geometries are placed.)</p>
+										<p>a bounding box inside of which geometries are placed</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -206,13 +201,13 @@
 					<a name="polygon" class="tsd-anchor"></a>
 					<h3>polygon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, num_vertices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max_radial_length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/rand.ts#L70">rand.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/rand.ts#L79">rand.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -235,21 +230,22 @@
 									</div>
 								</li>
 								<li>
-									<h5>options: <span class="tsd-signature-type">object</span></h5>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional parameters</p>
+										<p>a bounding box inside of which geometries are placed.</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>max_<wbr>radial_<wbr>length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>num_<wbr>vertices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
+								</li>
+								<li>
+									<h5>num_vertices: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is how many coordinates each LineString will contain.</p>
+									</div>
+								</li>
+								<li>
+									<h5>max_radial_length: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is the maximum number of decimal degrees latitude or longitude that a vertex can reach out of the center of the Polygon.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -267,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/9803de4/src/typescript/rand.ts#L20">rand.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/rand.ts#L20">rand.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -289,6 +285,50 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
 							<p>Position [longitude, latitude]</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="sample" class="tsd-anchor"></a>
+					<h3>sample</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">sample<span class="tsd-signature-symbol">(</span>fcoll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span>, num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/rand.ts#L95">rand.ts:95</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a FeatureCollection and returns a FeatureCollection with given number of features at random.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>var points = geo.random.point(100, {bbox: [-80, 30, -60, 60]});</p>
+										<p>var sample = geo.misc.sample(points, 5);</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fcoll: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>FeatureCollection of input features</p>
+									</div>
+								</li>
+								<li>
+									<h5>num: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>number of features to select</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>a FeatureCollection with <code>n</code> features</p>
 						</li>
 					</ul>
 				</section>
@@ -349,6 +389,9 @@
 						<a href="_misc_.html">"misc"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="_polygon_.html">"polygon"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="_prop_.html">"prop"</a>
 					</li>
 					<li class="current tsd-kind-external-module">
@@ -378,6 +421,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_rand_.html#position" class="tsd-kind-icon">position</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_rand_.html#sample" class="tsd-kind-icon">sample</a>
 					</li>
 				</ul>
 			</nav>

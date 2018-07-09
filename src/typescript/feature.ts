@@ -19,7 +19,7 @@ import * as turf from "@turf/turf";
  * the input, or even be empty.
  *
  * @param {FeatureCollection|Geometry|Feature<any>} features input to be buffered
- * @param {number} radius distance to draw the buffer (negative values are allowed)
+ * @param {number} radius distance to draw the buffer (in meters, negative values are allowed)
  * @param {Object} options Optional parameters
  * (units: "miles", "nauticalmiles", "degrees", "radians", "inches", "yards", "meters", "kilometers",
  * steps: number of steps)
@@ -30,7 +30,7 @@ import * as turf from "@turf/turf";
  * var buffered = geo.feature.buffer(point, 500, {units: 'miles'});
  */
 export function buffer(features: turf.GeometryObject|turf.Feature,radius: number,steps: number): turf.Feature {
-    return turf.buffer(features,radius,{steps: steps});
+    return turf.buffer(features,radius/1000,{steps: steps});
 }
 
 /**
@@ -56,6 +56,7 @@ export function clone(features: turf.AllGeoJSON): turf.AllGeoJSON {
  * @param {Object} options Optional parameters
  * (maxEdge: the length (in 'units') of an edge necessary for part of the hull to become concave.,
  * units: can be "degrees", "radians", "miles", or "kilometers")
+ * @param {number} maxEdge: the length (in meters) of an edge necessary for part of the hull to become concave.
  * @returns {Feature<(Polygon|MultiPolygon)>|null} a concave hull (null value is returned if unable to compute hull)
  * @example
  * var points = geo.create.featureCollection([
@@ -70,8 +71,8 @@ export function clone(features: turf.AllGeoJSON): turf.AllGeoJSON {
  *
  * var hull = geo.feature.concave(points, options);
  */
-export function concave(points: turf.FeatureCollection<turf.Point>,options: {maxEdge: number, units: turf.Units}): turf.Feature<turf.Polygon|turf.MultiPolygon>|null {
-    return turf.concave(points,options);
+export function concave(points: turf.FeatureCollection<turf.Point>, maxEdge: number): turf.Feature<turf.Polygon|turf.MultiPolygon>|null {
+    return turf.concave(points,{maxEdge: maxEdge/1000});
 }
 
 /**
@@ -188,7 +189,7 @@ export function dissolve(features: turf.FeatureCollection<turf.Polygon>,property
  *
  * var pointOnPolygon = geo.feature.pointOn(polygon);
  */
-export function pointOn(features: turf.AllGeoJSON): turf.Feature<turf.Point> {
+export function pointOnFeature(features: turf.AllGeoJSON): turf.Feature<turf.Point> {
     return turf.pointOnFeature(features);
 }
 
@@ -201,6 +202,7 @@ export function pointOn(features: turf.AllGeoJSON): turf.Feature<turf.Point> {
  * (tolerance: simplification tolerance,
  * highQuality: whether or not to spend more time to create a higher-quality simplification with a different algorithm,
  * mutate: allows GeoJSON input to be mutated (significant performance increase if true))
+ * @param {number} tolerance: simplification tolerance
  * @returns {GeoJSON} a simplified GeoJSON
  * @example
  * var geojson = geo.create.polygon([[
@@ -228,8 +230,49 @@ export function pointOn(features: turf.AllGeoJSON): turf.Feature<turf.Point> {
  * var options = {tolerance: 0.01, highQuality: false};
  * var simplified = geo.feature.simplify(geojson, options);
  */
-export function simplify(features: turf.AllGeoJSON,options: {tolerance: number,highQuality: boolean,mutate: boolean}): turf.AllGeoJSON {
-    return turf.simplify(features,options);
+export function simplify(features: turf.AllGeoJSON, tolerance: number): turf.AllGeoJSON {
+    return turf.simplify(features,{tolerance:tolerance, mutate:true});
+}
+
+/**
+ * Takes a GeoJSON object and returns a simplified version. Internally uses
+ * [simplify-js] (http://mourner.github.io/simplify-js/) to perform simplification using the Ramer-Douglas-Peucker algorithm.
+ *
+ * @param {GeoJSON} features object to be simplified
+ * @param {Object} options Optional parameters
+ * (tolerance: simplification tolerance,
+ * highQuality: whether or not to spend more time to create a higher-quality simplification with a different algorithm,
+ * mutate: allows GeoJSON input to be mutated (significant performance increase if true))
+ * @param {number} tolerance: simplification tolerance
+ * @returns {GeoJSON} a simplified GeoJSON
+ * @example
+ * var geojson = geo.create.polygon([[
+ *   [-70.603637, -33.399918],
+ *   [-70.614624, -33.395332],
+ *   [-70.639343, -33.392466],
+ *   [-70.659942, -33.394759],
+ *   [-70.683975, -33.404504],
+ *   [-70.697021, -33.419406],
+ *   [-70.701141, -33.434306],
+ *   [-70.700454, -33.446339],
+ *   [-70.694274, -33.458369],
+ *   [-70.682601, -33.465816],
+ *   [-70.668869, -33.472117],
+ *   [-70.646209, -33.473835],
+ *   [-70.624923, -33.472117],
+ *   [-70.609817, -33.468107],
+ *   [-70.595397, -33.458369],
+ *   [-70.587158, -33.442901],
+ *   [-70.587158, -33.426283],
+ *   [-70.590591, -33.414248],
+ *   [-70.594711, -33.406224],
+ *   [-70.603637, -33.399918]
+ * ]]);
+ * var options = {tolerance: 0.01, highQuality: false};
+ * var simplified = geo.feature.simplify(geojson, options);
+ */
+export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): turf.AllGeoJSON {
+    return turf.simplify(features,{tolerance:tolerance, highQuality: true, mutate:true});
 }
 
 // /**

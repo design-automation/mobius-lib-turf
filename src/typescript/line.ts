@@ -13,7 +13,7 @@ import * as turf from "@turf/turf";
  * Takes a LineString and returns a Point at a specified distance along the line.
  *
  * @param {Feature<LineString>} line input line
- * @param {number} distance distance along the line
+ * @param {number} distance distance along the line, in meters
  * @param {Object} options Optional parameters
  * (units: can be degrees, radians, miles, or kilometers)
  * @returns {Feature<Point>} Point `distance` `units` along the line
@@ -24,7 +24,7 @@ import * as turf from "@turf/turf";
  * var along = geo.line.along(line, 200, options);
  */
 export function along(line: turf.LineString,distance: number,options: {units: turf.Units}): turf.Feature<turf.Point> {
-    return turf.along(line,distance,options);
+    return turf.along(line,distance/1000,options);
 }
 
 // /**
@@ -60,7 +60,7 @@ export function along(line: turf.LineString,distance: number,options: {units: tu
  * If the line is shorter than the segment length then the original line is returned.
  *
  * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} lines the lines to split
- * @param {number} length how long to make each segment
+ * @param {number} length how long to make each segment, in meters
  * @param {Object} options Optional parameters
  * (units: units can be degrees, radians, miles, or kilometers,
  * reverse: reverses coordinates to start the first chunked segment at the end)
@@ -72,7 +72,7 @@ export function along(line: turf.LineString,distance: number,options: {units: tu
  * var chunk = geo.line.chunk(line, 15, {units: 'miles'});
  */
 export function chunk(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>|turf.Feature<turf.LineString|turf.MultiLineString>,length: number,reverse: boolean): turf.FeatureCollection<turf.LineString> {
-    return turf.lineChunk(lines,length,{reverse:reverse});
+    return turf.lineChunk(lines,length/1000,{reverse:reverse});
 }
 
 /**
@@ -94,7 +94,7 @@ export function intersect(line1: turf.FeatureCollection<turf.LineString>|turf.Fe
  * Takes a LineString and returns a LineString offset by the specified distance.
  *
  * @param {Geometry|Feature<LineString|MultiLineString>} line input GeoJSON
- * @param {number} distance distance to offset the line (can be of negative value)
+ * @param {number} distance distance to offset the line (in meters, can be of negative value)
  * @param {Object} options Optional parameters
  * (units:] can be degrees, radians, miles, kilometers, inches, yards, meters)
  * @returns {Feature<LineString|MultiLineString>} Line offset from the input line
@@ -104,7 +104,7 @@ export function intersect(line1: turf.FeatureCollection<turf.LineString>|turf.Fe
  * var offsetLine = geo.line.offset(line, 2, {units: 'miles'});
  */
 export function offset(line: turf.Feature<turf.LineString|turf.MultiLineString>,distance: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString|turf.MultiLineString> {
-    return turf.lineOffset(line,distance/*,options*/);
+    return turf.lineOffset(line,distance/1000/*,options*/);
 }
 
 /**
@@ -176,8 +176,8 @@ export function slice(point1: turf.Point,point2: turf.Point,line: turf.Feature<t
  * This can be useful for extracting only the part of a route between two distances.
  *
  * @param {Feature<LineString>|LineString} line input line
- * @param {number} startDist distance along the line to starting point
- * @param {number} stopDist distance along the line to ending point
+ * @param {number} startDist distance along the line to starting point, in meters
+ * @param {number} stopDist distance along the line to ending point, in meters
  * @param {Object} options Optional parameters
  * (units: can be degrees, radians, miles, or kilometers)
  * @returns {Feature<LineString>} sliced line
@@ -188,7 +188,7 @@ export function slice(point1: turf.Point,point2: turf.Point,line: turf.Feature<t
  * var sliced = geo.line.sliceAlong(line, start, stop, {units: 'miles'});
  */
 export function sliceAlong(line: turf.Feature<turf.LineString>,startDist: number,stopDist: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString> {
-    return turf.lineSliceAlong(line,startDist,stopDist/*,options*/);
+    return turf.lineSliceAlong(line,startDist/1000,stopDist/1000/*,options*/);
 }
 
 /**

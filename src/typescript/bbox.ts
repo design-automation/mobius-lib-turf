@@ -66,6 +66,6 @@ export function clip(feature: turf.LineString|turf.MultiLineString|turf.Polygon|
  * var bbox = geo.create.bbox(line);
  * var bboxPolygon = geo.bbox.polygon(bbox);
  */
-export function bbox(features: turf.AllGeoJSON): turf.BBox {
+export function create(features: turf.AllGeoJSON): turf.BBox {
     return turf.bbox(features);
 }

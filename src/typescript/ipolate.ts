@@ -19,6 +19,9 @@ import * as turf from "@turf/turf";
  * zProperty: the property name in `points` from which z-values will be pulled, zValue fallbacks to 3rd coordinate if no property exists,
  * units: used in calculating cellSize, can be degrees, radians, miles, or kilometers,
  * weight: exponent regulating the distance-decay weighting)
+ * @param {FeatureCollection<Polygon>} gridType defines the output format based on a Grid Type (options: 'square' | 'point' | 'hex' | 'triangle')
+ * @param {string} property the property name in `points` from which z-values will be pulled, zValue fallbacks to 3rd coordinate if no property exists
+ * @param {number} weight exponent regulating the distance-decay weighting
  * @returns {FeatureCollection<Point|Polygon>} grid of points or polygons with interpolated 'property'
  * @example
  * var points = geo.random.point(30, {bbox: [50, 30, 70, 50]});
@@ -30,8 +33,8 @@ import * as turf from "@turf/turf";
  * var options = {gridType: 'points', property: 'solRad', units: 'miles'};
  * var grid = geo.ipolate.interpolate(points, 100, options);
  */
-export function interpolate(points: turf.FeatureCollection<turf.Point>,cellSize: number,options: {gridType: turf.Grid, zProperty: string, units: turf.Units, weight: number}): turf.FeatureCollection<turf.Point|turf.Polygon> {
-    return turf.interpolate(points,cellSize,options);
+export function interpolate(points: turf.FeatureCollection<turf.Point>,cellSize: number, gridType: turf.Grid, property: string, weight: number): turf.FeatureCollection<turf.Point|turf.Polygon> {
+    return turf.interpolate(points,cellSize/1000,{gridType:gridType, property:property, weight:weight});
 }
 
 /**

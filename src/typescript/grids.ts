@@ -15,7 +15,7 @@ import * as turf from "@turf/turf";
  * described in [Hexagonal Grids](http://www.redblobgames.com/grids/hexagons/).
  *
  * @param {BBox} bbox extent in [minX, minY, maxX, maxY] order
- * @param {number} cellSide length of the side of the the hexagons or triangles, in units. It will also coincide with the
+ * @param {number} cellSide length of the side of the the hexagons or triangles, in meters. It will also coincide with the
  * radius of the circumcircle of the hexagons.
  * @param {Object} options Optional parameters
  * (units: used in calculating cell size, can be "degrees", "radians", "miles", or "kilometers",
@@ -32,7 +32,7 @@ import * as turf from "@turf/turf";
  * var hexgrid = geo.grid.hexGrid(bbox, cellSide, options);
  */
 export function hexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.hexGrid(bbox,cellSide,{mask:mask});
+    return turf.hexGrid(bbox,cellSide/1000,{mask:mask});
 }
 
 /**
@@ -41,7 +41,7 @@ export function hexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<tur
  * described in [Hexagonal Grids](http://www.redblobgames.com/grids/hexagons/).
  *
  * @param {BBox} bbox extent in [minX, minY, maxX, maxY] order
- * @param {number} cellSide length of the side of the the hexagons or triangles, in units. It will also coincide with the
+ * @param {number} cellSide length of the side of the the hexagons or triangles, in meters. It will also coincide with the
  * radius of the circumcircle of the hexagons.
  * @param {Object} options Optional parameters
  * (units: used in calculating cell size, can be "degrees", "radians", "miles", or "kilometers",
@@ -58,7 +58,7 @@ export function hexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<tur
  * var hexgrid = geo.grid.hexGrid(bbox, cellSide, options);
  */
 export function triHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.hexGrid(bbox,cellSide,{mask: mask, triangles: true});
+    return turf.hexGrid(bbox,cellSide/1000,{mask: mask, triangles: true});
 }
 
 /**
@@ -66,7 +66,7 @@ export function triHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<
  *
  * @name pointGrid
  * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
- * @param {number} cellSide the distance between points, in units
+ * @param {number} cellSide the distance between points, in meters
  * @param {Object} options Optional parameters
  * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
  * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
@@ -81,14 +81,14 @@ export function triHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<
  * var grid = geo.grid.pointGrid(extent, cellSide, options);
  */
 export function pointGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
-    return turf.pointGrid(bbox,cellSide,{mask: mask});
+    return turf.pointGrid(bbox,cellSide/1000,{mask: mask});
 }
 
 /**
  * Creates a square grid from a bounding box (with optional polygon mask).
  *
  * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
- * @param {number} cellSide of each cell, in units
+ * @param {number} cellSide of each cell, in meters
  * @param {Object} options Optional parameters
  * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
  * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
@@ -103,14 +103,14 @@ export function pointGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<t
  * var squareGrid = geo.grid.squareGrid(bbox, cellSide, options);
  */
 export function squareGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.squareGrid(bbox,cellSide,{mask: mask});
+    return turf.squareGrid(bbox,cellSide/1000,{mask: mask});
 }
 
 /**
  * Takes a bounding box and a cell depth and returns a set of triangular polygons in a grid.
  *
  * @param {Array<number>} bbox extent in [minX, minY, maxX, maxY] order
- * @param {number} cellSide dimension of each cell
+ * @param {number} cellSide dimension of each cell, in meters
  * @param {Object}  options Optional parameters
  * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
  * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
@@ -125,5 +125,5 @@ export function squareGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<
  * var triangleGrid = geo.grid.triangleGrid(bbox, cellSide, options);
  */
 export function triangleGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.triangleGrid(bbox,cellSide,{mask: mask});
+    return turf.triangleGrid(bbox,cellSide/1000,{mask: mask});
 }
