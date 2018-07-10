@@ -182,7 +182,7 @@ export function isDisjoint(feature1: turf.Feature, feature2: turf.Feature): bool
  *
  * var distance = geo.calc.distance(from, to, options);
  */
-export function distance(point1: turf.Point, point2: turf.Point/*, options: {units: turf.Units}*/): number {
+export function distancePointToPoint(point1: turf.Point, point2: turf.Point/*, options: {units: turf.Units}*/): number {
     return (turf.distance(point1, point2/*, options*/))*1000;
 }
 
@@ -324,7 +324,7 @@ export function isParallel(line1: turf.LineString, line2: turf.LineString): bool
  * var line = geo.create.lineString([[115, -32], [131, -22], [143, -25], [150, -34]]);
  * var length = geo.calc.length(line, {units: 'miles'});
  */
-export function len(features: turf.AllGeoJSON/*, options: {units: turf.Units}*/): number {
+export function lengthLine(features: turf.AllGeoJSON/*, options: {units: turf.Units}*/): number {
     return (turf.length(features/*, options*/))*1000;
 }
 

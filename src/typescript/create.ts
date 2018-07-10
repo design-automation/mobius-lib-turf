@@ -35,7 +35,7 @@ export function featureClone(features: turf.AllGeoJSON): turf.AllGeoJSON {
  *
  * var sample = geo.misc.sample(points, 5);
  */
-export function featureSample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
+export function featuresSample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
     return turf.sample(fcoll, num);
 }
 

@@ -82,8 +82,8 @@
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#featurebboxclip" class="tsd-kind-icon">feature<wbr>Bbox<wbr>Clip</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#featureclone" class="tsd-kind-icon">feature<wbr>Clone</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#featureintersect" class="tsd-kind-icon">feature<wbr>Intersect</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#featuresample" class="tsd-kind-icon">feature<wbr>Sample</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#featuresflatten" class="tsd-kind-icon">features<wbr>Flatten</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#featuressample" class="tsd-kind-icon">features<wbr>Sample</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#line" class="tsd-kind-icon">line</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#linearc" class="tsd-kind-icon">line<wbr>Arc</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_create_.html#linebezier" class="tsd-kind-icon">line<wbr>Bezier</a></li>
@@ -158,7 +158,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L56">create.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L56">create.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -204,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L22">create.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L22">create.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -243,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L107">create.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L107">create.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -297,16 +297,58 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="featuresample" class="tsd-anchor"></a>
-					<h3>feature<wbr>Sample</h3>
+					<a name="featuresflatten" class="tsd-anchor"></a>
+					<h3>features<wbr>Flatten</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">feature<wbr>Sample<span class="tsd-signature-symbol">(</span>fcoll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span>, num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">features<wbr>Flatten<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L38">create.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L74">create.ts:74</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Flattens any GeoJSON to a FeatureCollection inspired by <a href="https://github.com/tmcw/geojson-flatten">geojson-flatten</a>.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>var multiGeometry = geo.create.multiPolygon([
+											[[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],
+											[[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],
+											[[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
+										]);</p>
+										<p>var flatten = geo.convert.flatten(multiGeometry);</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>any valid GeoJSON Object</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span></h4>
+							<p>all Multi-Geometries are flattened into single Features</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="featuressample" class="tsd-anchor"></a>
+					<h3>features<wbr>Sample</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">features<wbr>Sample<span class="tsd-signature-symbol">(</span>fcoll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span>, num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L38">create.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -341,48 +383,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="featuresflatten" class="tsd-anchor"></a>
-					<h3>features<wbr>Flatten</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">features<wbr>Flatten<span class="tsd-signature-symbol">(</span>geojson<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L74">create.ts:74</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Flattens any GeoJSON to a FeatureCollection inspired by <a href="https://github.com/tmcw/geojson-flatten">geojson-flatten</a>.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var multiGeometry = geo.create.multiPolygon([
-											[[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],
-											[[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],
-											[[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
-										]);</p>
-										<p>var flatten = geo.convert.flatten(multiGeometry);</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>geojson: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>any valid GeoJSON Object</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span></h4>
-							<p>all Multi-Geometries are flattened into single Features</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="line" class="tsd-anchor"></a>
 					<h3>line</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -392,7 +392,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L258">create.ts:258</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L258">create.ts:258</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -432,7 +432,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L283">create.ts:283</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L283">create.ts:283</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -498,7 +498,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L313">create.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L313">create.ts:313</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -558,7 +558,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L333">create.ts:333</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L333">create.ts:333</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -609,7 +609,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L352">create.ts:352</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L352">create.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -673,7 +673,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L397">create.ts:397</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L397">create.ts:397</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -717,7 +717,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L416">create.ts:416</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L416">create.ts:416</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -768,7 +768,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L429">create.ts:429</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L429">create.ts:429</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -806,7 +806,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L457">create.ts:457</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L457">create.ts:457</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -876,7 +876,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L486">create.ts:486</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L486">create.ts:486</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -938,7 +938,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L509">create.ts:509</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L509">create.ts:509</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -993,7 +993,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L525">create.ts:525</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L525">create.ts:525</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1038,7 +1038,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L380">create.ts:380</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L380">create.ts:380</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1110,7 +1110,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L541">create.ts:541</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L541">create.ts:541</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1151,7 +1151,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L563">create.ts:563</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L563">create.ts:563</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1213,7 +1213,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L584">create.ts:584</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L584">create.ts:584</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1269,7 +1269,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L608">create.ts:608</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L608">create.ts:608</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1307,7 +1307,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L626">create.ts:626</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L626">create.ts:626</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1364,7 +1364,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L646">create.ts:646</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L646">create.ts:646</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1418,7 +1418,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L661">create.ts:661</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L661">create.ts:661</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1462,7 +1462,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L677">create.ts:677</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L677">create.ts:677</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1507,7 +1507,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L699">create.ts:699</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L699">create.ts:699</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1560,7 +1560,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L714">create.ts:714</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L714">create.ts:714</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1605,7 +1605,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L751">create.ts:751</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L751">create.ts:751</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1651,7 +1651,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L774">create.ts:774</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L774">create.ts:774</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1703,7 +1703,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L800">create.ts:800</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L800">create.ts:800</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1754,7 +1754,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L826">create.ts:826</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L826">create.ts:826</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1806,7 +1806,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L850">create.ts:850</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L850">create.ts:850</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1862,7 +1862,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L865">create.ts:865</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L865">create.ts:865</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1901,7 +1901,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L893">create.ts:893</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L893">create.ts:893</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1968,7 +1968,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L734">create.ts:734</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L734">create.ts:734</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2012,7 +2012,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L909">create.ts:909</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L909">create.ts:909</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2057,7 +2057,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L925">create.ts:925</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L925">create.ts:925</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2101,7 +2101,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L188">create.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L188">create.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2156,7 +2156,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L949">create.ts:949</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L949">create.ts:949</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2194,7 +2194,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L964">create.ts:964</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L964">create.ts:964</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2232,7 +2232,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L988">create.ts:988</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L988">create.ts:988</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2287,7 +2287,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1008">create.ts:1008</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1008">create.ts:1008</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2339,7 +2339,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1035">create.ts:1035</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1035">create.ts:1035</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2392,7 +2392,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1062">create.ts:1062</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1062">create.ts:1062</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2452,7 +2452,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1097">create.ts:1097</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1097">create.ts:1097</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2518,7 +2518,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1115">create.ts:1115</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1115">create.ts:1115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2560,7 +2560,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1133">create.ts:1133</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1133">create.ts:1133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2598,7 +2598,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1149">create.ts:1149</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1149">create.ts:1149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2643,7 +2643,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1177">create.ts:1177</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1177">create.ts:1177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2694,7 +2694,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1207">create.ts:1207</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1207">create.ts:1207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2764,7 +2764,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1229">create.ts:1229</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1229">create.ts:1229</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2810,7 +2810,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L139">create.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L139">create.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2865,7 +2865,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1245">create.ts:1245</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1245">create.ts:1245</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2924,7 +2924,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1267">create.ts:1267</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1267">create.ts:1267</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2965,7 +2965,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L210">create.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L210">create.ts:210</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3017,7 +3017,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1281">create.ts:1281</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1281">create.ts:1281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3056,7 +3056,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1309">create.ts:1309</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1309">create.ts:1309</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3108,7 +3108,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L232">create.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L232">create.ts:232</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3160,7 +3160,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L165">create.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L165">create.ts:165</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3215,7 +3215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1324">create.ts:1324</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1324">create.ts:1324</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3254,7 +3254,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/create.ts#L1344">create.ts:1344</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/f437b41/src/typescript/create.ts#L1344">create.ts:1344</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3318,10 +3318,10 @@
 						<a href="_create_.html#featureintersect" class="tsd-kind-icon">feature<wbr>Intersect</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#featuresample" class="tsd-kind-icon">feature<wbr>Sample</a>
+						<a href="_create_.html#featuresflatten" class="tsd-kind-icon">features<wbr>Flatten</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_create_.html#featuresflatten" class="tsd-kind-icon">features<wbr>Flatten</a>
+						<a href="_create_.html#featuressample" class="tsd-kind-icon">features<wbr>Sample</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_create_.html#line" class="tsd-kind-icon">line</a>

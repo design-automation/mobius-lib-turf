@@ -1040,75 +1040,6 @@
 					]
 				},
 				{
-					"id": 145,
-					"name": "distance",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 146,
-							"name": "distance",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Calculates the distance between two points in degrees, radians,\nmiles, or kilometers. This uses the\n[Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula)\nto account for global curvature.",
-								"returns": "distance between the two points",
-								"tags": [
-									{
-										"tag": "example",
-										"text": "\nvar from = geo.create.point([-75.343, 39.984]);\nvar to = geo.create.point([-75.534, 39.123]);\nvar options = {units: 'miles'};\n\nvar distance = geo.calc.distance(from, to, options);\n"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 147,
-									"name": "point1",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "origin point"
-									},
-									"type": {
-										"type": "reference",
-										"name": "Point"
-									}
-								},
-								{
-									"id": 148,
-									"name": "point2",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "destination point"
-									},
-									"type": {
-										"type": "reference",
-										"name": "Point"
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "number"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "calc.ts",
-							"line": 185,
-							"character": 24
-						}
-					]
-				},
-				{
 					"id": 149,
 					"name": "distancePointToLine",
 					"kind": 64,
@@ -1174,6 +1105,75 @@
 							"fileName": "calc.ts",
 							"line": 206,
 							"character": 35
+						}
+					]
+				},
+				{
+					"id": 145,
+					"name": "distancePointToPoint",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 146,
+							"name": "distancePointToPoint",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Calculates the distance between two points in degrees, radians,\nmiles, or kilometers. This uses the\n[Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula)\nto account for global curvature.",
+								"returns": "distance between the two points",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\nvar from = geo.create.point([-75.343, 39.984]);\nvar to = geo.create.point([-75.534, 39.123]);\nvar options = {units: 'miles'};\n\nvar distance = geo.calc.distance(from, to, options);\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 147,
+									"name": "point1",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "origin point"
+									},
+									"type": {
+										"type": "reference",
+										"name": "Point"
+									}
+								},
+								{
+									"id": 148,
+									"name": "point2",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "destination point"
+									},
+									"type": {
+										"type": "reference",
+										"name": "Point"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "calc.ts",
+							"line": 185,
+							"character": 36
 						}
 					]
 				},
@@ -1960,7 +1960,7 @@
 				},
 				{
 					"id": 171,
-					"name": "len",
+					"name": "lengthLine",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
@@ -1969,7 +1969,7 @@
 					"signatures": [
 						{
 							"id": 172,
-							"name": "len",
+							"name": "lengthLine",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
@@ -2009,7 +2009,7 @@
 						{
 							"fileName": "calc.ts",
 							"line": 327,
-							"character": 19
+							"character": 26
 						}
 					]
 				},
@@ -2100,8 +2100,8 @@
 						119,
 						126,
 						129,
-						145,
 						149,
+						145,
 						160,
 						157,
 						164,
@@ -5550,8 +5550,63 @@
 					]
 				},
 				{
+					"id": 314,
+					"name": "featuresFlatten",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 315,
+							"name": "featuresFlatten",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Flattens any GeoJSON to a FeatureCollection inspired by [geojson-flatten](https://github.com/tmcw/geojson-flatten).",
+								"returns": "all Multi-Geometries are flattened into single Features",
+								"tags": [
+									{
+										"tag": "example",
+										"text": "\nvar multiGeometry = geo.create.multiPolygon([\n  [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n  [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n  [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n]);\n\nvar flatten = geo.convert.flatten(multiGeometry);\n"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 316,
+									"name": "geojson",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "any valid GeoJSON Object"
+									},
+									"type": {
+										"type": "reference",
+										"name": "turf.AllGeoJSON"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "FeatureCollection"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "create.ts",
+							"line": 74,
+							"character": 31
+						}
+					]
+				},
+				{
 					"id": 306,
-					"name": "featureSample",
+					"name": "featuresSample",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
@@ -5560,7 +5615,7 @@
 					"signatures": [
 						{
 							"id": 307,
-							"name": "featureSample",
+							"name": "featuresSample",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
@@ -5626,62 +5681,7 @@
 						{
 							"fileName": "create.ts",
 							"line": 38,
-							"character": 29
-						}
-					]
-				},
-				{
-					"id": 314,
-					"name": "featuresFlatten",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 315,
-							"name": "featuresFlatten",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Flattens any GeoJSON to a FeatureCollection inspired by [geojson-flatten](https://github.com/tmcw/geojson-flatten).",
-								"returns": "all Multi-Geometries are flattened into single Features",
-								"tags": [
-									{
-										"tag": "example",
-										"text": "\nvar multiGeometry = geo.create.multiPolygon([\n  [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],\n  [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],\n  [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]\n]);\n\nvar flatten = geo.convert.flatten(multiGeometry);\n"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 316,
-									"name": "geojson",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"text": "any valid GeoJSON Object"
-									},
-									"type": {
-										"type": "reference",
-										"name": "turf.AllGeoJSON"
-									}
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "FeatureCollection"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "create.ts",
-							"line": 74,
-							"character": 31
+							"character": 30
 						}
 					]
 				},
@@ -11308,8 +11308,8 @@
 						310,
 						303,
 						317,
-						306,
 						314,
+						306,
 						346,
 						349,
 						356,
