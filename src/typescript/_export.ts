@@ -5,8 +5,8 @@
 // import * as bool from "./bool";
 // export {bool};
 
-// import * as calc from "./calc";
-// export {calc};
+// import * as calcOld from "./calc-old";
+// export {calcOld};
 
 // import * as cluster from "./cluster";
 // export {cluster};
@@ -56,8 +56,5 @@ export {create};
 import * as modify from "./modify";
 export {modify};
 
-import * as eval from "./eval";
-export {eval};
-
-import * as io from "./io";
-export {io};
+import * as calc from "./calc";
+export {calc};

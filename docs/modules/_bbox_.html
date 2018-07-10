@@ -79,8 +79,8 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_bbox_.html#bbox" class="tsd-kind-icon">bbox</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_bbox_.html#clip" class="tsd-kind-icon">clip</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_bbox_.html#create" class="tsd-kind-icon">create</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_bbox_.html#polygon" class="tsd-kind-icon">polygon</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_bbox_.html#square" class="tsd-kind-icon">square</a></li>
 							</ul>
@@ -91,45 +91,6 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="bbox" class="tsd-anchor"></a>
-					<h3>bbox</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">bbox<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/bbox.ts#L69">bbox.ts:69</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Takes a set of features, calculates the bbox of all input features, and returns a bounding box.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]]);
-											var bbox = geo.create.bbox(line);
-										var bboxPolygon = geo.bbox.polygon(bbox);</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>any GeoJSON object</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.BBox</span></h4>
-							<p>bbox extent in [minX, minY, maxX, maxY] order</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="clip" class="tsd-anchor"></a>
 					<h3>clip</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -139,7 +100,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/bbox.ts#L55">bbox.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/bbox.ts#L55">bbox.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -176,6 +137,45 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/bbox.ts#L69">bbox.ts:69</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a set of features, calculates the bbox of all input features, and returns a bounding box.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]]);
+											var bbox = geo.create.bbox(line);
+										var bboxPolygon = geo.bbox.polygon(bbox);</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>any GeoJSON object</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.BBox</span></h4>
+							<p>bbox extent in [minX, minY, maxX, maxY] order</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="polygon" class="tsd-anchor"></a>
 					<h3>polygon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -185,7 +185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/bbox.ts#L22">bbox.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/bbox.ts#L22">bbox.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +223,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/bbox.ts#L37">bbox.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/bbox.ts#L37">bbox.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -260,81 +260,18 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="__export_.html">"_<wbr>export"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_assert_.html">"assert"</a>
-					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_bbox_.html">"bbox"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_bool_.html">"bool"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_calc_.html">"calc"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_cluster_.html">"cluster"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_compare_.html">"compare"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_convert_.html">"convert"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_coords_.html">"coords"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_create_.html">"create"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_feature_.html">"feature"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_grids_.html">"grids"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_ipolate_.html">"ipolate"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_joins_.html">"joins"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_line_.html">"line"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_misc_.html">"misc"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_polygon_.html">"polygon"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_prop_.html">"prop"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_rand_.html">"rand"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_test_data_.html">"test_<wbr>data"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_units_.html">"units"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_xform_.html">"xform"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_bbox_.html#bbox" class="tsd-kind-icon">bbox</a>
+						<a href="_bbox_.html#clip" class="tsd-kind-icon">clip</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_bbox_.html#clip" class="tsd-kind-icon">clip</a>
+						<a href="_bbox_.html#create" class="tsd-kind-icon">create</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_bbox_.html#polygon" class="tsd-kind-icon">polygon</a>

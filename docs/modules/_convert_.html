@@ -79,7 +79,6 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_convert_.html#combine" class="tsd-kind-icon">combine</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_convert_.html#explode" class="tsd-kind-icon">explode</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_convert_.html#flatten" class="tsd-kind-icon">flatten</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_convert_.html#linetopolygon" class="tsd-kind-icon">line<wbr>ToPolygon</a></li>
@@ -93,48 +92,6 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="combine" class="tsd-anchor"></a>
-					<h3>combine</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">combine<span class="tsd-signature-symbol">(</span>fcoll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/convert.ts#L26">convert.ts:26</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Combines a FeatureCollection of Point, LineString, or Polygon features
-									into MultiPoint, MultiLineString, or MultiPolygon features.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var fc = geo.create.featureCollection([
-											geo.create.point([19.026432, 47.49134]),
-											geo.create.point([19.074497, 47.509548])
-										]);</p>
-										<p>var combined = geo.convert.combine(fc);</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>fcoll: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>a FeatureCollection of any type</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span></h4>
-							<p>a Feature of corresponding type to input</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
 					<a name="explode" class="tsd-anchor"></a>
 					<h3>explode</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
@@ -144,7 +101,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/convert.ts#L41">convert.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/convert.ts#L41">convert.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -183,7 +140,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/convert.ts#L60">convert.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/convert.ts#L60">convert.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -225,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/convert.ts#L78">convert.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/convert.ts#L78">convert.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,7 +220,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/convert.ts#L116">convert.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/convert.ts#L116">convert.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -304,7 +261,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/45f97ed/src/typescript/convert.ts#L100">convert.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/da56d4b/src/typescript/convert.ts#L100">convert.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -343,79 +300,13 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="__export_.html">"_<wbr>export"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_assert_.html">"assert"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_bbox_.html">"bbox"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_bool_.html">"bool"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_calc_.html">"calc"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_cluster_.html">"cluster"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_compare_.html">"compare"</a>
-					</li>
 					<li class="current tsd-kind-external-module">
 						<a href="_convert_.html">"convert"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_coords_.html">"coords"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_create_.html">"create"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_feature_.html">"feature"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_grids_.html">"grids"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_ipolate_.html">"ipolate"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_joins_.html">"joins"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_line_.html">"line"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_misc_.html">"misc"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_polygon_.html">"polygon"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_prop_.html">"prop"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_rand_.html">"rand"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_test_data_.html">"test_<wbr>data"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_units_.html">"units"</a>
-					</li>
-					<li class=" tsd-kind-external-module">
-						<a href="_xform_.html">"xform"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_convert_.html#combine" class="tsd-kind-icon">combine</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="_convert_.html#explode" class="tsd-kind-icon">explode</a>
 					</li>

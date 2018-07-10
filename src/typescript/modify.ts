@@ -63,23 +63,6 @@ export function coordsRewind(features: turf.AllGeoJSON/*, options: {reverse: boo
 }
 
 /**
- * Round number to precision
- *
- * @param {number} num Number
- * @param {number} [precision=0] Precision
- * @returns {number} rounded number
- * @example
- * geo.coords.round(120.4321)
- * //=120
- *
- * geo.coords.round(120.4321, 2)
- * //=120.43
- */
-export function coordsRound(num: number, precision: number): number {
-    return turf.round(num, precision);
-}
-
-/**
  * Takes a GeoJSON Feature or FeatureCollection and truncates the precision of the geometry.
  *
  * @param {GeoJSON} features any GeoJSON Feature, FeatureCollection, Geometry or GeometryCollection.
@@ -103,154 +86,26 @@ export function coordsTruncate(features: turf.AllGeoJSON, precision: number): tu
     return turf.truncate(features, {precision: precision, mutate: true});
 }
 
- /**
- * Takes a feature or set of features and returns all positions as Point|points.
- * Throws an error if it encounters an unknown geometry type
- *
- * @param {GeoJSON} features input features
- * @returns {FeatureCollection<point>} points representing the exploded input features
- * @example
- * var polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
- *
- * var explode = geo.convert.explode(polygon);
- */
-export function explodeToPoints(features: turf.AllGeoJSON): turf.FeatureCollection<turf.Point> {
-    return turf.explode(features);
-}
-
 /**
- * Flattens any GeoJSON to a FeatureCollection inspired by [geojson-flatten](https://github.com/tmcw/geojson-flatten).
+ * Takes a set of Point|points and partition them into clusters using the k-mean .
+ * It uses the [k-means algorithm](https://en.wikipedia.org/wiki/K-means_clustering)
  *
- * @param {GeoJSON} geojson any valid GeoJSON Object
- * @returns {FeatureCollection<any>} all Multi-Geometries are flattened into single Features
- * @example
- * var multiGeometry = geo.create.multiPolygon([
- *   [[[102.0, 2.0], [103.0, 2.0], [103.0, 3.0], [102.0, 3.0], [102.0, 2.0]]],
- *   [[[100.0, 0.0], [101.0, 0.0], [101.0, 1.0], [100.0, 1.0], [100.0, 0.0]],
- *   [[100.2, 0.2], [100.8, 0.2], [100.8, 0.8], [100.2, 0.8], [100.2, 0.2]]]
- * ]);
- *
- * var flatten = geo.convert.flatten(multiGeometry);
- */
-export function flatten(geojson: turf.AllGeoJSON): turf.FeatureCollection {
-    return turf.flatten(geojson);
-}
-
-/**
- * Converts (Multi)LineString(s) to Polygon(s).
- *
- * @param {FeatureCollection|Feature<LineString|MultiLineString>} lines Features to convert
- * @param {Object} [options={}] Optional parameters
- * @param {Object} [options.properties={}] translates GeoJSON properties to Feature
- * @param {boolean} [options.autoComplete=true] auto complete linestrings (matches first & last coordinates)
- * @param {boolean} [options.orderCoords=true] sorts linestrings to place outer ring at the first position of the coordinates
- * @returns {Feature<Polygon|MultiPolygon>} converted to Polygons
- * @example
- * var line = geo.create.lineString([[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]);
- *
- * var polygon = geo.convert.lineToPolygon(line);
- */
-export function lineToPolygon(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>/*, options: {properties: object, autoComplete: boolean, orderCoords: boolean}*/): turf.Feature<turf.Polygon|turf.MultiPolygon> {
-    return turf.lineToPolygon(lines/*, options*/);
-}
-
-/**
- * Merges a specified property from a FeatureCollection of points into a
- * FeatureCollection of polygons. Given an `inProperty` on points and an `outProperty`
- * for polygons, this finds every point that lies within each polygon, collects the
- * `inProperty` values from those points, and adds them as an array to `outProperty`
- * on the polygon.
- *
- * @param {FeatureCollection<Polygon>} polygons polygons with values on which to aggregate
- * @param {FeatureCollection<Point>} points points to be aggregated
- * @param {string} inProperty property to be nested from
- * @param {string} outProperty property to be nested into
- * @returns {FeatureCollection<Polygon>} polygons with properties listed based on `outField`
- * @example
- * var poly1 = geo.create.polygon([[[0,0],[10,0],[10,10],[0,10],[0,0]]]);
- * var poly2 = geo.create.polygon([[[10,0],[20,10],[20,20],[20,0],[10,0]]]);
- * var polyFC = geo.create.featureCollection([poly1, poly2]);
- * var pt1 = geo.create.point([5,5], {population: 200});
- * var pt2 = geo.create.point([1,3], {population: 600});
- * var pt3 = geo.create.point([14,2], {population: 100});
- * var pt4 = geo.create.point([13,1], {population: 200});
- * var pt5 = geo.create.point([19,7], {population: 300});
- * var pointFC = geo.create.featureCollection([pt1, pt2, pt3, pt4, pt5]);
- * var collected = geo.prop.collect(polyFC, pointFC, 'population', 'values');
- * var values = collected.features[0].properties.values
- * //=values => [200, 600]
- */
-export function polygonCollect(polygons: turf.FeatureCollection<turf.Polygon>,points: turf.FeatureCollection<turf.Point>,inProperty: string,outProperty: string): turf.FeatureCollection<turf.Polygon> {
-    return turf.collect(polygons,points,inProperty,outProperty);
-}
-
-/**
- * Polygonizes LineString or MultiLineString(s) into Polygons.
- *
- * Implementation of GEOSPolygonize function (`geos::operation::polygonize::Polygonizer`).
- *
- * Polygonizes a set of lines that represents edges in a planar graph. Edges must be correctly
- * noded, i.e., they must only meet at their endpoints.
- *
- * The implementation correctly handles:
- *
- * - Dangles: edges which have one or both ends which are not incident on another edge endpoint.
- * - Cut Edges (bridges): edges that are connected at both ends but which do not form part of a polygon.
- *
- * Throws an error is geoJson is invalid.
- *
- * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} lines Lines in order to polygonize
- * @returns {FeatureCollection<Polygon>} Polygons created
- */
-export function polygonize(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>): turf.FeatureCollection<turf.Polygon> {
-    return turf.polygonize(lines);
-}
-
-/**
- * Takes any type of polygon and an optional mask and returns a polygon exterior ring with holes.
- *
- * @param {FeatureCollection|Feature<Polygon|MultiPolygon>} polygon1 GeoJSON Polygon used as interior rings or holes.
- * @param {Feature<Polygon>} polygon2 GeoJSON Polygon used as the exterior ring (if undefined, the world extent is used)
- * @returns {Feature<Polygon>} Masked Polygon (exterior ring with holes).
- * @example
- * var polygon = geo.create.polygon([[[112, -21], [116, -36], [146, -39], [153, -24], [133, -10], [112, -21]]]);
- * var mask = geo.create.polygon([[[90, -55], [170, -55], [170, 10], [90, 10], [90, -55]]]);
- *
- * var masked = geo.misc.mask(polygon, mask);
- */
-export function polygonMask(polygon1: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>,polygon2: turf.Feature<turf.Polygon>): turf.Feature<turf.Polygon> {
-    return turf.mask(polygon1,polygon2);
-}
-
-/**
- * Converts a Polygon to LineString|(Multi)LineString or MultiPolygon to a FeatureCollection of LineString|(Multi)LineString.
- *
- * @param {Feature<Polygon|MultiPolygon>} polygon Feature to convert
+ * @param {FeatureCollection<Point>} points to be clustered
  * @param {Object} options Optional parameters
- * (properties: an Object that is used as the Feature's propertiese)
- * @returns {FeatureCollection|Feature<LineString|MultiLinestring>} converted (Multi)Polygon to (Multi)LineString
+ * (numberOfClusters: numberOfClusters that will be generated,
+ * mutate: allows GeoJSON input to be mutated if true (significant performance increase))
+ * @param {number} num number of clusters that will be generated
+ * @returns {FeatureCollection<Point>} Clustered Points with an additional two properties associated to each Feature:
+ * - {number} cluster - the associated clusterId
+ * - {[number, number]} centroid - Centroid of the cluster [Longitude, Latitude]
  * @example
- * var poly = geo.create.polygon([[[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]]);
- *
- * var line = geo.convert.polygonToLine(poly);
+ * // create random points with random z-values in their properties
+ * var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
+ * var options = {numberOfClusters: 7};
+ * var clustered = geo.cluster.kmeans(points, options);
  */
-export function polygonToLine(polygon: turf.Polygon|turf.MultiPolygon/*, options: {properties: object}*/): turf.FeatureCollection|turf.Feature<turf.LineString|turf.MultiLineString> {
-    return turf.polygonToLine(polygon/*, options*/);
-}
-
-/**
- * Takes a kinked polygon and returns a feature collection of polygons that have no kinks.
- * Uses [simplepolygon](https://github.com/mclaeysb/simplepolygon) internally.
- *
- * @param {FeatureCollection|Feature<Polygon|MultiPolygon>} polygon GeoJSON Polygon or MultiPolygon
- * @returns {FeatureCollection<Polygon>} Unkinked polygons
- * @example
- * var poly = geo.create.polygon([[[0, 0], [2, 0], [0, 2], [2, 2], [0, 0]]]);
- *
- * var result = geo.misc.unkinkPolygon(poly);
- */
-export function polygonUnkink(polygon: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.unkinkPolygon(polygon);
+export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, num: number): turf.FeatureCollection<turf.Point> {
+    return turf.clustersKmeans(points, {numberOfClusters:num, mutate:true});
 }
 
 /**
@@ -351,7 +206,7 @@ export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): tur
  * var options = {pivot: [0, 25]};
  * var rotatedPoly = geo.xform.transformRotate(poly, 10, options);
  */
-export function rotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point): turf.AllGeoJSON {
+export function transformRotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point): turf.AllGeoJSON {
     return turf.transformRotate(features,angle,{pivot:pivot,mutate:true});
 }
 
@@ -371,7 +226,7 @@ export function rotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var translatedPoly = geo.xform.translate(poly, 100, 35);
  */
-export function translate(features: turf.AllGeoJSON,distance: number,direction: number/*,options: {units: turf.Units,zTranslation: number, mutate: boolean}*/): turf.AllGeoJSON {
+export function transformTranslate(features: turf.AllGeoJSON,distance: number,direction: number/*,options: {units: turf.Units,zTranslation: number, mutate: boolean}*/): turf.AllGeoJSON {
     return turf.transformTranslate(features,distance,direction,{mutate:true});
 }
 
@@ -389,6 +244,6 @@ export function translate(features: turf.AllGeoJSON,distance: number,direction: 
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var scaledPoly = geo.xform.scale(poly, 3);
  */
-export function scale(features: turf.AllGeoJSON,factor: number, origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>): turf.AllGeoJSON {
+export function transformScale(features: turf.AllGeoJSON,factor: number, origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>): turf.AllGeoJSON {
     return turf.transformScale(features,factor,{origin:origin,mutate:true});
 }

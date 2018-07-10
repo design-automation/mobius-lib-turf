@@ -1,14 +1,14 @@
 /**
- * Turf measurement functions.
+ * Turf HELPER functions.
  * http://turfjs.org/docs/
  */
 
 /**
  *
  */
-import * as turf from "@turf/turf";
+ import * as turf from "@turf/turf";
 
-/**
+ /**
  * Takes one or more features and returns their area in square meters.
  *
  * @param {GeoJSON} features input GeoJSON feature(s)
@@ -20,6 +20,41 @@ import * as turf from "@turf/turf";
  */
 export function area(features: turf.AllGeoJSON): number {
     return turf.area(features);
+}
+
+/*
+
+Bbox**************************************************************************************************************************************
+
+*/
+
+/**
+ * Takes a set of features, calculates the bbox of all input features, and returns a bounding box.
+ *
+ * @param {GeoJSON} features any GeoJSON object
+ * @returns {BBox} bbox extent in [minX, minY, maxX, maxY] order
+ * @example
+ * var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]]);
+ * var bbox = geo.create.bbox(line);
+ * var bboxPolygon = geo.bbox.polygon(bbox);
+ */
+export function bbox(features: turf.AllGeoJSON): turf.BBox {
+    return turf.bbox(features);
+}
+
+/**
+ * Takes a bounding box and calculates the minimum square bounding box that
+ * would contain the input.
+ *
+ * @param {BBox} bbox extent in [west, south, east, north] order
+ * @returns {BBox} a square surrounding `bbox`
+ * @example
+ * var bbox = [-20, -20, -15, 0];
+ * var squared = geo.bbox.square(bbox);
+ *
+ */
+export function bboxSquare(bbox: turf.BBox): turf.BBox {
+    return turf.square(bbox);
 }
 
 /**
@@ -42,76 +77,91 @@ export function bearing(point1: turf.Point, point2: turf.Point, options: {final:
 }
 
 /**
- * Takes a Feature or FeatureCollection and returns the absolute center point of all features.
+ * Returns a random position within a bounding box.
  *
- * @param {GeoJSON} features GeoJSON to be centered
- * @param {Object} options Optional parameters
- * (properties: an Object that is used as the Feature's properties)
- * @returns {Feature<Point>} a Point feature at the absolute center point of all input features
+ * @param {Array<number>} [bbox=[-180, -90, 180, 90]] a bounding box inside of which positions are placed.
+ * @returns {Array<number>} Position [longitude, latitude]
  * @example
- * var features = geo.create.featureCollection([
- *   geo.create.point( [-97.522259, 35.4691]),
- *   geo.create.point( [-97.502754, 35.463455]),
- *   geo.create.point( [-97.508269, 35.463245])
- * ]);
- *
- * var center = geo.calc.center(features);
+ * var position = geo.random.position([-180, -90, 180, 90])
+ * //=position
  */
-export function center(features: turf.AllGeoJSON, options: {properties: object}): turf.Feature<turf.Point> {
-    return turf.center(features, options);
+export function coordsRandom(bbox: turf.BBox): number[] {
+    return turf.randomPosition(bbox);
 }
 
 /**
- * Takes any Feature or a FeatureCollection and returns its [center of mass](https://en.wikipedia.org/wiki/Center_of_mass) using this formula: [Centroid of Polygon](https://en.wikipedia.org/wiki/Centroid#Centroid_of_polygon).
+ * Round number to precision
  *
- * @param {GeoJSON} features GeoJSON to be centered
- * @param {Object} options Optional object to be used as the Feature's properties
- * @returns {Feature<Point>} the center of mass
+ * @param {number} num Number
+ * @param {number} [precision=0] Precision
+ * @returns {number} rounded number
  * @example
- * var polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
+ * geo.coords.round(120.4321)
+ * //=120
  *
- * var center = geo.calc.centerOfMass(polygon);
+ * geo.coords.round(120.4321, 2)
+ * //=120.43
  */
-export function centerOfMass(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
-    return turf.centerOfMass(features, options);
+export function coordsRound(num: number, precision: number): number {
+    return turf.round(num, precision);
 }
 
 /**
- * Takes one or more features and calculates the centroid using the mean of all vertices.
- * This lessens the effect of small islands and artifacts when calculating the centroid of a set of polygons.
+ * Returns True if the second geometry is completely contained by the first geometry.
+ * The interiors of both geometries must intersect and, the interior and boundary of the secondary (geometry b)
+ * must not intersect the exterior of the primary (geometry a).
+ * (Opposite result of within.)
  *
- * @param {GeoJSON} features GeoJSON to be centered
- * @param {Object} options Optional object to be used as the Feature's properties
- * @returns {Feature<Point>} the centroid of the input features
+ * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
+ * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
+ * @returns {boolean} true/false
  * @example
- * var polygon = geo.create.polygon([[[-81, 41], [-88, 36], [-84, 31], [-80, 33], [-77, 39], [-81, 41]]]);
+ * var line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
+ * var point = geo.create.point([1, 2]);
  *
- * var centroid = geo.calc.centroid(polygon);
+ * geo.compare.contains(line, point);
+ * //=true
  */
-export function centroid(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
-    return turf.centroid(features, options);
+export function isContained(feature1: turf.Feature, feature2: turf.Feature): boolean {
+    return turf.booleanContains(feature1, feature2);
 }
 
 /**
- * Takes a Point and calculates the location of a destination point given a distance in degrees, radians, miles, or kilometers; and bearing in degrees. This uses the [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula) to account for global curvature.
+ * Returns true if the intersection results in a geometry whose dimension is one less than
+ * the maximum dimension of the two source geometries and the intersection set is interior to
+ * both source geometries.
  *
- * @param {Coord} originPoint starting point
- * @param {number} distance distance from the origin point in meters
- * @param {number} angle bearing ranging from -180 to 180
- * @param {Object} options Optional parameters
- * (units: "miles", "kilometers", "degrees", or "radians",
- * properties: an Object that is used as the Feature's properties)
- * @returns {Feature<Point>} destination point
+ * Returns true for only multipoint/polygon, multipoint/linestring, linestring/linestring, linestring/polygon, and linestring/multipolygon comparisons.
+ *
+ * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
+ * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
+ * @returns {boolean} true/false
  * @example
- * var point = geo.create.point([-75.343, 39.984]);
- * var distance = 50;
- * var bearing = 90;
- * var options = {units: 'miles'};
+ * var line1 = geo.create.lineString([[-2, 2], [4, 2]]);
+ * var line2 = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
  *
- * var destination = geo.calc.destination(point, distance, bearing, options);
+ * var cross = geo.compare.crosses(line1, line2);
+ * //=true
  */
-export function destination(originPoint: turf.Point, distance: number, angle: number/*, options: {units: turf.Units, properties: object}*/): turf.Feature<turf.Point> {
-    return turf.destination(originPoint, distance/1000, angle);
+export function isCrossed(feature1: turf.Feature, feature2: turf.Feature): boolean {
+    return turf.booleanCrosses(feature1, feature2);
+}
+
+/**
+ * Returns true if the intersection of the two geometries is an empty set.
+ *
+ * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
+ * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
+ * @returns {boolean} true/false
+ * @example
+ * var point = geo.create.point([2, 2]);
+ * var line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
+ *
+ * geo.compare.disjoint(line, point);
+ * //=true
+ */
+export function isDisjoint(feature1: turf.Feature, feature2: turf.Feature): boolean {
+    return turf.booleanDisjoint(feature1, feature2);
 }
 
 /**
@@ -137,40 +187,130 @@ export function distance(point1: turf.Point, point2: turf.Point/*, options: {uni
 }
 
 /**
- * Takes any number of features and returns a rectangular Polygon that encompasses all vertices.
+ * Returns the minimum distance between a Point and a LineString, being the distance from a line the
+ * minimum distance between the point and any segment of the `LineString`.
  *
- * @param {GeoJSON} features input features
- * @returns {Feature<Polygon>} a rectangular Polygon feature that encompasses all vertices
+ * @param {Coord} point Feature or Geometry
+ * @param {Feature<LineString>} line GeoJSON Feature or Geometry
+ * @param {Object} options Optional parameters
+ * (units: "miles", "kilometers", "degrees", or "radians"
+ * mercerator: distance on Mercator if true or WGS84 projection if false)
+ * @returns {number} distance between point and line
  * @example
- * var features = geo.create.featureCollection([
- *   geo.create.point([-75.343, 39.984], {"name": "Location A"}),
- *   geo.create.point([-75.833, 39.284], {"name": "Location B"}),
- *   geo.create.point([-75.534, 39.123], {"name": "Location C"})
- * ]);
+ * var pt = geo.create.point([0, 0]);
+ * var line = geo.create.lineString([[1, 1],[-1, 1]]);
  *
- * var enveloped = geo.calc.envelope(features);
+ * var distance = geo.calc.pointToLineDistance(pt, line, {units: 'miles'});
+ * //=69.11854715938406
  */
-export function envelope(features: turf.AllGeoJSON): turf.Feature<turf.Polygon> {
-    return turf.envelope(features);
+export function distancePointToLine(point: turf.Point, line: turf.LineString/*, options: {units: turf.Units, mercator: boolean}*/): number {
+    return (turf.pointToLineDistance(point, line/*, options*/))*1000;
 }
 
 /**
- * Calculate great circles routes as LineString
+ * Determine whether two geometries of the same type have identical X,Y coordinate values.
+ * See http://edndoc.esri.com/arcsde/9.0/general_topics/understand_spatial_relations.htm
  *
- * @param {Coord} point1 source point feature
- * @param {Coord} point2 destination point feature
- * @param {Object} options Optional parameters
- * (properties: an Object that is used as the Feature's properties, npoints: number of points,
- * offset: offset controls the likelyhood that lines will be split which cross the dateline. The higher the number the more likely.)
- * @returns {Feature<LineString>} great circle line feature
+ * @param {Geometry|Feature} feature1 GeoJSON input
+ * @param {Geometry|Feature} feature2 GeoJSON input
+ * @returns {boolean} true if the objects are equal, false otherwise
  * @example
- * var start = geo.create.point([-122, 48]);
- * var end = geo.create.point([-77, 39]);
+ * var pt1 = geo.create.point([0, 0]);
+ * var pt2 = geo.create.point([0, 0]);
+ * var pt3 = geo.create.point([1, 1]);
  *
- * var greatCircle = geo.calc.greatCircle(start, end, {'name': 'Seattle to DC'});
+ * geo.compare.equal(pt1, pt2);
+ * //= true
+ * geo.compare.equal(pt2, pt3);
+ * //= false
  */
-export function greatCircle(point1: turf.Point, point2: turf.Point, options: {properties: object, npoints: number, offset: number}): turf.Feature<turf.LineString> {
-    return turf.greatCircle(point1, point2, options);
+export function isEqual(feature1: turf.Feature, feature2: turf.Feature): boolean {
+    return turf.booleanEqual(feature1, feature2);
+}
+
+/**
+ * Get all coordinates from any GeoJSON object.
+ *
+ * @param {FeatureCollection|Feature|Geometry} features any GeoJSON object
+ * @returns {Array<Array<number>>} coordinate position array
+ * @example
+ * var features = geo.create.featureCollection([
+ *   geo.create.point([26, 37], {foo: 'bar'}),
+ *   geo.create.point([36, 53], {hello: 'world'})
+ * ]);
+ *
+ * var coords = geo.coords.getCoords(features);
+ * //= [[26, 37], [36, 53]]
+ */
+export function getCoordsAll(features: turf.AllGeoJSON): number[][] {
+    return turf.coordAll(features);
+}
+
+/**
+ * Get Cluster
+ *
+ * @param {FeatureCollection} geojson GeoJSON Features
+ * @param {*} filter Filter used on GeoJSON properties to get Cluster
+ * @returns {FeatureCollection} Single Cluster filtered by GeoJSON Properties
+ * @example
+ * var geojson = geo.create.featureCollection([
+ *     turf.point([0, 0], {'marker-symbol': 'circle'}),
+ *     turf.point([2, 4], {'marker-symbol': 'star'}),
+ *     turf.point([3, 6], {'marker-symbol': 'star'}),
+ *     turf.point([5, 1], {'marker-symbol': 'square'}),
+ *     turf.point([4, 2], {'marker-symbol': 'circle'})
+ * ]);
+ *
+ * // Create a cluster using K-Means (adds `cluster` to GeoJSON properties)
+ * var clustered = geo.cluster.kmeans(geojson);
+ *
+ * // Retrieve first cluster (0)
+ * var cluster = geo.cluster.get(clustered, {cluster: 0});
+ * //= cluster
+ *
+ * // Retrieve cluster based on custom properties
+ * geo.cluster.get(clustered, {'marker-symbol': 'circle'}).length;
+ * //= 2
+ * geo.cluster.get(clustered, {'marker-symbol': 'square'}).length;
+ * //= 1
+ */
+export function getCluster(fcoll: turf.FeatureCollection<turf.GeometryObject>, filter: any): turf.FeatureCollection<turf.GeometryObject> {
+    return turf.getCluster(fcoll, filter);
+}
+
+/**
+ * Takes a ring and return true or false whether or not the ring is clockwise or counter-clockwise.
+ *
+ * @param {Feature<LineString>} line to be evaluated
+ * @returns {boolean} true/false
+ * @example
+ * var clockwiseRing = geo.create.lineString([[0,0],[1,1],[1,0],[0,0]]);
+ * var counterClockwiseRing = geo.create.lineString([[0,0],[1,0],[1,1],[0,0]]);
+ *
+ * geo.misc.isClockwise(clockwiseRing)
+ * //=true
+ * geo.misc.isClockwise(counterClockwiseRing)
+ * //=false
+ */
+export function isClockwise(line: turf.Feature<turf.LineString>): boolean {
+    return turf.booleanClockwise(line);
+}
+
+/**
+ * Returns True if each segment of `line1` is parallel to the correspondent segment of `line2`
+ *
+ * @param {Geometry|Feature<LineString>} line1 GeoJSON Feature or Geometry
+ * @param {Geometry|Feature<LineString>} line2 GeoJSON Feature or Geometry
+ * @returns {boolean} true/false if the lines are parallel
+ * @example
+ * var line1 = geo.create.lineString([[0, 0], [0, 1]]);
+ * var line2 = geo.create.lineString([[1, 0], [1, 1]]);
+ *
+ * geo.compare.parallel(line1, line2);
+ * //=true
+ */
+export function isParallel(line1: turf.LineString, line2: turf.LineString): boolean {
+    return turf.booleanParallel(line1, line2);
 }
 
 /**
@@ -189,216 +329,100 @@ export function len(features: turf.AllGeoJSON/*, options: {units: turf.Units}*/)
 }
 
 /**
- * Takes two points and returns a point midway between them.
- * The midpoint is calculated geodesically, meaning the curvature of the earth is taken into account.
+ * Takes a Point and a Polygon or MultiPolygon and determines if the point resides inside the polygon. The polygon can
+ * be convex or concave. The function accounts for holes.
  *
- * @param {Coord} point1 first point
- * @param {Coord} point2 second point
- * @returns {Feature<Point>} a point midway between `pt1` and `pt2`
- * @example
- * var point1 = geo.create.point([144.834823, -37.771257]);
- * var point2 = geo.create.point([145.14244, -37.830937]);
- *
- * var midpoint = geo.calc.midpoint(point1, point2);
- */
-export function midpoint(point1: turf.Point, point2: turf.Point): turf.Feature<turf.Point> {
-    return turf.midpoint(point1, point2);
-}
-
-/**
- * Takes a reference point and a FeatureCollection of Features
- * with Point geometries and returns the
- * point from the FeatureCollection closest to the reference. This calculation
- * is geodesic.
- *
- * @param {Coord} targetPoint the reference point
- * @param {FeatureCollection<Point>} points against input point set
- * @returns {Feature<Point>} the closest point in the set to the reference point
- * @example
- * var targetPoint = geo.create.point([28.965797, 41.010086], {"marker-color": "#0F0"});
- * var points = geo.create.featureCollection([
- *     geo.create.point([28.973865, 41.011122]),
- *     geo.create.point([28.948459, 41.024204]),
- *     geo.create.point([28.938674, 41.013324])
- * ]);
- *
- * var nearest = geo.calc.nearestPoint(targetPoint, points);
- */
-export function nearestPoint(targetPoint: turf.Point, points: turf.FeatureCollection<turf.Point>): turf.Feature<turf.Point> {
-    return turf.nearestPoint(targetPoint, points);
-}
-
-/**
- * Takes a Point and a LineString and calculates the closest Point on the (Multi)LineString.
- *
- * @param {Geometry|Feature<LineString|MultiLineString>} lines lines to snap to
- * @param {Geometry|Feature<Point>|number[]} point point to snap from
- * @param {Object}  options Optional parameters
- * (units: "miles", "kilometers"
- * "degrees", or "radians")
- * @returns {Feature<Point>} closest point on the `line` to `point`. The properties object will contain three values: `index`: closest point was found on nth line part, `dist`: distance between pt and the closest point, `location`: distance along the line between start and the closest point.
- * @example
- * var line = geo.create.lineString([
- *     [-77.031669, 38.878605],
- *     [-77.029609, 38.881946],
- *     [-77.020339, 38.884084],
- *     [-77.025661, 38.885821],
- *     [-77.021884, 38.889563],
- *     [-77.019824, 38.892368]
- * ]);
- * var pt = geo.create.point([-77.037076, 38.884017]);
- *
- * var snapped = geo.calc.nearestPointOnLine(line, pt, {units: 'miles'});
- */
-export function nearestPointOnLine(lines: turf.LineString|turf.MultiLineString, point: turf.Point/*, options: {units: turf.Units}*/): turf.Feature<turf.Point> {
-    let pt: turf.Feature<turf.Point> =  turf.nearestPointOnLine(lines, point/*, options*/);
-    pt.properties.dist = pt.properties.dist * 1000;
-    return pt;
-}
-
-/**
- * Returns the minimum distance between a Point and a LineString, being the distance from a line the
- * minimum distance between the point and any segment of the `LineString`.
- *
- * @param {Coord} point Feature or Geometry
- * @param {Feature<LineString>} line GeoJSON Feature or Geometry
+ * @param {Coord} point input point
+ * @param {Feature<Polygon|MultiPolygon>} polygon input polygon or multipolygon
  * @param {Object} options Optional parameters
- * (units: "miles", "kilometers", "degrees", or "radians"
- * mercerator: distance on Mercator if true or WGS84 projection if false)
- * @returns {number} distance between point and line
+ * (ignoreBoundary: True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.)
+ * @param {boolean} ignoreBoundary True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.
+ * @returns {boolean} `true` if the Point is inside the Polygon; `false` if the Point is not inside the Polygon
+ * @example
+ * var pt = geo.create.point([-77, 44]);
+ * var poly = geo.create.polygon([[
+ *   [-81, 41],
+ *   [-81, 47],
+ *   [-72, 47],
+ *   [-72, 41],
+ *   [-81, 41]
+ * ]]);
+ *
+ * geo.compare.pointInPolygon(pt, poly);
+ * //= true
+ */
+export function isPointInPolygon(point: turf.Point, polygon: turf.Polygon, ignoreBoundary: boolean): boolean {
+    return turf.booleanPointInPolygon(point, polygon, {ignoreBoundary: ignoreBoundary});
+}
+
+/**
+ * Returns true if a point is on a line. Accepts a optional parameter to ignore the start and end vertices of the linestring.
+ *
+ * @param {Coord} point GeoJSON Point
+ * @param {Feature<LineString>} line GeoJSON LineString
+ * @param {boolean} ignoreEndVertices ignore the start and end vertices if true.
+ * @param {Object} options Optional parameters
+ * (ignoreEndVertices: ignore the start and end vertices if true.)
+ * @returns {boolean} true/false
  * @example
  * var pt = geo.create.point([0, 0]);
- * var line = geo.create.lineString([[1, 1],[-1, 1]]);
- *
- * var distance = geo.calc.pointToLineDistance(pt, line, {units: 'miles'});
- * //=69.11854715938406
+ * var line = geo.create.lineString([[-1, -1],[1, 1],[1.5, 2.2]]);
+ * var isPointOnLine = geo.compare.pointOnLine(pt, line);
+ * //=true
  */
-export function pointToLineDistance(point: turf.Point, line: turf.LineString/*, options: {units: turf.Units, mercator: boolean}*/): number {
-    return (turf.pointToLineDistance(point, line/*, options*/))*1000;
+export function isPointOnLine(point: turf.Point, line: turf.LineString, ignoreEndVertices: boolean): boolean {
+    return turf.booleanPointOnLine(point, line, {ignoreEndVertices: ignoreEndVertices});
 }
 
 /**
- * Finds the tangents of a Polygon|(Multi)Polygon from a Point.
+ * Returns true if the first geometry is completely within the second geometry.
+ * The interiors of both geometries must intersect and, the interior and boundary of the primary (geometry a)
+ * must not intersect the exterior of the secondary (geometry b).
+ * (Opposite result of the contains.)
  *
- * @param {Coord} point to calculate the tangent points from
- * @param {Feature<Polygon|MultiPolygon>} polygon to get tangents from
- * @returns {FeatureCollection<Point>} Feature Collection containing the two tangent points
+ * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
+ * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
+ * @returns {boolean} true/false
  * @example
- * var polygon = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
- * var point = geo.create.point([61, 5]);
+ * var line = geo.create.lineString([[1, 1], [1, 2], [1, 3], [1, 4]]);
+ * var point = geo.create.point([1, 2]);
  *
- * var tangents = geo.calc.polygonTangents(point, polygon)
+ * geo.compare.within(point, line);
+ * //=true
  */
-export function polygonTangents(point: turf.Point, polygon: turf.Polygon): turf.FeatureCollection<turf.Point> {
-    return turf.polygonTangents(point, polygon);
+export function isWithin(feature1: turf.Feature, feature2: turf.Feature): boolean {
+    return turf.booleanWithin(feature1, feature2);
 }
 
-// /**
-//  * Takes two points and finds the bearing angle between them along a Rhumb line
-//  * i.e. the angle measured in degrees start the north line (0 degrees)
-//  *
-//  * @param {Coord} start starting Point
-//  * @param {Coord} end ending Point
-//  * @param {Object} options Optional parameters
-//  * (final: calculates the final bearing if true)
-//  * @returns {number} bearing from north in decimal degrees, between -180 and 180 degrees (positive clockwise)
-//  * @example
-//  * var point1 = geo.create.point([-75.343, 39.984], {"marker-color": "#F00"});
-//  * var point2 = geo.create.point([-75.534, 39.123], {"marker-color": "#00F"});
-//  *
-//  * var bearing = geo.calc.rhumbBearing(point1, point2);
-//  */
-// export function rhumbBearing(start: turf.Point, end: turf.Point, options: {final: boolean}): number {
-//     return turf.rhumbBearing(start, end, options);
-// }
-
-// *
-//  * Returns the destination Point having travelled the given distance along a Rhumb line from the
-//  * origin Point with the (varant) given bearing.
-//  *
-//  * @param {Coord} origin starting point
-//  * @param {number} dist distance from the starting point
-//  * @param {number} angle varant bearing angle ranging from -180 to 180 degrees from north
-//  * @param {Object} options Optional parameters
-//  * (units: "miles", "kilometers", "degrees", or "radians",
-//  * properties: an Object that is used as the Feature's properties)
-//  * @returns {Feature<Point>} Destination point.
-//  * @example
-//  * var pt = geo.create.point([-75.343, 39.984], {"marker-color": "F00"});
-//  * var distance = 50;
-//  * var bearing = 90;
-//  * var options = {units: 'miles'};
-//  *
-//  * var destination = geo.calc.rhumbDestination(pt, distance, bearing, options);
- 
-// export function rhumbDestination(origin: turf.Point, dist: number, angle: number, options: {units: turf.Units, properties: object}): turf.Feature<turf.Point> {
-//     return turf.rhumbDestination(origin, dist, angle, options);
-// }
-
-// /**
-//  * Calculates the distance along a rhumb line between two Point|points in degrees, radians,
-//  * miles, or kilometers.
-//  *
-//  * @param {Coord} from origin point
-//  * @param {Coord} to destination point
-//  * @param {Object} options Optional parameters
-//  * (units: "miles", "kilometers", "degrees", or "radians")
-//  * @returns {number} distance between the two points
-//  * @example
-//  * var from = geo.create.point([-75.343, 39.984]);
-//  * var to = geo.create.point([-75.534, 39.123]);
-//  * var options = {units: 'miles'};
-//  *
-//  * var distance = geo.calc.rhumbDistance(from, to, options);
-//  */
-// export function rhumbDistance(from: turf.Point, to: turf.Point, options: {units: turf.Units}): number {
-//     return turf.rhumbDistance(from, to, options);
-// }
 
 /**
- * Returns the shortest LineString path from start point to end point without colliding with
- * any Feature in FeatureCollection<Polygon> obstacles
+ * Takes a triangular plane as a Polygon
+ * and a Point within that triangle and returns the z-value
+ * at that point. The Polygon should have properties `a`, `b`, and `c`
+ * that define the values at its three corners. Alternatively, the z-values
+ * of each triangle point can be provided by their respective 3rd coordinate
+ * if their values are not provided as properties.
  *
- * @param {Coord} point1 point
- * @param {Coord} point2 point
- * @param {Object} options Optional parameters 
- * (obstacles: areas which path cannot travel, 
- * minDistance: minimum distance between shortest path and obstacles, 
- * units: "miles", "kilometers", "degrees", or "radians", 
- * resolution: distance between matrix points on which the path will be calculated)
- * @param {FeatureCollection<Polygon>} fcoll areas which path cannot travel
- * @param {number} minDistance minimum distance between shortest path and obstacles
- * @param {number} resolution distance between matrix points on which the path will be calculated
- * @returns {Feature<LineString>} shortest path between start and end
+ * @param {Coord} point the Point for which a z-value will be calculated
+ * @param {Feature<Polygon>} triangle a Polygon feature with three vertices
+ * @returns {number} the z-value for `interpolatedPoint`
  * @example
- * var start = [-5, -6];
- * var end = [9, -6];
- * var options = {
- *   obstacles: geo.create.polygon([[[0, -7], [5, -7], [5, -3], [0, -3], [0, -7]]])
- * };
+ * var point = geo.create.point([-75.3221, 39.529]);
+ * // "a", "b", and "c" values represent the values of the coordinates in order.
+ * var triangle = geo.create.polygon([[
+ *   [-75.1221, 39.57],
+ *   [-75.58, 39.18],
+ *   [-75.97, 39.86],
+ *   [-75.1221, 39.57]
+ * ]], {
+ *   "a": 11,
+ *   "b": 122,
+ *   "c": 44
+ * });
  *
- * var path = geo.calc.shortestPath(start, end, options);
+ * var zValue = geo.ipolate.planepoint(point, triangle);
+ * point.properties.zValue = zValue;
  */
-export function shortestPath(point1: turf.Point, point2: turf.Point, fcoll: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number): turf.Feature<turf.LineString> {
-    return turf.shortestPath(point1, point2, {obstacles: fcoll, minDistance: minDistance/1000, resolution: resolution});
-}
-
-/**
- * Takes a FeatureCollection of points, and a bounding box, and returns a FeatureCollection
- * of Voronoi polygons.
- *
- * The Voronoi algorithim used comes from the d3-voronoi package.
- *
- * @param {FeatureCollection<Point>} points to find the Voronoi polygons around.
- * @param {Object} bbox Optional clipping rectangle, in [minX, minY, maxX, MaxY] order.
- * @returns {FeatureCollection<Polygon>} a set of polygons, one per input point.
- * @example
- * var options = {
- *   bbox: [-70, 40, -60, 60]
- * };
- * var points = geo.random.point(100, options);
- * var voronoiPolygons = geo.calc.voronoi(points, options);
- */
-export function voronoi(points: turf.FeatureCollection<turf.Point>, bbox: turf.BBox): turf.FeatureCollection<turf.Polygon> {
-    return turf.voronoi(points, bbox);
+export function planePoint(point: turf.Point,triangle: turf.Feature<turf.Polygon>): number {
+    return turf.planepoint(point,triangle);
 }
