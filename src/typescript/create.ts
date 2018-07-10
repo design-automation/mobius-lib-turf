@@ -19,7 +19,7 @@
  *
  * var lineCloned = geo.feature.clone(line);
  */
-export function featureClone(features: turf.AllGeoJSON): turf.AllGeoJSON {
+export function featureByClone(features: turf.AllGeoJSON): turf.AllGeoJSON {
     return turf.clone(features);
 }
 
@@ -35,7 +35,7 @@ export function featureClone(features: turf.AllGeoJSON): turf.AllGeoJSON {
  *
  * var sample = geo.misc.sample(points, 5);
  */
-export function featuresSample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
+export function featuresBySample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
     return turf.sample(fcoll, num);
 }
 
@@ -53,7 +53,7 @@ export function featuresSample(fcoll: turf.FeatureCollection<turf.GeometryObject
  * var clipped = geo.bbox.clip(poly, bbox);
  *
  */
-export function featureBboxClip(feature: turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon, bbox: turf.BBox): turf.Feature {
+export function featureByBboxClip(feature: turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon, bbox: turf.BBox): turf.Feature {
     return turf.bboxClip(feature, bbox);
 }
 
@@ -71,41 +71,8 @@ export function featureBboxClip(feature: turf.LineString|turf.MultiLineString|tu
  *
  * var flatten = geo.convert.flatten(multiGeometry);
  */
-export function featuresFlatten(geojson: turf.AllGeoJSON): turf.FeatureCollection {
+export function featuresByFlatten(geojson: turf.AllGeoJSON): turf.FeatureCollection {
     return turf.flatten(geojson);
-}
-
-/**
- * Takes two Polygon and finds their intersection. If they share a border, returns the border; if they don't intersect, returns undefined.
- *
- * @param {Feature<Polygon>} poly1 the first polygon
- * @param {Feature<Polygon>} poly2 the second polygon
- * @returns {Feature|null} returns a feature representing the point(s) they share (in case of a Point  or MultiPoint), the borders they share (in case of a LineString or a MultiLineString), the area they share (in case of Polygon or MultiPolygon). If they do not share any point, returns `null`.
- * @example
- * var poly1 = geo.create.polygon([[
- *   [-122.801742, 45.48565],
- *   [-122.801742, 45.60491],
- *   [-122.584762, 45.60491],
- *   [-122.584762, 45.48565],
- *   [-122.801742, 45.48565]
- * ]]);
- *
- * var poly2 = geo.create.polygon([[
- *   [-122.520217, 45.535693],
- *   [-122.64038, 45.553967],
- *   [-122.720031, 45.526554],
- *   [-122.669906, 45.507309],
- *   [-122.723464, 45.446643],
- *   [-122.532577, 45.408574],
- *   [-122.487258, 45.477466],
- *   [-122.520217, 45.535693]
- * ]]);
- *
- * var intersection = geo.bool.intersect(poly1, poly2);
- *
- */
-export function featureIntersect(poly1: turf.Polygon, poly2: turf.Polygon): turf.Feature|null {
-    return turf.intersect(poly1, poly2);
 }
 
 /*
@@ -136,7 +103,7 @@ Grids***************************************************************************
  *
  * var hexgrid = geo.grid.hexGrid(bbox, cellSide, options);
  */
-export function polygonsHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.hexGrid(bbox,cellSide/1000,{mask:mask});
 }
 
@@ -162,7 +129,7 @@ export function polygonsHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Fea
  *
  * var hexgrid = geo.grid.hexGrid(bbox, cellSide, options);
  */
-export function polygonsTriHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByTriHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.hexGrid(bbox,cellSide/1000,{mask: mask, triangles: true});
 }
 
@@ -185,7 +152,7 @@ export function polygonsTriHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.
  *
  * var grid = geo.grid.pointGrid(extent, cellSide, options);
  */
-export function pointsSquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
+export function pointsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
     return turf.pointGrid(bbox,cellSide/1000,{mask: mask});
 }
 
@@ -207,7 +174,7 @@ export function pointsSquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Featu
  *
  * var squareGrid = geo.grid.squareGrid(bbox, cellSide, options);
  */
-export function polygonsSquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.squareGrid(bbox,cellSide/1000,{mask: mask});
 }
 
@@ -229,7 +196,7 @@ export function polygonsSquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Fea
  *
  * var triangleGrid = geo.grid.triangleGrid(bbox, cellSide, options);
  */
-export function polygonsTriGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByTriGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.triangleGrid(bbox,cellSide/1000,{mask: mask});
 }
 
@@ -255,7 +222,7 @@ Lines***************************************************************************
  * //=linestring1
  * //=linestring2
  */
-export function line(coords: Array<Array<number>>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.LineString> {
+export function lineByCoords(coords: Array<Array<number>>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.LineString> {
     return turf.lineString(coords/*, properties, options*/);
 }
 
@@ -280,7 +247,7 @@ export function line(coords: Array<Array<number>>/*, properties: object, options
  *
  * var arc = geo.create.arc(center, radius, bearing1, bearing2);
  */
-export function lineArc(center: turf.Point, radius: number, bearing1: number, bearing2: number, steps: number): turf.Feature<turf.LineString> {
+export function lineByArc(center: turf.Point, radius: number, bearing1: number, bearing2: number, steps: number): turf.Feature<turf.LineString> {
     return turf.lineArc(center, radius/1000, bearing1, bearing2, {steps: steps});
 }
 
@@ -310,7 +277,7 @@ export function lineArc(center: turf.Point, radius: number, bearing1: number, be
  *
  * var curved = geo.line.bezierSpline(line);
  */
-export function lineBezier(line: turf.LineString,resolution: number,sharpness: number): turf.Feature<turf.LineString> {
+export function lineByBezier(line: turf.LineString,resolution: number,sharpness: number): turf.Feature<turf.LineString> {
     return turf.bezierSpline(line,{resolution:resolution, sharpness:sharpness});
 }
 
@@ -330,7 +297,7 @@ export function lineBezier(line: turf.LineString,resolution: number,sharpness: n
  *
  * var chunk = geo.line.chunk(line, 15, {units: 'miles'});
  */
-export function lineChunk(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>|turf.Feature<turf.LineString|turf.MultiLineString>,length: number,reverse: boolean): turf.FeatureCollection<turf.LineString> {
+export function linesByChunk(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>|turf.Feature<turf.LineString|turf.MultiLineString>,length: number,reverse: boolean): turf.FeatureCollection<turf.LineString> {
     return turf.lineChunk(lines,length/1000,{reverse:reverse});
 }
 
@@ -349,7 +316,7 @@ export function lineChunk(lines: turf.FeatureCollection<turf.LineString|turf.Mul
  *
  * var greatCircle = geo.calc.greatCircle(start, end, {'name': 'Seattle to DC'});
  */
-export function lineGreatCircle(point1: turf.Point, point2: turf.Point, options: {properties: object, npoints: number, offset: number}): turf.Feature<turf.LineString> {
+export function lineByGreatCircle(point1: turf.Point, point2: turf.Point, options: {properties: object, npoints: number, offset: number}): turf.Feature<turf.LineString> {
     return turf.greatCircle(point1, point2, options);
 }
 
@@ -377,7 +344,7 @@ export function lineGreatCircle(point1: turf.Point, point2: turf.Point, options:
  *
  * var lines = geo.ipolate.isolines(pointGrid, breaks, {zProperty: 'temperature'});
  */
-export function linesIso(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiLineString> {
+export function linesByIso(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiLineString> {
     return turf.isolines(pointGrid,breaks,options);
 }
 
@@ -394,7 +361,7 @@ export function linesIso(pointGrid: turf.FeatureCollection<turf.Point>,breaks: n
  *
  * var offsetLine = geo.line.offset(line, 2, {units: 'miles'});
  */
-export function lineOffset(line: turf.Feature<turf.LineString|turf.MultiLineString>,distance: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString|turf.MultiLineString> {
+export function lineByOffset(line: turf.Feature<turf.LineString|turf.MultiLineString>,distance: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString|turf.MultiLineString> {
     return turf.lineOffset(line,distance/1000/*,options*/);
 }
 
@@ -413,7 +380,7 @@ export function lineOffset(line: turf.Feature<turf.LineString|turf.MultiLineStri
  *
  * var overlapping = geo.line.overlap(line1, line2);
  */
-export function lineOverlap(line1: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,line2: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,tolerance: number): turf.FeatureCollection<turf.LineString> {
+export function linesByOverlap(line1: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,line2: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,tolerance: number): turf.FeatureCollection<turf.LineString> {
     return turf.lineOverlap(line1,line2,{tolerance:tolerance});
 }
 
@@ -426,7 +393,7 @@ export function lineOverlap(line1: turf.Feature<turf.LineString|turf.MultiLineSt
  * var polygon = geo.create.polygon([[[-50, 5], [-40, -10], [-50, -10], [-40, 5], [-50, 5]]]);
  * var segments = geo.line.segment(polygon);
  */
-export function lineSegment(feature: turf.FeatureCollection<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
+export function linesBySegment(feature: turf.FeatureCollection<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
     return turf.lineSegment(feature);
 }
 
@@ -454,7 +421,7 @@ export function lineSegment(feature: turf.FeatureCollection<turf.LineString|turf
  *
  * var path = geo.calc.shortestPath(start, end, options);
  */
-export function lineShortestPath(point1: turf.Point, point2: turf.Point, fcoll: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number): turf.Feature<turf.LineString> {
+export function lineByShortestPath(point1: turf.Point, point2: turf.Point, fcoll: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number): turf.Feature<turf.LineString> {
     return turf.shortestPath(point1, point2, {obstacles: fcoll, minDistance: minDistance/1000, resolution: resolution});
 }
 
@@ -483,7 +450,7 @@ export function lineShortestPath(point1: turf.Point, point2: turf.Point, fcoll: 
  *
  * var sliced = geo.line.slice(start, stop, line);
  */
-export function lineSlice(point1: turf.Point,point2: turf.Point,line: turf.Feature<turf.LineString>): turf.Feature<turf.LineString> {
+export function lineBySlice(point1: turf.Point,point2: turf.Point,line: turf.Feature<turf.LineString>): turf.Feature<turf.LineString> {
     return turf.lineSlice(point1,point2,line);
 }
 
@@ -506,7 +473,7 @@ export function lineSlice(point1: turf.Point,point2: turf.Point,line: turf.Featu
  * var stop = 25;
  * var sliced = geo.line.sliceAlong(line, start, stop, {units: 'miles'});
  */
-export function lineSliceAlong(line: turf.Feature<turf.LineString>,startDist: number,stopDist: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString> {
+export function lineBySliceAlong(line: turf.Feature<turf.LineString>,startDist: number,stopDist: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString> {
     return turf.lineSliceAlong(line,startDist/1000,stopDist/1000/*,options*/);
 }
 
@@ -522,7 +489,7 @@ export function lineSliceAlong(line: turf.Feature<turf.LineString>,startDist: nu
  *
  * var split = geo.line.split(line, splitter);
  */
-export function lineSplit(line: turf.Feature<turf.LineString>,splitter: turf.Feature<turf.Point|turf.MultiPoint|turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
+export function linesBySplit(line: turf.Feature<turf.LineString>,splitter: turf.Feature<turf.Point|turf.MultiPoint|turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
     return turf.lineSplit(line,splitter);
 }
 
@@ -538,7 +505,7 @@ export function lineSplit(line: turf.Feature<turf.LineString>,splitter: turf.Fea
  *
  * var line = geo.convert.polygonToLine(poly);
  */
-export function linesPolygon(polygon: turf.Polygon|turf.MultiPolygon/*, options: {properties: object}*/): turf.FeatureCollection|turf.Feature<turf.LineString|turf.MultiLineString> {
+export function linesByPolygon(polygon: turf.Polygon|turf.MultiPolygon/*, options: {properties: object}*/): turf.FeatureCollection|turf.Feature<turf.LineString|turf.MultiLineString> {
     return turf.polygonToLine(polygon/*, options*/);
 }
 
@@ -560,7 +527,7 @@ export function linesPolygon(polygon: turf.Polygon|turf.MultiPolygon/*, options:
  * var lineStrings = geo.random.linestring(25, {bbox: [-180, -90, 180, 90]})
  * //=lineStrings
  */
-export function linesRandom(num: number,bbox: turf.BBox,num_vertices: number,max_length: number, max_rotation: number): turf.FeatureCollection<turf.LineString> {
+export function linesByRandom(num: number,bbox: turf.BBox,num_vertices: number,max_length: number, max_rotation: number): turf.FeatureCollection<turf.LineString> {
     max_rotation = max_rotation/180*Math.PI;
     return turf.randomLineString(num,{bbox:bbox,num_vertices:num_vertices,max_length:max_length,max_rotation:max_rotation});
 }
@@ -581,7 +548,7 @@ export function linesRandom(num: number,bbox: turf.BBox,num_vertices: number,max
  * var polygons = geo.random.polygon(25, {bbox: [-180, -90, 180, 90]})
  * //=polygons
  */
-export function linesRandomPolygon(num: number,bbox: turf.BBox,num_vertices:number,max_radial_length:number): turf.FeatureCollection<turf.LineString> {
+export function linesByRandomPolygon(num: number,bbox: turf.BBox,num_vertices:number,max_radial_length:number): turf.FeatureCollection<turf.LineString> {
     return turf.randomPolygon(num,{bbox:bbox,num_vertices:num_vertices,max_radial_length:max_radial_length});
 }
 
@@ -605,7 +572,7 @@ Points**************************************************************************
  *
  * //=point
  */
-export function point(coords: Array<number>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.Point> {
+export function pointByCoords(coords: Array<number>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.Point> {
     return turf.point(coords/*, properties, options*/);
 }
 
@@ -623,7 +590,7 @@ export function point(coords: Array<number>/*, properties: object, options: {bbo
  *
  * var along = geo.line.along(line, 200, options);
  */
-export function pointAlong(line: turf.LineString,distance: number,options: {units: turf.Units}): turf.Feature<turf.Point> {
+export function pointByAlong(line: turf.LineString,distance: number,options: {units: turf.Units}): turf.Feature<turf.Point> {
     return turf.along(line,distance/1000,options);
 }
 
@@ -643,7 +610,7 @@ export function pointAlong(line: turf.LineString,distance: number,options: {unit
  *
  * var center = geo.calc.center(features);
  */
-export function pointCenter(features: turf.AllGeoJSON, options: {properties: object}): turf.Feature<turf.Point> {
+export function pointByCenter(features: turf.AllGeoJSON, options: {properties: object}): turf.Feature<turf.Point> {
     return turf.center(features, options);
 }
 
@@ -658,7 +625,7 @@ export function pointCenter(features: turf.AllGeoJSON, options: {properties: obj
  *
  * var center = geo.calc.centerOfMass(polygon);
  */
-export function pointCenterOfMass(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
+export function pointByCenterOfMass(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
     return turf.centerOfMass(features, options);
 }
 
@@ -674,7 +641,7 @@ export function pointCenterOfMass(features: turf.AllGeoJSON, options: object): t
  *
  * var centroid = geo.calc.centroid(polygon);
  */
-export function pointCentroid(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
+export function pointByCentroid(features: turf.AllGeoJSON, options: object): turf.Feature<turf.Point> {
     return turf.centroid(features, options);
 }
 
@@ -696,7 +663,7 @@ export function pointCentroid(features: turf.AllGeoJSON, options: object): turf.
  *
  * var destination = geo.calc.destination(point, distance, bearing, options);
  */
-export function pointDestination(originPoint: turf.Point, distance: number, angle: number/*, options: {units: turf.Units, properties: object}*/): turf.Feature<turf.Point> {
+export function pointByDestination(originPoint: turf.Point, distance: number, angle: number/*, options: {units: turf.Units, properties: object}*/): turf.Feature<turf.Point> {
     return turf.destination(originPoint, distance/1000, angle);
 }
 
@@ -711,7 +678,7 @@ export function pointDestination(originPoint: turf.Point, distance: number, angl
  * var line2 = geo.create.lineString([[123, -18], [131, -14]]);
  * var intersects = geo.line.intersect(line1, line2);
  */
-export function pointIntersect(line1: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>,line2: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>): turf.FeatureCollection<turf.Point> {
+export function pointByIntersect(line1: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>,line2: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>): turf.FeatureCollection<turf.Point> {
     return turf.lineIntersect(line1,line2);
 }
 
@@ -731,7 +698,7 @@ export function pointIntersect(line1: turf.FeatureCollection<turf.LineString>|tu
  *
  * var kinks = geo.misc.kinks(poly);
  */
-export function pointsKinks(feature: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
+export function pointsByKinks(feature: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
     return turf.kinks(feature);
 }
 
@@ -748,7 +715,7 @@ export function pointsKinks(feature: turf.Feature<turf.LineString|turf.MultiLine
  *
  * var midpoint = geo.calc.midpoint(point1, point2);
  */
-export function pointMid(point1: turf.Point, point2: turf.Point): turf.Feature<turf.Point> {
+export function pointByMid(point1: turf.Point, point2: turf.Point): turf.Feature<turf.Point> {
     return turf.midpoint(point1, point2);
 }
 
@@ -771,7 +738,7 @@ export function pointMid(point1: turf.Point, point2: turf.Point): turf.Feature<t
  *
  * var nearest = geo.calc.nearestPoint(targetPoint, points);
  */
-export function pointNearest(targetPoint: turf.Point, points: turf.FeatureCollection<turf.Point>): turf.Feature<turf.Point> {
+export function pointByNearest(targetPoint: turf.Point, points: turf.FeatureCollection<turf.Point>): turf.Feature<turf.Point> {
     return turf.nearestPoint(targetPoint, points);
 }
 
@@ -797,7 +764,7 @@ export function pointNearest(targetPoint: turf.Point, points: turf.FeatureCollec
  *
  * var pointOnPolygon = geo.feature.pointOn(polygon);
  */
-export function pointOnFeature(features: turf.AllGeoJSON): turf.Feature<turf.Point> {
+export function pointByOnFeature(features: turf.AllGeoJSON): turf.Feature<turf.Point> {
     return turf.pointOnFeature(features);
 }
 
@@ -823,33 +790,33 @@ export function pointOnFeature(features: turf.AllGeoJSON): turf.Feature<turf.Poi
  *
  * var snapped = geo.calc.nearestPointOnLine(line, pt, {units: 'miles'});
  */
-export function pointOnLineNearest(lines: turf.LineString|turf.MultiLineString, point: turf.Point/*, options: {units: turf.Units}*/): turf.Feature<turf.Point> {
+export function pointByNearestOnLine(lines: turf.LineString|turf.MultiLineString, point: turf.Point/*, options: {units: turf.Units}*/): turf.Feature<turf.Point> {
     let pt: turf.Feature<turf.Point> =  turf.nearestPointOnLine(lines, point/*, options*/);
     pt.properties.dist = pt.properties.dist * 1000;
     return pt;
 }
 
-/**
- * Takes a set of Point|points and partition them into clusters according to [DBSCAN's data clustering algorithm] (https://en.wikipedia.org/wiki/DBSCAN).
- *
- * @param {FeatureCollection<Point>} points to be clustered
- * @param {number} maxDistance Maximum Distance between any point of the cluster to generate the clusters (kilometers only)
- * @param {Object} options Optional parameters
- * (units: "miles", "kilometers", "degrees", or "radians", 
- * minPoints: Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'.)
- * @param {number} minPoints Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'
- * @returns {FeatureCollection<Point>} Clustered Points with an additional two properties associated to each Feature:
- * - {number} cluster - the associated clusterId
- * - {string} dbscan - type of point it has been classified as ('core'|'edge'|'noise')
- * @example
- * // create random points with random z-values in their properties
- * var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
- * var maxDistance = 100;
- * var clustered = geo.cluster.dbscan(points, maxDistance);
- */
-export function pointsClusterDBscan(points: turf.FeatureCollection<turf.Point>, maxDistance: number, minPoints: number): turf.FeatureCollection<turf.Point> {
-    return turf.clustersDbscan(points, maxDistance/1000, {minPoints: minPoints});
-}
+// *
+//  * Takes a set of Point|points and partition them into clusters according to [DBSCAN's data clustering algorithm] (https://en.wikipedia.org/wiki/DBSCAN).
+//  *
+//  * @param {FeatureCollection<Point>} points to be clustered
+//  * @param {number} maxDistance Maximum Distance between any point of the cluster to generate the clusters (kilometers only)
+//  * @param {Object} options Optional parameters
+//  * (units: "miles", "kilometers", "degrees", or "radians", 
+//  * minPoints: Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'.)
+//  * @param {number} minPoints Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'
+//  * @returns {FeatureCollection<Point>} Clustered Points with an additional two properties associated to each Feature:
+//  * - {number} cluster - the associated clusterId
+//  * - {string} dbscan - type of point it has been classified as ('core'|'edge'|'noise')
+//  * @example
+//  * // create random points with random z-values in their properties
+//  * var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
+//  * var maxDistance = 100;
+//  * var clustered = geo.cluster.dbscan(points, maxDistance);
+ 
+// export function pointsClusterDBscan(points: turf.FeatureCollection<turf.Point>, maxDistance: number, minPoints: number): turf.FeatureCollection<turf.Point> {
+//     return turf.clustersDbscan(points, maxDistance/1000, {minPoints: minPoints});
+// }
 
  /**
  * Takes a feature or set of features and returns all positions as Point|points.
@@ -862,7 +829,7 @@ export function pointsClusterDBscan(points: turf.FeatureCollection<turf.Point>, 
  *
  * var explode = geo.convert.explode(polygon);
  */
-export function pointsExplode(features: turf.AllGeoJSON): turf.FeatureCollection<turf.Point> {
+export function pointsByExplode(features: turf.AllGeoJSON): turf.FeatureCollection<turf.Point> {
     return turf.explode(features);
 }
 
@@ -890,7 +857,7 @@ export function pointsExplode(features: turf.AllGeoJSON): turf.FeatureCollection
  * var options = {gridType: 'points', property: 'solRad', units: 'miles'};
  * var grid = geo.ipolate.interpolate(points, 100, options);
  */
-export function pointsInterp(points: turf.FeatureCollection<turf.Point>,cellSize: number, gridType: turf.Grid, property: string, weight: number): turf.FeatureCollection<turf.Point|turf.Polygon> {
+export function pointsByInterp(points: turf.FeatureCollection<turf.Point>,cellSize: number, gridType: turf.Grid, property: string, weight: number): turf.FeatureCollection<turf.Point|turf.Polygon> {
     return turf.interpolate(points,cellSize/1000,{gridType:gridType, property:property, weight:weight});
 }
 
@@ -906,7 +873,7 @@ export function pointsInterp(points: turf.FeatureCollection<turf.Point>,cellSize
  *
  * var tangents = geo.calc.polygonTangents(point, polygon)
  */
-export function pointsPolygonTangents(point: turf.Point, polygon: turf.Polygon): turf.FeatureCollection<turf.Point> {
+export function pointsByPolygonTangents(point: turf.Point, polygon: turf.Polygon): turf.FeatureCollection<turf.Point> {
     return turf.polygonTangents(point, polygon);
 }
 
@@ -922,7 +889,7 @@ export function pointsPolygonTangents(point: turf.Point, polygon: turf.Polygon):
  * var points = geo.random.point(25, {bbox: [-180, -90, 180, 90]})
  * //=points
  */
-export function pointsRandom(num: number,bbox: turf.BBox): turf.FeatureCollection<turf.Point> {
+export function pointsByRandom(num: number,bbox: turf.BBox): turf.FeatureCollection<turf.Point> {
     return turf.randomPoint(num,{bbox:bbox});
 }
 
@@ -946,7 +913,7 @@ Polygons************************************************************************
  *
  * //=polygon
  */
-export function polygon(coords: Array<Array<Array<number>>>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.Polygon> {
+export function polygonByCoords(coords: Array<Array<Array<number>>>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.Polygon> {
     return turf.polygon(coords/*, properties, options*/);
 }
 
@@ -961,7 +928,7 @@ export function polygon(coords: Array<Array<Array<number>>>/*, properties: objec
  * var poly = geo.bbox.polygon(bbox);
  *
  */
-export function polygonBbox(bbox: turf.BBox): turf.Feature {
+export function polygonByBbox(bbox: turf.BBox): turf.Feature {
     return turf.bboxPolygon(bbox);
 }
 
@@ -985,7 +952,7 @@ export function polygonBbox(bbox: turf.BBox): turf.Feature {
  * var point = geo.create.point([-90.548630, 14.616599]);
  * var buffered = geo.feature.buffer(point, 500, {units: 'miles'});
  */
-export function polygonBuffer(features: turf.GeometryObject|turf.Feature,radius: number,steps: number): turf.Feature {
+export function polygonByBuffer(features: turf.GeometryObject|turf.Feature,radius: number,steps: number): turf.Feature {
     return turf.buffer(features,radius/1000,{steps: steps});
 }
 
@@ -1005,7 +972,7 @@ export function polygonBuffer(features: turf.GeometryObject|turf.Feature,radius:
  * var options = {steps: 10, units: 'kilometers', properties: {foo: 'bar'}};
  * var circle = geo.create.circle(center, radius, options);
  */
-export function polygonCircle(center: turf.Point, radius: number, steps: number): turf.Feature<turf.Polygon> {
+export function polygonByCircle(center: turf.Point, radius: number, steps: number): turf.Feature<turf.Polygon> {
     return turf.circle(center, radius/1000, {steps: steps});
 }
 
@@ -1032,7 +999,7 @@ export function polygonCircle(center: turf.Point, radius: number, steps: number)
  *
  * var hull = geo.feature.concave(points, options);
  */
-export function polygonConcave(points: turf.FeatureCollection<turf.Point>, maxEdge: number): turf.Feature<turf.Polygon|turf.MultiPolygon>|null {
+export function polygonByConcave(points: turf.FeatureCollection<turf.Point>, maxEdge: number): turf.Feature<turf.Polygon|turf.MultiPolygon>|null {
     return turf.concave(points,{maxEdge: maxEdge/1000});
 }
 
@@ -1059,7 +1026,7 @@ export function polygonConcave(points: turf.FeatureCollection<turf.Point>, maxEd
  *
  * var hull = geo.feature.convex(points);
  */
-export function polygonConvex(features: turf.AllGeoJSON,options: {concavity: number}): turf.Feature<turf.Polygon> {
+export function polygonByConvex(features: turf.AllGeoJSON,options: {concavity: number}): turf.Feature<turf.Polygon> {
     return turf.convex(features,options);
 }
 
@@ -1094,7 +1061,7 @@ export function polygonConvex(features: turf.AllGeoJSON,options: {concavity: num
  * var difference = geo.bool.difference(polygon1, polygon2);
  *
  */
-export function polygonDifference(poly1: turf.Polygon|turf.MultiPolygon, poly2: turf.Polygon|turf.MultiPolygon): turf.Feature|null {
+export function polygonByDifference(poly1: turf.Polygon|turf.MultiPolygon, poly2: turf.Polygon|turf.MultiPolygon): turf.Feature|null {
     return turf.difference(poly1, poly2);
 }
 
@@ -1112,8 +1079,41 @@ export function polygonDifference(poly1: turf.Polygon|turf.MultiPolygon, poly2: 
  *
  * var enveloped = geo.calc.envelope(features);
  */
-export function polygonEnvelope(features: turf.AllGeoJSON): turf.Feature<turf.Polygon> {
+export function polygonByEnvelope(features: turf.AllGeoJSON): turf.Feature<turf.Polygon> {
     return turf.envelope(features);
+}
+
+/**
+ * Takes two Polygon and finds their intersection. If they share a border, returns the border; if they don't intersect, returns undefined.
+ *
+ * @param {Feature<Polygon>} poly1 the first polygon
+ * @param {Feature<Polygon>} poly2 the second polygon
+ * @returns {Feature|null} returns a feature representing the point(s) they share (in case of a Point  or MultiPoint), the borders they share (in case of a LineString or a MultiLineString), the area they share (in case of Polygon or MultiPolygon). If they do not share any point, returns `null`.
+ * @example
+ * var poly1 = geo.create.polygon([[
+ *   [-122.801742, 45.48565],
+ *   [-122.801742, 45.60491],
+ *   [-122.584762, 45.60491],
+ *   [-122.584762, 45.48565],
+ *   [-122.801742, 45.48565]
+ * ]]);
+ *
+ * var poly2 = geo.create.polygon([[
+ *   [-122.520217, 45.535693],
+ *   [-122.64038, 45.553967],
+ *   [-122.720031, 45.526554],
+ *   [-122.669906, 45.507309],
+ *   [-122.723464, 45.446643],
+ *   [-122.532577, 45.408574],
+ *   [-122.487258, 45.477466],
+ *   [-122.520217, 45.535693]
+ * ]]);
+ *
+ * var intersection = geo.bool.intersect(poly1, poly2);
+ *
+ */
+export function polygonByIntersect(poly1: turf.Polygon, poly2: turf.Polygon): turf.Feature|null {
+    return turf.intersect(poly1, poly2);
 }
 
 /**
@@ -1130,7 +1130,7 @@ export function polygonEnvelope(features: turf.AllGeoJSON): turf.Feature<turf.Po
  *
  * var polygon = geo.convert.lineToPolygon(line);
  */
-export function polygonLines(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>/*, options: {properties: object, autoComplete: boolean, orderCoords: boolean}*/): turf.Feature<turf.Polygon|turf.MultiPolygon> {
+export function polygonByLines(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>/*, options: {properties: object, autoComplete: boolean, orderCoords: boolean}*/): turf.Feature<turf.Polygon|turf.MultiPolygon> {
     return turf.lineToPolygon(lines/*, options*/);
 }
 
@@ -1146,7 +1146,7 @@ export function polygonLines(lines: turf.FeatureCollection<turf.LineString|turf.
  *
  * var masked = geo.misc.mask(polygon, mask);
  */
-export function polygonMask(polygon1: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>,polygon2: turf.Feature<turf.Polygon>): turf.Feature<turf.Polygon> {
+export function polygonByMask(polygon1: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>,polygon2: turf.Feature<turf.Polygon>): turf.Feature<turf.Polygon> {
     return turf.mask(polygon1,polygon2);
 }
 
@@ -1174,7 +1174,7 @@ export function polygonMask(polygon1: turf.FeatureCollection<turf.Polygon|turf.M
  * var union = geo.bool.union([poly1, poly2]);
  *
  */
-export function polygonUnion(polys: Array<turf.Feature<turf.Polygon>>): turf.Feature<turf.Polygon|turf.MultiPolygon> {
+export function polygonByUnion(polys: Array<turf.Feature<turf.Polygon>>): turf.Feature<turf.Polygon|turf.MultiPolygon> {
     return turf.union(...polys);
 }
 
@@ -1204,7 +1204,7 @@ export function polygonUnion(polys: Array<turf.Feature<turf.Polygon>>): turf.Fea
  * var values = collected.features[0].properties.values
  * //=values => [200, 600]
  */
-export function polygonsCollect(polygons: turf.FeatureCollection<turf.Polygon>,points: turf.FeatureCollection<turf.Point>,inProperty: string,outProperty: string): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByCollect(polygons: turf.FeatureCollection<turf.Polygon>,points: turf.FeatureCollection<turf.Point>,inProperty: string,outProperty: string): turf.FeatureCollection<turf.Polygon> {
     return turf.collect(polygons,points,inProperty,outProperty);
 }
 
@@ -1226,7 +1226,7 @@ export function polygonsCollect(polygons: turf.FeatureCollection<turf.Polygon>,p
  *
  * var dissolved = geo.feature.dissolve(features, {propertyName: 'combine'});
  */
-export function polygonsDissolve(features: turf.FeatureCollection<turf.Polygon>,propertyName: string): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByDissolve(features: turf.FeatureCollection<turf.Polygon>,propertyName: string): turf.FeatureCollection<turf.Polygon> {
     return turf.dissolve(features,{propertyName: propertyName});
 }
 
@@ -1242,7 +1242,7 @@ export function polygonsDissolve(features: turf.FeatureCollection<turf.Polygon>,
  * breaksProperties: GeoJSON properties passed, in order, to the correspondent isoband (order defined by breaks))
  * @returns {FeatureCollection<MultiPolygon>} a FeatureCollection of MultiPolygon features representing isobands.
  */
-export function polygonsIsobands(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiPolygon> {
+export function polygonsByIsobands(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiPolygon> {
     return turf.isobands(pointGrid,breaks,options);
 }
 
@@ -1264,7 +1264,7 @@ export function polygonsIsobands(pointGrid: turf.FeatureCollection<turf.Point>,b
  * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} lines Lines in order to polygonize
  * @returns {FeatureCollection<Polygon>} Polygons created
  */
-export function polygonsLines(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByLines(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>): turf.FeatureCollection<turf.Polygon> {
     return turf.polygonize(lines);
 }
 
@@ -1278,7 +1278,7 @@ export function polygonsLines(lines: turf.FeatureCollection<turf.LineString|turf
  * var poly = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
  * var triangles = geo.feature.tesselate(poly);
  */
-export function polygonsTesselate(poly: turf.Feature<turf.Polygon>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByTesselate(poly: turf.Feature<turf.Polygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.tesselate(poly);
 }
 
@@ -1306,7 +1306,7 @@ export function polygonsTesselate(poly: turf.Feature<turf.Polygon>): turf.Featur
  * }
  * var tin = geo.ipolate.tin(points, 'z');
  */
-export function polygonsTin(points: turf.FeatureCollection<turf.Point>,name: string): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByTin(points: turf.FeatureCollection<turf.Point>,name: string): turf.FeatureCollection<turf.Polygon> {
     return turf.tin(points,name);
 }
 
@@ -1321,7 +1321,7 @@ export function polygonsTin(points: turf.FeatureCollection<turf.Point>,name: str
  *
  * var result = geo.misc.unkinkPolygon(poly);
  */
-export function polygonsUnkink(polygon: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByUnkink(polygon: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.unkinkPolygon(polygon);
 }
 
@@ -1341,6 +1341,6 @@ export function polygonsUnkink(polygon: turf.FeatureCollection<turf.Polygon|turf
  * var points = geo.random.point(100, options);
  * var voronoiPolygons = geo.calc.voronoi(points, options);
  */
-export function polygonsVoronoi(points: turf.FeatureCollection<turf.Point>, bbox: turf.BBox): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByVoronoi(points: turf.FeatureCollection<turf.Point>, bbox: turf.BBox): turf.FeatureCollection<turf.Polygon> {
     return turf.voronoi(points, bbox);
 }

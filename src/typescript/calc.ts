@@ -18,7 +18,7 @@
  *
  * var area = geo.calc.area(polygon);
  */
-export function area(features: turf.AllGeoJSON): number {
+export function areaPolygon(features: turf.AllGeoJSON): number {
     return turf.area(features);
 }
 
