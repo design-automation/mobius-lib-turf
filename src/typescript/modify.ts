@@ -25,8 +25,9 @@
  * geo.coords.cleanCoords(multiPoint).geometry.coordinates;
  * //= [[0, 0], [2, 2]]
  */
-export function coordsClean(feature: turf.Feature|turf.GeometryObject/*, options: {mutate: boolean}*/): turf.Feature|turf.GeometryObject {
-    return turf.cleanCoords(feature, {mutate: true});
+export function coordsClean(feature: turf.Feature|turf.GeometryObject/*, options: {mutate: boolean}*/): void/*turf.Feature|turf.GeometryObject*/ {
+    turf.cleanCoords(feature, {mutate: true});
+    return void;
 }
 
 /**
@@ -41,8 +42,9 @@ export function coordsClean(feature: turf.Feature|turf.GeometryObject/*, options
  *
  * var saudiArabia = geo.coords.flip(serbia);
  */
-export function coordsFlip(features: turf.AllGeoJSON/*, options: {mutate: boolean}*/): turf.AllGeoJSON {
-    return turf.flip(features, {mutate: true});
+export function coordsFlip(features: turf.AllGeoJSON/*, options: {mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
+    turf.flip(features, {mutate: true});
+    return void;
 }
 
 /**
@@ -58,8 +60,9 @@ export function coordsFlip(features: turf.AllGeoJSON/*, options: {mutate: boolea
  *
  * var rewind = geo.coords.rewind(polygon);
  */
-export function coordsRewind(features: turf.AllGeoJSON/*, options: {reverse: boolean, mutate: boolean}*/): turf.AllGeoJSON {
-    return turf.rewind(features, {mutate: true});
+export function coordsRewind(features: turf.AllGeoJSON/*, options: {reverse: boolean, mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
+    turf.rewind(features, {mutate: true});
+    return void;
 }
 
 /**
@@ -82,8 +85,9 @@ export function coordsRewind(features: turf.AllGeoJSON/*, options: {reverse: boo
  * var truncated = geo.coords.truncate(point, options);
  * //=truncated.geometry.coordinates => [70.469, 58.111]
  */
-export function coordsTruncate(features: turf.AllGeoJSON, precision: number): turf.AllGeoJSON {
-    return turf.truncate(features, {precision: precision, mutate: true});
+export function coordsTruncate(features: turf.AllGeoJSON, precision: number): void/*turf.AllGeoJSON*/ {
+    turf.truncate(features, {precision: precision, mutate: true});
+    return void;
 }
 
 /**
@@ -104,8 +108,9 @@ export function coordsTruncate(features: turf.AllGeoJSON, precision: number): tu
  * var options = {numberOfClusters: 7};
  * var clustered = geo.cluster.kmeans(points, options);
  */
-export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, num: number): turf.FeatureCollection<turf.Point> {
-    return turf.clustersKmeans(points, {numberOfClusters:num, mutate:true});
+export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, num: number): void/*turf.FeatureCollection<turf.Point>*/ {
+    turf.clustersKmeans(points, {numberOfClusters:num, mutate:true});
+    return void;
 }
 
 /**
@@ -145,8 +150,9 @@ export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, 
  * var options = {tolerance: 0.01, highQuality: false};
  * var simplified = geo.feature.simplify(geojson, options);
  */
-export function simplify(features: turf.AllGeoJSON, tolerance: number): turf.AllGeoJSON {
-    return turf.simplify(features,{tolerance:tolerance, mutate:true});
+export function simplify(features: turf.AllGeoJSON, tolerance: number): void/*turf.AllGeoJSON*/ {
+    turf.simplify(features,{tolerance:tolerance, mutate:true});
+    return void;
 }
 
 /**
@@ -186,8 +192,9 @@ export function simplify(features: turf.AllGeoJSON, tolerance: number): turf.All
  * var options = {tolerance: 0.01, highQuality: false};
  * var simplified = geo.feature.simplify(geojson, options);
  */
-export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): turf.AllGeoJSON {
-    return turf.simplify(features,{tolerance:tolerance, highQuality: true, mutate:true});
+export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): void/*turf.AllGeoJSON*/ {
+    turf.simplify(features,{tolerance:tolerance, highQuality: true, mutate:true});
+    return void;
 }
 
 /**
@@ -206,8 +213,9 @@ export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): tur
  * var options = {pivot: [0, 25]};
  * var rotatedPoly = geo.xform.transformRotate(poly, 10, options);
  */
-export function transformRotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point): turf.AllGeoJSON {
-    return turf.transformRotate(features,angle,{pivot:pivot,mutate:true});
+export function transformRotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point): void/*turf.AllGeoJSON*/ {
+    turf.transformRotate(features,angle,{pivot:pivot,mutate:true});
+    return void;
 }
 
 /**
@@ -226,8 +234,9 @@ export function transformRotate(features: turf.AllGeoJSON,angle: number,pivot: t
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var translatedPoly = geo.xform.translate(poly, 100, 35);
  */
-export function transformTranslate(features: turf.AllGeoJSON,distance: number,direction: number/*,options: {units: turf.Units,zTranslation: number, mutate: boolean}*/): turf.AllGeoJSON {
-    return turf.transformTranslate(features,distance,direction,{mutate:true});
+export function transformTranslate(features: turf.AllGeoJSON,distance: number,direction: number/*,options: {units: turf.Units,zTranslation: number, mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
+    turf.transformTranslate(features,distance,direction,{mutate:true});
+    return void;
 }
 
 /**
@@ -244,6 +253,7 @@ export function transformTranslate(features: turf.AllGeoJSON,distance: number,di
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var scaledPoly = geo.xform.scale(poly, 3);
  */
-export function transformScale(features: turf.AllGeoJSON,factor: number, origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>): turf.AllGeoJSON {
-    return turf.transformScale(features,factor,{origin:origin,mutate:true});
+export function transformScale(features: turf.AllGeoJSON,factor: number, origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>): void/*turf.AllGeoJSON*/ {
+    turf.transformScale(features,factor,{origin:origin,mutate:true});
+    return void;
 }
