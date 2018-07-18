@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;polygon&quot; | mobius-turf</title>
+	<title>&quot;old/cluster&quot; | mobius-turf</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_polygon_.html">&quot;polygon&quot;</a>
+					<a href="_old_cluster_.html">&quot;old/cluster&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;polygon&quot;</h1>
+			<h1>External module &quot;old/cluster&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Turf feature functions.
+						<p>Turf AGGREGATION functions.
 						<a href="http://turfjs.org/docs/">http://turfjs.org/docs/</a></p>
 					</div>
 				</div>
@@ -79,8 +79,9 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_polygon_.html#collect" class="tsd-kind-icon">collect</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_polygon_.html#tesselate" class="tsd-kind-icon">tesselate</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_cluster_.html#dbscan" class="tsd-kind-icon">dbscan</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_cluster_.html#get" class="tsd-kind-icon">get</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_cluster_.html#kmeans" class="tsd-kind-icon">kmeans</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,111 +90,165 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="collect" class="tsd-anchor"></a>
-					<h3>collect</h3>
+					<a name="dbscan" class="tsd-anchor"></a>
+					<h3>dbscan</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">collect<span class="tsd-signature-symbol">(</span>polygons<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span>, points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, inProperty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, outProperty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">dbscan<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, maxDistance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, minPoints<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/polygon.ts#L38">polygon.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/cluster.ts#L30">old/cluster.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Merges a specified property from a FeatureCollection of points into a
-										FeatureCollection of polygons. Given an <code>inProperty</code> on points and an <code>outProperty</code>
-										for polygons, this finds every point that lies within each polygon, collects the
-										<code>inProperty</code> values from those points, and adds them as an array to <code>outProperty</code>
-									on the polygon.</p>
+									<p>Takes a set of Point|points and partition them into clusters according to [DBSCAN&#39;s data clustering algorithm] (<a href="https://en.wikipedia.org/wiki/DBSCAN)">https://en.wikipedia.org/wiki/DBSCAN)</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly1 = geo.create.polygon([[[0,0],[10,0],[10,10],[0,10],[0,0]]]);
-											var poly2 = geo.create.polygon([[[10,0],[20,10],[20,20],[20,0],[10,0]]]);
-											var polyFC = geo.create.featureCollection([poly1, poly2]);
-											var pt1 = geo.create.point([5,5], {population: 200});
-											var pt2 = geo.create.point([1,3], {population: 600});
-											var pt3 = geo.create.point([14,2], {population: 100});
-											var pt4 = geo.create.point([13,1], {population: 200});
-											var pt5 = geo.create.point([19,7], {population: 300});
-											var pointFC = geo.create.featureCollection([pt1, pt2, pt3, pt4, pt5]);
-											var collected = geo.prop.collect(polyFC, pointFC, &#39;population&#39;, &#39;values&#39;);
-											var values = collected.features[0].properties.values
-										//=values =&gt; [200, 600]</p>
+									<dd><p>// create random points with random z-values in their properties
+											var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
+											var maxDistance = 100;
+										var clustered = geo.cluster.dbscan(points, maxDistance);</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>polygons: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>polygons with values on which to aggregate</p>
-									</div>
-								</li>
-								<li>
 									<h5>points: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>points to be aggregated</p>
+										<p>to be clustered</p>
 									</div>
 								</li>
 								<li>
-									<h5>inProperty: <span class="tsd-signature-type">string</span></h5>
+									<h5>maxDistance: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>property to be nested from</p>
+										<p>Maximum Distance between any point of the cluster to generate the clusters (kilometers only)</p>
 									</div>
 								</li>
 								<li>
-									<h5>outProperty: <span class="tsd-signature-type">string</span></h5>
+									<h5>minPoints: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>property to be nested into</p>
+										<p>Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an &#39;edge&#39; or &#39;noise&#39;</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>polygons with properties listed based on <code>outField</code></p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Clustered Points with an additional two properties associated to each Feature:</p>
+							<ul>
+								<li>{number} cluster - the associated clusterId</li>
+								<li>{string} dbscan - type of point it has been classified as (&#39;core&#39;|&#39;edge&#39;|&#39;noise&#39;)</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="tesselate" class="tsd-anchor"></a>
-					<h3>tesselate</h3>
+					<a name="get" class="tsd-anchor"></a>
+					<h3>get</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">tesselate<span class="tsd-signature-symbol">(</span>poly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span>fcoll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span>, filter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/polygon.ts#L52">polygon.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/cluster.ts#L84">old/cluster.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Tesselates a Polygon into a FeatureCollection of triangular polygons
-									using [earcut] (<a href="https://github.com/mapbox/earcut)">https://github.com/mapbox/earcut)</a>.</p>
+									<p>Get Cluster</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
-										var triangles = geo.feature.tesselate(poly);</p>
+									<dd><p>var geojson = geo.create.featureCollection([
+											turf.point([0, 0], {&#39;marker-symbol&#39;: &#39;circle&#39;}),
+											turf.point([2, 4], {&#39;marker-symbol&#39;: &#39;star&#39;}),
+											turf.point([3, 6], {&#39;marker-symbol&#39;: &#39;star&#39;}),
+											turf.point([5, 1], {&#39;marker-symbol&#39;: &#39;square&#39;}),
+											turf.point([4, 2], {&#39;marker-symbol&#39;: &#39;circle&#39;})
+										]);</p>
+										<p>// Create a cluster using K-Means (adds <code>cluster</code> to GeoJSON properties)
+										var clustered = geo.cluster.kmeans(geojson);</p>
+										<p>// Retrieve first cluster (0)
+											var cluster = geo.cluster.get(clustered, {cluster: 0});
+										//= cluster</p>
+										<p>// Retrieve cluster based on custom properties
+											geo.cluster.get(clustered, {&#39;marker-symbol&#39;: &#39;circle&#39;}).length;
+											//= 2
+											geo.cluster.get(clustered, {&#39;marker-symbol&#39;: &#39;square&#39;}).length;
+										//= 1</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>poly: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>fcoll: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>filter: <span class="tsd-signature-type">any</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>the polygon to tesselate</p>
+										<p>Filter used on GeoJSON properties to get Cluster</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>a geometrycollection feature</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Single Cluster filtered by GeoJSON Properties</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="kmeans" class="tsd-anchor"></a>
+					<h3>kmeans</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">kmeans<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/cluster.ts#L52">old/cluster.ts:52</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a set of Point|points and partition them into clusters using the k-mean .
+									It uses the <a href="https://en.wikipedia.org/wiki/K-means_clustering">k-means algorithm</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>// create random points with random z-values in their properties
+											var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
+											var options = {numberOfClusters: 7};
+										var clustered = geo.cluster.kmeans(points, options);</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>points: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>to be clustered</p>
+									</div>
+								</li>
+								<li>
+									<h5>num: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>number of clusters that will be generated</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Clustered Points with an additional two properties associated to each Feature:</p>
+							<ul>
+								<li>{number} cluster - the associated clusterId</li>
+								<li>{[number, number]} centroid - Centroid of the cluster [Longitude, Latitude]</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -206,17 +261,20 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_polygon_.html">"polygon"</a>
+						<a href="_old_cluster_.html">"old/cluster"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_polygon_.html#collect" class="tsd-kind-icon">collect</a>
+						<a href="_old_cluster_.html#dbscan" class="tsd-kind-icon">dbscan</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_polygon_.html#tesselate" class="tsd-kind-icon">tesselate</a>
+						<a href="_old_cluster_.html#get" class="tsd-kind-icon">get</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_old_cluster_.html#kmeans" class="tsd-kind-icon">kmeans</a>
 					</li>
 				</ul>
 			</nav>

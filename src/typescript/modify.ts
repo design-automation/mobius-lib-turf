@@ -6,7 +6,7 @@
 /**
  *
  */
- import * as turf from "@turf/turf";
+import * as turf from "@turf/turf";
 
 /**
  * Removes redundant coordinates from any GeoJSON Geometry.
@@ -25,7 +25,7 @@
  * geo.coords.cleanCoords(multiPoint).geometry.coordinates;
  * //= [[0, 0], [2, 2]]
  */
-export function coordsClean(feature: turf.Feature|turf.GeometryObject/*, options: {mutate: boolean}*/): void/*turf.Feature|turf.GeometryObject*/ {
+export function coordsClean(feature: turf.Feature|turf.GeometryObject): void {
     turf.cleanCoords(feature, {mutate: true});
     return;
 }
@@ -35,20 +35,21 @@ export function coordsClean(feature: turf.Feature|turf.GeometryObject/*, options
  *
  * @param {GeoJSON} features input features
  * @param {Object} options Optional parameters
- *(mutate: allows GeoJSON input to be mutated if true (significant performance increase))
+ * (mutate: allows GeoJSON input to be mutated if true (significant performance increase))
  * @returns {GeoJSON} a feature or set of features of the same type as `input` with flipped coordinates
  * @example
  * var serbia = geo.create.point([20.566406, 43.421008]);
  *
  * var saudiArabia = geo.coords.flip(serbia);
  */
-export function coordsFlip(features: turf.AllGeoJSON/*, options: {mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
+export function coordsFlip(features: turf.AllGeoJSON): void {
     turf.flip(features, {mutate: true});
     return;
 }
 
 /**
- * Rewind (Multi)LineString or (Multi)Polygon outer ring counterclockwise and inner rings clockwise (http://en.wikipedia.org/wiki/Shoelace_formula|Shoelace Formula).
+ * Rewind (Multi)LineString or (Multi)Polygon outer ring counterclockwise and inner rings clockwise
+ * (http://en.wikipedia.org/wiki/Shoelace_formula|Shoelace Formula).
  *
  * @param {GeoJSON} features input GeoJSON Polygon
  * @param {Object} options Optional parameters
@@ -60,7 +61,7 @@ export function coordsFlip(features: turf.AllGeoJSON/*, options: {mutate: boolea
  *
  * var rewind = geo.coords.rewind(polygon);
  */
-export function coordsRewind(features: turf.AllGeoJSON/*, options: {reverse: boolean, mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
+export function coordsRewind(features: turf.AllGeoJSON): void {
     turf.rewind(features, {mutate: true});
     return;
 }
@@ -85,8 +86,8 @@ export function coordsRewind(features: turf.AllGeoJSON/*, options: {reverse: boo
  * var truncated = geo.coords.truncate(point, options);
  * //=truncated.geometry.coordinates => [70.469, 58.111]
  */
-export function coordsTruncate(features: turf.AllGeoJSON, precision: number): void/*turf.AllGeoJSON*/ {
-    turf.truncate(features, {precision: precision, mutate: true});
+export function coordsTruncate(features: turf.AllGeoJSON, precision: number): void {
+    turf.truncate(features, {precision, mutate: true});
     return;
 }
 
@@ -108,14 +109,15 @@ export function coordsTruncate(features: turf.AllGeoJSON, precision: number): vo
  * var options = {numberOfClusters: 7};
  * var clustered = geo.cluster.kmeans(points, options);
  */
-export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, num: number): void/*turf.FeatureCollection<turf.Point>*/ {
+export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, num: number): void {
     turf.clustersKmeans(points, {numberOfClusters:num, mutate:true});
     return;
 }
 
 /**
  * Takes a GeoJSON object and returns a simplified version. Internally uses
- * [simplify-js] (http://mourner.github.io/simplify-js/) to perform simplification using the Ramer-Douglas-Peucker algorithm.
+ * [simplify-js] (http://mourner.github.io/simplify-js/) to perform simplification using the
+ * Ramer-Douglas-Peucker algorithm.
  *
  * @param {GeoJSON} features object to be simplified
  * @param {Object} options Optional parameters
@@ -151,13 +153,14 @@ export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, 
  * var simplified = geo.feature.simplify(geojson, options);
  */
 export function simplify(features: turf.AllGeoJSON, tolerance: number): void/*turf.AllGeoJSON*/ {
-    turf.simplify(features,{tolerance:tolerance, mutate:true});
+    turf.simplify(features,{tolerance, mutate:true});
     return;
 }
 
 /**
  * Takes a GeoJSON object and returns a simplified version. Internally uses
- * [simplify-js] (http://mourner.github.io/simplify-js/) to perform simplification using the Ramer-Douglas-Peucker algorithm.
+ * [simplify-js] (http://mourner.github.io/simplify-js/) to perform simplification using the
+ * Ramer-Douglas-Peucker algorithm.
  *
  * @param {GeoJSON} features object to be simplified
  * @param {Object} options Optional parameters
@@ -193,7 +196,7 @@ export function simplify(features: turf.AllGeoJSON, tolerance: number): void/*tu
  * var simplified = geo.feature.simplify(geojson, options);
  */
 export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): void/*turf.AllGeoJSON*/ {
-    turf.simplify(features,{tolerance:tolerance, highQuality: true, mutate:true});
+    turf.simplify(features,{tolerance, highQuality: true, mutate:true});
     return;
 }
 
@@ -214,7 +217,7 @@ export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): voi
  * var rotatedPoly = geo.xform.transformRotate(poly, 10, options);
  */
 export function transformRotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point): void/*turf.AllGeoJSON*/ {
-    turf.transformRotate(features,angle,{pivot:pivot,mutate:true});
+    turf.transformRotate(features,angle,{pivot,mutate:true});
     return;
 }
 
@@ -234,7 +237,7 @@ export function transformRotate(features: turf.AllGeoJSON,angle: number,pivot: t
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var translatedPoly = geo.xform.translate(poly, 100, 35);
  */
-export function transformTranslate(features: turf.AllGeoJSON,distance: number,direction: number/*,options: {units: turf.Units,zTranslation: number, mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
+export function transformTranslate(features: turf.AllGeoJSON,distance: number,direction: number): void {
     turf.transformTranslate(features,distance,direction,{mutate:true});
     return;
 }
@@ -253,7 +256,8 @@ export function transformTranslate(features: turf.AllGeoJSON,distance: number,di
  * var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
  * var scaledPoly = geo.xform.scale(poly, 3);
  */
-export function transformScale(features: turf.AllGeoJSON,factor: number, origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>): void/*turf.AllGeoJSON*/ {
-    turf.transformScale(features,factor,{origin:origin,mutate:true});
+export function transformScale(features: turf.AllGeoJSON,factor: number,
+                               origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>): void {
+    turf.transformScale(features,factor,{origin,mutate:true});
     return;
 }

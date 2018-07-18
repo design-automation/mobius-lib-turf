@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;misc&quot; | mobius-turf</title>
+	<title>&quot;old/rand&quot; | mobius-turf</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_misc_.html">&quot;misc&quot;</a>
+					<a href="_old_rand_.html">&quot;old/rand&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;misc&quot;</h1>
+			<h1>External module &quot;old/rand&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Turf MISC functions.
+						<p>Turf RANDOM functions.
 						<a href="http://turfjs.org/docs/">http://turfjs.org/docs/</a></p>
 					</div>
 				</div>
@@ -79,10 +79,11 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_misc_.html#isclockwise" class="tsd-kind-icon">is<wbr>Clockwise</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_misc_.html#kinks" class="tsd-kind-icon">kinks</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_misc_.html#mask" class="tsd-kind-icon">mask</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_misc_.html#unkinkpolygon" class="tsd-kind-icon">unkink<wbr>Polygon</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_rand_.html#linestring" class="tsd-kind-icon">linestring</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_rand_.html#point" class="tsd-kind-icon">point</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_rand_.html#polygon" class="tsd-kind-icon">polygon</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_rand_.html#position" class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_rand_.html#sample" class="tsd-kind-icon">sample</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,172 +92,243 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="isclockwise" class="tsd-anchor"></a>
-					<h3>is<wbr>Clockwise</h3>
+					<a name="linestring" class="tsd-anchor"></a>
+					<h3>linestring</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Clockwise<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">linestring<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, num_vertices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max_length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max_rotation<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/misc.ts#L93">misc.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/rand.ts#L58">old/rand.ts:58</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes a ring and return true or false whether or not the ring is clockwise or counter-clockwise.</p>
+									<p>Returns a random linestring.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var clockwiseRing = geo.create.lineString([[0,0],[1,1],[1,0],[0,0]]);
-										var counterClockwiseRing = geo.create.lineString([[0,0],[1,0],[1,1],[0,0]]);</p>
-										<p>geo.misc.isClockwise(clockwiseRing)
-											//=true
-											geo.misc.isClockwise(counterClockwiseRing)
-										//=false</p>
+									<dd><p>var lineStrings = geo.random.linestring(25, {bbox: [-180, -90, 180, 90]})
+										//=lineStrings</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>line: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>num: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>to be evaluated</p>
+										<p>How many geometries will be generated (if undefined, default value is 1)</p>
+									</div>
+								</li>
+								<li>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a bounding box inside of which geometries are placed</p>
+									</div>
+								</li>
+								<li>
+									<h5>num_vertices: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is how many coordinates each LineString will contain</p>
+									</div>
+								</li>
+								<li>
+									<h5>max_length: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is the maximum number of decimal degrees that a vertex can be from its predecessor</p>
+									</div>
+								</li>
+								<li>
+									<h5>max_rotation: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is the maximum angle that a line segment can turn from the previous segment (in degrees)</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>true/false</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>GeoJSON FeatureCollection of LineString</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="kinks" class="tsd-anchor"></a>
-					<h3>kinks</h3>
+					<a name="point" class="tsd-anchor"></a>
+					<h3>point</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">kinks<span class="tsd-signature-symbol">(</span>feature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">point<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/misc.ts#L28">misc.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/rand.ts#L36">old/rand.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes a linestring, multi-linestring, multi-polygon, or polygon and returns points at all self-intersections.</p>
+									<p>Returns a random point.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly = geo.create.polygon([[
-											[-12.034835, 8.901183],
-											[-12.060413, 8.899826],
-											[-12.03638, 8.873199],
-											[-12.059383, 8.871418],
-											[-12.034835, 8.901183]
-										]]);</p>
-										<p>var kinks = geo.misc.kinks(poly);</p>
+									<dd><p>var points = geo.random.point(25, {bbox: [-180, -90, 180, 90]})
+										//=points</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>feature: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>num: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>input feature</p>
+										<p>How many geometries will be generated (if undefined, default value is 1)</p>
+									</div>
+								</li>
+								<li>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a bounding box inside of which geometries are placed</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>self-intersections</p>
+							<p>GeoJSON FeatureCollection of points</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="mask" class="tsd-anchor"></a>
-					<h3>mask</h3>
+					<a name="polygon" class="tsd-anchor"></a>
+					<h3>polygon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">mask<span class="tsd-signature-symbol">(</span>polygon1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span>, polygon2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span>, num_vertices<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max_radial_length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/misc.ts#L44">misc.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/rand.ts#L79">old/rand.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes any type of polygon and an optional mask and returns a polygon exterior ring with holes.</p>
+									<p>Returns a random polygon.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon = geo.create.polygon([[[112, -21], [116, -36], [146, -39], [153, -24], [133, -10], [112, -21]]]);
-										var mask = geo.create.polygon([[[90, -55], [170, -55], [170, 10], [90, 10], [90, -55]]]);</p>
-										<p>var masked = geo.misc.mask(polygon, mask);</p>
+									<dd><p>var polygons = geo.random.polygon(25, {bbox: [-180, -90, 180, 90]})
+										//=polygons</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>polygon1: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>num: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>GeoJSON Polygon used as interior rings or holes.</p>
+										<p>How many geometries will be generated (if undefined, default value is 1)</p>
 									</div>
 								</li>
 								<li>
-									<h5>polygon2: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>GeoJSON Polygon used as the exterior ring (if undefined, the world extent is used)</p>
+										<p>a bounding box inside of which geometries are placed.</p>
+									</div>
+								</li>
+								<li>
+									<h5>num_vertices: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is how many coordinates each LineString will contain.</p>
+									</div>
+								</li>
+								<li>
+									<h5>max_radial_length: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>is the maximum number of decimal degrees latitude or longitude that a vertex can reach out of the center of the Polygon.</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Masked Polygon (exterior ring with holes).</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>GeoJSON FeatureCollection of LineString</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="unkinkpolygon" class="tsd-anchor"></a>
-					<h3>unkink<wbr>Polygon</h3>
+					<a name="position" class="tsd-anchor"></a>
+					<h3>position</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">unkink<wbr>Polygon<span class="tsd-signature-symbol">(</span>polygon<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/misc.ts#L59">misc.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/rand.ts#L20">old/rand.ts:20</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes a kinked polygon and returns a feature collection of polygons that have no kinks.
-									Uses <a href="https://github.com/mclaeysb/simplepolygon">simplepolygon</a> internally.</p>
+									<p>Returns a random position within a bounding box.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly = geo.create.polygon([[[0, 0], [2, 0], [0, 2], [2, 2], [0, 0]]]);</p>
-										<p>var result = geo.misc.unkinkPolygon(poly);</p>
+									<dd><p>var position = geo.random.position([-180, -90, 180, 90])
+										//=position</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>polygon: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>Position [longitude, latitude]</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="sample" class="tsd-anchor"></a>
+					<h3>sample</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">sample<span class="tsd-signature-symbol">(</span>fcoll<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span>, num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/rand.ts#L95">old/rand.ts:95</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a FeatureCollection and returns a FeatureCollection with given number of features at random.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>var points = geo.random.point(100, {bbox: [-80, 30, -60, 60]});</p>
+										<p>var sample = geo.misc.sample(points, 5);</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fcoll: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>GeoJSON Polygon or MultiPolygon</p>
+										<p>FeatureCollection of input features</p>
+									</div>
+								</li>
+								<li>
+									<h5>num: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>number of features to select</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Unkinked polygons</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>a FeatureCollection with <code>n</code> features</p>
 						</li>
 					</ul>
 				</section>
@@ -269,23 +341,26 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_misc_.html">"misc"</a>
+						<a href="_old_rand_.html">"old/rand"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_misc_.html#isclockwise" class="tsd-kind-icon">is<wbr>Clockwise</a>
+						<a href="_old_rand_.html#linestring" class="tsd-kind-icon">linestring</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_misc_.html#kinks" class="tsd-kind-icon">kinks</a>
+						<a href="_old_rand_.html#point" class="tsd-kind-icon">point</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_misc_.html#mask" class="tsd-kind-icon">mask</a>
+						<a href="_old_rand_.html#polygon" class="tsd-kind-icon">polygon</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_misc_.html#unkinkpolygon" class="tsd-kind-icon">unkink<wbr>Polygon</a>
+						<a href="_old_rand_.html#position" class="tsd-kind-icon">position</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_old_rand_.html#sample" class="tsd-kind-icon">sample</a>
 					</li>
 				</ul>
 			</nav>

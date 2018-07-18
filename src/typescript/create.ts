@@ -6,7 +6,7 @@
 /**
  *
  */
- import * as turf from "@turf/turf";
+import * as turf from "@turf/turf";
 
 /**
  * Returns a cloned copy of the passed GeoJSON Object, including possible 'Foreign Members'.
@@ -35,7 +35,8 @@ export function featureByClone(features: turf.AllGeoJSON): turf.AllGeoJSON {
  *
  * var sample = geo.misc.sample(points, 5);
  */
-export function featuresBySample(fcoll: turf.FeatureCollection<turf.GeometryObject>, num: number): turf.FeatureCollection<turf.GeometryObject> {
+export function featuresBySample(fcoll: turf.FeatureCollection<turf.GeometryObject>,
+                                 num: number): turf.FeatureCollection<turf.GeometryObject> {
     return turf.sample(fcoll, num);
 }
 
@@ -53,7 +54,8 @@ export function featuresBySample(fcoll: turf.FeatureCollection<turf.GeometryObje
  * var clipped = geo.bbox.clip(poly, bbox);
  *
  */
-export function featureByBboxClip(feature: turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon, bbox: turf.BBox): turf.Feature {
+export function featureByBboxClip(feature: turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon,
+                                  bbox: turf.BBox): turf.Feature {
     return turf.bboxClip(feature, bbox);
 }
 
@@ -77,7 +79,7 @@ export function featuresByFlatten(geojson: turf.AllGeoJSON): turf.FeatureCollect
 
 /*
 
-Grids*************************************************************************************************************************************
+Grids*******************************************************************************************************************
 
 */
 
@@ -87,14 +89,15 @@ Grids***************************************************************************
  * described in [Hexagonal Grids](http://www.redblobgames.com/grids/hexagons/).
  *
  * @param {BBox} bbox extent in [minX, minY, maxX, maxY] order
- * @param {number} cellSide length of the side of the the hexagons or triangles, in meters. It will also coincide with the
- * radius of the circumcircle of the hexagons.
+ * @param {number} cellSide length of the side of the the hexagons or triangles, in meters.
+ * It will also coincide with the radius of the circumcircle of the hexagons.
  * @param {Object} options Optional parameters
  * (units: used in calculating cell size, can be "degrees", "radians", "miles", or "kilometers",
  * properties: passed to each hexagon or triangle of the grid,
  * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
  * triangle: whether to return as triangles instead of hexagons)
- * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
+ * @param {Feature<Polygon|MultiPolygon>}
+ * mask if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
  * @returns {FeatureCollection<Polygon>} a hexagonal grid
  * @example
  * var bbox = [-96,31,-84,40];
@@ -103,8 +106,9 @@ Grids***************************************************************************
  *
  * var hexgrid = geo.grid.hexGrid(bbox, cellSide, options);
  */
-export function polygonsByHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.hexGrid(bbox,cellSide/1000,{mask:mask});
+export function polygonsByHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>):
+turf.FeatureCollection<turf.Polygon> {
+    return turf.hexGrid(bbox,cellSide/1000,{mask});
 }
 
 /**
@@ -113,14 +117,15 @@ export function polygonsByHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.F
  * described in [Hexagonal Grids](http://www.redblobgames.com/grids/hexagons/).
  *
  * @param {BBox} bbox extent in [minX, minY, maxX, maxY] order
- * @param {number} cellSide length of the side of the the hexagons or triangles, in meters. It will also coincide with the
- * radius of the circumcircle of the hexagons.
+ * @param {number} cellSide length of the side of the the hexagons or triangles, in meters.
+ * It will also coincide with the radius of the circumcircle of the hexagons.
  * @param {Object} options Optional parameters
  * (units: used in calculating cell size, can be "degrees", "radians", "miles", or "kilometers",
  * properties: passed to each hexagon or triangle of the grid,
  * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
  * triangle: whether to return as triangles instead of hexagons)
- * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
+ * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon,
+ * the grid Points will be created only inside it
  * @returns {FeatureCollection<Polygon>} a hexagonal grid
  * @example
  * var bbox = [-96,31,-84,40];
@@ -129,8 +134,10 @@ export function polygonsByHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.F
  *
  * var hexgrid = geo.grid.hexGrid(bbox, cellSide, options);
  */
-export function polygonsByTriHexGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.hexGrid(bbox,cellSide/1000,{mask: mask, triangles: true});
+export function polygonsByTriHexGrid(bbox: turf.BBox,cellSide: number,
+                                     mask: turf.Feature<turf.Polygon|turf.MultiPolygon>):
+turf.FeatureCollection<turf.Polygon> {
+    return turf.hexGrid(bbox,cellSide/1000,{mask, triangles: true});
 }
 
 /**
@@ -143,7 +150,8 @@ export function polygonsByTriHexGrid(bbox: turf.BBox,cellSide: number, mask: tur
  * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
  * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
  * properties: passed to each point of the grid)
- * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
+ * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon,
+ * the grid Points will be created only inside it
  * @returns {FeatureCollection<Point>} grid of points
  * @example
  * var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
@@ -152,8 +160,9 @@ export function polygonsByTriHexGrid(bbox: turf.BBox,cellSide: number, mask: tur
  *
  * var grid = geo.grid.pointGrid(extent, cellSide, options);
  */
-export function pointsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
-    return turf.pointGrid(bbox,cellSide/1000,{mask: mask});
+export function pointsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>):
+turf.FeatureCollection<turf.Point> {
+    return turf.pointGrid(bbox,cellSide/1000,{mask});
 }
 
 /**
@@ -165,7 +174,8 @@ export function pointsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Fea
  * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
  * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
  * properties: passed to each point of the grid)
- * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
+ * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon,
+ * the grid Points will be created only inside it
  * @returns {FeatureCollection<Polygon>} grid a grid of polygons
  * @example
  * var bbox = [-95, 30 ,-85, 40];
@@ -174,8 +184,9 @@ export function pointsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Fea
  *
  * var squareGrid = geo.grid.squareGrid(bbox, cellSide, options);
  */
-export function polygonsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.squareGrid(bbox,cellSide/1000,{mask: mask});
+export function polygonsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>):
+turf.FeatureCollection<turf.Polygon> {
+    return turf.squareGrid(bbox,cellSide/1000,{mask});
 }
 
 /**
@@ -187,7 +198,8 @@ export function polygonsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.F
  * (units: used in calculating cellSide, can be degrees, radians, miles, or kilometers,
  * maskpoly: if passed a Polygon or MultiPolygon, the grid Points will be created only inside it,
  * properties: passed to each point of the grid)
- * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon, the grid Points will be created only inside it
+ * @param {Feature<Polygon|MultiPolygon>} mask if passed a Polygon or MultiPolygon,
+ * the grid Points will be created only inside it
  * @returns {FeatureCollection<Polygon>} grid of polygons
  * @example
  * var bbox = [-95, 30 ,-85, 40];
@@ -196,13 +208,14 @@ export function polygonsBySquGrid(bbox: turf.BBox,cellSide: number, mask: turf.F
  *
  * var triangleGrid = geo.grid.triangleGrid(bbox, cellSide, options);
  */
-export function polygonsByTriGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
-    return turf.triangleGrid(bbox,cellSide/1000,{mask: mask});
+export function polygonsByTriGrid(bbox: turf.BBox,cellSide: number, mask: turf.Feature<turf.Polygon|turf.MultiPolygon>):
+turf.FeatureCollection<turf.Polygon> {
+    return turf.triangleGrid(bbox,cellSide/1000,{mask});
 }
 
 /*
 
-Lines*************************************************************************************************************************************
+Lines*******************************************************************************************************************
 
 */
 
@@ -222,8 +235,8 @@ Lines***************************************************************************
  * //=linestring1
  * //=linestring2
  */
-export function lineByCoords(coords: Array<Array<number>>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.LineString> {
-    return turf.lineString(coords/*, properties, options*/);
+export function lineByCoords(coords: number[][]): turf.Feature<turf.LineString> {
+    return turf.lineString(coords);
 }
 
 /**
@@ -247,8 +260,9 @@ export function lineByCoords(coords: Array<Array<number>>/*, properties: object,
  *
  * var arc = geo.create.arc(center, radius, bearing1, bearing2);
  */
-export function lineByArc(center: turf.Point, radius: number, bearing1: number, bearing2: number, steps: number): turf.Feature<turf.LineString> {
-    return turf.lineArc(center, radius/1000, bearing1, bearing2, {steps: steps});
+export function lineByArc(center: turf.Point, radius: number, bearing1: number, bearing2: number,
+                          steps: number): turf.Feature<turf.LineString> {
+    return turf.lineArc(center, radius/1000, bearing1, bearing2, {steps});
 }
 
 /**
@@ -277,8 +291,9 @@ export function lineByArc(center: turf.Point, radius: number, bearing1: number, 
  *
  * var curved = geo.line.bezierSpline(line);
  */
-export function lineByBezier(line: turf.LineString,resolution: number,sharpness: number): turf.Feature<turf.LineString> {
-    return turf.bezierSpline(line,{resolution:resolution, sharpness:sharpness});
+export function lineByBezier(line: turf.LineString,resolution: number,sharpness: number):
+turf.Feature<turf.LineString> {
+    return turf.bezierSpline(line,{resolution, sharpness});
 }
 
 /**
@@ -297,8 +312,10 @@ export function lineByBezier(line: turf.LineString,resolution: number,sharpness:
  *
  * var chunk = geo.line.chunk(line, 15, {units: 'miles'});
  */
-export function linesByChunk(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>|turf.Feature<turf.LineString|turf.MultiLineString>,length: number,reverse: boolean): turf.FeatureCollection<turf.LineString> {
-    return turf.lineChunk(lines,length/1000,{reverse:reverse});
+export function linesByLenSplit(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>|
+    turf.Feature<turf.LineString|turf.MultiLineString>,
+                                length: number,reverse: boolean): turf.FeatureCollection<turf.LineString> {
+    return turf.lineChunk(lines,length/1000,{reverse});
 }
 
 /**
@@ -308,7 +325,8 @@ export function linesByChunk(lines: turf.FeatureCollection<turf.LineString|turf.
  * @param {Coord} point2 destination point feature
  * @param {Object} options Optional parameters
  * (properties: an Object that is used as the Feature's properties, npoints: number of points,
- * offset: offset controls the likelyhood that lines will be split which cross the dateline. The higher the number the more likely.)
+ * offset: offset controls the likelyhood that lines will be split which cross the dateline.
+ * The higher the number the more likely.)
  * @returns {Feature<LineString>} great circle line feature
  * @example
  * var start = geo.create.point([-122, 48]);
@@ -316,7 +334,9 @@ export function linesByChunk(lines: turf.FeatureCollection<turf.LineString|turf.
  *
  * var greatCircle = geo.calc.greatCircle(start, end, {'name': 'Seattle to DC'});
  */
-export function lineByGreatCircle(point1: turf.Point, point2: turf.Point, options: {properties: object, npoints: number, offset: number}): turf.Feature<turf.LineString> {
+export function lineByGreatCircle(point1: turf.Point, point2: turf.Point,
+                                  options: {properties: object, npoints: number, offset: number}):
+turf.Feature<turf.LineString> {
     return turf.greatCircle(point1, point2, options);
 }
 
@@ -344,7 +364,9 @@ export function lineByGreatCircle(point1: turf.Point, point2: turf.Point, option
  *
  * var lines = geo.ipolate.isolines(pointGrid, breaks, {zProperty: 'temperature'});
  */
-export function linesByIso(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiLineString> {
+export function linesByIso(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],
+                           options: {zProperty: string, commonProperties: object, breaksProperties: object[]}):
+turf.FeatureCollection<turf.MultiLineString> {
     return turf.isolines(pointGrid,breaks,options);
 }
 
@@ -361,7 +383,8 @@ export function linesByIso(pointGrid: turf.FeatureCollection<turf.Point>,breaks:
  *
  * var offsetLine = geo.line.offset(line, 2, {units: 'miles'});
  */
-export function lineByOffset(line: turf.Feature<turf.LineString|turf.MultiLineString>,distance: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString|turf.MultiLineString> {
+export function lineByOffset(line: turf.Feature<turf.LineString|turf.MultiLineString>,distance: number):
+turf.Feature<turf.LineString|turf.MultiLineString> {
     return turf.lineOffset(line,distance/1000/*,options*/);
 }
 
@@ -380,20 +403,25 @@ export function lineByOffset(line: turf.Feature<turf.LineString|turf.MultiLineSt
  *
  * var overlapping = geo.line.overlap(line1, line2);
  */
-export function linesByOverlap(line1: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,line2: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,tolerance: number): turf.FeatureCollection<turf.LineString> {
-    return turf.lineOverlap(line1,line2,{tolerance:tolerance});
+export function linesByOverlap(line1: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,
+                               line2: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>,
+                               tolerance: number): turf.FeatureCollection<turf.LineString> {
+    return turf.lineOverlap(line1,line2,{tolerance});
 }
 
 /**
  * Creates a FeatureCollection of 2-vertex LineString segments from a LineString or Polygon.
  *
- * @param {Geometry|FeatureCollection|Feature<LineString|MultiLineString|MultiPolygon|Polygon>} feature Polygon or LineString
+ * @param {Geometry|FeatureCollection|Feature<LineString|MultiLineString|MultiPolygon|Polygon>}
+ * feature Polygon or LineString
  * @returns {FeatureCollection<LineString>} 2-vertex line segments
  * @example
  * var polygon = geo.create.polygon([[[-50, 5], [-40, -10], [-50, -10], [-40, 5], [-50, 5]]]);
  * var segments = geo.line.segment(polygon);
  */
-export function linesBySegment(feature: turf.FeatureCollection<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
+export function linesBySegment(feature: turf.FeatureCollection<turf.LineString|turf.MultiLineString|turf.Polygon|
+    turf.MultiPolygon>|turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>):
+turf.FeatureCollection<turf.LineString> {
     return turf.lineSegment(feature);
 }
 
@@ -403,10 +431,10 @@ export function linesBySegment(feature: turf.FeatureCollection<turf.LineString|t
  *
  * @param {Coord} point1 point
  * @param {Coord} point2 point
- * @param {Object} options Optional parameters 
- * (obstacles: areas which path cannot travel, 
- * minDistance: minimum distance between shortest path and obstacles, 
- * units: "miles", "kilometers", "degrees", or "radians", 
+ * @param {Object} options Optional parameters
+ * (obstacles: areas which path cannot travel,
+ * minDistance: minimum distance between shortest path and obstacles,
+ * units: "miles", "kilometers", "degrees", or "radians",
  * resolution: distance between matrix points on which the path will be calculated)
  * @param {FeatureCollection<Polygon>} fcoll areas which path cannot travel
  * @param {number} minDistance minimum distance between shortest path and obstacles
@@ -421,8 +449,10 @@ export function linesBySegment(feature: turf.FeatureCollection<turf.LineString|t
  *
  * var path = geo.calc.shortestPath(start, end, options);
  */
-export function lineByShortestPath(point1: turf.Point, point2: turf.Point, fcoll: turf.FeatureCollection<turf.Polygon>, minDistance: number, units: turf.Units, resolution: number): turf.Feature<turf.LineString> {
-    return turf.shortestPath(point1, point2, {obstacles: fcoll, minDistance: minDistance/1000, resolution: resolution});
+export function lineByShortestPath(point1: turf.Point, point2: turf.Point, fcoll: turf.FeatureCollection<turf.Polygon>,
+                                   minDistance: number, units: turf.Units, resolution: number):
+turf.Feature<turf.LineString> {
+    return turf.shortestPath(point1, point2, {obstacles: fcoll, minDistance: minDistance/1000, resolution});
 }
 
 /**
@@ -450,7 +480,8 @@ export function lineByShortestPath(point1: turf.Point, point2: turf.Point, fcoll
  *
  * var sliced = geo.line.slice(start, stop, line);
  */
-export function lineBySlice(point1: turf.Point,point2: turf.Point,line: turf.Feature<turf.LineString>): turf.Feature<turf.LineString> {
+export function lineBySlice(point1: turf.Point,point2: turf.Point,line: turf.Feature<turf.LineString>):
+turf.Feature<turf.LineString> {
     return turf.lineSlice(point1,point2,line);
 }
 
@@ -473,7 +504,8 @@ export function lineBySlice(point1: turf.Point,point2: turf.Point,line: turf.Fea
  * var stop = 25;
  * var sliced = geo.line.sliceAlong(line, start, stop, {units: 'miles'});
  */
-export function lineBySliceAlong(line: turf.Feature<turf.LineString>,startDist: number,stopDist: number/*,options: {units: turf.Units}*/): turf.Feature<turf.LineString> {
+export function lineBySliceAlong(line: turf.Feature<turf.LineString>,startDist: number,stopDist: number):
+turf.Feature<turf.LineString> {
     return turf.lineSliceAlong(line,startDist/1000,stopDist/1000/*,options*/);
 }
 
@@ -489,12 +521,14 @@ export function lineBySliceAlong(line: turf.Feature<turf.LineString>,startDist: 
  *
  * var split = geo.line.split(line, splitter);
  */
-export function linesBySplit(line: turf.Feature<turf.LineString>,splitter: turf.Feature<turf.Point|turf.MultiPoint|turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
+export function linesBySplit(line: turf.Feature<turf.LineString>,splitter: turf.Feature<turf.Point|turf.MultiPoint|
+    turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.LineString> {
     return turf.lineSplit(line,splitter);
 }
 
 /**
- * Converts a Polygon to LineString|(Multi)LineString or MultiPolygon to a FeatureCollection of LineString|(Multi)LineString.
+ * Converts a Polygon to LineString|(Multi)LineString or MultiPolygon
+ * to a FeatureCollection of LineString|(Multi)LineString.
  *
  * @param {Feature<Polygon|MultiPolygon>} polygon Feature to convert
  * @param {Object} options Optional parameters
@@ -505,8 +539,9 @@ export function linesBySplit(line: turf.Feature<turf.LineString>,splitter: turf.
  *
  * var line = geo.convert.polygonToLine(poly);
  */
-export function linesByPolygon(polygon: turf.Polygon|turf.MultiPolygon/*, options: {properties: object}*/): turf.FeatureCollection|turf.Feature<turf.LineString|turf.MultiLineString> {
-    return turf.polygonToLine(polygon/*, options*/);
+export function linesByPolygon(polygon: turf.Polygon|turf.MultiPolygon):
+turf.FeatureCollection|turf.Feature<turf.LineString|turf.MultiLineString> {
+    return turf.polygonToLine(polygon);
 }
 
 /**
@@ -518,7 +553,7 @@ export function linesByPolygon(polygon: turf.Polygon|turf.MultiPolygon/*, option
  * num_vertices: is how many coordinates each LineString will contain,
  * max_length: is the maximum number of decimal degrees that a vertex can be from its predecessor,
  * max_rotation=Math: is the maximum number of radians that a line segment can turn from the previous segment.)
- * @param {BBox} bbox a bounding box inside of which geometries are placed
+ * @param {BBox} bBox a bounding box inside of which geometries are placed
  * @param {number} num_vertices is how many coordinates each LineString will contain
  * @param {number} max_length is the maximum number of decimal degrees that a vertex can be from its predecessor
  * @param {number} max_rotation is the maximum angle that a line segment can turn from the previous segment (in degrees)
@@ -527,9 +562,10 @@ export function linesByPolygon(polygon: turf.Polygon|turf.MultiPolygon/*, option
  * var lineStrings = geo.random.linestring(25, {bbox: [-180, -90, 180, 90]})
  * //=lineStrings
  */
-export function linesByRandom(num: number,bbox: turf.BBox,num_vertices: number,max_length: number, max_rotation: number): turf.FeatureCollection<turf.LineString> {
+export function linesByRandom(num: number,bBox: turf.BBox,num_vertices: number,max_length: number,
+                              max_rotation: number): turf.FeatureCollection<turf.LineString> {
     max_rotation = max_rotation/180*Math.PI;
-    return turf.randomLineString(num,{bbox:bbox,num_vertices:num_vertices,max_length:max_length,max_rotation:max_rotation});
+    return turf.randomLineString(num,{bbox:bBox,num_vertices,max_length,max_rotation});
 }
 
 /**
@@ -539,22 +575,25 @@ export function linesByRandom(num: number,bbox: turf.BBox,num_vertices: number,m
  * @param {Object} options Optional parameters
  * @param {Array<number>} [options.bbox=[-180, -90, 180, 90]] a bounding box inside of which geometries are placed.
  * @param {number} [options.num_vertices=10] is how many coordinates each LineString will contain.
- * @param {number} [options.max_radial_length=10] is the maximum number of decimal degrees latitude or longitude that a vertex can reach out of the center of the Polygon.
- * @param {BBox} bbox a bounding box inside of which geometries are placed.
+ * @param {number} [options.max_radial_length=10] is the maximum number of decimal degrees latitude or longitude that
+ * a vertex can reach out of the center of the Polygon.
+ * @param {BBox} bBox a bounding box inside of which geometries are placed.
  * @param {number} num_vertices is how many coordinates each LineString will contain.
- * @param {number} max_radial_length is the maximum number of decimal degrees latitude or longitude that a vertex can reach out of the center of the Polygon.
+ * @param {number} max_radial_length is the maximum number of decimal degrees latitude or longitude that a vertex can
+ * reach out of the center of the Polygon.
  * @returns {FeatureCollection<LineString>} GeoJSON FeatureCollection of LineString
  * @example
  * var polygons = geo.random.polygon(25, {bbox: [-180, -90, 180, 90]})
  * //=polygons
  */
-export function linesByRandomPolygon(num: number,bbox: turf.BBox,num_vertices:number,max_radial_length:number): turf.FeatureCollection<turf.LineString> {
-    return turf.randomPolygon(num,{bbox:bbox,num_vertices:num_vertices,max_radial_length:max_radial_length});
+export function linesByRandomPolygon(num: number,bBox: turf.BBox,num_vertices: number,max_radial_length: number):
+turf.FeatureCollection<turf.LineString> {
+    return turf.randomPolygon(num,{bbox:bBox,num_vertices,max_radial_length});
 }
 
 /*
 
-Points*******************************************************************************************************************************************
+Points******************************************************************************************************************
 
 */
 
@@ -572,8 +611,8 @@ Points**************************************************************************
  *
  * //=point
  */
-export function pointByCoords(coords: Array<number>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.Point> {
-    return turf.point(coords/*, properties, options*/);
+export function pointByCoords(coords: number[]): turf.Feature<turf.Point> {
+    return turf.point(coords);
 }
 
 /**
@@ -590,7 +629,8 @@ export function pointByCoords(coords: Array<number>/*, properties: object, optio
  *
  * var along = geo.line.along(line, 200, options);
  */
-export function pointByAlong(line: turf.LineString,distance: number,options: {units: turf.Units}): turf.Feature<turf.Point> {
+export function pointByAlong(line: turf.LineString,distance: number,options: {units: turf.Units}):
+turf.Feature<turf.Point> {
     return turf.along(line,distance/1000,options);
 }
 
@@ -615,7 +655,9 @@ export function pointByCenter(features: turf.AllGeoJSON, options: {properties: o
 }
 
 /**
- * Takes any Feature or a FeatureCollection and returns its [center of mass](https://en.wikipedia.org/wiki/Center_of_mass) using this formula: [Centroid of Polygon](https://en.wikipedia.org/wiki/Centroid#Centroid_of_polygon).
+ * Takes any Feature or a FeatureCollection and returns its
+ * [center of mass](https://en.wikipedia.org/wiki/Center_of_mass) using this formula:
+ * [Centroid of Polygon](https://en.wikipedia.org/wiki/Centroid#Centroid_of_polygon).
  *
  * @param {GeoJSON} features GeoJSON to be centered
  * @param {Object} options Optional object to be used as the Feature's properties
@@ -646,7 +688,9 @@ export function pointByCentroid(features: turf.AllGeoJSON, options: object): tur
 }
 
 /**
- * Takes a Point and calculates the location of a destination point given a distance in degrees, radians, miles, or kilometers; and bearing in degrees. This uses the [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula) to account for global curvature.
+ * Takes a Point and calculates the location of a destination point given a distance in degrees, radians, miles, or
+ * kilometers; and bearing in degrees. This uses the [Haversine formula](http://en.wikipedia.org/wiki/Haversine_formula)
+ * to account for global curvature.
  *
  * @param {Coord} originPoint starting point
  * @param {number} distance distance from the origin point in meters
@@ -663,7 +707,7 @@ export function pointByCentroid(features: turf.AllGeoJSON, options: object): tur
  *
  * var destination = geo.calc.destination(point, distance, bearing, options);
  */
-export function pointByDestination(originPoint: turf.Point, distance: number, angle: number/*, options: {units: turf.Units, properties: object}*/): turf.Feature<turf.Point> {
+export function pointByDestination(originPoint: turf.Point, distance: number, angle: number): turf.Feature<turf.Point> {
     return turf.destination(originPoint, distance/1000, angle);
 }
 
@@ -678,7 +722,9 @@ export function pointByDestination(originPoint: turf.Point, distance: number, an
  * var line2 = geo.create.lineString([[123, -18], [131, -14]]);
  * var intersects = geo.line.intersect(line1, line2);
  */
-export function pointByIntersect(line1: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>,line2: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>): turf.FeatureCollection<turf.Point> {
+export function pointByIntersect(line1: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>,
+                                 line2: turf.FeatureCollection<turf.LineString>|turf.Feature<turf.LineString>):
+turf.FeatureCollection<turf.Point> {
     return turf.lineIntersect(line1,line2);
 }
 
@@ -698,7 +744,8 @@ export function pointByIntersect(line1: turf.FeatureCollection<turf.LineString>|
  *
  * var kinks = geo.misc.kinks(poly);
  */
-export function pointsByKinks(feature: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
+export function pointsByKinks(feature: turf.Feature<turf.LineString|turf.MultiLineString|turf.Polygon|
+    turf.MultiPolygon>): turf.FeatureCollection<turf.Point> {
     return turf.kinks(feature);
 }
 
@@ -738,7 +785,8 @@ export function pointByMid(point1: turf.Point, point2: turf.Point): turf.Feature
  *
  * var nearest = geo.calc.nearestPoint(targetPoint, points);
  */
-export function pointByNearest(targetPoint: turf.Point, points: turf.FeatureCollection<turf.Point>): turf.Feature<turf.Point> {
+export function pointByNearest(targetPoint: turf.Point, points: turf.FeatureCollection<turf.Point>):
+turf.Feature<turf.Point> {
     return turf.nearestPoint(targetPoint, points);
 }
 
@@ -776,7 +824,10 @@ export function pointByOnFeature(features: turf.AllGeoJSON): turf.Feature<turf.P
  * @param {Object}  options Optional parameters
  * (units: "miles", "kilometers"
  * "degrees", or "radians")
- * @returns {Feature<Point>} closest point on the `line` to `point`. The properties object will contain three values: `index`: closest point was found on nth line part, `dist`: distance between pt and the closest point, `location`: distance along the line between start and the closest point.
+ * @returns {Feature<Point>} closest point on the `line` to `point`. The properties object will contain three values:
+ * `index`: closest point was found on nth line part,
+ * `dist`: distance between pt and the closest point,
+ * `location`: distance along the line between start and the closest point.
  * @example
  * var line = geo.create.lineString([
  *     [-77.031669, 38.878605],
@@ -790,35 +841,14 @@ export function pointByOnFeature(features: turf.AllGeoJSON): turf.Feature<turf.P
  *
  * var snapped = geo.calc.nearestPointOnLine(line, pt, {units: 'miles'});
  */
-export function pointByNearestOnLine(lines: turf.LineString|turf.MultiLineString, point: turf.Point/*, options: {units: turf.Units}*/): turf.Feature<turf.Point> {
-    let pt: turf.Feature<turf.Point> =  turf.nearestPointOnLine(lines, point/*, options*/);
+export function pointByNearestOnLine(lines: turf.LineString|turf.MultiLineString, point: turf.Point):
+turf.Feature<turf.Point> {
+    const pt: turf.Feature<turf.Point> =  turf.nearestPointOnLine(lines, point);
     pt.properties.dist = pt.properties.dist * 1000;
     return pt;
 }
 
-// *
-//  * Takes a set of Point|points and partition them into clusters according to [DBSCAN's data clustering algorithm] (https://en.wikipedia.org/wiki/DBSCAN).
-//  *
-//  * @param {FeatureCollection<Point>} points to be clustered
-//  * @param {number} maxDistance Maximum Distance between any point of the cluster to generate the clusters (kilometers only)
-//  * @param {Object} options Optional parameters
-//  * (units: "miles", "kilometers", "degrees", or "radians", 
-//  * minPoints: Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'.)
-//  * @param {number} minPoints Minimum number of points to generate a single cluster, points which do not meet this requirement will be classified as an 'edge' or 'noise'
-//  * @returns {FeatureCollection<Point>} Clustered Points with an additional two properties associated to each Feature:
-//  * - {number} cluster - the associated clusterId
-//  * - {string} dbscan - type of point it has been classified as ('core'|'edge'|'noise')
-//  * @example
-//  * // create random points with random z-values in their properties
-//  * var points = geo.random.point(100, {bbox: [0, 30, 20, 50]});
-//  * var maxDistance = 100;
-//  * var clustered = geo.cluster.dbscan(points, maxDistance);
- 
-// export function pointsClusterDBscan(points: turf.FeatureCollection<turf.Point>, maxDistance: number, minPoints: number): turf.FeatureCollection<turf.Point> {
-//     return turf.clustersDbscan(points, maxDistance/1000, {minPoints: minPoints});
-// }
-
- /**
+/**
  * Takes a feature or set of features and returns all positions as Point|points.
  * Throws an error if it encounters an unknown geometry type
  *
@@ -834,17 +864,21 @@ export function pointsByExplode(features: turf.AllGeoJSON): turf.FeatureCollecti
 }
 
 /**
- * Takes a set of points and estimates their 'property' values on a grid using the [Inverse Distance Weighting (IDW) method](https://en.wikipedia.org/wiki/Inverse_distance_weighting).
+ * Takes a set of points and estimates their 'property' values on a grid using the
+ * [Inverse Distance Weighting (IDW) method](https://en.wikipedia.org/wiki/Inverse_distance_weighting).
  *
  * @param {FeatureCollection<Point>} points with known value
  * @param {number} cellSize the distance across each grid point
  * @param {Object} options Optional parameters
  * (gridType: defines the output format based on a Grid Type (options: 'square' | 'point' | 'hex' | 'triangle'),
- * zProperty: the property name in `points` from which z-values will be pulled, zValue fallbacks to 3rd coordinate if no property exists,
+ * zProperty: the property name in `points` from which z-values will be pulled,
+ * zValue fallbacks to 3rd coordinate if no property exists,
  * units: used in calculating cellSize, can be degrees, radians, miles, or kilometers,
  * weight: exponent regulating the distance-decay weighting)
- * @param {FeatureCollection<Polygon>} gridType defines the output format based on a Grid Type (options: 'square' | 'point' | 'hex' | 'triangle')
- * @param {string} property the property name in `points` from which z-values will be pulled, zValue fallbacks to 3rd coordinate if no property exists
+ * @param {FeatureCollection<Polygon>} gridType defines the output format based on a Grid Type
+ * (options: 'square' | 'point' | 'hex' | 'triangle')
+ * @param {string} property the property name in `points` from which z-values will be pulled,
+ * zValue fallbacks to 3rd coordinate if no property exists
  * @param {number} weight exponent regulating the distance-decay weighting
  * @returns {FeatureCollection<Point|Polygon>} grid of points or polygons with interpolated 'property'
  * @example
@@ -857,8 +891,9 @@ export function pointsByExplode(features: turf.AllGeoJSON): turf.FeatureCollecti
  * var options = {gridType: 'points', property: 'solRad', units: 'miles'};
  * var grid = geo.ipolate.interpolate(points, 100, options);
  */
-export function pointsByInterp(points: turf.FeatureCollection<turf.Point>,cellSize: number, gridType: turf.Grid, property: string, weight: number): turf.FeatureCollection<turf.Point|turf.Polygon> {
-    return turf.interpolate(points,cellSize/1000,{gridType:gridType, property:property, weight:weight});
+export function pointsByInterp(points: turf.FeatureCollection<turf.Point>,cellSize: number, gridType: turf.Grid,
+                               property: string, weight: number): turf.FeatureCollection<turf.Point|turf.Polygon> {
+    return turf.interpolate(points,cellSize/1000,{gridType, property, weight});
 }
 
 /**
@@ -884,18 +919,18 @@ export function pointsByPolygonTangents(point: turf.Point, polygon: turf.Polygon
  * @param {Object} options Optional parameters
  * (bbox: a bounding box inside of which geometries are placed.)
  * @returns {FeatureCollection<Point>} GeoJSON FeatureCollection of points
- * @param {BBox} bbox a bounding box inside of which geometries are placed
+ * @param {BBox} bBox a bounding box inside of which geometries are placed
  * @example
  * var points = geo.random.point(25, {bbox: [-180, -90, 180, 90]})
  * //=points
  */
-export function pointsByRandom(num: number,bbox: turf.BBox): turf.FeatureCollection<turf.Point> {
-    return turf.randomPoint(num,{bbox:bbox});
+export function pointsByRandom(num: number,bBox: turf.BBox): turf.FeatureCollection<turf.Point> {
+    return turf.randomPoint(num,{bbox:bBox});
 }
 
 /*
 
-Polygons*****************************************************************************************************************************************
+Polygons****************************************************************************************************************
 
 */
 
@@ -913,8 +948,8 @@ Polygons************************************************************************
  *
  * //=polygon
  */
-export function polygonByCoords(coords: Array<Array<Array<number>>>/*, properties: object, options: {bbox: turf.BBox,id: string|number}*/): turf.Feature<turf.Polygon> {
-    return turf.polygon(coords/*, properties, options*/);
+export function polygonByCoords(coords: number[][][]): turf.Feature<turf.Polygon> {
+    return turf.polygon(coords);
 }
 
 /**
@@ -953,11 +988,12 @@ export function polygonByBbox(bbox: turf.BBox): turf.Feature {
  * var buffered = geo.feature.buffer(point, 500, {units: 'miles'});
  */
 export function polygonByBuffer(features: turf.GeometryObject|turf.Feature,radius: number,steps: number): turf.Feature {
-    return turf.buffer(features,radius/1000,{steps: steps});
+    return turf.buffer(features,radius/1000,{steps});
 }
 
 /**
- * Takes a Point and calculates the circle polygon given a radius in degrees, radians, miles, or kilometers; and steps for precision.
+ * Takes a Point and calculates the circle polygon given a radius in degrees, radians, miles, or kilometers; and steps
+ * for precision.
  *
  * @param {Feature<Point>|number[]} center center point
  * @param {number} radius radius of the circle
@@ -973,7 +1009,7 @@ export function polygonByBuffer(features: turf.GeometryObject|turf.Feature,radiu
  * var circle = geo.create.circle(center, radius, options);
  */
 export function polygonByCircle(center: turf.Point, radius: number, steps: number): turf.Feature<turf.Polygon> {
-    return turf.circle(center, radius/1000, {steps: steps});
+    return turf.circle(center, radius/1000, {steps});
 }
 
 /**
@@ -999,7 +1035,8 @@ export function polygonByCircle(center: turf.Point, radius: number, steps: numbe
  *
  * var hull = geo.feature.concave(points, options);
  */
-export function polygonByConcave(points: turf.FeatureCollection<turf.Point>, maxEdge: number): turf.Feature<turf.Polygon|turf.MultiPolygon>|null {
+export function polygonByConcave(points: turf.FeatureCollection<turf.Point>, maxEdge: number):
+turf.Feature<turf.Polygon|turf.MultiPolygon>|null {
     return turf.concave(points,{maxEdge: maxEdge/1000});
 }
 
@@ -1008,7 +1045,8 @@ export function polygonByConcave(points: turf.FeatureCollection<turf.Point>, max
  *
  * Internally this uses
  * the [convex-hull] (https://github.com/mikolalysenko/convex-hull) module that
- * implements a [monotone chain hull] (http://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain).
+ * implements a [monotone chain hull]
+ * (http://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain).
  *
  * @param {GeoJSON} features input Feature or FeatureCollection
  * @param {Object} options Optional parameters
@@ -1035,7 +1073,8 @@ export function polygonByConvex(features: turf.AllGeoJSON,options: {concavity: n
  *
  * @param {Feature<Polygon|MultiPolygon>} poly1 input Polygon feature
  * @param {Feature<Polygon|MultiPolygon>} poly2 Polygon feature to difference from polygon1
- * @returns {Feature<Polygon|MultiPolygon>|null} a Polygon or MultiPolygon feature showing the area of `polygon1` excluding the area of `polygon2` (if empty returns `null`)
+ * @returns {Feature<Polygon|MultiPolygon>|null} a Polygon or MultiPolygon feature showing the area of `polygon1`
+ * excluding the area of `polygon2` (if empty returns `null`)
  * @example
  * var polygon1 = geo.create.polygon([[
  *   [128, -26],
@@ -1061,7 +1100,8 @@ export function polygonByConvex(features: turf.AllGeoJSON,options: {concavity: n
  * var difference = geo.bool.difference(polygon1, polygon2);
  *
  */
-export function polygonByDifference(poly1: turf.Polygon|turf.MultiPolygon, poly2: turf.Polygon|turf.MultiPolygon): turf.Feature|null {
+export function polygonByDifference(poly1: turf.Polygon|turf.MultiPolygon, poly2: turf.Polygon|turf.MultiPolygon):
+turf.Feature|null {
     return turf.difference(poly1, poly2);
 }
 
@@ -1084,11 +1124,14 @@ export function polygonByEnvelope(features: turf.AllGeoJSON): turf.Feature<turf.
 }
 
 /**
- * Takes two Polygon and finds their intersection. If they share a border, returns the border; if they don't intersect, returns undefined.
+ * Takes two Polygon and finds their intersection. If they share a border, returns the border; if they don't intersect,
+ * returns undefined.
  *
  * @param {Feature<Polygon>} poly1 the first polygon
  * @param {Feature<Polygon>} poly2 the second polygon
- * @returns {Feature|null} returns a feature representing the point(s) they share (in case of a Point  or MultiPoint), the borders they share (in case of a LineString or a MultiLineString), the area they share (in case of Polygon or MultiPolygon). If they do not share any point, returns `null`.
+ * @returns {Feature|null} returns a feature representing the point(s) they share (in case of a Point  or MultiPoint),
+ * the borders they share (in case of a LineString or a MultiLineString), the area they share (in case of Polygon or
+ * MultiPolygon). If they do not share any point, returns `null`.
  * @example
  * var poly1 = geo.create.polygon([[
  *   [-122.801742, 45.48565],
@@ -1123,15 +1166,17 @@ export function polygonByIntersect(poly1: turf.Polygon, poly2: turf.Polygon): tu
  * @param {Object} [options={}] Optional parameters
  * @param {Object} [options.properties={}] translates GeoJSON properties to Feature
  * @param {boolean} [options.autoComplete=true] auto complete linestrings (matches first & last coordinates)
- * @param {boolean} [options.orderCoords=true] sorts linestrings to place outer ring at the first position of the coordinates
+ * @param {boolean} [options.orderCoords=true] sorts linestrings to place outer ring at the first position of the
+ * coordinates
  * @returns {Feature<Polygon|MultiPolygon>} converted to Polygons
  * @example
  * var line = geo.create.lineString([[125, -30], [145, -30], [145, -20], [125, -20], [125, -30]]);
  *
  * var polygon = geo.convert.lineToPolygon(line);
  */
-export function polygonByLines(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>/*, options: {properties: object, autoComplete: boolean, orderCoords: boolean}*/): turf.Feature<turf.Polygon|turf.MultiPolygon> {
-    return turf.lineToPolygon(lines/*, options*/);
+export function polygonByLines(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>):
+turf.Feature<turf.Polygon|turf.MultiPolygon> {
+    return turf.lineToPolygon(lines);
 }
 
 /**
@@ -1146,12 +1191,15 @@ export function polygonByLines(lines: turf.FeatureCollection<turf.LineString|tur
  *
  * var masked = geo.misc.mask(polygon, mask);
  */
-export function polygonByMask(polygon1: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>,polygon2: turf.Feature<turf.Polygon>): turf.Feature<turf.Polygon> {
+export function polygonByMask(polygon1: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|
+    turf.Feature<turf.Polygon|turf.MultiPolygon>,
+                              polygon2: turf.Feature<turf.Polygon>): turf.Feature<turf.Polygon> {
     return turf.mask(polygon1,polygon2);
 }
 
 /**
- * Takes two or more Polygon and returns a combined polygon. If the input polygons are not contiguous, this function returns a MultiPolygon feature.
+ * Takes two or more Polygon and returns a combined polygon. If the input polygons are not contiguous, this function
+ * returns a MultiPolygon feature.
  *
  * @param {Feature<Polygon>[]} polys An array of polygons to combine
  * @returns {Feature<(Polygon|MultiPolygon)>} a combined Polygon or MultiPolygon feature
@@ -1204,7 +1252,9 @@ export function polygonByUnion(polys: Array<turf.Feature<turf.Polygon>>): turf.F
  * var values = collected.features[0].properties.values
  * //=values => [200, 600]
  */
-export function polygonsByCollect(polygons: turf.FeatureCollection<turf.Polygon>,points: turf.FeatureCollection<turf.Point>,inProperty: string,outProperty: string): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByCollect(polygons: turf.FeatureCollection<turf.Polygon>,
+                                  points: turf.FeatureCollection<turf.Point>,inProperty: string,outProperty: string):
+turf.FeatureCollection<turf.Polygon> {
     return turf.collect(polygons,points,inProperty,outProperty);
 }
 
@@ -1226,8 +1276,9 @@ export function polygonsByCollect(polygons: turf.FeatureCollection<turf.Polygon>
  *
  * var dissolved = geo.feature.dissolve(features, {propertyName: 'combine'});
  */
-export function polygonsByDissolve(features: turf.FeatureCollection<turf.Polygon>,propertyName: string): turf.FeatureCollection<turf.Polygon> {
-    return turf.dissolve(features,{propertyName: propertyName});
+export function polygonsByDissolve(features: turf.FeatureCollection<turf.Polygon>,propertyName: string):
+turf.FeatureCollection<turf.Polygon> {
+    return turf.dissolve(features,{propertyName});
 }
 
 /**
@@ -1242,7 +1293,9 @@ export function polygonsByDissolve(features: turf.FeatureCollection<turf.Polygon
  * breaksProperties: GeoJSON properties passed, in order, to the correspondent isoband (order defined by breaks))
  * @returns {FeatureCollection<MultiPolygon>} a FeatureCollection of MultiPolygon features representing isobands.
  */
-export function polygonsByIsobands(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],options: {zProperty: string, commonProperties: object, breaksProperties: object[]}): turf.FeatureCollection<turf.MultiPolygon> {
+export function polygonsByIsobands(pointGrid: turf.FeatureCollection<turf.Point>,breaks: number[],
+                                   options: {zProperty: string, commonProperties: object, breaksProperties: object[]}):
+turf.FeatureCollection<turf.MultiPolygon> {
     return turf.isobands(pointGrid,breaks,options);
 }
 
@@ -1264,7 +1317,8 @@ export function polygonsByIsobands(pointGrid: turf.FeatureCollection<turf.Point>
  * @param {FeatureCollection|Geometry|Feature<LineString|MultiLineString>} lines Lines in order to polygonize
  * @returns {FeatureCollection<Polygon>} Polygons created
  */
-export function polygonsByLines(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByLines(lines: turf.FeatureCollection<turf.LineString|turf.MultiLineString>):
+turf.FeatureCollection<turf.Polygon> {
     return turf.polygonize(lines);
 }
 
@@ -1306,7 +1360,8 @@ export function polygonsByTesselate(poly: turf.Feature<turf.Polygon>): turf.Feat
  * }
  * var tin = geo.ipolate.tin(points, 'z');
  */
-export function polygonsByTin(points: turf.FeatureCollection<turf.Point>,name: string): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByTin(points: turf.FeatureCollection<turf.Point>,name: string):
+turf.FeatureCollection<turf.Polygon> {
     return turf.tin(points,name);
 }
 
@@ -1321,7 +1376,8 @@ export function polygonsByTin(points: turf.FeatureCollection<turf.Point>,name: s
  *
  * var result = geo.misc.unkinkPolygon(poly);
  */
-export function polygonsByUnkink(polygon: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
+export function polygonsByUnkink(polygon: turf.FeatureCollection<turf.Polygon|turf.MultiPolygon>|
+    turf.Feature<turf.Polygon|turf.MultiPolygon>): turf.FeatureCollection<turf.Polygon> {
     return turf.unkinkPolygon(polygon);
 }
 
@@ -1332,7 +1388,7 @@ export function polygonsByUnkink(polygon: turf.FeatureCollection<turf.Polygon|tu
  * The Voronoi algorithim used comes from the d3-voronoi package.
  *
  * @param {FeatureCollection<Point>} points to find the Voronoi polygons around.
- * @param {Object} bbox Optional clipping rectangle, in [minX, minY, maxX, MaxY] order.
+ * @param {Object} bBox Optional clipping rectangle, in [minX, minY, maxX, MaxY] order.
  * @returns {FeatureCollection<Polygon>} a set of polygons, one per input point.
  * @example
  * var options = {
@@ -1341,6 +1397,7 @@ export function polygonsByUnkink(polygon: turf.FeatureCollection<turf.Polygon|tu
  * var points = geo.random.point(100, options);
  * var voronoiPolygons = geo.calc.voronoi(points, options);
  */
-export function polygonsByVoronoi(points: turf.FeatureCollection<turf.Point>, bbox: turf.BBox): turf.FeatureCollection<turf.Polygon> {
-    return turf.voronoi(points, bbox);
+export function polygonsByVoronoi(points: turf.FeatureCollection<turf.Point>, bBox: turf.BBox):
+turf.FeatureCollection<turf.Polygon> {
+    return turf.voronoi(points, bBox);
 }

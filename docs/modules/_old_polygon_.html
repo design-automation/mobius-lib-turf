@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;xform&quot; | mobius-turf</title>
+	<title>&quot;old/polygon&quot; | mobius-turf</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_xform_.html">&quot;xform&quot;</a>
+					<a href="_old_polygon_.html">&quot;old/polygon&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;xform&quot;</h1>
+			<h1>External module &quot;old/polygon&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Turf TRANSFORMATION functions.
+						<p>Turf feature functions.
 						<a href="http://turfjs.org/docs/">http://turfjs.org/docs/</a></p>
 					</div>
 				</div>
@@ -79,9 +79,8 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_xform_.html#rotate" class="tsd-kind-icon">rotate</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_xform_.html#scale" class="tsd-kind-icon">scale</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_xform_.html#translate" class="tsd-kind-icon">translate</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_polygon_.html#collect" class="tsd-kind-icon">collect</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_polygon_.html#tesselate" class="tsd-kind-icon">tesselate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -90,153 +89,111 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="rotate" class="tsd-anchor"></a>
-					<h3>rotate</h3>
+					<a name="collect" class="tsd-anchor"></a>
+					<h3>collect</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">rotate<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, angle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, pivot<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
+						<li class="tsd-signature tsd-kind-icon">collect<span class="tsd-signature-symbol">(</span>polygons<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span>, points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span>, inProperty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, outProperty<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/xform.ts#L28">xform.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/polygon.ts#L38">old/polygon.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Rotates any geojson Feature or Geometry of a specified angle, around its <code>centroid</code> or a given <code>pivot</code> point;
-									all rotations follow the [right-hand rule] (<a href="https://en.wikipedia.org/wiki/Right-hand_rule">https://en.wikipedia.org/wiki/Right-hand_rule</a>)</p>
+									<p>Merges a specified property from a FeatureCollection of points into a
+										FeatureCollection of polygons. Given an <code>inProperty</code> on points and an <code>outProperty</code>
+										for polygons, this finds every point that lies within each polygon, collects the
+										<code>inProperty</code> values from those points, and adds them as an array to <code>outProperty</code>
+									on the polygon.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
-											var options = {pivot: [0, 25]};
-										var rotatedPoly = geo.xform.transformRotate(poly, 10, options);</p>
+									<dd><p>var poly1 = geo.create.polygon([[[0,0],[10,0],[10,10],[0,10],[0,0]]]);
+											var poly2 = geo.create.polygon([[[10,0],[20,10],[20,20],[20,0],[10,0]]]);
+											var polyFC = geo.create.featureCollection([poly1, poly2]);
+											var pt1 = geo.create.point([5,5], {population: 200});
+											var pt2 = geo.create.point([1,3], {population: 600});
+											var pt3 = geo.create.point([14,2], {population: 100});
+											var pt4 = geo.create.point([13,1], {population: 200});
+											var pt5 = geo.create.point([19,7], {population: 300});
+											var pointFC = geo.create.featureCollection([pt1, pt2, pt3, pt4, pt5]);
+											var collected = geo.prop.collect(polyFC, pointFC, &#39;population&#39;, &#39;values&#39;);
+											var values = collected.features[0].properties.values
+										//=values =&gt; [200, 600]</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
+									<h5>polygons: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>object to be rotated</p>
+										<p>polygons with values on which to aggregate</p>
 									</div>
 								</li>
 								<li>
-									<h5>angle: <span class="tsd-signature-type">number</span></h5>
+									<h5>points: <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>of rotation (along the vertical axis), from North in decimal degrees, negative clockwise</p>
+										<p>points to be aggregated</p>
 									</div>
 								</li>
 								<li>
-									<h5>pivot: <span class="tsd-signature-type">Point</span></h5>
+									<h5>inProperty: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>point around which the rotation will be performed</p>
+										<p>property to be nested from</p>
+									</div>
+								</li>
+								<li>
+									<h5>outProperty: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>property to be nested into</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
-							<p>the rotated GeoJSON feature</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>polygons with properties listed based on <code>outField</code></p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="scale" class="tsd-anchor"></a>
-					<h3>scale</h3>
+					<a name="tesselate" class="tsd-anchor"></a>
+					<h3>tesselate</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, factor<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, origin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"sw"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"se"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"nw"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ne"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"center"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"centroid"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
+						<li class="tsd-signature tsd-kind-icon">tesselate<span class="tsd-signature-symbol">(</span>poly<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/xform.ts#L66">xform.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/polygon.ts#L52">old/polygon.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Scale a GeoJSON from a given point by a factor of scaling (ex: factor=2 would make the GeoJSON 200% larger).
-									If a FeatureCollection is provided, the origin point will be calculated based on each individual Feature.</p>
+									<p>Tesselates a Polygon into a FeatureCollection of triangular polygons
+									using [earcut] (<a href="https://github.com/mapbox/earcut)">https://github.com/mapbox/earcut)</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
-										var scaledPoly = geo.xform.scale(poly, 3);</p>
+									<dd><p>var poly = geo.create.polygon([[[11, 0], [22, 4], [31, 0], [31, 11], [21, 15], [11, 11], [11, 0]]]);
+										var triangles = geo.feature.tesselate(poly);</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
+									<h5>poly: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>GeoJSON to be scaled</p>
-									</div>
-								</li>
-								<li>
-									<h5>factor: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>of scaling, positive or negative values greater than 0</p>
-									</div>
-								</li>
-								<li>
-									<h5>origin: <span class="tsd-signature-type">"sw"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"se"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"nw"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ne"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"center"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"centroid"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Point</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
-							<p>scaled GeoJSON</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="translate" class="tsd-anchor"></a>
-					<h3>translate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">translate<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, distance<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/xform.ts#L48">xform.ts:48</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Moves any geojson Feature or Geometry of a specified distance along a Rhumb Line
-									on the provided direction angle.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var poly = geo.create.polygon([[[0,29],[3.5,29],[2.5,32],[0,29]]]);
-										var translatedPoly = geo.xform.translate(poly, 100, 35);</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>object to be translated</p>
-									</div>
-								</li>
-								<li>
-									<h5>distance: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>length of the motion; negative values determine motion in opposite direction</p>
-									</div>
-								</li>
-								<li>
-									<h5>direction: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>of the motion; angle from North in decimal degrees, positive clockwise</p>
+										<p>the polygon to tesselate</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
-							<p>the translated GeoJSON object</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FeatureCollection</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>a geometrycollection feature</p>
 						</li>
 					</ul>
 				</section>
@@ -249,20 +206,17 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_xform_.html">"xform"</a>
+						<a href="_old_polygon_.html">"old/polygon"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_xform_.html#rotate" class="tsd-kind-icon">rotate</a>
+						<a href="_old_polygon_.html#collect" class="tsd-kind-icon">collect</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_xform_.html#scale" class="tsd-kind-icon">scale</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_xform_.html#translate" class="tsd-kind-icon">translate</a>
+						<a href="_old_polygon_.html#tesselate" class="tsd-kind-icon">tesselate</a>
 					</li>
 				</ul>
 			</nav>

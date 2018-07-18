@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;coords&quot; | mobius-turf</title>
+	<title>&quot;old/bbox&quot; | mobius-turf</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_coords_.html">&quot;coords&quot;</a>
+					<a href="_old_bbox_.html">&quot;old/bbox&quot;</a>
 				</li>
 			</ul>
-			<h1>External module &quot;coords&quot;</h1>
+			<h1>External module &quot;old/bbox&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Turf COORDINATE MUTATION functions.
+						<p>Turf bbox functions.
 						<a href="http://turfjs.org/docs/">http://turfjs.org/docs/</a></p>
 					</div>
 				</div>
@@ -79,11 +79,10 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_coords_.html#cleancoords" class="tsd-kind-icon">clean<wbr>Coords</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_coords_.html#flip" class="tsd-kind-icon">flip</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_coords_.html#rewind" class="tsd-kind-icon">rewind</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_coords_.html#round" class="tsd-kind-icon">round</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_coords_.html#truncate" class="tsd-kind-icon">truncate</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_bbox_.html#clip" class="tsd-kind-icon">clip</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_bbox_.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_bbox_.html#polygon" class="tsd-kind-icon">polygon</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_old_bbox_.html#square" class="tsd-kind-icon">square</a></li>
 							</ul>
 						</section>
 					</div>
@@ -92,71 +91,73 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="cleancoords" class="tsd-anchor"></a>
-					<h3>clean<wbr>Coords</h3>
+					<a name="clip" class="tsd-anchor"></a>
+					<h3>clip</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">clean<wbr>Coords<span class="tsd-signature-symbol">(</span>feature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryObject</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryObject</span></li>
+						<li class="tsd-signature tsd-kind-icon">clip<span class="tsd-signature-symbol">(</span>feature<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span>, bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/coords.ts#L29">coords.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/bbox.ts#L55">old/bbox.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Removes redundant coordinates from any GeoJSON Geometry.</p>
+									<p>Takes a Feature and a bbox and clips the feature to the bbox using [lineclip] (<a href="https://github.com/mapbox/lineclip)">https://github.com/mapbox/lineclip)</a>.
+									May result in degenerate edges when clipping Polygons.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var line = geo.create.lineString([[0, 0], [0, 2], [0, 5], [0, 8], [0, 8], [0, 10]]);
-										var multiPoint = geo.create.multiPoint([[0, 0], [0, 0], [2, 2]]);</p>
-										<p>geo.coords.cleanCoords(line).geometry.coordinates;
-										//= [[0, 0], [0, 10]]</p>
-										<p>geo.coords.cleanCoords(multiPoint).geometry.coordinates;
-										//= [[0, 0], [2, 2]]</p>
+									<dd><p>var bbox = [0, 0, 10, 10];
+										var poly = geo.create.polygon([[[2, 2], [8, 4], [12, 8], [3, 7], [2, 2]]]);</p>
+										<p>var clipped = geo.bbox.clip(poly, bbox);</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>feature: <span class="tsd-signature-type">Feature</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryObject</span></h5>
+									<h5>feature: <span class="tsd-signature-type">LineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiLineString</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Polygon</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MultiPolygon</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Feature or Geometry</p>
+										<p>feature to clip to the bbox</p>
+									</div>
+								</li>
+								<li>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>extent in [minX, minY, maxX, maxY] order</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span>
-								<span class="tsd-signature-symbol"> | </span>
-								<span class="tsd-signature-type">GeometryObject</span>
-							</h4>
-							<p>the cleaned input Feature/Geometry</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span></h4>
+							<p>clipped Feature</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="flip" class="tsd-anchor"></a>
-					<h3>flip</h3>
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">flip<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/coords.ts#L45">coords.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/bbox.ts#L69">old/bbox.ts:69</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes input features and flips all of their coordinates from <code>[x, y]</code> to <code>[y, x]</code>.</p>
+									<p>Takes a set of features, calculates the bbox of all input features, and returns a bounding box.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var serbia = geo.create.point([20.566406, 43.421008]);</p>
-										<p>var saudiArabia = geo.coords.flip(serbia);</p>
+									<dd><p>var line = geo.create.lineString([[-74, 40], [-78, 42], [-82, 35]]);
+											var bbox = geo.create.bbox(line);
+										var bboxPolygon = geo.bbox.polygon(bbox);</p>
 									</dd>
 								</dl>
 							</div>
@@ -165,143 +166,89 @@
 								<li>
 									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>input features</p>
+										<p>any GeoJSON object</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
-							<p>a feature or set of features of the same type as <code>input</code> with flipped coordinates</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.BBox</span></h4>
+							<p>bbox extent in [minX, minY, maxX, maxY] order</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="rewind" class="tsd-anchor"></a>
-					<h3>rewind</h3>
+					<a name="polygon" class="tsd-anchor"></a>
+					<h3>polygon</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">rewind<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
+						<li class="tsd-signature tsd-kind-icon">polygon<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Feature</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/coords.ts#L110">coords.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/bbox.ts#L22">old/bbox.ts:22</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Rewind (Multi)LineString or (Multi)Polygon outer ring counterclockwise and inner rings clockwise (<a href="http://en.wikipedia.org/wiki/Shoelace_formula|Shoelace">http://en.wikipedia.org/wiki/Shoelace_formula|Shoelace</a> Formula).</p>
+									<p>Takes a bbox and returns an equivalent Polygon.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>var polygon = geo.create.polygon([[[121, -29], [138, -29], [138, -18], [121, -18], [121, -29]]]);</p>
-										<p>var rewind = geo.coords.rewind(polygon);</p>
+									<dd><p>var bbox = [0, 0, 10, 10];</p>
+										<p>var poly = geo.bbox.polygon(bbox);</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>input GeoJSON Polygon</p>
+										<p>extent in [minX, minY, maxX, maxY] order</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
-							<p>rewind Polygon</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Feature</span></h4>
+							<p>a Polygon representation of the bounding box</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="round" class="tsd-anchor"></a>
-					<h3>round</h3>
+					<a name="square" class="tsd-anchor"></a>
+					<h3>square</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">round<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, precision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">square<span class="tsd-signature-symbol">(</span>bbox<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.BBox</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/coords.ts#L127">coords.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/design-automation/mobius-turf/blob/2fd1bb5/src/typescript/old/bbox.ts#L37">old/bbox.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Round number to precision</p>
+									<p>Takes a bounding box and calculates the minimum square bounding box that
+									would contain the input.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><p>geo.coords.round(120.4321)
-										//=120</p>
-										<p>geo.coords.round(120.4321, 2)
-										//=120.43</p>
+									<dd><p>var bbox = [-20, -20, -15, 0];
+										var squared = geo.bbox.square(bbox);</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>num: <span class="tsd-signature-type">number</span></h5>
+									<h5>bbox: <span class="tsd-signature-type">turf.BBox</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Number</p>
-									</div>
-								</li>
-								<li>
-									<h5>precision: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>rounded number</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="truncate" class="tsd-anchor"></a>
-					<h3>truncate</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">truncate<span class="tsd-signature-symbol">(</span>features<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span>, precision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">turf.AllGeoJSON</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phtj/mobius-turf/blob/2f0bf4d/src/typescript/coords.ts#L151">coords.ts:151</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Takes a GeoJSON Feature or FeatureCollection and truncates the precision of the geometry.</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><p>var point = geo.create.point([
-											70.46923055566859,
-											58.11088890802906,
-											1508
-											]);
-											var options = {precision: 3, coordinates: 2};
-											var truncated = geo.coords.truncate(point, options);
-										//=truncated.geometry.coordinates =&gt; [70.469, 58.111]</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>features: <span class="tsd-signature-type">turf.AllGeoJSON</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>any GeoJSON Feature, FeatureCollection, Geometry or GeometryCollection.</p>
-									</div>
-								</li>
-								<li>
-									<h5>precision: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>coordinate decimal precision</p>
+										<p>extent in [west, south, east, north] order</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.AllGeoJSON</span></h4>
-							<p>layer with truncated geometry</p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">turf.BBox</span></h4>
+							<p>a square surrounding <code>bbox</code></p>
 						</li>
 					</ul>
 				</section>
@@ -314,26 +261,23 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_coords_.html">"coords"</a>
+						<a href="_old_bbox_.html">"old/bbox"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_coords_.html#cleancoords" class="tsd-kind-icon">clean<wbr>Coords</a>
+						<a href="_old_bbox_.html#clip" class="tsd-kind-icon">clip</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_coords_.html#flip" class="tsd-kind-icon">flip</a>
+						<a href="_old_bbox_.html#create" class="tsd-kind-icon">create</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_coords_.html#rewind" class="tsd-kind-icon">rewind</a>
+						<a href="_old_bbox_.html#polygon" class="tsd-kind-icon">polygon</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_coords_.html#round" class="tsd-kind-icon">round</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="_coords_.html#truncate" class="tsd-kind-icon">truncate</a>
+						<a href="_old_bbox_.html#square" class="tsd-kind-icon">square</a>
 					</li>
 				</ul>
 			</nav>

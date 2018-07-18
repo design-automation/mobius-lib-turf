@@ -6,9 +6,9 @@
 /**
  *
  */
- import * as turf from "@turf/turf";
+import * as turf from "@turf/turf";
 
- /**
+/**
  * Takes one or more features and returns their area in square meters.
  *
  * @param {GeoJSON} features input GeoJSON feature(s)
@@ -24,7 +24,7 @@ export function areaPolygon(features: turf.AllGeoJSON): number {
 
 /*
 
-Bbox**************************************************************************************************************************************
+Bbox********************************************************************************************************************
 
 */
 
@@ -46,15 +46,15 @@ export function bbox(features: turf.AllGeoJSON): turf.BBox {
  * Takes a bounding box and calculates the minimum square bounding box that
  * would contain the input.
  *
- * @param {BBox} bbox extent in [west, south, east, north] order
+ * @param {BBox} bBox extent in [west, south, east, north] order
  * @returns {BBox} a square surrounding `bbox`
  * @example
  * var bbox = [-20, -20, -15, 0];
  * var squared = geo.bbox.square(bbox);
  *
  */
-export function bboxSquare(bbox: turf.BBox): turf.BBox {
-    return turf.square(bbox);
+export function bboxSquare(bBox: turf.BBox): turf.BBox {
+    return turf.square(bBox);
 }
 
 /**
@@ -79,14 +79,14 @@ export function bearing(point1: turf.Point, point2: turf.Point, options: {final:
 /**
  * Returns a random position within a bounding box.
  *
- * @param {Array<number>} [bbox=[-180, -90, 180, 90]] a bounding box inside of which positions are placed.
+ * @param {Array<number>} [bBox=[-180, -90, 180, 90]] a bounding box inside of which positions are placed.
  * @returns {Array<number>} Position [longitude, latitude]
  * @example
  * var position = geo.random.position([-180, -90, 180, 90])
  * //=position
  */
-export function coordsRandom(bbox: turf.BBox): number[] {
-    return turf.randomPosition(bbox);
+export function coordsRandom(bBox: turf.BBox): number[] {
+    return turf.randomPosition(bBox);
 }
 
 /**
@@ -131,7 +131,8 @@ export function isContained(feature1: turf.Feature, feature2: turf.Feature): boo
  * the maximum dimension of the two source geometries and the intersection set is interior to
  * both source geometries.
  *
- * Returns true for only multipoint/polygon, multipoint/linestring, linestring/linestring, linestring/polygon, and linestring/multipolygon comparisons.
+ * Returns true for only multipoint/polygon, multipoint/linestring, linestring/linestring,
+ * linestring/polygon, and linestring/multipolygon comparisons.
  *
  * @param {Geometry|Feature<any>} feature1 GeoJSON Feature or Geometry
  * @param {Geometry|Feature<any>} feature2 GeoJSON Feature or Geometry
@@ -203,8 +204,8 @@ export function distancePointToPoint(point1: turf.Point, point2: turf.Point/*, o
  * var distance = geo.calc.pointToLineDistance(pt, line, {units: 'miles'});
  * //=69.11854715938406
  */
-export function distancePointToLine(point: turf.Point, line: turf.LineString/*, options: {units: turf.Units, mercator: boolean}*/): number {
-    return (turf.pointToLineDistance(point, line/*, options*/))*1000;
+export function distancePointToLine(point: turf.Point, line: turf.LineString): number {
+    return (turf.pointToLineDistance(point, line))*1000;
 }
 
 /**
@@ -274,7 +275,8 @@ export function getCoordsAll(features: turf.AllGeoJSON): number[][] {
  * geo.cluster.get(clustered, {'marker-symbol': 'square'}).length;
  * //= 1
  */
-export function getCluster(fcoll: turf.FeatureCollection<turf.GeometryObject>, filter: any): turf.FeatureCollection<turf.GeometryObject> {
+export function getCluster(fcoll: turf.FeatureCollection<turf.GeometryObject>,
+                           filter: any): turf.FeatureCollection<turf.GeometryObject> {
     return turf.getCluster(fcoll, filter);
 }
 
@@ -335,8 +337,10 @@ export function lengthLine(features: turf.AllGeoJSON/*, options: {units: turf.Un
  * @param {Coord} point input point
  * @param {Feature<Polygon|MultiPolygon>} polygon input polygon or multipolygon
  * @param {Object} options Optional parameters
- * (ignoreBoundary: True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.)
- * @param {boolean} ignoreBoundary True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.
+ * (ignoreBoundary: True if polygon boundary should be ignored when determining
+ * if the point is inside the polygon otherwise false.)
+ * @param {boolean} ignoreBoundary
+ * True if polygon boundary should be ignored when determining if the point is inside the polygon otherwise false.
  * @returns {boolean} `true` if the Point is inside the Polygon; `false` if the Point is not inside the Polygon
  * @example
  * var pt = geo.create.point([-77, 44]);
@@ -352,11 +356,12 @@ export function lengthLine(features: turf.AllGeoJSON/*, options: {units: turf.Un
  * //= true
  */
 export function isPointInPolygon(point: turf.Point, polygon: turf.Polygon, ignoreBoundary: boolean): boolean {
-    return turf.booleanPointInPolygon(point, polygon, {ignoreBoundary: ignoreBoundary});
+    return turf.booleanPointInPolygon(point, polygon, {ignoreBoundary});
 }
 
 /**
- * Returns true if a point is on a line. Accepts a optional parameter to ignore the start and end vertices of the linestring.
+ * Returns true if a point is on a line.
+ * Accepts a optional parameter to ignore the start and end vertices of the linestring.
  *
  * @param {Coord} point GeoJSON Point
  * @param {Feature<LineString>} line GeoJSON LineString
@@ -371,7 +376,7 @@ export function isPointInPolygon(point: turf.Point, polygon: turf.Polygon, ignor
  * //=true
  */
 export function isPointOnLine(point: turf.Point, line: turf.LineString, ignoreEndVertices: boolean): boolean {
-    return turf.booleanPointOnLine(point, line, {ignoreEndVertices: ignoreEndVertices});
+    return turf.booleanPointOnLine(point, line, {ignoreEndVertices});
 }
 
 /**
@@ -393,7 +398,6 @@ export function isPointOnLine(point: turf.Point, line: turf.LineString, ignoreEn
 export function isWithin(feature1: turf.Feature, feature2: turf.Feature): boolean {
     return turf.booleanWithin(feature1, feature2);
 }
-
 
 /**
  * Takes a triangular plane as a Polygon
