@@ -27,7 +27,7 @@
  */
 export function coordsClean(feature: turf.Feature|turf.GeometryObject/*, options: {mutate: boolean}*/): void/*turf.Feature|turf.GeometryObject*/ {
     turf.cleanCoords(feature, {mutate: true});
-    return void;
+    return;
 }
 
 /**
@@ -44,7 +44,7 @@ export function coordsClean(feature: turf.Feature|turf.GeometryObject/*, options
  */
 export function coordsFlip(features: turf.AllGeoJSON/*, options: {mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
     turf.flip(features, {mutate: true});
-    return void;
+    return;
 }
 
 /**
@@ -62,7 +62,7 @@ export function coordsFlip(features: turf.AllGeoJSON/*, options: {mutate: boolea
  */
 export function coordsRewind(features: turf.AllGeoJSON/*, options: {reverse: boolean, mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
     turf.rewind(features, {mutate: true});
-    return void;
+    return;
 }
 
 /**
@@ -87,7 +87,7 @@ export function coordsRewind(features: turf.AllGeoJSON/*, options: {reverse: boo
  */
 export function coordsTruncate(features: turf.AllGeoJSON, precision: number): void/*turf.AllGeoJSON*/ {
     turf.truncate(features, {precision: precision, mutate: true});
-    return void;
+    return;
 }
 
 /**
@@ -110,7 +110,7 @@ export function coordsTruncate(features: turf.AllGeoJSON, precision: number): vo
  */
 export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, num: number): void/*turf.FeatureCollection<turf.Point>*/ {
     turf.clustersKmeans(points, {numberOfClusters:num, mutate:true});
-    return void;
+    return;
 }
 
 /**
@@ -152,7 +152,7 @@ export function pointsClusterKmeans(points: turf.FeatureCollection<turf.Point>, 
  */
 export function simplify(features: turf.AllGeoJSON, tolerance: number): void/*turf.AllGeoJSON*/ {
     turf.simplify(features,{tolerance:tolerance, mutate:true});
-    return void;
+    return;
 }
 
 /**
@@ -194,7 +194,7 @@ export function simplify(features: turf.AllGeoJSON, tolerance: number): void/*tu
  */
 export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): void/*turf.AllGeoJSON*/ {
     turf.simplify(features,{tolerance:tolerance, highQuality: true, mutate:true});
-    return void;
+    return;
 }
 
 /**
@@ -215,7 +215,7 @@ export function simplifyExact(features: turf.AllGeoJSON, tolerance: number): voi
  */
 export function transformRotate(features: turf.AllGeoJSON,angle: number,pivot: turf.Point): void/*turf.AllGeoJSON*/ {
     turf.transformRotate(features,angle,{pivot:pivot,mutate:true});
-    return void;
+    return;
 }
 
 /**
@@ -236,7 +236,7 @@ export function transformRotate(features: turf.AllGeoJSON,angle: number,pivot: t
  */
 export function transformTranslate(features: turf.AllGeoJSON,distance: number,direction: number/*,options: {units: turf.Units,zTranslation: number, mutate: boolean}*/): void/*turf.AllGeoJSON*/ {
     turf.transformTranslate(features,distance,direction,{mutate:true});
-    return void;
+    return;
 }
 
 /**
@@ -255,5 +255,5 @@ export function transformTranslate(features: turf.AllGeoJSON,distance: number,di
  */
 export function transformScale(features: turf.AllGeoJSON,factor: number, origin: "sw"|"se"|"nw"|"ne"|"center"|"centroid"|turf.Feature<turf.Point>): void/*turf.AllGeoJSON*/ {
     turf.transformScale(features,factor,{origin:origin,mutate:true});
-    return void;
+    return;
 }
