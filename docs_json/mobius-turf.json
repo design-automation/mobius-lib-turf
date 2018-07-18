@@ -12,7 +12,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/_export.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/_export.ts",
 			"sources": [
 				{
 					"fileName": "_export.ts",
@@ -29,7 +29,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/assert.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/assert.ts",
 			"comment": {
 				"shortText": "Turf ASSERTIONS functions.\nhttp://turfjs.org/docs/"
 			},
@@ -49,7 +49,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/bbox.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/bbox.ts",
 			"comment": {
 				"shortText": "Turf bbox functions.\nhttp://turfjs.org/docs/"
 			},
@@ -334,7 +334,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/bool.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/bool.ts",
 			"comment": {
 				"shortText": "Turf graphical boolean functions.\nhttp://turfjs.org/docs/"
 			},
@@ -623,7 +623,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/calc.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/calc.ts",
 			"comment": {
 				"shortText": "Turf HELPER functions.\nhttp://turfjs.org/docs/"
 			},
@@ -2134,7 +2134,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/calc-old.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/calc-old.ts",
 			"comment": {
 				"shortText": "Turf measurement functions.\nhttp://turfjs.org/docs/"
 			},
@@ -3671,7 +3671,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/cluster.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/cluster.ts",
 			"comment": {
 				"shortText": "Turf AGGREGATION functions.\nhttp://turfjs.org/docs/"
 			},
@@ -3958,7 +3958,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/compare.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/compare.ts",
 			"comment": {
 				"shortText": "Turf BOOLEANS functions.\nhttp://turfjs.org/docs/"
 			},
@@ -4577,7 +4577,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/convert.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/convert.ts",
 			"comment": {
 				"shortText": "Turf FEATURE CONVERSION functions.\nhttp://turfjs.org/docs/"
 			},
@@ -4972,7 +4972,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/coords.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/coords.ts",
 			"comment": {
 				"shortText": "Turf COORDINATE MUTATION functions.\nhttp://turfjs.org/docs/"
 			},
@@ -5325,7 +5325,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/create.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/create.ts",
 			"comment": {
 				"shortText": "Turf HELPER functions.\nhttp://turfjs.org/docs/"
 			},
@@ -11290,7 +11290,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/create-old.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/create-old.ts",
 			"comment": {
 				"shortText": "Turf HELPER functions.\nhttp://turfjs.org/docs/"
 			},
@@ -11841,7 +11841,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/feature.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/feature.ts",
 			"comment": {
 				"shortText": "Turf feature functions.\nhttp://turfjs.org/docs/"
 			},
@@ -12575,7 +12575,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/grids.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/grids.ts",
 			"comment": {
 				"shortText": "Turf GRIDS functions.\nhttp://turfjs.org/docs/"
 			},
@@ -13134,7 +13134,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/ipolate.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/ipolate.ts",
 			"comment": {
 				"shortText": "Turf INTERPOLATION functions.\nhttp://turfjs.org/docs/"
 			},
@@ -13811,7 +13811,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/joins.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/joins.ts",
 			"comment": {
 				"shortText": "Turf JOINS functions.\nhttp://turfjs.org/docs/"
 			},
@@ -13831,7 +13831,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/line.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/line.ts",
 			"comment": {
 				"shortText": "Turf line functions.\nhttp://turfjs.org/docs/"
 			},
@@ -14900,7 +14900,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/misc.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/misc.ts",
 			"comment": {
 				"shortText": "Turf MISC functions.\nhttp://turfjs.org/docs/"
 			},
@@ -15299,7 +15299,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/modify.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/modify.ts",
 			"comment": {
 				"shortText": "Turf HELPER functions.\nhttp://turfjs.org/docs/"
 			},
@@ -15355,17 +15355,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "reference",
-										"name": "Feature"
-									},
-									{
-										"type": "reference",
-										"name": "GeometryObject"
-									}
-								]
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
@@ -15419,15 +15410,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "turf.AllGeoJSON"
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 44,
+							"line": 45,
 							"character": 26
 						}
 					]
@@ -15474,15 +15465,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "turf.AllGeoJSON"
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 61,
+							"line": 63,
 							"character": 28
 						}
 					]
@@ -15543,15 +15534,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "turf.AllGeoJSON"
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 85,
+							"line": 88,
 							"character": 30
 						}
 					]
@@ -15618,21 +15609,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "FeatureCollection",
-								"typeArguments": [
-									{
-										"type": "reference",
-										"name": "Point"
-									}
-								]
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 107,
+							"line": 111,
 							"character": 35
 						}
 					]
@@ -15690,15 +15675,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "turf.AllGeoJSON"
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 148,
+							"line": 153,
 							"character": 24
 						}
 					]
@@ -15756,15 +15741,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "turf.AllGeoJSON"
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 189,
+							"line": 195,
 							"character": 29
 						}
 					]
@@ -15839,15 +15824,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "turf.AllGeoJSON"
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 209,
+							"line": 216,
 							"character": 31
 						}
 					]
@@ -15954,15 +15939,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "turf.AllGeoJSON"
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 247,
+							"line": 256,
 							"character": 30
 						}
 					]
@@ -16037,15 +16022,15 @@
 								}
 							],
 							"type": {
-								"type": "reference",
-								"name": "turf.AllGeoJSON"
+								"type": "intrinsic",
+								"name": "void"
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "modify.ts",
-							"line": 229,
+							"line": 237,
 							"character": 34
 						}
 					]
@@ -16085,7 +16070,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/polygon.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/polygon.ts",
 			"comment": {
 				"shortText": "Turf feature functions.\nhttp://turfjs.org/docs/"
 			},
@@ -16299,7 +16284,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/prop.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/prop.ts",
 			"comment": {
 				"shortText": "Turf property functions.\nhttp://turfjs.org/docs/"
 			},
@@ -16445,7 +16430,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/rand.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/rand.ts",
 			"comment": {
 				"shortText": "Turf RANDOM functions.\nhttp://turfjs.org/docs/"
 			},
@@ -16911,7 +16896,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/test_data.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/test_data.ts",
 			"children": [
 				{
 					"id": 821,
@@ -16968,7 +16953,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/unit-tests/create.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/unit-tests/create.ts",
 			"sources": [
 				{
 					"fileName": "unit-tests/create.ts",
@@ -16985,7 +16970,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/units.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/units.ts",
 			"comment": {
 				"shortText": "Turf UNIT CONVERSION functions.\nhttp://turfjs.org/docs/"
 			},
@@ -17005,7 +16990,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "D:/StudentResearch/Mobius/mobius_functions/mobius-turf/src/typescript/xform.ts",
+			"originalName": "D:/Dropbox/Files/Software/GitHub/design-automation/mobius-turf/src/typescript/xform.ts",
 			"comment": {
 				"shortText": "Turf TRANSFORMATION functions.\nhttp://turfjs.org/docs/"
 			},
